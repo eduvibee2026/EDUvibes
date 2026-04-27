@@ -1,0 +1,12 @@
+﻿9260:                 const gcalModalBtn = gcalLink
+9261:                     ? `<a href="${gcalLink}" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:8px 14px;border:2px solid #e0e0e0;border-radius:10px;background:#fff;color:#333;text-decoration:none;font-size:0.85rem;font-weight:700;transition:all 0.2s;" onmouseover="this.style.borderColor='#4285f4';this.style.background='rgba(66,133,244,0.06)'" onmouseout="this.style.borderColor='#e0e0e0';this.style.background='#fff'">
+9262:                         <svg width="14" height="14" viewBox="0 0 48 48"><rect x="6" y="10" width="36" height="32" rx="3" fill="#fff" stroke="#dadce0" stroke-width="2"/><rect x="6" y="10" width="36" height="10" rx="3" fill="#4285f4"/><text x="24" y="37" font-size="14" text-anchor="middle" fill="#333" font-family="Arial" font-weight="bold">G</text></svg>
+9263:                         أضف لـ Google Calendar
+9264:                       </a>`
+9265:                     : '';
+9266:                 body.innerHTML += `
+9267:                     <div style="background: var(--bg-card,#fdfdfd); border: 1px solid var(--border-light,#eee); padding: 15px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align:right;">
+9268:                         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 10px;">
+9269:                             <strong style="color:var(--primary-color); font-size:0.9rem;">${ev.date}</strong>
+9270:                             <span class="event-badge" style="font-size:0.8rem; padding: 4px 8px; background:rgba(255,180,0,0.1); color:#cc9000; border-radius:8px;">${ev.badge}</span>
+9271:                         </div>

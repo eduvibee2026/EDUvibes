@@ -1,0 +1,181 @@
+﻿9241:                     classes += ' today';
+9242:                 }
+9243:                 calContainer.innerHTML += `<div class="${classes}" ${onclickHTML}><span>${i}</span>${tooltipHTML}</div>`;
+9244:             }
+9245:         }
+9246: 
+9247:         function openCalModal(dayNumber, indexes) {
+9248:             const modal = document.getElementById('calModal');
+9249:             const title = document.getElementById('calModalTitle');
+9250:             const body = document.getElementById('calModalBody');
+9251:             if (!modal) return;
+9252: 
+9253:             const monthNamesAr = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'];
+9254:             title.innerText = `فعاليات يوم ${dayNumber} ${monthNamesAr[currentCalMonth]}`;
+9255: 
+9256:             body.innerHTML = '';
+9257:             indexes.forEach(idx => {
+9258:                 const ev = eventsData[idx];
+9259:                 const gcalLink = generateGoogleCalLink(ev);
+9260:                 const gcalModalBtn = gcalLink
+9261:                     ? `<a href="${gcalLink}" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:8px 14px;border:2px solid #e0e0e0;border-radius:10px;background:#fff;color:#333;text-decoration:none;font-size:0.85rem;font-weight:700;transition:all 0.2s;" onmouseover="this.style.borderColor='#4285f4';this.style.background='rgba(66,133,244,0.06)'" onmouseout="this.style.borderColor='#e0e0e0';this.style.background='#fff'">
+9262:                         <svg width="14" height="14" viewBox="0 0 48 48"><rect x="6" y="10" width="36" height="32" rx="3" fill="#fff" stroke="#dadce0" stroke-width="2"/><rect x="6" y="10" width="36" height="10" rx="3" fill="#4285f4"/><text x="24" y="37" font-size="14" text-anchor="middle" fill="#333" font-family="Arial" font-weight="bold">G</text></svg>
+9263:                         أضف لـ Google Calendar
+9264:                       </a>`
+9265:                     : '';
+9266:                 body.innerHTML += `
+9267:                     <div style="background: var(--bg-card,#fdfdfd); border: 1px solid var(--border-light,#eee); padding: 15px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align:right;">
+9268:                         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 10px;">
+9269:                             <strong style="color:var(--primary-color); font-size:0.9rem;">${ev.date}</strong>
+9270:                             <span class="event-badge" style="font-size:0.8rem; padding: 4px 8px; background:rgba(255,180,0,0.1); color:#cc9000; border-radius:8px;">${ev.badge}</span>
+9271:                         </div>
+9272:                         <h4 style="margin: 0 0 6px 0; font-size:1.1rem; color:var(--text-primary,#111);">${ev.name}</h4>
+9273:                         <p style="margin:0 0 12px 0; font-size:0.9rem; color:var(--text-muted,#555);">📍 ${ev.location}</p>
+9274:                         <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
+9275:                             ${ev.registerLink ? `<a href="${ev.registerLink}" target="_blank" class="train-modal-apply-btn" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--primary-color);color:#000;text-decoration:none;border-radius:10px;font-weight:bold;font-size:0.85rem;"><i class="fa fa-external-link-alt"></i> التفاصيل والتسجيل</a>` : ''}
+9276:                             ${gcalModalBtn}
+9277:                         </div>
+9278:                     </div>
+9279:                 `;
+9280:             });
+9281: 
+9282:             modal.classList.add('open');
+9283:         }
+9284: 
+9285:         function closeCalModal(event) {
+9286:             if (!event || event.target.id === 'calModal' || event.target.closest('.train-modal-close')) {
+9287:                 document.getElementById('calModal').classList.remove('open');
+9288:             }
+9289:         }
+9290: 
+9291:         let currentEventFilterCat = 'الكل';
+9292:         let currentEventSearchQuery = '';
+9293: 
+9294:         function setEventCat(cat, btn) {
+9295:             document.querySelectorAll('#eventsCats .train-cat').forEach(b => b.classList.remove('active'));
+9296:             btn.classList.add('active');
+9297:             currentEventFilterCat = cat;
+9298:             populateEvents();
+9299:         }
+9300: 
+9301:         function filterEvents() {
+9302:             currentEventSearchQuery = document.getElementById('eventsSearchInput').value.toLowerCase();
+9303:             populateEvents();
+9304:         }
+9305: 
+9306:         function populateEvents() {
+9307:             renderEventsCalendar();
+9308:             const grid = document.getElementById('eventsGrid');
+9309:             const info = document.getElementById('eventsResultsInfo');
+9310:             if (!grid) return;
+9311:             grid.innerHTML = '';
+9312: 
+9313:             let filtered = eventsData.filter(ev => {
+9314:                 const q = currentEventSearchQuery;
+9315:                 const matchSearch = ev.name.toLowerCase().includes(q) ||
+9316:                     ev.tagline.toLowerCase().includes(q) ||
+9317:                     ev.location.toLowerCase().includes(q) ||
+9318:                     ev.badge.toLowerCase().includes(q);
+9319: 
+9320:                 let matchCat = true;
+9321:                 if (currentEventFilterCat !== 'الكل') {
+9322:                     matchCat = ev.badge.includes(currentEventFilterCat) || ev.name.includes(currentEventFilterCat);
+9323:                 }
+9324: 
+9325:                 return matchSearch && matchCat;
+9326:             });
+9327: 
+9328:             if (info) {
+9329:                 info.innerText = `تم العثور على ${filtered.length} فعالية`;
+9330:             }
+9331: 
+9332:             if (filtered.length === 0) {
+9333:                 grid.innerHTML = `<div class="act-no-results" style="grid-column: 1 / -1;">لا توجد فعاليات تطابق بحثك حالياً.</div>`;
+9334:                 return;
+9335:             }
+9336: 
+9337:             filtered.forEach((ev) => {
+9338:                 const i = eventsData.indexOf(ev);
+9339:                 const goalsHTML = ev.goals.map(g => `<div class="event-goal-item">${g}</div>`).join('');
+9340:                 const socialsHTML = ev.socials.map(s =>
+9341:                     `<a href="${s.url}" target="_blank" class="btn-social"><i class="${s.icon}"></i> ${s.label}</a>`
+9342:                 ).join('');
+9343:                 const registerBtn = ev.registerLink
+9344:                     ? `<a href="${ev.registerLink}" target="_blank" class="btn-register-event"><i class="fa fa-pen"></i> سجّل الآن</a>`
+9345:                     : `<span class="btn-register-event" style="opacity:0.5;cursor:default;"><i class="fa fa-clock"></i> قريباً</span>`;
+9346:                 const gcalLink = generateGoogleCalLink(ev);
+9347:                 const gcalBtn = gcalLink
+9348:                     ? `<a href="${gcalLink}" target="_blank" class="btn-register-event btn-gcal" title="أضف للـ Google Calendar" style="background:#fff; color:#333; border:2px solid #e0e0e0; display:inline-flex; align-items:center; gap:6px; text-decoration:none;">
+9349:                         <svg width="16" height="16" viewBox="0 0 48 48" style="flex-shrink:0">
+9350:                           <rect x="6" y="10" width="36" height="32" rx="3" fill="#fff" stroke="#dadce0" stroke-width="2"/>
+9351:                           <rect x="6" y="16" width="36" height="6" fill="#4285f4"/>
+9352:                           <rect x="6" y="10" width="36" height="6" rx="3" fill="#4285f4"/>
+9353:                           <circle cx="16" cy="6" r="2.5" fill="#333"/>
+9354:                           <circle cx="32" cy="6" r="2.5" fill="#333"/>
+9355:                           <line x1="16" y1="4" x2="16" y2="10" stroke="#333" stroke-width="2"/>
+9356:                           <line x1="32" y1="4" x2="32" y2="10" stroke="#333" stroke-width="2"/>
+9357:                           <text x="24" y="38" font-size="14" text-anchor="middle" fill="#333" font-family="Arial" font-weight="bold">G</text>
+9358:                         </svg>
+9359:                         Google Calendar</a>`
+9360:                     : '';
+9361: 
+9362:                 // عرض التسعير — إذا الاثنين متشابهين أو الثاني dash، نعرض بوكس واحد
+9363:                 const isSamePricing = ev.pricing.graduate === '—';
+9364:                 const pricingHTML = isSamePricing
+9365:                     ? `<div class="price-tag" style="flex:none;width:100%"><span>السعر</span><strong>${ev.pricing.student}</strong></div>`
+9366:                     : `<div class="price-tag"><span>طلاب</span><strong>${ev.pricing.student}</strong></div>
+9367:                        <div class="price-tag"><span>خريجين</span><strong>${ev.pricing.graduate}</strong></div>`;
+9368: 
+9369:                 grid.innerHTML += `
+9370:                 <div class="event-card">
+9371:                     <div class="event-card-banner">
+9372:                         <span class="event-badge">${ev.badge}</span>
+9373:                         <h2>${ev.name}</h2>
+9374:                         <p class="event-tagline">${ev.tagline}</p>
+9375:                     </div>
+9376:                     <div class="event-card-body">
+9377:                         <div class="event-info-row">
+9378:                             <i class="fa fa-calendar"></i>
+9379:                             <div><strong>التاريخ</strong>${ev.date}</div>
+9380:                         </div>
+9381:                         <div class="event-info-row">
+9382:                             <i class="fa fa-map-marker-alt"></i>
+9383:                             <div><strong>المكان</strong>${ev.location}</div>
+9384:                         </div>
+9385:                         <div class="event-info-row">
+9386:                             <i class="fa fa-tag"></i>
+9387:                             <div>
+9388:                                 <strong>التسعير</strong>
+9389:                                 <div class="event-pricing">${pricingHTML}</div>
+9390:                             </div>
+9391:                         </div>
+9392:                         <div class="event-goals">
+9393:                             <h4><i class="fa fa-bullseye"></i> أهداف الفعالية</h4>
+9394:                             ${goalsHTML}
+9395:                         </div>
+9396:                     </div>
+9397:                     <div class="event-card-footer">
+9398:                         <button class="follow-btn" onclick="event.stopPropagation();toggleFollow('event','${ev.name.replace(/'/g, "\\'")}',this)" id="follow-event-${ev.name.replace(/[^a-zA-Z0-9\u0600-\u06FF]/g, '_')}">
+9399:                             <i class="fa-regular fa-bell"></i> <span>${currentLang === 'ar' ? '\u062a\u0646\u0628\u064a\u0647' : 'Notify'}</span>
+9400:                         </button>
+9401:                         ${registerBtn}
+9402:                         ${gcalBtn}
+9403:                         ${socialsHTML}
+9404:                     </div>
+9405:                 </div>`;
+9406:             });
+9407:         }
+9408: 
+9409:         // ==========================================
+9410:         // ==========================================
+9411: 
+9412:         let isVoiceReaderActive = false;
+9413:         // currentUser is defined at the top
+9414: 
+9415: 
+9416:         // ==========================================
+9417:         // === وظائف التشغيل الأولي (Initialization) ===
+9418:         // ==========================================
+9419: 
+9420:         window.onload = function () {
+9421:             populateStudentActivities();

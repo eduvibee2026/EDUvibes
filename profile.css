@@ -1,341 +1,650 @@
-/* ===== Profile Page Styles — Eduvibe Theme ===== */
+/* ================================================================
+   PROFILE PAGE — EDUvibes Premium Design System
+   ================================================================ */
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap');
 
+/* ── CSS Variables ── */
 :root {
-    --primary: #ffb400;
-    --dark: #111;
-    --bg: #f5f5f5;
-    --white: #fff;
-    --text: #333;
-    --muted: #888;
-    --border: #e8e8e8;
-    --radius: 16px;
-    --shadow: 0 2px 16px rgba(0,0,0,0.06);
+    --pf-gold:       #ffb400;
+    --pf-gold-glow:  rgba(255,180,0,0.25);
+    --pf-dark:       #111111;
+    --pf-bg:         #f4f4f6;
+    --pf-surface:    #ffffff;
+    --pf-surface2:   #fafafa;
+    --pf-border:     #ebebeb;
+    --pf-text:       #1a1a1a;
+    --pf-muted:      #777777;
+    --pf-subtle:     #aaaaaa;
+    --pf-header-bg:  rgba(255,255,255,0.9);
+    --pf-hero-bg:    #0d0d0d;
+    --pf-hero-text:  #ffffff;
+    --pf-shadow-sm:  0 2px 12px rgba(0,0,0,0.06);
+    --pf-shadow-md:  0 8px 32px rgba(0,0,0,0.09);
+    --pf-shadow-lg:  0 20px 60px rgba(0,0,0,0.13);
+    --pf-radius:     20px;
+    --pf-radius-sm:  12px;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* ── Dark Mode ── */
+[data-theme="dark"] {
+    --pf-bg:        #121212;
+    --pf-surface:   #1e1e1e;
+    --pf-surface2:  #252525;
+    --pf-border:    #2e2e2e;
+    --pf-text:      #e8e8e8;
+    --pf-muted:     #888888;
+    --pf-subtle:    #555555;
+    --pf-header-bg: rgba(18,18,18,0.92);
+    --pf-hero-bg:   #0a0a0a;
+    --pf-shadow-sm: 0 2px 12px rgba(0,0,0,0.3);
+    --pf-shadow-md: 0 8px 32px rgba(0,0,0,0.4);
+    --pf-shadow-lg: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+/* ── Reset ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
     font-family: 'Tajawal', sans-serif;
-    background: var(--bg);
-    color: var(--text);
+    background: var(--pf-bg);
+    color: var(--pf-text);
     direction: rtl;
     min-height: 100vh;
+    transition: background 0.3s, color 0.3s;
 }
 
-/* ===== Loading Overlay ===== */
+/* ================================================================
+   LOADING OVERLAY
+   ================================================================ */
 .profile-loading {
     position: fixed;
     inset: 0;
-    background: var(--bg);
+    background: var(--pf-bg);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 9999;
-    transition: opacity 0.4s;
+    transition: opacity 0.5s ease;
 }
 .profile-loading.hidden {
     opacity: 0;
     pointer-events: none;
 }
-.profile-loading .spinner {
-    width: 40px;
-    height: 40px;
-    border: 4px solid #e0e0e0;
-    border-top-color: var(--primary);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
-
-/* ===== Top Bar ===== */
-.profile-topbar {
-    background: var(--dark);
-    padding: 14px 6%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.profile-topbar-logo {
-    color: var(--primary);
-    font-size: 1.4rem;
-    font-weight: 900;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-.profile-topbar-logo span { color: #fff; }
-.profile-topbar-back {
-    color: rgba(255,255,255,0.6);
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: color 0.25s;
-}
-.profile-topbar-back:hover { color: var(--primary); }
-
-/* ===== Profile Header ===== */
-.profile-header {
-    background: linear-gradient(160deg, #0d0d0d 0%, #1a1a1a 100%);
-    padding: 50px 6% 40px;
+.pf-loader {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    position: relative;
+    gap: 16px;
 }
-.profile-header::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+.pf-loader-ring {
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--pf-border);
+    border-top-color: var(--pf-gold);
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite;
+}
+.pf-loader span {
+    font-size: 0.85rem;
+    color: var(--pf-muted);
+    font-weight: 600;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ================================================================
+   HEADER
+   ================================================================ */
+.pf-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--pf-header-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--pf-border);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    transition: background 0.3s;
+}
+.pf-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 6%;
+    max-width: 1300px;
+    margin: 0 auto;
 }
 
-.profile-avatar-wrap {
-    position: relative;
-    width: 120px;
-    height: 120px;
-    margin-bottom: 16px;
+/* Logo */
+.pf-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
 }
-.profile-avatar {
-    width: 120px;
-    height: 120px;
+.pf-logo-img {
+    height: 50px;
+    transition: transform 0.3s;
+    filter: none;
+}
+[data-theme="dark"] .pf-logo-img {
+    filter: brightness(0) invert(1);
+}
+.pf-logo-img:hover { transform: scale(1.04); }
+.pf-logo-text {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--pf-gold);
+    text-decoration: none;
+}
+.pf-logo-text em {
+    font-style: normal;
+    color: var(--pf-text);
+}
+
+/* Nav */
+.pf-nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+.pf-nav-link {
+    text-decoration: none;
+    color: var(--pf-muted);
+    font-size: 0.9rem;
+    font-weight: 700;
+    position: relative;
+    padding: 4px 0;
+    transition: color 0.25s;
+}
+.pf-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--pf-gold);
+    border-radius: 2px;
+    transition: width 0.3s;
+}
+.pf-nav-link:hover { color: var(--pf-text); }
+.pf-nav-link:hover::after { width: 100%; }
+
+/* Header Actions */
+.pf-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+.pf-dark-btn {
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid rgba(255,180,0,0.3);
-    background: rgba(255,255,255,0.06);
+    border: none;
+    background: var(--pf-surface2);
+    color: var(--pf-text);
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 3rem;
-    color: var(--primary);
+    font-size: 1rem;
+    transition: all 0.25s;
+}
+.pf-dark-btn:hover { background: var(--pf-border); transform: rotate(20deg); }
+.pf-dark-btn .sun-icon { display: none; }
+[data-theme="dark"] .pf-dark-btn .moon-icon { display: none; }
+[data-theme="dark"] .pf-dark-btn .sun-icon { display: block; }
+
+.pf-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    text-decoration: none;
+    background: var(--pf-dark);
+    color: #fff;
+    padding: 9px 20px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    transition: all 0.25s;
+}
+[data-theme="dark"] .pf-back-btn { background: var(--pf-surface2); border: 1px solid var(--pf-border); }
+.pf-back-btn:hover { background: var(--pf-gold); color: #000; transform: translateY(-1px); }
+
+@media (max-width: 768px) {
+    .pf-nav { display: none; }
+    .pf-header-inner { padding: 10px 5%; }
+}
+
+/* ================================================================
+   HERO SECTION
+   ================================================================ */
+.pf-hero {
+    background: var(--pf-hero-bg);
+    padding: 60px 6% 80px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Ambient orbs */
+.pf-hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+.pf-hero-orb-1 {
+    width: 400px; height: 400px;
+    top: -100px; right: -80px;
+    background: radial-gradient(circle, rgba(255,180,0,0.12) 0%, transparent 70%);
+    animation: orbFloat 8s ease-in-out infinite;
+}
+.pf-hero-orb-2 {
+    width: 300px; height: 300px;
+    bottom: -60px; left: -60px;
+    background: radial-gradient(circle, rgba(255,180,0,0.08) 0%, transparent 70%);
+    animation: orbFloat 10s ease-in-out infinite reverse;
+}
+@keyframes orbFloat {
+    0%, 100% { transform: translate(0,0) scale(1); }
+    50% { transform: translate(20px,-20px) scale(1.05); }
+}
+
+.pf-hero-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Avatar */
+.pf-avatar-wrap {
+    position: relative;
+    width: 130px;
+    height: 130px;
+}
+.pf-avatar {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+    border: 3px solid var(--pf-gold);
+    box-shadow: 0 0 0 6px rgba(255,180,0,0.12), 0 20px 60px rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.2rem;
+    color: var(--pf-gold);
     font-weight: 900;
     overflow: hidden;
+    transition: box-shadow 0.3s;
 }
-.profile-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.profile-avatar-edit {
+.pf-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.pf-avatar-edit-btn {
     position: absolute;
     bottom: 4px;
     right: 4px;
-    width: 34px;
-    height: 34px;
-    background: var(--primary);
+    width: 36px;
+    height: 36px;
+    background: var(--pf-gold);
     color: #000;
-    border: 3px solid var(--dark);
+    border: 3px solid var(--pf-hero-bg);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 0.85rem;
-    transition: transform 0.2s;
+    font-size: 0.8rem;
+    transition: transform 0.25s, box-shadow 0.25s;
+    box-shadow: 0 4px 12px rgba(255,180,0,0.3);
 }
-.profile-avatar-edit:hover { transform: scale(1.1); }
-.profile-avatar-input { display: none; }
+.pf-avatar-edit-btn:hover { transform: scale(1.15); }
+.pf-avatar-input { display: none; }
 
-.profile-header-name {
-    color: #fff;
-    font-size: 1.6rem;
-    font-weight: 900;
-    margin-bottom: 4px;
+/* Hero text */
+.pf-hero-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
 }
-.profile-header-email {
-    color: rgba(255,255,255,0.5);
-    font-size: 0.88rem;
+.pf-hero-name {
+    color: var(--pf-hero-text);
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+}
+.pf-hero-email {
+    color: rgba(255,255,255,0.45);
+    font-size: 0.9rem;
     font-weight: 500;
 }
+.pf-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,180,0,0.15);
+    color: var(--pf-gold);
+    border: 1px solid rgba(255,180,0,0.3);
+    padding: 5px 14px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-top: 4px;
+}
 
-/* ===== Content Area ===== */
-.profile-content {
-    max-width: 640px;
-    margin: -20px auto 40px;
+/* Bottom wave */
+.pf-hero-wave {
+    position: absolute;
+    bottom: -1px; left: 0;
+    width: 100%; z-index: 1;
+    line-height: 0;
+}
+.pf-hero-wave svg { display: block; width: 100%; height: 50px; }
+
+/* ================================================================
+   MAIN CONTENT
+   ================================================================ */
+.pf-content {
+    max-width: 680px;
+    margin: -10px auto 60px;
     padding: 0 16px;
     position: relative;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-/* ===== Card ===== */
-.profile-card {
-    background: var(--white);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border);
-    padding: 28px;
-    margin-bottom: 20px;
+/* ── Reveal animation ── */
+.pf-reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s cubic-bezier(.2,.8,.2,1), transform 0.6s cubic-bezier(.2,.8,.2,1);
 }
-.profile-card-title {
-    font-size: 1rem;
-    font-weight: 800;
-    color: var(--dark);
-    margin-bottom: 20px;
+.pf-reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ================================================================
+   CARDS
+   ================================================================ */
+.pf-card {
+    background: var(--pf-surface);
+    border-radius: var(--pf-radius);
+    border: 1px solid var(--pf-border);
+    padding: 28px 32px;
+    box-shadow: var(--pf-shadow-sm);
+    transition: box-shadow 0.3s, transform 0.3s, background 0.3s;
+}
+.pf-card:hover { box-shadow: var(--pf-shadow-md); transform: translateY(-2px); }
+
+.pf-card-header {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 14px;
+    margin-bottom: 24px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--pf-border);
 }
-.profile-card-title i {
-    color: var(--primary);
-    font-size: 1.1rem;
-}
-
-/* ===== Form Fields ===== */
-.pf-field {
-    margin-bottom: 18px;
-}
-.pf-field:last-child { margin-bottom: 0; }
-.pf-label {
-    display: block;
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 6px;
-}
-.pf-input {
-    width: 100%;
-    padding: 12px 16px;
-    border: 2px solid var(--border);
-    border-radius: 12px;
-    font-family: 'Tajawal', sans-serif;
-    font-size: 0.92rem;
-    font-weight: 600;
-    color: var(--text);
-    background: #fafafa;
-    outline: none;
-    transition: border-color 0.25s, background 0.25s;
-}
-.pf-input:focus {
-    border-color: var(--primary);
-    background: #fff;
-}
-.pf-input:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-.pf-input-readonly {
-    background: #f0f0f0;
-    border-color: transparent;
-    color: var(--muted);
-    cursor: default;
-}
-select.pf-input {
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23888' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 5.5l6.5 6.5 6.5-6.5'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: left 14px center;
-    padding-left: 36px;
-}
-
-/* ===== Save Button ===== */
-.pf-save-btn {
-    width: 100%;
-    padding: 14px;
-    background: var(--dark);
-    color: #fff;
-    border: none;
+.pf-card-icon {
+    width: 46px;
+    height: 46px;
     border-radius: 14px;
-    font-family: 'Tajawal', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s;
+    background: linear-gradient(135deg, var(--pf-gold), #ff8c00);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    margin-top: 6px;
+    color: #000;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    box-shadow: 0 6px 16px rgba(255,180,0,0.3);
 }
-.pf-save-btn:hover { background: var(--primary); color: #000; }
-.pf-save-btn:disabled {
+.pf-card-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--pf-text);
+}
+.pf-card-subtitle {
+    font-size: 0.78rem;
+    color: var(--pf-muted);
+    margin-top: 2px;
+}
+
+/* Fields grid */
+.pf-fields-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+.pf-field:first-child { grid-column: 1 / -1; }
+
+/* ================================================================
+   FORM FIELDS
+   ================================================================ */
+.pf-field { position: relative; }
+
+.pf-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--pf-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 8px;
+}
+.pf-label i { color: var(--pf-gold); font-size: 0.8rem; }
+
+.pf-input {
+    width: 100%;
+    padding: 13px 16px;
+    border: 2px solid var(--pf-border);
+    border-radius: var(--pf-radius-sm);
+    font-family: 'Tajawal', sans-serif;
+    font-size: 0.93rem;
+    font-weight: 600;
+    color: var(--pf-text);
+    background: var(--pf-surface2);
+    outline: none;
+    transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
+    appearance: none;
+}
+.pf-input:focus {
+    border-color: var(--pf-gold);
+    background: var(--pf-surface);
+    box-shadow: 0 0 0 4px rgba(255,180,0,0.1);
+}
+.pf-input:disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
-.pf-save-btn.saving {
-    background: var(--muted);
+
+/* Locked email field */
+.pf-input-locked {
+    position: relative;
+}
+.pf-locked-badge {
+    position: absolute;
+    top: 50%; left: 14px;
+    transform: translateY(-50%);
+    color: var(--pf-muted);
+    font-size: 0.8rem;
+}
+.pf-input-locked .pf-input { padding-left: 38px; }
+
+/* Select */
+.pf-select-wrap {
+    position: relative;
+}
+.pf-select-arrow {
+    position: absolute;
+    top: 50%; left: 14px;
+    transform: translateY(-50%);
+    color: var(--pf-muted);
+    font-size: 0.7rem;
     pointer-events: none;
 }
+.pf-select-wrap .pf-input { padding-left: 36px; }
 
-/* ===== Toast ===== */
-.pf-toast {
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%) translateY(80px);
-    background: var(--dark);
+/* Validation */
+.pf-error {
+    display: none;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.75rem;
+    color: #ef4444;
+    margin-top: 5px;
+    font-weight: 600;
+}
+.pf-field.invalid .pf-input { border-color: #ef4444; box-shadow: 0 0 0 4px rgba(239,68,68,0.1); }
+.pf-field.invalid .pf-error { display: flex; }
+
+/* ================================================================
+   SAVE BUTTON CARD
+   ================================================================ */
+.pf-card-actions { padding: 20px 32px; }
+
+.pf-save-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #111 0%, #333 100%);
     color: #fff;
-    padding: 14px 28px;
-    border-radius: 14px;
-    font-size: 0.88rem;
+    border: none;
+    border-radius: var(--pf-radius-sm);
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1rem;
     font-weight: 700;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-    z-index: 9999;
-    opacity: 0;
-    transition: all 0.4s cubic-bezier(0.22,1,0.36,1);
+    cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s cubic-bezier(.2,.8,.2,1);
+    position: relative;
+    overflow: hidden;
 }
-.pf-toast.show {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
+.pf-save-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--pf-gold), #ff8c00);
+    opacity: 0;
+    transition: opacity 0.3s;
 }
-.pf-toast.success { border-right: 4px solid #22c55e; }
-.pf-toast.error { border-right: 4px solid #ef4444; }
+.pf-save-btn:hover::before { opacity: 1; }
+.pf-save-btn:hover { color: #000; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,180,0,0.35); }
+.pf-save-btn span, .pf-save-btn i { position: relative; z-index: 1; }
+.pf-save-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; }
 
-/* ===== Logout Button ===== */
+/* ================================================================
+   STATS CARD
+   ================================================================ */
+.pf-stats-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+.pf-stat-item {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+}
+.pf-stat-num {
+    display: block;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--pf-gold);
+    line-height: 1;
+    margin-bottom: 6px;
+}
+.pf-stat-label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--pf-muted);
+    font-weight: 600;
+}
+.pf-stat-divider {
+    width: 1px;
+    height: 40px;
+    background: var(--pf-border);
+    flex-shrink: 0;
+}
+
+/* ================================================================
+   LOGOUT CARD
+   ================================================================ */
+.pf-card-danger { padding: 16px 32px; box-shadow: none; border-color: transparent; background: transparent; }
+.pf-card-danger:hover { box-shadow: none; transform: none; }
+
 .pf-logout-btn {
     width: 100%;
     padding: 13px;
     background: transparent;
     color: #ef4444;
-    border: 2px solid #fecaca;
-    border-radius: 14px;
+    border: 2px solid rgba(239,68,68,0.25);
+    border-radius: var(--pf-radius-sm);
     font-family: 'Tajawal', sans-serif;
     font-size: 0.9rem;
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.25s;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
+    transition: all 0.25s;
 }
 .pf-logout-btn:hover {
-    background: #fef2f2;
+    background: rgba(239,68,68,0.06);
     border-color: #ef4444;
+    transform: translateY(-1px);
 }
 
-/* ===== Validation ===== */
-.pf-error {
-    font-size: 0.78rem;
-    color: #ef4444;
-    margin-top: 4px;
-    display: none;
+/* ================================================================
+   TOAST
+   ================================================================ */
+.pf-toast {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%) translateY(90px);
+    background: var(--pf-dark);
+    color: #fff;
+    padding: 14px 24px;
+    border-radius: 50px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+    z-index: 9999;
+    opacity: 0;
+    transition: all 0.45s cubic-bezier(.2,.8,.2,1);
+    white-space: nowrap;
 }
-.pf-field.invalid .pf-input {
-    border-color: #ef4444;
-}
-.pf-field.invalid .pf-error {
-    display: block;
-}
+.pf-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.pf-toast.success .pf-toast-icon { color: #22c55e; }
+.pf-toast.error .pf-toast-icon { color: #ef4444; }
 
-/* ===== Responsive ===== */
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
 @media (max-width: 640px) {
-    .profile-header { padding: 36px 5% 30px; }
-    .profile-avatar-wrap { width: 100px; height: 100px; }
-    .profile-avatar { width: 100px; height: 100px; font-size: 2.5rem; }
-    .profile-header-name { font-size: 1.3rem; }
-    .profile-content { margin-top: -14px; }
-    .profile-card { padding: 22px 18px; }
+    .pf-hero { padding: 44px 5% 70px; }
+    .pf-avatar-wrap { width: 110px; height: 110px; }
+    .pf-avatar { width: 110px; height: 110px; font-size: 2.8rem; }
+    .pf-hero-name { font-size: 1.6rem; }
+    .pf-content { margin-top: -5px; }
+    .pf-card { padding: 22px 20px; }
+    .pf-fields-grid { grid-template-columns: 1fr; }
+    .pf-field:first-child { grid-column: 1; }
+    .pf-card-actions { padding: 16px 20px; }
+    .pf-card-danger { padding: 12px 20px; }
 }

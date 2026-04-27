@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl" id="mainHtml">
 
 <head>
@@ -183,8 +183,8 @@
             --greige: #8A847A;
             --greige-light: #A09A91;
             --greige-ultra: #232220;
-            --greige-glow: rgba(168, 161, 150, 0.12);
-            --greige-border: rgba(168, 161, 150, 0.20);
+            --greige-glow: rgba(168,161,150,0.12);
+            --greige-border: rgba(168,161,150,0.20);
         }
 
         /* ── Greige Palette (Light) ── */
@@ -192,8 +192,8 @@
             --greige: #A8A196;
             --greige-light: #C5BEB5;
             --greige-ultra: #F2EEE9;
-            --greige-glow: rgba(168, 161, 150, 0.22);
-            --greige-border: rgba(168, 161, 150, 0.32);
+            --greige-glow: rgba(168,161,150,0.22);
+            --greige-border: rgba(168,161,150,0.32);
         }
 
         /* ============================================================
@@ -208,7 +208,6 @@
             z-index: 0;
             overflow: hidden;
         }
-
         .amb-orb {
             position: absolute;
             border-radius: 50%;
@@ -216,156 +215,82 @@
             opacity: 0;
             animation: orbDrift linear infinite;
         }
-
         @keyframes orbDrift {
-            0% {
-                transform: translate(0, 0) scale(1);
-                opacity: 0;
-            }
-
-            10% {
-                opacity: 1;
-            }
-
-            50% {
-                transform: translate(var(--dx), var(--dy)) scale(1.15);
-            }
-
-            90% {
-                opacity: .7;
-            }
-
-            100% {
-                transform: translate(0, 0) scale(1);
-                opacity: 0;
-            }
+            0%   { transform: translate(0,0) scale(1); opacity:0; }
+            10%  { opacity: 1; }
+            50%  { transform: translate(var(--dx), var(--dy)) scale(1.15); }
+            90%  { opacity: .7; }
+            100% { transform: translate(0,0) scale(1); opacity:0; }
         }
 
         /* ── 2. Global Greige Divider ── */
         .g-divider {
             height: 2px;
             background: linear-gradient(90deg,
-                    transparent 0%,
-                    var(--greige-light) 25%,
-                    var(--primary-color) 50%,
-                    var(--greige-light) 75%,
-                    transparent 100%);
+                transparent 0%,
+                var(--greige-light) 25%,
+                var(--primary-color) 50%,
+                var(--greige-light) 75%,
+                transparent 100%);
             background-size: 200% 100%;
             animation: shimmerLine 4s ease-in-out infinite;
             position: relative;
         }
-
         .g-divider::after {
-            content: '';
-            position: absolute;
-            top: -3px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 8px;
+            content:'';
+            position:absolute;
+            top:-3px; left:50%;
+            transform:translateX(-50%);
+            width:50px; height:8px;
             background: var(--greige);
-            border-radius: 10px;
-            filter: blur(5px);
-            opacity: .6;
+            border-radius:10px;
+            filter:blur(5px);
+            opacity:.6;
         }
-
         @keyframes shimmerLine {
-
-            0%,
-            100% {
-                background-position: -200% 0;
-            }
-
-            50% {
-                background-position: 200% 0;
-            }
+            0%,100% { background-position:-200% 0; }
+            50%      { background-position: 200% 0; }
         }
 
         /* ── 3. Scroll-reveal base ── */
         .reveal {
             opacity: 0;
             transform: translateY(32px);
-            transition: opacity .7s cubic-bezier(.2, .8, .2, 1), transform .7s cubic-bezier(.2, .8, .2, 1);
+            transition: opacity .7s cubic-bezier(.2,.8,.2,1), transform .7s cubic-bezier(.2,.8,.2,1);
         }
-
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
-
-        .reveal-left {
-            transform: translateX(-32px);
-        }
-
-        .reveal-right {
-            transform: translateX(32px);
-        }
-
-        .reveal-left.visible,
-        .reveal-right.visible {
-            transform: translateX(0);
-        }
+        .reveal-left  { transform: translateX(-32px); }
+        .reveal-right { transform: translateX( 32px); }
+        .reveal-left.visible, .reveal-right.visible { transform: translateX(0); }
 
         /* stagger children */
-        .stagger>* {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity .6s ease, transform .6s ease;
-        }
-
-        .stagger.visible>*:nth-child(1) {
-            opacity: 1;
-            transform: none;
-            transition-delay: .05s;
-        }
-
-        .stagger.visible>*:nth-child(2) {
-            opacity: 1;
-            transform: none;
-            transition-delay: .15s;
-        }
-
-        .stagger.visible>*:nth-child(3) {
-            opacity: 1;
-            transform: none;
-            transition-delay: .25s;
-        }
-
-        .stagger.visible>*:nth-child(4) {
-            opacity: 1;
-            transform: none;
-            transition-delay: .35s;
-        }
-
-        .stagger.visible>*:nth-child(5) {
-            opacity: 1;
-            transform: none;
-            transition-delay: .45s;
-        }
-
-        .stagger.visible>*:nth-child(6) {
-            opacity: 1;
-            transform: none;
-            transition-delay: .55s;
-        }
+        .stagger > * { opacity:0; transform:translateY(24px);
+            transition: opacity .6s ease, transform .6s ease; }
+        .stagger.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay:.05s; }
+        .stagger.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:.15s; }
+        .stagger.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay:.25s; }
+        .stagger.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay:.35s; }
+        .stagger.visible > *:nth-child(5) { opacity:1; transform:none; transition-delay:.45s; }
+        .stagger.visible > *:nth-child(6) { opacity:1; transform:none; transition-delay:.55s; }
 
         /* ── 4. Glassmorphism card upgrade ── */
         .glass-card {
-            background: rgba(255, 255, 255, 0.55);
+            background: rgba(255,255,255,0.55);
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
             border: 1px solid var(--greige-border);
             border-radius: 24px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-            transition: transform .4s cubic-bezier(.2, .8, .2, 1), box-shadow .4s;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.6);
+            transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s;
         }
-
         [data-theme="dark"] .glass-card {
-            background: rgba(30, 30, 30, 0.6);
+            background: rgba(30,30,30,0.6);
             border-color: var(--greige-border);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.04);
         }
-
         .glass-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 20px 50px var(--greige-glow), 0 0 0 1px var(--greige-border);
@@ -375,36 +300,28 @@
         .mag-btn {
             position: relative;
             overflow: hidden;
-            transition: transform .3s cubic-bezier(.2, .8, .2, 1), box-shadow .3s;
+            transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s;
         }
-
         .mag-btn::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            background: conic-gradient(from var(--angle, 0deg),
-                    var(--primary-color), var(--greige-light), #fff, var(--primary-color));
+            content:'';
+            position:absolute;
+            inset:-2px;
+            background: conic-gradient(from var(--angle,0deg),
+                var(--primary-color), var(--greige-light), #fff, var(--primary-color));
             border-radius: inherit;
-            z-index: -1;
-            opacity: 0;
+            z-index:-1;
+            opacity:0;
             transition: opacity .4s;
             animation: rotateBorder 3s linear infinite;
         }
-
-        .mag-btn:hover::before {
-            opacity: 1;
-        }
-
+        .mag-btn:hover::before { opacity:1; }
         @property --angle {
             syntax: '<angle>';
             initial-value: 0deg;
             inherits: false;
         }
-
         @keyframes rotateBorder {
-            to {
-                --angle: 360deg;
-            }
+            to { --angle: 360deg; }
         }
 
         /* ── 6. Section Greige background (dots pattern + orb) ── */
@@ -413,42 +330,27 @@
             overflow: hidden;
             background: linear-gradient(160deg, var(--greige-ultra) 0%, var(--bg-subtle) 100%);
         }
-
         .greige-bg::before {
-            content: '';
-            position: absolute;
-            inset: 0;
+            content:'';
+            position:absolute; inset:0;
             background-image: radial-gradient(circle, var(--greige) 1px, transparent 1px);
             background-size: 28px 28px;
             opacity: .09;
-            pointer-events: none;
+            pointer-events:none;
         }
-
         .greige-bg::after {
-            content: '';
-            position: absolute;
-            width: 520px;
-            height: 520px;
-            top: -120px;
-            left: -120px;
+            content:'';
+            position:absolute;
+            width:520px; height:520px;
+            top:-120px; left:-120px;
             background: radial-gradient(circle, var(--greige-glow) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
+            border-radius:50%;
+            pointer-events:none;
             animation: slowPulse 8s ease-in-out infinite;
         }
-
         @keyframes slowPulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-                opacity: .8;
-            }
-
-            50% {
-                transform: scale(1.12);
-                opacity: .4;
-            }
+            0%,100% { transform:scale(1); opacity:.8; }
+            50%      { transform:scale(1.12); opacity:.4; }
         }
 
         /* ── 7. Page Hero Greige Accent Wave ── */
@@ -461,9 +363,8 @@
             line-height: 0;
             z-index: 2;
         }
-
         .hero-greige-wave svg {
-            display: block;
+            display:block;
             width: calc(100% + 1.3px);
             height: 75px;
         }
@@ -473,35 +374,23 @@
             position: relative;
             overflow: hidden;
         }
-
         .eyebrow-shimmer::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 60%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+            content:'';
+            position:absolute;
+            top:0; left:-100%;
+            width:60%; height:100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
             animation: sweepShine 2.5s ease-in-out infinite 1s;
         }
-
         @keyframes sweepShine {
-            0% {
-                left: -100%;
-            }
-
-            60% {
-                left: 140%;
-            }
-
-            100% {
-                left: 140%;
-            }
+            0%   { left:-100%; }
+            60%  { left:140%; }
+            100% { left:140%; }
         }
 
         /* ── 9. Neon Gold glow on active nav ── */
         nav a.active::after {
-            box-shadow: 0 0 8px rgba(255, 180, 0, 0.6);
+            box-shadow: 0 0 8px rgba(255,180,0,0.6);
         }
 
         /* ── 10. Card Tilt (3-D via JS) — base styles ── */
@@ -512,9 +401,7 @@
         }
 
         /* ── 11. Stat counter animation ── */
-        .count-up {
-            display: inline-block;
-        }
+        .count-up { display: inline-block; }
 
         /* ── 12. Page-transition overlay ── */
         #page-transition {
@@ -524,28 +411,26 @@
             z-index: 9999;
             pointer-events: none;
             clip-path: circle(0% at 50% 50%);
-            transition: clip-path .5s cubic-bezier(.7, 0, .3, 1);
+            transition: clip-path .5s cubic-bezier(.7,0,.3,1);
         }
-
         #page-transition.active {
             clip-path: circle(150% at 50% 50%);
         }
-
         #page-transition.out {
             clip-path: circle(0% at 50% 50%);
         }
 
         /* ── 13. Footer greige top border ── */
         footer::before {
-            content: '';
-            display: block;
-            height: 3px;
+            content:'';
+            display:block;
+            height:3px;
             background: linear-gradient(90deg,
-                    var(--greige-light),
-                    var(--greige),
-                    var(--primary-color),
-                    var(--greige),
-                    var(--greige-light));
+                var(--greige-light),
+                var(--greige),
+                var(--primary-color),
+                var(--greige),
+                var(--greige-light));
         }
 
         /* ── 14. Cursor trail dots ── */
@@ -558,7 +443,7 @@
             pointer-events: none;
             z-index: 99999;
             opacity: 0;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%,-50%);
             transition: opacity .2s;
         }
 
@@ -571,20 +456,17 @@
             position: relative;
             overflow: hidden;
         }
-
         .train-hero::after,
         .act-page-header::after,
         .vol-hero::after,
         .events-hero::after {
-            content: '';
-            position: absolute;
-            bottom: -60px;
-            right: -60px;
-            width: 350px;
-            height: 350px;
+            content:'';
+            position:absolute;
+            bottom:-60px; right:-60px;
+            width:350px; height:350px;
             background: radial-gradient(circle, var(--greige-glow) 0%, transparent 70%);
-            pointer-events: none;
-            border-radius: 50%;
+            pointer-events:none;
+            border-radius:50%;
             animation: slowPulse 7s ease-in-out infinite;
         }
 
@@ -597,7 +479,6 @@
             border-left: 3px solid var(--greige-border);
             transition: border-left-color .3s;
         }
-
         .accordion-item:hover,
         .faq-item:hover,
         .guide-item:hover,
@@ -609,11 +490,10 @@
         /* ── 17. Premium card Greige glow on hover ── */
         .premium-card {
             border: 1px solid var(--greige-border) !important;
-            transition: transform .4s cubic-bezier(.2, .8, .2, 1),
-                box-shadow .4s,
-                border-color .4s;
+            transition: transform .4s cubic-bezier(.2,.8,.2,1),
+                        box-shadow .4s,
+                        border-color .4s;
         }
-
         .premium-card:hover {
             border-color: var(--greige) !important;
             box-shadow: 0 30px 60px var(--greige-glow), 0 0 0 1px var(--greige-border);
@@ -622,57 +502,45 @@
         /* ── 18. Scroll-progress bar (Greige→Gold) ── */
         #scroll-progress {
             position: fixed;
-            top: 0;
-            left: 0;
+            top: 0; left: 0;
             width: 0%;
             height: 3px;
             background: linear-gradient(90deg, var(--greige), var(--primary-color));
             z-index: 9998;
             transition: width .1s linear;
-            box-shadow: 0 0 10px rgba(255, 180, 0, 0.4);
+            box-shadow: 0 0 10px rgba(255,180,0,0.4);
         }
 
         /* ── 19. Sections intro greige gradient ── */
         .sections-intro {
             background: linear-gradient(180deg,
-                    var(--greige-ultra) 0%,
-                    var(--bg-subtle) 100%) !important;
+                var(--greige-ultra) 0%,
+                var(--bg-subtle) 100%) !important;
         }
-
         .premium-sections-wrapper {
             background: linear-gradient(180deg,
-                    var(--bg-subtle) 0%,
-                    var(--greige-ultra) 40%,
-                    var(--bg-subtle) 100%) !important;
-            position: relative;
+                var(--bg-subtle) 0%,
+                var(--greige-ultra) 40%,
+                var(--bg-subtle) 100%) !important;
+            position:relative;
         }
-
         .premium-sections-wrapper::before {
-            content: '';
-            position: absolute;
-            inset: 0;
+            content:'';
+            position:absolute; inset:0;
             background-image: radial-gradient(circle, var(--greige) 1px, transparent 1px);
             background-size: 32px 32px;
-            opacity: .07;
-            pointer-events: none;
+            opacity:.07;
+            pointer-events:none;
         }
 
         /* ── 20. Train / Vol / Events Hero wave bottom ── */
         .page-hero-wave {
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-            z-index: 2;
+            position:absolute;
+            bottom:-1px; left:0;
+            width:100%; overflow:hidden;
+            line-height:0; z-index:2;
         }
-
-        .page-hero-wave svg {
-            display: block;
-            width: calc(100% + 1px);
-            height: 60px;
-        }
+        .page-hero-wave svg { display:block; width:calc(100% + 1px); height:60px; }
 
         * {
             margin: 0;
@@ -2335,7 +2203,7 @@
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.65);
+            background: rgba(0,0,0,0.65);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             z-index: 3000;
@@ -2351,23 +2219,14 @@
             width: 100%;
             max-width: 440px;
             position: relative;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.04);
-            animation: authModalIn 0.35s cubic-bezier(.2, .8, .2, 1) both;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.04);
+            animation: authModalIn 0.35s cubic-bezier(.2,.8,.2,1) both;
             overflow: hidden;
         }
-
         @keyframes authModalIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95) translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
+            from { opacity: 0; transform: scale(0.95) translateY(20px); }
+            to   { opacity: 1; transform: scale(1) translateY(0); }
         }
-
         .modal-content::before {
             content: '';
             display: block;
@@ -2376,15 +2235,9 @@
             background-size: 200% 100%;
             animation: goldShimmer 2.5s linear infinite;
         }
-
         @keyframes goldShimmer {
-            0% {
-                background-position: -200% 0;
-            }
-
-            100% {
-                background-position: 200% 0;
-            }
+            0%   { background-position: -200% 0; }
+            100% { background-position:  200% 0; }
         }
 
         .close-modal {
@@ -2394,7 +2247,7 @@
             width: 32px;
             height: 32px;
             border-radius: 50%;
-            background: rgba(0, 0, 0, 0.06);
+            background: rgba(0,0,0,0.06);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -2404,9 +2257,8 @@
             transition: all 0.2s;
             line-height: 1;
         }
-
         .close-modal:hover {
-            background: rgba(255, 180, 0, 0.15);
+            background: rgba(255,180,0,0.15);
             color: var(--primary-color);
             transform: rotate(90deg);
         }
@@ -2437,7 +2289,7 @@
             font-size: 0.88rem;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(.2, .8, .2, 1);
+            transition: all 0.3s cubic-bezier(.2,.8,.2,1);
             color: var(--text-muted, #999);
             border-radius: 10px;
         }
@@ -2445,7 +2297,7 @@
         .auth-tab.active {
             background: var(--bg-card, #fff);
             color: var(--text-primary, #111);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .modal-form {
@@ -2480,11 +2332,10 @@
             color: var(--text-primary, #333);
             transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
         }
-
         .modal-form input:focus,
         .modal-form select:focus {
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 4px rgba(255, 180, 0, 0.12);
+            box-shadow: 0 0 0 4px rgba(255,180,0,0.12);
             background: var(--bg-card, #fff);
         }
 
@@ -2492,7 +2343,6 @@
             width: 100%;
             margin-top: 18px;
         }
-
         .modal-form .main-btn {
             padding: 14px;
             border-radius: 12px;
@@ -2506,7 +2356,6 @@
             gap: 12px;
             margin: 20px 0;
         }
-
         .auth-divider::before,
         .auth-divider::after {
             content: '';
@@ -2514,7 +2363,6 @@
             height: 1px;
             background: var(--border-light, #e8e8e8);
         }
-
         .auth-divider span {
             color: var(--text-faint, #aaa);
             font-size: 0.78rem;
@@ -2538,12 +2386,11 @@
             cursor: pointer;
             transition: all 0.25s;
         }
-
         .google-sign-btn:hover {
             border-color: #4285F4;
-            background: rgba(66, 133, 244, 0.05);
+            background: rgba(66,133,244,0.05);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(66, 133, 244, 0.15);
+            box-shadow: 0 6px 20px rgba(66,133,244,0.15);
         }
 
         /* Follow/Notify Button */
@@ -5516,6 +5363,19 @@
             color: var(--text-primary);
         }
 
+        [data-theme="dark"] .outlook-modal-box {
+            background: var(--bg-card);
+        }
+
+        [data-theme="dark"] #outlookModal .train-modal-box {
+            background: var(--bg-card);
+        }
+
+        /* ── Outlook modal ── */
+        [data-theme="dark"] #outlookModal .train-modal-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-medium);
+        }
 
         /* ── Calendar ── */
         [data-theme="dark"] .cal-day {
@@ -6494,7 +6354,7 @@
         /* Modern Premium Design for Start Page */
         .start-hero {
             background: radial-gradient(circle at top right, rgba(255, 180, 0, 0.08), transparent),
-                radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.05), transparent);
+                        radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.05), transparent);
             padding: 120px 5% 80px;
             border-radius: 0 0 50px 50px;
         }
@@ -6508,7 +6368,7 @@
             margin: -40px auto 60px;
             max-width: 850px;
             text-align: center;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.08);
             position: relative;
             z-index: 10;
         }
@@ -6572,7 +6432,7 @@
         .path-card:hover {
             border-color: var(--primary-color);
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
         }
 
         .path-icon {
@@ -6656,8 +6516,7 @@
     <div id="page-transition"></div>
     <div id="ambient-canvas" aria-hidden="true"></div>
     <div class="cursor-dot" id="cursorDot1"></div>
-    <div class="cursor-dot" id="cursorDot2"
-        style="width:14px;height:14px;background:rgba(255,180,0,0.4);transition-delay:.05s"></div>
+    <div class="cursor-dot" id="cursorDot2" style="width:14px;height:14px;background:rgba(255,180,0,0.4);transition-delay:.05s"></div>
 
     <!-- Mobile nav overlay -->
     <div class="mobile-nav-overlay" id="mobileNavOverlay" onclick="closeMobileNav()"></div>
@@ -6670,14 +6529,10 @@
             <a onclick="navigateTo('start'); closeMobileNav();" class="nav-link"
                 style="color:var(--primary-color); font-weight:bold;" data-key="nav_start">ابدأ منين <i
                     class="fa fa-rocket"></i></a>
-            <a onclick="navigateTo('home'); closeMobileNav();" class="nav-link active" data-key="nav_home">الصفحة
-                الرئيسية</a>
-            <a onclick="navigateTo('activities'); closeMobileNav();" class="nav-link" data-key="nav_activities">الأنشطة
-                الطلابية</a>
-            <a onclick="navigateTo('volunteer'); closeMobileNav();" class="nav-link" data-key="nav_volunteer">الأنشطة
-                التطوعية</a>
-            <a onclick="navigateTo('training'); closeMobileNav();" class="nav-link" data-key="nav_training">فرص
-                التدريب</a>
+            <a onclick="navigateTo('home'); closeMobileNav();" class="nav-link active" data-key="nav_home">الصفحة الرئيسية</a>
+            <a onclick="navigateTo('activities'); closeMobileNav();" class="nav-link" data-key="nav_activities">الأنشطة الطلابية</a>
+            <a onclick="navigateTo('volunteer'); closeMobileNav();" class="nav-link" data-key="nav_volunteer">الأنشطة التطوعية</a>
+            <a onclick="navigateTo('training'); closeMobileNav();" class="nav-link" data-key="nav_training">فرص التدريب</a>
             <a onclick="navigateTo('events'); closeMobileNav();" class="nav-link" data-key="nav_events">الفعاليات</a>
             <a onclick="navigateTo('contact'); closeMobileNav();" class="nav-link" data-key="nav_contact">تواصل معنا</a>
         </nav>
@@ -6710,27 +6565,21 @@
         <!-- Hero Section -->
         <section class="start-hero">
             <h1 class="start-hero-title" data-key="start_hero_title">هل تشعر بالحيرة؟ <span>ابدأ من هنا</span></h1>
-            <p class="start-hero-desc" data-key="start_hero_desc">مرحباً بك في دليلك الشامل لتحديد مسارك المهني
-                والطلابي. نحن هنا لنرشدك نحو أفضل الفرص التي تتوافق مع شغفك وطموحاتك، من خلال خطوات مدروسة ومخصصة.</p>
+            <p class="start-hero-desc" data-key="start_hero_desc">مرحباً بك في دليلك الشامل لتحديد مسارك المهني والطلابي. نحن هنا لنرشدك نحو أفضل الفرص التي تتوافق مع شغفك وطموحاتك، من خلال خطوات مدروسة ومخصصة.</p>
         </section>
 
         <!-- AI Career Advisor -->
         <section class="start-section">
             <div class="advisor-box">
-                <h2 class="start-section-title" style="margin-bottom:15px; font-size:1.8rem;" data-key="advisor_title">
-                    المستشار المهني الذكي</h2>
-                <p style="margin-bottom:30px; color:var(--text-secondary); font-size:1.1rem;" data-key="advisor_desc">
-                    اختر مجالك المفضل للحصول على توصيات مخصصة من واقع بيانات المنصة:</p>
+                <h2 class="start-section-title" style="margin-bottom:15px; font-size:1.8rem;" data-key="advisor_title">المستشار المهني الذكي</h2>
+                <p style="margin-bottom:30px; color:var(--text-secondary); font-size:1.1rem;" data-key="advisor_desc">اختر مجالك المفضل للحصول على توصيات مخصصة من واقع بيانات المنصة:</p>
                 <select class="advisor-select" id="advisorSelect">
                     <option value="" data-key="advisor_opt_default">-- اختر المجال الذي ترغب في استكشافه --</option>
                     <option value="web" data-key="advisor_opt_web">تطوير المواقع الإلكترونية (Web Development)</option>
-                    <option value="ai" data-key="advisor_opt_ai">الذكاء الاصطناعي وعلوم البيانات (AI & Data Science)
-                    </option>
+                    <option value="ai" data-key="advisor_opt_ai">الذكاء الاصطناعي وعلوم البيانات (AI & Data Science)</option>
                     <option value="cyber" data-key="advisor_opt_cyber">الأمن السيبراني (Cyber Security)</option>
-                    <option value="marketing" data-key="advisor_opt_marketing">التسويق وإدارة الأعمال (Business &
-                        Marketing)</option>
-                    <option value="mobile" data-key="advisor_opt_mobile">تطوير تطبيقات الهواتف الذكية (Mobile App Dev)
-                    </option>
+                    <option value="marketing" data-key="advisor_opt_marketing">التسويق وإدارة الأعمال (Business & Marketing)</option>
+                    <option value="mobile" data-key="advisor_opt_mobile">تطوير تطبيقات الهواتف الذكية (Mobile App Dev)</option>
                 </select>
                 <button class="advisor-btn" onclick="runAdvisor()" data-key="advisor_btn">استكشف مساري المهني ✨</button>
 
@@ -6749,15 +6598,11 @@
                     <div class="path-icon"><i class="fa fa-code"></i></div>
                     <h3 class="goal-title" data-key="path_web_title">تطوير الويب</h3>
                     <div class="path-roadmap">
-                        <div class="path-step" data-key="path_web_step1">إتقان أساسيات تطوير الواجهات الأمامية (HTML,
-                            CSS, JS).</div>
-                        <div class="path-step" data-key="path_web_step2">الانضمام إلى تجمع طلابي تقني لتبادل الخبرات
-                            العملية.</div>
-                        <div class="path-step" data-key="path_web_step3">التقديم على برامج التدريب الصيفي في شركات تقنية
-                            رائدة.</div>
+                        <div class="path-step" data-key="path_web_step1">إتقان أساسيات تطوير الواجهات الأمامية (HTML, CSS, JS).</div>
+                        <div class="path-step" data-key="path_web_step2">الانضمام إلى تجمع طلابي تقني لتبادل الخبرات العملية.</div>
+                        <div class="path-step" data-key="path_web_step3">التقديم على برامج التدريب الصيفي في شركات تقنية رائدة.</div>
                     </div>
-                    <button class="start-cta-btn" style="margin-top:25px; width:100%;" onclick="navigateTo('training')"
-                        data-key="path_btn_training">عرض الفرص المتاحة</button>
+                    <button class="start-cta-btn" style="margin-top:25px; width:100%;" onclick="navigateTo('training')" data-key="path_btn_training">عرض الفرص المتاحة</button>
                 </div>
 
                 <!-- AI Path -->
@@ -6765,15 +6610,11 @@
                     <div class="path-icon"><i class="fa fa-brain"></i></div>
                     <h3 class="goal-title" data-key="path_ai_title">الذكاء الاصطناعي</h3>
                     <div class="path-roadmap">
-                        <div class="path-step" data-key="path_ai_step1">تعلم لغة البرمجة Python وأساسيات الرياضيات
-                            والإحصاء.</div>
-                        <div class="path-step" data-key="path_ai_step2">متابعة أحدث المؤتمرات والفعاليات في هذا المجال
-                            التقني.</div>
-                        <div class="path-step" data-key="path_ai_step3">المشاركة في المسابقات البرمجية والهاكاثونات
-                            المتخصصة.</div>
+                        <div class="path-step" data-key="path_ai_step1">تعلم لغة البرمجة Python وأساسيات الرياضيات والإحصاء.</div>
+                        <div class="path-step" data-key="path_ai_step2">متابعة أحدث المؤتمرات والفعاليات في هذا المجال التقني.</div>
+                        <div class="path-step" data-key="path_ai_step3">المشاركة في المسابقات البرمجية والهاكاثونات المتخصصة.</div>
                     </div>
-                    <button class="start-cta-btn" style="margin-top:25px; width:100%;" onclick="navigateTo('events')"
-                        data-key="path_btn_events">عرض الفعاليات القادمة</button>
+                    <button class="start-cta-btn" style="margin-top:25px; width:100%;" onclick="navigateTo('events')" data-key="path_btn_events">عرض الفعاليات القادمة</button>
                 </div>
 
                 <!-- Volunteer Path -->
@@ -6781,15 +6622,11 @@
                     <div class="path-icon"><i class="fa fa-hands-helping"></i></div>
                     <h3 class="goal-title" data-key="path_vol_title">العمل التطوعي</h3>
                     <div class="path-roadmap">
-                        <div class="path-step" data-key="path_vol_step1">تحديد التخصص التطوعي المفضل (إنساني، بيئي،
-                            تعليمي).</div>
-                        <div class="path-step" data-key="path_vol_step2">البحث عن مؤسسات مرموقة تقدم برامج تطوعية
-                            معتمدة.</div>
-                        <div class="path-step" data-key="path_vol_step3">تطوير المهارات الناعمة وبناء شبكة علاقات مهنية
-                            قوية.</div>
+                        <div class="path-step" data-key="path_vol_step1">تحديد التخصص التطوعي المفضل (إنساني، بيئي، تعليمي).</div>
+                        <div class="path-step" data-key="path_vol_step2">البحث عن مؤسسات مرموقة تقدم برامج تطوعية معتمدة.</div>
+                        <div class="path-step" data-key="path_vol_step3">تطوير المهارات الناعمة وبناء شبكة علاقات مهنية قوية.</div>
                     </div>
-                    <button class="start-cta-btn" style="margin-top:25px; width:100%;" onclick="navigateTo('volunteer')"
-                        data-key="path_btn_vol">عرض فرص التطوع</button>
+                    <button class="start-cta-btn" style="margin-top:25px; width:100%;" onclick="navigateTo('volunteer')" data-key="path_btn_vol">عرض فرص التطوع</button>
                 </div>
             </div>
         </section>
@@ -6801,20 +6638,17 @@
                 <div class="guide-item">
                     <div class="guide-num">1</div>
                     <h3 class="step-title" data-key="guide_step1_title">البحث المتقدم</h3>
-                    <p class="step-desc" data-key="guide_step1_desc">استخدم محرك البحث في الأعلى للوصول السريع إلى
-                        المؤسسات أو الأنشطة.</p>
+                    <p class="step-desc" data-key="guide_step1_desc">استخدم محرك البحث في الأعلى للوصول السريع إلى المؤسسات أو الأنشطة.</p>
                 </div>
                 <div class="guide-item">
                     <div class="guide-num">2</div>
                     <h3 class="step-title" data-key="guide_step2_title">تصفية النتائج</h3>
-                    <p class="step-desc" data-key="guide_step2_desc">استخدم أدوات التصفية في كل صفحة لتخصيص النتائج حسب
-                        اهتماماتك فقط.</p>
+                    <p class="step-desc" data-key="guide_step2_desc">استخدم أدوات التصفية في كل صفحة لتخصيص النتائج حسب اهتماماتك فقط.</p>
                 </div>
                 <div class="guide-item">
                     <div class="guide-num">3</div>
                     <h3 class="step-title" data-key="guide_step3_title">المتابعة الدورية</h3>
-                    <p class="step-desc" data-key="guide_step3_desc">يتم تحديث المنصة يومياً بأحدث التدريبات الصيفية
-                        والفعاليات العالمية.</p>
+                    <p class="step-desc" data-key="guide_step3_desc">يتم تحديث المنصة يومياً بأحدث التدريبات الصيفية والفعاليات العالمية.</p>
                 </div>
             </div>
         </section>
@@ -6828,107 +6662,97 @@
                         هل توفر المنصة برامج تدريبية مباشرة؟
                         <i class="fa fa-chevron-down"></i>
                     </div>
-                    <div class="faq-a" data-key="faq_a1">نحن نعمل كجسر تواصل، حيث نوفر لك إمكانية الوصول إلى أفضل مقدمي
-                        البرامج التدريبية الموثوقين والأنشطة الطلابية المتميزة.</div>
+                    <div class="faq-a" data-key="faq_a1">نحن نعمل كجسر تواصل، حيث نوفر لك إمكانية الوصول إلى أفضل مقدمي البرامج التدريبية الموثوقين والأنشطة الطلابية المتميزة.</div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-q" onclick="this.parentElement.classList.toggle('active')" data-key="faq_q2">
                         كيف يمكنني التقديم على التدريبات الصيفية؟
                         <i class="fa fa-chevron-down"></i>
                     </div>
-                    <div class="faq-a" data-key="faq_a2">يمكنك الانتقال إلى صفحة "فرص التدريب"، اختيار العرض المناسب، ثم
-                        الضغط على زر "قدم الآن" ليتم توجيهك إلى رابط التقديم الرسمي.</div>
+                    <div class="faq-a" data-key="faq_a2">يمكنك الانتقال إلى صفحة "فرص التدريب"، اختيار العرض المناسب، ثم الضغط على زر "قدم الآن" ليتم توجيهك إلى رابط التقديم الرسمي.</div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-q" onclick="this.parentElement.classList.toggle('active')" data-key="faq_q3">
                         كيف يمكنني الانضمام إلى نشاط طلابي معين؟
                         <i class="fa fa-chevron-down"></i>
                     </div>
-                    <div class="faq-a" data-key="faq_a3">من خلال متابعة صفحة النشاط الطلابي على منصتنا، والضغط على زر
-                        "رابط التقديم" عند فتح باب الانضمام (Recruitment)، حيث سيتم توجيهك لاستمارة التسجيل الخاصة بهم.
-                    </div>
+                    <div class="faq-a" data-key="faq_a3">من خلال متابعة صفحة النشاط الطلابي على منصتنا، والضغط على زر "رابط التقديم" عند فتح باب الانضمام (Recruitment)، حيث سيتم توجيهك لاستمارة التسجيل الخاصة بهم.</div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-q" onclick="this.parentElement.classList.toggle('active')" data-key="faq_q4">
                         هل تمنح المنصة شهادات معتمدة للمستخدمين؟
                         <i class="fa fa-chevron-down"></i>
                     </div>
-                    <div class="faq-a" data-key="faq_a4">المنصة هي دليل إرشادي للفرص؛ لذا فإن الشهادات تمنح عادة من قبل
-                        الجهات المنظمة للتدريب أو النشاط الطلابي بعد إتمامك للبرنامج بنجاح، وليست من المنصة مباشرة.
-                    </div>
+                    <div class="faq-a" data-key="faq_a4">المنصة هي دليل إرشادي للفرص؛ لذا فإن الشهادات تمنح عادة من قبل الجهات المنظمة للتدريب أو النشاط الطلابي بعد إتمامك للبرنامج بنجاح، وليست من المنصة مباشرة.</div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-q" onclick="this.parentElement.classList.toggle('active')" data-key="faq_q5">
                         ما هو الفرق بين النشاط الطلابي والتدريب الصيفي؟
                         <i class="fa fa-chevron-down"></i>
                     </div>
-                    <div class="faq-a" data-key="faq_a5">النشاط الطلابي هو كيان تطوعي يهدف لتنمية مهاراتك الشخصية
-                        والقيادية، بينما التدريب الصيفي (Internship) هو تجربة مهنية داخل شركة تهدف لإعدادك لسوق العمل في
-                        تخصصك.</div>
+                    <div class="faq-a" data-key="faq_a5">النشاط الطلابي هو كيان تطوعي يهدف لتنمية مهاراتك الشخصية والقيادية، بينما التدريب الصيفي (Internship) هو تجربة مهنية داخل شركة تهدف لإعدادك لسوق العمل في تخصصك.</div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-q" onclick="this.parentElement.classList.toggle('active')" data-key="faq_q6">
                         هل يمكنني التقديم على أكثر من فرصة في نفس الوقت؟
                         <i class="fa fa-chevron-down"></i>
                     </div>
-                    <div class="faq-a" data-key="faq_a6">بكل تأكيد، يمكنك التقديم على كافة الفرص التي تتناسب مع
-                        اهتماماتك وجدولك الزمني لزيادة فرصك في القبول واكتساب الخبرات.</div>
+                    <div class="faq-a" data-key="faq_a6">بكل تأكيد، يمكنك التقديم على كافة الفرص التي تتناسب مع اهتماماتك وجدولك الزمني لزيادة فرصك في القبول واكتساب الخبرات.</div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-q" onclick="this.parentElement.classList.toggle('active')" data-key="faq_q7">
                         كيف يتم التأكد من موثوقية الفرص المنشورة؟
                         <i class="fa fa-chevron-down"></i>
                     </div>
-                    <div class="faq-a" data-key="faq_a7">لدينا فريق متخصص يقوم بمراجعة وتدقيق كافة المؤسسات والأنشطة قبل
-                        إضافتها للمنصة، لضمان جودة المحتوى ومصداقية الروابط والفرص المعروضة.</div>
+                    <div class="faq-a" data-key="faq_a7">لدينا فريق متخصص يقوم بمراجعة وتدقيق كافة المؤسسات والأنشطة قبل إضافتها للمنصة، لضمان جودة المحتوى ومصداقية الروابط والفرص المعروضة.</div>
                 </div>
             </div>
         </section>
     </div>
 
-    <script>
-        function runAdvisor() {
-            const val = document.getElementById('advisorSelect').value;
-            const result = document.getElementById('advisorResult');
-            if (!val) {
-                alert(currentLang === 'ar' ? 'يرجى اختيار التخصص أولاً' : 'Please choose a specialty first');
-                return;
-            }
+        <script>
+            function runAdvisor() {
+                const val = document.getElementById('advisorSelect').value;
+                const result = document.getElementById('advisorResult');
+                if (!val) { 
+                    alert(currentLang === 'ar' ? 'يرجى اختيار التخصص أولاً' : 'Please choose a specialty first'); 
+                    return; 
+                }
 
-            result.style.display = 'block';
-            result.innerHTML = `<div style="text-align:center; padding:30px;"><i class="fa fa-spinner fa-spin fa-2x" style="color:var(--primary-color)"></i><p style="margin-top:15px; font-weight:700;">${currentLang === 'ar' ? 'جاري تحليل البيانات وتوليد التوصيات...' : 'Analyzing data and generating recommendations...'}</p></div>`;
+                result.style.display = 'block';
+                result.innerHTML = `<div style="text-align:center; padding:30px;"><i class="fa fa-spinner fa-spin fa-2x" style="color:var(--primary-color)"></i><p style="margin-top:15px; font-weight:700;">${currentLang === 'ar' ? 'جاري تحليل البيانات وتوليد التوصيات...' : 'Analyzing data and generating recommendations...'}</p></div>`;
 
-            setTimeout(() => {
-                let data = {
-                    web: {
-                        events: currentLang === 'ar' ? 'مؤتمر القاهرة للمطورين، ملتقى الويب العربي' : 'Cairo Developers Conference, Arabic Web Forum',
-                        internships: currentLang === 'ar' ? 'برنامج تدريب فودافون للحلول الذكية، تدريب معهد تكنولوجيا المعلومات ITI' : 'Vodafone Intelligent Solutions Internship, ITI Internship',
-                        skills: 'HTML5, CSS3, Modern JavaScript, React.js, Version Control (Git)'
-                    },
-                    ai: {
-                        events: currentLang === 'ar' ? 'معرض الذكاء الاصطناعي والبيانات الضخمة، ملتقيات علوم البيانات' : 'AI & Big Data Expo, Data Science Meetups',
-                        internships: currentLang === 'ar' ? 'مختبرات Valeo للذكاء الاصطناعي، تدريب شركة Si-Ware Systems' : 'Valeo AI Labs, Si-Ware Systems Internship',
-                        skills: 'Python Programming, Statistics, Linear Algebra, Machine Learning, TensorFlow'
-                    },
-                    cyber: {
-                        events: currentLang === 'ar' ? 'مؤتمر Caisec للأمن السيبراني، مؤتمر أمن المعلومات العربي' : 'Caisec Cybersecurity Conference, Arab Information Security Conference',
-                        internships: currentLang === 'ar' ? 'تدريب الجهاز القومي لتنظيم الاتصالات NTRA، برامج CyberTalents' : 'NTRA Internship, CyberTalents Programs',
-                        skills: 'Networking, Linux Administration, Ethical Hacking, OWASP Top 10'
-                    },
-                    marketing: {
-                        events: currentLang === 'ar' ? 'ملتقى المملكة للتسويق، فنون التسويق الرقمي' : 'Marketing Kingdom Forum, Digital Marketing Arts',
-                        internships: currentLang === 'ar' ? 'تدريب التسويق في Jumia، برنامج قادة المستقبل في Nestlé' : 'Jumia Marketing Internship, Nestlé Future Leaders Program',
-                        skills: 'SEO/SEM, Strategic Content Planning, Market Analytics, Branding'
-                    },
-                    mobile: {
-                        events: currentLang === 'ar' ? 'مؤتمر Droidcon التقني، ملتقيات Flutter العربية' : 'Droidcon Technical Conference, Arabic Flutter Meetups',
-                        internships: currentLang === 'ar' ? 'برنامج Robusta التدريبي، تدريب شركة Instabug' : 'Robusta Training Program, Instabug Internship',
-                        skills: 'Kotlin/Swift, Flutter Framework, Mobile UI/UX Design, REST APIs'
-                    }
-                };
+                setTimeout(() => {
+                    let data = {
+                        web: {
+                            events: currentLang === 'ar' ? 'مؤتمر القاهرة للمطورين، ملتقى الويب العربي' : 'Cairo Developers Conference, Arabic Web Forum',
+                            internships: currentLang === 'ar' ? 'برنامج تدريب فودافون للحلول الذكية، تدريب معهد تكنولوجيا المعلومات ITI' : 'Vodafone Intelligent Solutions Internship, ITI Internship',
+                            skills: 'HTML5, CSS3, Modern JavaScript, React.js, Version Control (Git)'
+                        },
+                        ai: {
+                            events: currentLang === 'ar' ? 'معرض الذكاء الاصطناعي والبيانات الضخمة، ملتقيات علوم البيانات' : 'AI & Big Data Expo, Data Science Meetups',
+                            internships: currentLang === 'ar' ? 'مختبرات Valeo للذكاء الاصطناعي، تدريب شركة Si-Ware Systems' : 'Valeo AI Labs, Si-Ware Systems Internship',
+                            skills: 'Python Programming, Statistics, Linear Algebra, Machine Learning, TensorFlow'
+                        },
+                        cyber: {
+                            events: currentLang === 'ar' ? 'مؤتمر Caisec للأمن السيبراني، مؤتمر أمن المعلومات العربي' : 'Caisec Cybersecurity Conference, Arab Information Security Conference',
+                            internships: currentLang === 'ar' ? 'تدريب الجهاز القومي لتنظيم الاتصالات NTRA، برامج CyberTalents' : 'NTRA Internship, CyberTalents Programs',
+                            skills: 'Networking, Linux Administration, Ethical Hacking, OWASP Top 10'
+                        },
+                        marketing: {
+                            events: currentLang === 'ar' ? 'ملتقى المملكة للتسويق، فنون التسويق الرقمي' : 'Marketing Kingdom Forum, Digital Marketing Arts',
+                            internships: currentLang === 'ar' ? 'تدريب التسويق في Jumia، برنامج قادة المستقبل في Nestlé' : 'Jumia Marketing Internship, Nestlé Future Leaders Program',
+                            skills: 'SEO/SEM, Strategic Content Planning, Market Analytics, Branding'
+                        },
+                        mobile: {
+                            events: currentLang === 'ar' ? 'مؤتمر Droidcon التقني، ملتقيات Flutter العربية' : 'Droidcon Technical Conference, Arabic Flutter Meetups',
+                            internships: currentLang === 'ar' ? 'برنامج Robusta التدريبي، تدريب شركة Instabug' : 'Robusta Training Program, Instabug Internship',
+                            skills: 'Kotlin/Swift, Flutter Framework, Mobile UI/UX Design, REST APIs'
+                        }
+                    };
 
-                const info = data[val] || data['web'];
-                result.innerHTML = `
+                    const info = data[val] || data['web'];
+                    result.innerHTML = `
                         <div style="background:var(--bg-subtle); padding:30px; border-radius:24px; border-right:6px solid var(--primary-color); animation: fadeIn 0.5s ease-out; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
                             <h3 style="color:var(--primary-color); margin-bottom:20px; font-size:1.4rem; display:flex; align-items:center; gap:10px;"><i class="fa fa-lightbulb"></i> ${currentLang === 'ar' ? 'التوصيات المقترحة لمسارك:' : 'Suggested recommendations for your path:'}</h3>
                             <div style="margin-bottom:15px; line-height:1.7;"><strong>${currentLang === 'ar' ? '📅 الفعاليات الموصى بها:' : '📅 Recommended Events:'}</strong> ${info.events}</div>
@@ -6937,9 +6761,9 @@
                             <p style="font-size:0.9rem; color:var(--text-secondary); margin-top:25px; border-top:1px solid var(--border-light); padding-top:15px;">${currentLang === 'ar' ? '* هذه التوصيات تعتمد على البيانات المتوفرة حالياً وتعتبر نقطة انطلاق مثالية لك.' : '* These recommendations are based on currently available data and are an ideal starting point for you.'}</p>
                         </div>
                     `;
-            }, 1200);
-        }
-    </script>
+                }, 1200);
+            }
+        </script>
     </div>
 
     <div id="page-home" class="page-content active-page">
@@ -6953,8 +6777,7 @@
                                 stroke-linecap="round"></path>
                         </svg></span> اللي شبهك</h1>
                 <p data-key="hero_desc">بدل ما تدور كتير...كل الانشطة وفرص التطوع والفعاليات بقت في مكان واحد</p>
-                <button class="main-btn hero-pulse-btn" onclick="navigateTo('activities')" data-key="hero_btn">ابدأ الآن
-                    🚀</button>
+                <button class="main-btn hero-pulse-btn" onclick="navigateTo('activities')" data-key="hero_btn">ابدأ الآن 🚀</button>
             </div>
             <div class="hero-wave">
                 <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -6982,8 +6805,7 @@
                 <div class="pcard-image-wrap">
                     <img src="data/student activities.jpeg" alt="Activities">
                     <div class="pcard-overlay"></div>
-                    <span class="pcard-badge"><i class="fa fa-graduation-cap"></i> <span
-                            data-key="nav_activities">الأنشطة الطلابية</span></span>
+                    <span class="pcard-badge"><i class="fa fa-graduation-cap"></i> <span data-key="nav_activities">الأنشطة الطلابية</span></span>
                 </div>
                 <div class="pcard-body">
                     <div class="pcard-tag-row">
@@ -6999,13 +6821,11 @@
                 </div>
             </div>
 
-            <div class="premium-card premium-card--reverse tilt-card reveal reveal-right"
-                onclick="navigateTo('volunteer')">
+            <div class="premium-card premium-card--reverse tilt-card reveal reveal-right" onclick="navigateTo('volunteer')">
                 <div class="pcard-image-wrap">
                     <img src="data/volunteer.jpeg" alt="Volunteer">
                     <div class="pcard-overlay"></div>
-                    <span class="pcard-badge pcard-badge--green"><i class="fa fa-heart"></i> <span
-                            data-key="nav_volunteer">الأنشطة التطوعية</span></span>
+                    <span class="pcard-badge pcard-badge--green"><i class="fa fa-heart"></i> <span data-key="nav_volunteer">الأنشطة التطوعية</span></span>
                 </div>
                 <div class="pcard-body">
                     <div class="pcard-tag-row">
@@ -7025,8 +6845,7 @@
                 <div class="pcard-image-wrap">
                     <img src="data/interships.jpg" alt="internships">
                     <div class="pcard-overlay"></div>
-                    <span class="pcard-badge pcard-badge--blue"><i class="fa fa-briefcase"></i> <span
-                            data-key="nav_training">فرص التدريب</span></span>
+                    <span class="pcard-badge pcard-badge--blue"><i class="fa fa-briefcase"></i> <span data-key="nav_training">فرص التدريب</span></span>
                 </div>
                 <div class="pcard-body">
                     <div class="pcard-tag-row">
@@ -7042,13 +6861,11 @@
                 </div>
             </div>
 
-            <div class="premium-card premium-card--reverse tilt-card reveal reveal-right"
-                onclick="navigateTo('events')">
+            <div class="premium-card premium-card--reverse tilt-card reveal reveal-right" onclick="navigateTo('events')">
                 <div class="pcard-image-wrap">
                     <img src="data/events.jpeg" alt="Events">
                     <div class="pcard-overlay"></div>
-                    <span class="pcard-badge pcard-badge--purple"><i class="fa fa-calendar"></i> <span
-                            data-key="nav_events">الفعاليات</span></span>
+                    <span class="pcard-badge pcard-badge--purple"><i class="fa fa-calendar"></i> <span data-key="nav_events">الفعاليات</span></span>
                 </div>
                 <div class="pcard-body">
                     <div class="pcard-tag-row">
@@ -7076,8 +6893,7 @@
             <div class="premium-how-header reveal">
                 <span class="premium-how-eyebrow eyebrow-shimmer" data-key="how_eyebrow">دليلك للبداية</span>
                 <h2 class="premium-how-title" data-key="how_title">إزاي تستفيد من المنصة؟</h2>
-                <p class="premium-how-subtitle" data-key="how_sub">٤ خطوات بسيطة عشان تبدأ رحلتك وتكون جزء من مجتمعنا
-                </p>
+                <p class="premium-how-subtitle" data-key="how_sub">٤ خطوات بسيطة عشان تبدأ رحلتك وتكون جزء من مجتمعنا</p>
             </div>
 
             <div class="premium-steps-grid stagger" style="max-width: 1200px; margin: 0 auto;">
@@ -7085,8 +6901,7 @@
                     <div class="premium-step-number">١</div>
                     <div class="premium-step-icon"><i class="fa fa-user-plus"></i></div>
                     <h3 class="premium-step-title" data-key="how_step1_title">أنشئ حسابك</h3>
-                    <p class="premium-step-desc" data-key="how_step1_desc">سجل في المنصة مجاناً عشان يكون ليك بروفايل
-                        خاص تقدر من خلاله تتابع
+                    <p class="premium-step-desc" data-key="how_step1_desc">سجل في المنصة مجاناً عشان يكون ليك بروفايل خاص تقدر من خلاله تتابع
                         المنظمات والأنشطة وتشارك في الفعاليات.</p>
                 </div>
 
@@ -7094,8 +6909,7 @@
                     <div class="premium-step-number">٢</div>
                     <div class="premium-step-icon"><i class="fa fa-search"></i></div>
                     <h3 class="premium-step-title" data-key="how_step2_title">استكشف الفرص</h3>
-                    <p class="premium-step-desc" data-key="how_step2_desc">استخدم شريط البحث أو تصفح الأقسام المختلفة
-                        عشان تلاقي النشاط، التطوع،
+                    <p class="premium-step-desc" data-key="how_step2_desc">استخدم شريط البحث أو تصفح الأقسام المختلفة عشان تلاقي النشاط، التطوع،
                         أو التدريب اللي بيناسب اهتماماتك.</p>
                 </div>
 
@@ -7103,8 +6917,7 @@
                     <div class="premium-step-number">٣</div>
                     <div class="premium-step-icon"><i class="fa fa-bell"></i></div>
                     <h3 class="premium-step-title" data-key="how_step3_title">تابع وتفاعل</h3>
-                    <p class="premium-step-desc" data-key="how_step3_desc">اعمل "متابعة" للأنشطة والمنظمات اللي بتهمك
-                        عشان توصلك أحدث الفعاليات
+                    <p class="premium-step-desc" data-key="how_step3_desc">اعمل "متابعة" للأنشطة والمنظمات اللي بتهمك عشان توصلك أحدث الفعاليات
                         والفرص فور نزولها.</p>
                 </div>
 
@@ -7112,8 +6925,7 @@
                     <div class="premium-step-number">٤</div>
                     <div class="premium-step-icon"><i class="fa fa-rocket"></i></div>
                     <h3 class="premium-step-title" data-key="how_step4_title">ابدأ رحلتك</h3>
-                    <p class="premium-step-desc" data-key="how_step4_desc">قدم على الفرصة وابدأ طور من مهاراتك، ابنِ
-                        شبكة علاقات قوية، وارتقِ
+                    <p class="premium-step-desc" data-key="how_step4_desc">قدم على الفرصة وابدأ طور من مهاراتك، ابنِ شبكة علاقات قوية، وارتقِ
                         بمستقبلك المهني.</p>
                 </div>
             </div>
@@ -7129,8 +6941,7 @@
 
         <!-- ===== Events Calendar Section ===== -->
         <div class="g-divider"></div>
-        <section class="events-calendar-section"
-            style="padding: 60px 10%; background: var(--greige-ultra); text-align: center;">
+        <section class="events-calendar-section" style="padding: 60px 10%; background: var(--greige-ultra); text-align: center;">
             <div class="sections-intro reveal" style="padding: 0 0 30px; background:transparent !important;">
                 <p class="sections-eyebrow eyebrow-shimmer" data-key="events_map_eyebrow">خريطة الفعاليات</p>
                 <h2 class="sections-heading" data-key="events_map_title">اكتشف الفعاليات القادمة</h2>
@@ -7213,10 +7024,8 @@
         <!-- Vol Hero - نفس ستايل act-page-header -->
         <div class="act-page-header">
             <div class="act-page-eyebrow" data-key="nav_volunteer"><i class="fa fa-heart"></i> الأنشطة التطوعية</div>
-            <h1 class="act-page-title" data-key="vol_hero_title">وقتك وطاقتك <span
-                    style="color:var(--primary-color)">تغيّر حياة</span></h1>
-            <p class="act-page-subtitle" data-key="vol_hero_sub">انضم لأكثر من 15 منظمة رائدة وطوّر نفسك بينما بتفيد
-                مجتمعك</p>
+            <h1 class="act-page-title" data-key="vol_hero_title">وقتك وطاقتك <span style="color:var(--primary-color)">تغيّر حياة</span></h1>
+            <p class="act-page-subtitle" data-key="vol_hero_sub">انضم لأكثر من 15 منظمة رائدة وطوّر نفسك بينما بتفيد مجتمعك</p>
             <div class="act-stats-row">
                 <div class="act-stat-item">
                     <span class="act-stat-num">15+</span>
@@ -7263,10 +7072,8 @@
         <!-- Training Hero - premium design -->
         <div class="act-page-header">
             <div class="act-page-eyebrow" data-key="nav_training"><i class="fa fa-briefcase"></i> فرص التدريب</div>
-            <h1 class="act-page-title" data-key="train_hero_title">ابدأ مسيرتك المهنية <span
-                    style="color:var(--primary-color)">من هنا</span></h1>
-            <p class="act-page-subtitle" data-key="train_hero_sub">أكتر من 30 فرصة تدريب مختارة من أكبر الشركات المحلية
-                والعالمية – اتصفح، فلتر، وقدّم في ثواني</p>
+            <h1 class="act-page-title" data-key="train_hero_title">ابدأ مسيرتك المهنية <span style="color:var(--primary-color)">من هنا</span></h1>
+            <p class="act-page-subtitle" data-key="train_hero_sub">أكتر من 30 فرصة تدريب مختارة من أكبر الشركات المحلية والعالمية – اتصفح، فلتر، وقدّم في ثواني</p>
             <div class="act-stats-row">
                 <div class="act-stat-item">
                     <span class="act-stat-num">30+</span>
@@ -7328,12 +7135,9 @@
     <div id="page-events" class="page-content">
         <!-- Events Hero -->
         <div class="act-page-header">
-            <div class="act-page-eyebrow" data-key="nav_events"><i class="fa fa-calendar-alt"></i> الفعاليات والمؤتمرات
-            </div>
-            <h1 class="act-page-title" data-key="events_hero_title">اكتشف وشارك في <span
-                    style="color:var(--primary-color)">أبرز الفعاليات</span></h1>
-            <p class="act-page-subtitle" data-key="events_hero_sub">اكتشف أبرز الفعاليات والمؤتمرات المهنية في مصر
-                والشرق الأوسط وابنِ شبكة علاقاتك</p>
+            <div class="act-page-eyebrow" data-key="nav_events"><i class="fa fa-calendar-alt"></i> الفعاليات والمؤتمرات</div>
+            <h1 class="act-page-title" data-key="events_hero_title">اكتشف وشارك في <span style="color:var(--primary-color)">أبرز الفعاليات</span></h1>
+            <p class="act-page-subtitle" data-key="events_hero_sub">اكتشف أبرز الفعاليات والمؤتمرات المهنية في مصر والشرق الأوسط وابنِ شبكة علاقاتك</p>
             <div class="act-stats-row">
                 <div class="act-stat-item">
                     <span class="act-stat-num">10+</span>
@@ -7354,8 +7158,8 @@
         <div class="train-filter-bar vol-filter-bar">
             <div class="train-search-wrap">
                 <i class="fa fa-search"></i>
-                <input type="text" id="eventsSearchInput" data-key="search_placeholder_events"
-                    placeholder="ابحث عن فعالية، مكان، أو مجال..." oninput="filterEvents()">
+                <input type="text" id="eventsSearchInput" data-key="search_placeholder_events" placeholder="ابحث عن فعالية، مكان، أو مجال..."
+                    oninput="filterEvents()">
             </div>
             <div class="train-cats" id="eventsCats">
                 <button class="train-cat active" onclick="setEventCat('الكل', this)">🌟 الكل</button>
@@ -7380,8 +7184,7 @@
             <div class="about-hero-bg"></div>
             <div class="about-hero-content">
                 <div class="about-eyebrow" data-key="nav_contact">من نحن</div>
-                <h1 class="about-hero-title" data-key="about_hero_title">نعيد صياغة <span
-                        class="about-highlight">التجربة الطلابية</span> في EDUvibe</h1>
+                <h1 class="about-hero-title" data-key="about_hero_title">نعيد صياغة <span class="about-highlight">التجربة الطلابية</span> في EDUvibe</h1>
                 <p class="about-hero-subtitle" data-key="contact_who_desc">هي منصة رقمية تهدف الي جمع الانشطة الطلابية
                     والفرص التطوعية والفعاليات المختلفة في مكان واحد سهل الوصول توفر المنصة مساحة متكاملة تساعد الطلاب
                     والشباب على اكتشاف الفرص التي تنمي مهاراتهم وتوسع شبكة علاقاتهم وتعزز مشاركتهم المجتمعية.</p>
@@ -7441,8 +7244,7 @@
                 <div class="about-feature">
                     <div class="feature-icon-wrapper"><i class="fa fa-chart-line"></i></div>
                     <h4 data-key="about_val3_title">تطوير مستمر</h4>
-                    <p data-key="about_val3_desc">أدوات وفرص مصممة خصيصاً لمساعدتك على النمو التدريجي والتميز في مسارك.
-                    </p>
+                    <p data-key="about_val3_desc">أدوات وفرص مصممة خصيصاً لمساعدتك على النمو التدريجي والتميز في مسارك.</p>
                 </div>
             </div>
         </div>
@@ -7463,12 +7265,9 @@
             </div>
             <div class="footer-section footer-links">
                 <h4 data-key="footer_related">مواقع ذات صلة</h4>
-                <a href="https://apps.emys.gov.eg/youth/branchesSearch" target="_blank" data-key="site_youth">وزارة
-                    الشباب والرياضة</a>
-                <a href="https://mcit.gov.eg/ar/Human_Capacity/ITIDA" target="_blank" data-key="site_itida">هيئة إيتيدا
-                    (ITIDA)</a>
-                <a href="https://skillshub.mohesr.gov.eg/" target="_blank" data-key="site_skills">منصة المهارات
-                    الجامعية</a>
+                <a href="https://apps.emys.gov.eg/youth/branchesSearch" target="_blank" data-key="site_youth">وزارة الشباب والرياضة</a>
+                <a href="https://mcit.gov.eg/ar/Human_Capacity/ITIDA" target="_blank" data-key="site_itida">هيئة إيتيدا (ITIDA)</a>
+                <a href="https://skillshub.mohesr.gov.eg/" target="_blank" data-key="site_skills">منصة المهارات الجامعية</a>
             </div>
             <div class="footer-section">
                 <h4 data-key="footer_connect">تواصل معنا</h4>
@@ -7620,6 +7419,52 @@
                 <button onclick="handleLogout()" class="main-btn"
                     style="background:#cc0000; color:white; margin-top:14px;" data-key="btn_logout">تسجيل
                     الخروج</button>
+            </div>
+        </div>
+        <!-- Outlook Calendar Reminder Modal -->
+        <div id="outlookModal" class="modal-overlay" style="display:none; z-index:9999;">
+            <div class="modal-form" style="max-width: 400px; text-align: center;">
+                <h2><i class="fab fa-microsoft" style="color: #00a4ef;"></i> إضافة لتقويم Outlook</h2>
+                <p style="margin-bottom: 20px; font-size: 0.9rem; color: #ccc;">اختر متى تريد أن نذكرك قبل بدء الفعالية.
+                </p>
+
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+                    <label
+                        style="display: flex; align-items: center; justify-content: space-between; background: #222; padding: 10px 15px; border-radius: 8px; cursor: pointer;">
+                        <span>يوم واحد</span>
+                        <input type="radio" name="reminderDays" value="1" checked>
+                    </label>
+                    <label
+                        style="display: flex; align-items: center; justify-content: space-between; background: #222; padding: 10px 15px; border-radius: 8px; cursor: pointer;">
+                        <span>يومان</span>
+                        <input type="radio" name="reminderDays" value="2">
+                    </label>
+                    <label
+                        style="display: flex; align-items: center; justify-content: space-between; background: #222; padding: 10px 15px; border-radius: 8px; cursor: pointer;">
+                        <span>3 أيام</span>
+                        <input type="radio" name="reminderDays" value="3">
+                    </label>
+                    <label
+                        style="display: flex; align-items: center; justify-content: space-between; background: #222; padding: 10px 15px; border-radius: 8px; cursor: pointer;">
+                        <span>5 أيام</span>
+                        <input type="radio" name="reminderDays" value="5">
+                    </label>
+                    <label
+                        style="display: flex; align-items: center; justify-content: space-between; background: #222; padding: 10px 15px; border-radius: 8px; cursor: pointer;">
+                        <span>7 أيام (الحد الأقصى)</span>
+                        <input type="radio" name="reminderDays" value="7">
+                    </label>
+                </div>
+
+                <div id="outlookStatusMsg" style="margin-bottom: 15px; font-size: 0.85rem;"></div>
+
+                <div style="display: flex; gap: 10px;">
+                    <button id="btnConfirmOutlook" class="main-btn"
+                        style="flex: 1; background: #00a4ef; color: white;">مزامنة الآن <i
+                            class="fa fa-sync"></i></button>
+                    <button id="btnCancelOutlook" class="main-btn"
+                        style="flex: 1; background: #444; color: white;">إلغاء</button>
+                </div>
             </div>
         </div>
 
@@ -9059,7 +8904,46 @@
             {
                 name: "Falak Startups Internship", img: "train_falak.jpg", link: "https://www.linkedin.com/company/falakstartups/",
                 category: "ريادة أعمال", paid: "مدفوع", type: "Onsite",
-                data: { الجهة: "Falak Startups", المجال: "ريادة الأعمال / إدارة العمليات / الاستثمار", المكان: "Onsite (القاهرة)", المدة: "شهر إلى شهرين", مدفوع: "مدفوع", تفاصيل: "تجربة تدريبية متكاملة داخل بيئة الشركات الناشئة تشمل الإدارة واللوجستيات عبر حلول التسويق المبتكرة" }
+                data: { الجهة: "Falak Startups", المجال: "ريادة الأعمال / إدارة العمليات / الاستثمار", المكان: "Onsite (القاهرة)", المدة: "شهر �                grid.innerHTML += `
+                <div class="event-card">
+                    <div class="event-card-banner">
+                        <span class="event-badge">${ev.badge}</span>
+                        <h2>${ev.name}</h2>
+                        <p class="event-tagline">${ev.tagline}</p>
+                    </div>
+                    <div class="event-card-body">
+                        <div class="event-info-row">
+                            <i class="fa fa-calendar"></i>
+                            <div><strong>التاريخ</strong>${ev.date}</div>
+                        </div>
+                        <div class="event-info-row">
+                            <i class="fa fa-map-marker-alt"></i>
+                            <div><strong>المكان</strong>${ev.location}</div>
+                        </div>
+                        <div class="event-info-row">
+                            <i class="fa fa-tag"></i>
+                            <div>
+                                <strong>التسعير</strong>
+                                <div class="event-pricing">${pricingHTML}</div>
+                            </div>
+                        </div>
+                        <div class="event-goals">
+                            <h4><i class="fa fa-bullseye"></i> أهداف الفعالية</h4>
+                            ${goalsHTML}
+                        </div>
+                    </div>
+                    <div class="event-card-footer">
+                        <button class="follow-btn" onclick="event.stopPropagation();toggleFollow('event','${ev.name.replace(/'/g, "\\'")  }',this)" id="follow-event-${ev.name.replace(/[^a-zA-Z0-9\u0600-\u06FF]/g, '_')}">
+                            <i class="fa-regular fa-bell"></i> <span>${currentLang === 'ar' ? '\u062a\u0646\u0628\u064a\u0647' : 'Notify'}</span>
+                        </button>
+                        ${registerBtn}
+                        ${outlookBtn}
+                        ${gcalBtn}
+                        ${socialsHTML}
+                    </div>
+                </div>`;
+            });
+        }�هور واللوجستيات عبر حلول التسويق المبتكرة" }
             },
             {
                 name: "The Greek Campus Internship", img: "train_greek.jpg", link: "https://share.google/J84KQmX5UH8Sb3ybk",
@@ -9110,17 +8994,17 @@
             }
 
             const start = toGCal(ev.startISO);
-            const end = toGCal(ev.endISO || ev.startISO);
+            const end   = toGCal(ev.endISO || ev.startISO);
             const dates = end ? `${start}/${end}` : start;
 
             const params = new URLSearchParams({
-                action: 'TEMPLATE',
-                text: ev.name || '',
-                dates: dates,
-                details: ev.tagline || '',
-                location: ev.location || '',
-                sf: 'true',
-                output: 'xml'
+                action:   'TEMPLATE',
+                text:      ev.name || '',
+                dates:     dates,
+                details:   ev.tagline || '',
+                location:  ev.location || '',
+                sf:        'true',
+                output:    'xml'
             });
 
             return `https://calendar.google.com/calendar/render?${params.toString()}`;
@@ -9133,7 +9017,7 @@
                 tagline: "من أكبر الملتقيات التوظيفية في مصر بمشاركة أكثر من 100 شركة وبنك عالمي",
                 date: "7 - 8 أبريل 2026",
                 startISO: "2026-04-07",
-                endISO: "2026-04-09",
+                endISO:   "2026-04-09",
                 location: "جامعة عين شمس، القاهرة",
                 pricing: { student: "مجاني لطلاب وخريجي عين شمس", graduate: "275 جنيه للآخرين" },
                 goals: [
@@ -9156,7 +9040,7 @@
                 tagline: "أكبر حدث للتطوير المهني في مصر والشرق الأوسط",
                 date: "3 - 4 أبريل 2026",
                 startISO: "2026-04-03",
-                endISO: "2026-04-05",
+                endISO:   "2026-04-05",
                 location: "الجامعة البريطانية في مصر (BUE)",
                 pricing: { student: "450 جنيه للطلاب", graduate: "500 جنيه للخريجين" },
                 goals: [
@@ -9177,7 +9061,7 @@
                 tagline: "المؤتمر الدولي حول الذكاء الاصطناعي والأنظمة والتقنيات الناشئة",
                 date: "21 - 23 أبريل 2026",
                 startISO: "2026-04-21",
-                endISO: "2026-04-24",
+                endISO:   "2026-04-24",
                 location: "أكاديمية الشروق، القاهرة",
                 pricing: { student: "لم يُعلن عنه بعد", graduate: "—" },
                 goals: [
@@ -9198,7 +9082,7 @@
                 tagline: "أكبر حدث للتعليم الفني والتكنولوجي في مصر",
                 date: "20 - 21 أبريل 2026",
                 startISO: "2026-04-20",
-                endISO: "2026-04-22",
+                endISO:   "2026-04-22",
                 location: "مدينة الإعلام، القاهرة",
                 pricing: { student: "مجاني", graduate: "مجاني (يلزم التسجيل المسبق)" },
                 goals: [
@@ -9219,8 +9103,6 @@
                 name: "RiseUp Summit 2026",
                 tagline: "أكبر حدث لرواد الأعمال والمبتكرين في مصر",
                 date: "8 - 10 مايو 2026",
-                startISO: "2026-05-08",
-                endISO: "2026-05-11",
                 location: "المتحف المصري الكبير، القاهرة",
                 pricing: { student: "تبدأ من 500 جنيه (مع تخفيضات للطلاب)", graduate: "—" },
                 goals: [
@@ -9240,8 +9122,6 @@
                 name: "Techne Summit 2026",
                 tagline: "أكبر حدث لريادة الأعمال والابتكار في مصر والمنطقة بمشاركة أكثر من 55,000 زائر من 70+ دولة و450+ متحدث و150+ مستثمر",
                 date: "26-27 سبتمبر (القاهرة) | 3-5 أكتوبر (الإسكندرية)",
-                startISO: "2026-09-26",
-                endISO: "2026-10-06",
                 location: "القاهرة والإسكندرية",
                 pricing: { student: "تذاكر الطلاب تبدأ من 300 جنيه", graduate: "—" },
                 goals: [
@@ -9257,8 +9137,6 @@
                 name: "Creative Industry Summit 2026",
                 tagline: "واحد من أهم الفعاليات الإبداعية في مصر والمنطقة، منصة ضخمة تجمع آلاف المتحدثين ومئات ساعات الجلسات وورش العمل تخدم الاقتصاد الإبداعي",
                 date: "أكتوبر 2026",
-                startISO: "2026-10-01",
-                endISO: "2026-11-01",
                 location: "لم يُعلن عنه بعد",
                 pricing: { student: "لم يُعلن عنه بعد", graduate: "—" },
                 goals: [
@@ -9278,8 +9156,6 @@
                 name: "Edu Gate 2026",
                 tagline: "واحد من أهم المعارض التعليمية في مصر والمنطقة تحت رعاية وزارة التعليم العالي، منصة رئيسية لعرض الفرص التعليمية المحلية والدولية",
                 date: "أبريل 2026",
-                startISO: "2026-04-01",
-                endISO: "2026-05-01",
                 location: "مركز المنارة الدولي للمؤتمرات، التجمع الخامس، القاهرة",
                 pricing: { student: "مجاني (يلزم التسجيل المسبق)", graduate: "مجاني لأولياء الأمور" },
                 goals: [
@@ -9295,8 +9171,6 @@
                 name: "Cairo ICT",
                 tagline: "أكبر حدث تكنولوجي في مصر والشرق الأوسط، يقام سنويًا في مركز مصر الدولي للمعارض",
                 date: "نوفمبر من كل عام",
-                startISO: "2026-11-01",
-                endISO: "2026-12-01",
                 location: "مركز مصر الدولي للمعارض، القاهرة",
                 pricing: { student: "غير معلن بعد", graduate: "—" },
                 goals: [
@@ -9314,8 +9188,6 @@
                 name: "She Can 2026",
                 tagline: "أكبر حدث سنوي في مصر والشرق الأوسط مخصص لتمكين المرأة ودعم رائدات الأعمال، يجمع آلاف السيدات والشباب من مختلف المحافظات",
                 date: "17 - 18 أبريل 2026",
-                startISO: "2026-04-17",
-                endISO: "2026-04-19",
                 location: "The Greek Campus، القاهرة",
                 pricing: { student: "تذاكر رمزية تبدأ من 150 جنيه", graduate: "—" },
                 goals: [
@@ -9334,8 +9206,6 @@
                 name: "Cairo FACE Summit",
                 tagline: "مؤتمر عالمي متخصص في طب وتجميل الوجه، يجمع أكثر من 3,000 مشارك و150+ خبير دولي لتقديم أحدث الابتكارات في جراحات وتجميل الوجه",
                 date: "6 - 9 مايو 2026",
-                startISO: "2026-05-06",
-                endISO: "2026-05-10",
                 location: "فندق كايرو هيليوبوليس شيراتون، القاهرة",
                 pricing: { student: "لم يُعلن عنه بعد", graduate: "—" },
                 goals: [
@@ -9354,8 +9224,6 @@
                 name: "AI & Digital Foundations Conference",
                 tagline: "مؤتمر تقني مقدم من الركن الأمريكي لتعليم الطلاب أساسيات الشبكة والمفاهيم الرقمية",
                 date: "21 - 22 أبريل 2026",
-                startISO: "2026-04-21",
-                endISO: "2026-04-23",
                 location: "مكتبة المعادي العامة، القاهرة",
                 pricing: { student: "مجاني", graduate: "مجاني" },
                 goals: [
@@ -9371,8 +9239,6 @@
                 name: "Evolve Group Event",
                 tagline: "مؤتمر منظم لدعم وتأهيل الشباب في عدة مجالات لبناء جيل قادر على الفهم والتجربة واتخاذ القرار الصحيح",
                 date: "23 أبريل 2026",
-                startISO: "2026-04-23",
-                endISO: "2026-04-24",
                 location: "مكتبة مصر العامة، القاهرة",
                 pricing: { student: "مجاني (يلزم التسجيل المسبق)", graduate: "مجاني" },
                 goals: [
@@ -9388,8 +9254,6 @@
                 name: "ECPC - Egyptian Collegiate Programming Contest",
                 tagline: "النسخة المحلية من أكبر مسابقة برمجة جامعية على مستوى العالم، تُنظَّم سنوياً في مصر كجزء من التصفيات الإقليمية لإفريقيا والعالم العربي",
                 date: "النصف الثاني من 2026",
-                startISO: "2026-07-01",
-                endISO: "2026-12-31",
                 location: "المركز الإقليمي للمعلوماتية - الأكاديمية العربية للعلوم والتكنولوجيا",
                 pricing: { student: "مجاني تماماً للطلاب الجامعيين (فرق من 3 طلاب)", graduate: "—" },
                 goals: [
@@ -9492,9 +9356,9 @@
                 const ev = eventsData[idx];
                 const gcalLink = generateGoogleCalLink(ev);
                 const gcalModalBtn = gcalLink
-                    ? `<a href="${gcalLink}" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:8px 14px;border:none;border-radius:10px;background:linear-gradient(135deg, #4285f4, #34a853);color:#fff;text-decoration:none;font-size:0.85rem;font-weight:700;transition:opacity 0.2s;box-shadow:0 2px 5px rgba(66,133,244,0.3);" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
-                        <i class="far fa-calendar-check" style="font-size: 1rem;"></i>
-                        ذكّرني
+                    ? `<a href="${gcalLink}" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:8px 14px;border:2px solid #e0e0e0;border-radius:10px;background:#fff;color:#333;text-decoration:none;font-size:0.85rem;font-weight:700;transition:all 0.2s;" onmouseover="this.style.borderColor='#4285f4';this.style.background='rgba(66,133,244,0.06)'" onmouseout="this.style.borderColor='#e0e0e0';this.style.background='#fff'">
+                        <svg width="14" height="14" viewBox="0 0 48 48"><rect x="6" y="10" width="36" height="32" rx="3" fill="#fff" stroke="#dadce0" stroke-width="2"/><rect x="6" y="10" width="36" height="10" rx="3" fill="#4285f4"/><text x="24" y="37" font-size="14" text-anchor="middle" fill="#333" font-family="Arial" font-weight="bold">G</text></svg>
+                        أضف لـ Google Calendar
                       </a>`
                     : '';
                 body.innerHTML += `
@@ -9577,12 +9441,23 @@
                 const registerBtn = ev.registerLink
                     ? `<a href="${ev.registerLink}" target="_blank" class="btn-register-event"><i class="fa fa-pen"></i> سجّل الآن</a>`
                     : `<span class="btn-register-event" style="opacity:0.5;cursor:default;"><i class="fa fa-clock"></i> قريباً</span>`;
+                const outlookBtn = ev.registerLink
+                    ? `<button class="btn-register-event btn-outlook" onclick="event.stopPropagation(); openOutlookModal(${i})" id="outlook-btn-${i}" style="background: #00a4ef; color: white; margin-right: 5px; border:none;"><i class="fab fa-microsoft"></i> إضافة لـ Outlook</button>`
+                    : '';
                 const gcalLink = generateGoogleCalLink(ev);
                 const gcalBtn = gcalLink
-                    ? `<a href="${gcalLink}" target="_blank" class="btn-register-event btn-gcal" title="أضف للـ Google Calendar" style="background:linear-gradient(135deg, #4285f4, #34a853); color:white; border:none; display:inline-flex; align-items:center; gap:6px; text-decoration:none; padding: 8px 16px; border-radius: 8px; font-weight: bold; transition: opacity 0.2s; box-shadow:0 2px 6px rgba(66,133,244,0.3);" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
-                        <i class="far fa-calendar-check" style="font-size: 1.1rem;"></i>
-                        ذكّرني
-                      </a>`
+                    ? `<a href="${gcalLink}" target="_blank" class="btn-register-event btn-gcal" title="أضف للـ Google Calendar" style="background:#fff; color:#333; border:2px solid #e0e0e0; display:inline-flex; align-items:center; gap:6px; text-decoration:none;">
+                        <svg width="16" height="16" viewBox="0 0 48 48" style="flex-shrink:0">
+                          <rect x="6" y="10" width="36" height="32" rx="3" fill="#fff" stroke="#dadce0" stroke-width="2"/>
+                          <rect x="6" y="16" width="36" height="6" fill="#4285f4"/>
+                          <rect x="6" y="10" width="36" height="6" rx="3" fill="#4285f4"/>
+                          <circle cx="16" cy="6" r="2.5" fill="#333"/>
+                          <circle cx="32" cy="6" r="2.5" fill="#333"/>
+                          <line x1="16" y1="4" x2="16" y2="10" stroke="#333" stroke-width="2"/>
+                          <line x1="32" y1="4" x2="32" y2="10" stroke="#333" stroke-width="2"/>
+                          <text x="24" y="38" font-size="14" text-anchor="middle" fill="#333" font-family="Arial" font-weight="bold">G</text>
+                        </svg>
+                        Google Calendar</a>`
                     : '';
 
                 // عرض التسعير — إذا الاثنين متشابهين أو الثاني dash، نعرض بوكس واحد
@@ -9625,7 +9500,7 @@
                             <i class="fa-regular fa-bell"></i> <span>${currentLang === 'ar' ? '\u062a\u0646\u0628\u064a\u0647' : 'Notify'}</span>
                         </button>
                         ${registerBtn}
-                        ${gcalBtn}
+                        ${outlookBtn}
                         ${socialsHTML}
                     </div>
                 </div>`;
@@ -11351,6 +11226,131 @@ We're here to help! 🌟`,
         });
     </script>
 
+    <!-- Outlook Sync Logic -->
+    <script>
+        const msalConfig = {
+            auth: {
+                clientId: "YOUR_AZURE_APP_CLIENT_ID", // Replace with actual Client ID
+                authority: "https://login.microsoftonline.com/common",
+                redirectUri: window.location.href,
+            }
+        };
+        const msalInstance = new msal.PublicClientApplication(msalConfig);
+
+        let selectedEventForOutlook = null;
+        let selectedEventIndex = null;
+
+        function openOutlookModal(eventIndex) {
+            if (!currentUser) {
+                alert(translations[currentLang]['follow_login_required']);
+                toggleAuthModal();
+                return;
+            }
+            selectedEventIndex = eventIndex;
+            selectedEventForOutlook = eventsData[eventIndex];
+
+            document.getElementById('outlookModal').style.display = 'flex';
+            document.getElementById('outlookStatusMsg').innerText = '';
+        }
+
+        document.getElementById('btnCancelOutlook').onclick = () => {
+            document.getElementById('outlookModal').style.display = 'none';
+        };
+
+        document.getElementById('btnConfirmOutlook').onclick = async () => {
+            const btn = document.getElementById('btnConfirmOutlook');
+            const statusMsg = document.getElementById('outlookStatusMsg');
+            const reminderDays = document.querySelector('input[name="reminderDays"]:checked').value;
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> جاري التحقق...';
+            statusMsg.style.color = 'white';
+            statusMsg.innerText = '';
+
+            try {
+                // MSAL Login
+                const loginRequest = {
+                    scopes: ["Calendars.ReadWrite"]
+                };
+
+                let tokenResponse;
+                try {
+                    tokenResponse = await msalInstance.acquireTokenPopup(loginRequest);
+                } catch (err) {
+                    console.log("MSAL Login cancelled or failed:", err);
+                    statusMsg.style.color = 'orange';
+                    statusMsg.innerText = 'تم إلغاء تسجيل الدخول لـ Microsoft. يتم تسجيل الفعالية بدون مزامنة التقويم...';
+
+                    if (window.firebaseRegisterWithoutSync) {
+                        try {
+                            await window.firebaseRegisterWithoutSync(`event_${selectedEventIndex}`, parseInt(reminderDays));
+                            statusMsg.style.color = '#4CAF50';
+                            statusMsg.innerText = 'تم التسجيل في الفعالية بنجاح ✅';
+                        } catch (e) {
+                            if (e.message && e.message.includes('already-exists')) {
+                                statusMsg.style.color = '#ff4c4c';
+                                statusMsg.innerText = 'أنت مسجل بالفعل في هذه الفعالية!';
+                            } else {
+                                throw e;
+                            }
+                        }
+                    }
+                    setTimeout(() => {
+                        document.getElementById('outlookModal').style.display = 'none';
+                        btn.disabled = false;
+                        btn.innerHTML = 'مزامنة الآن <i class="fa fa-sync"></i>';
+                        const outBtn = document.getElementById(`outlook-btn-${selectedEventIndex}`);
+                        if (outBtn && statusMsg.innerText.includes('بنجاح')) {
+                            outBtn.disabled = true;
+                            outBtn.style.opacity = '0.5';
+                            outBtn.innerHTML = '<i class="fa fa-check"></i> مسجل';
+                        }
+                    }, 2500);
+                    return;
+                }
+
+                const accessToken = tokenResponse.accessToken;
+
+                // Call Firebase function
+                if (window.firebaseCreateOutlookEvent) {
+                    btn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> جاري المزامنة...';
+                    await window.firebaseCreateOutlookEvent({
+                        eventId: `event_${selectedEventIndex}`,
+                        reminderDays: parseInt(reminderDays),
+                        accessToken: accessToken
+                    });
+
+                    statusMsg.style.color = '#4CAF50';
+                    statusMsg.innerText = 'تمت الإضافة لتقويم Outlook بنجاح ✅';
+
+                    setTimeout(() => {
+                        document.getElementById('outlookModal').style.display = 'none';
+                        btn.disabled = false;
+                        btn.innerHTML = 'مزامنة الآن <i class="fa fa-sync"></i>';
+
+                        const outBtn = document.getElementById(`outlook-btn-${selectedEventIndex}`);
+                        if (outBtn) {
+                            outBtn.disabled = true;
+                            outBtn.style.opacity = '0.5';
+                            outBtn.innerHTML = '<i class="fa fa-check"></i> تمت المزامنة';
+                        }
+                    }, 2000);
+                } else {
+                    throw new Error("Firebase functions not initialized");
+                }
+
+            } catch (error) {
+                console.error("Error creating Outlook event:", error);
+                statusMsg.style.color = '#ff4c4c';
+                if (error.message && error.message.includes('already-exists')) {
+                    statusMsg.innerText = 'أنت مسجل بالفعل في هذه الفعالية!';
+                } else {
+                    statusMsg.innerText = 'حدث خطأ. يرجى المحاولة مرة أخرى.';
+                }
+                btn.disabled = false;
+                btn.innerHTML = 'إعادة المحاولة <i class="fa fa-sync"></i>';
+            }
+        };
     </script>
 
     <!-- Unified Search System -->
@@ -11388,6 +11388,16 @@ We're here to help! 🌟`,
         window.firebaseGetProfile = async (uid) => {
             const snap = await getDoc(doc(db, "users", uid));
             return snap.exists() ? snap.data() : null;
+        };
+        window.firebaseCreateOutlookEvent = async (data) => {
+            const call = httpsCallable(functions, 'createOutlookEvent');
+            const res = await call(data);
+            return res.data;
+        };
+        window.firebaseRegisterWithoutSync = async (eventId, reminderDays) => {
+            const call = httpsCallable(functions, 'registerEventWithoutSync');
+            const res = await call({ eventId, reminderDays });
+            return res.data;
         };
 
         // Auto-restore session on page load
@@ -11729,7 +11739,7 @@ We're here to help! 🌟`,
             if (langBtn) {
                 langBtn.innerText = currentLang === 'ar' ? 'EN' : 'AR';
             }
-
+            
             // Re-apply navigation highlighting if needed
             // (The text changes might slightly shift things, but usually it's fine)
         }
@@ -11750,31 +11760,31 @@ We're here to help! 🌟`,
          MODERN EFFECTS ENGINE — عصري ومتكامل
     ═══════════════════════════════════════════════════════ -->
     <script>
-        (function ModernEffects() {
-            'use strict';
+    (function ModernEffects() {
+        'use strict';
 
-            /* ── 1. Scroll Progress Bar ── */
-            const progress = document.getElementById('scroll-progress');
-            if (progress) {
-                window.addEventListener('scroll', () => {
-                    const max = document.documentElement.scrollHeight - window.innerHeight;
-                    progress.style.width = (window.scrollY / max * 100) + '%';
-                }, { passive: true });
-            }
+        /* ── 1. Scroll Progress Bar ── */
+        const progress = document.getElementById('scroll-progress');
+        if (progress) {
+            window.addEventListener('scroll', () => {
+                const max = document.documentElement.scrollHeight - window.innerHeight;
+                progress.style.width = (window.scrollY / max * 100) + '%';
+            }, { passive: true });
+        }
 
-            /* ── 2. Ambient Orbs ── */
-            const canvas = document.getElementById('ambient-canvas');
-            if (canvas) {
-                const orbData = [
-                    { w: 500, h: 500, t: '10%', l: '5%', c: 'rgba(168,161,150,0.18)', dur: '20s', dx: '60px', dy: '40px' },
-                    { w: 350, h: 350, t: '60%', l: '70%', c: 'rgba(255,180,0,0.10)', dur: '25s', dx: '-40px', dy: '-60px' },
-                    { w: 280, h: 280, t: '30%', l: '50%', c: 'rgba(168,161,150,0.12)', dur: '18s', dx: '30px', dy: '-30px' },
-                    { w: 200, h: 200, t: '80%', l: '20%', c: 'rgba(255,180,0,0.07)', dur: '30s', dx: '-50px', dy: '20px' },
-                ];
-                orbData.forEach((o, i) => {
-                    const div = document.createElement('div');
-                    div.className = 'amb-orb';
-                    div.style.cssText = `
+        /* ── 2. Ambient Orbs ── */
+        const canvas = document.getElementById('ambient-canvas');
+        if (canvas) {
+            const orbData = [
+                { w:500, h:500, t:'10%',  l:'5%',   c:'rgba(168,161,150,0.18)', dur:'20s', dx:'60px',  dy:'40px'  },
+                { w:350, h:350, t:'60%',  l:'70%',  c:'rgba(255,180,0,0.10)',   dur:'25s', dx:'-40px', dy:'-60px' },
+                { w:280, h:280, t:'30%',  l:'50%',  c:'rgba(168,161,150,0.12)', dur:'18s', dx:'30px',  dy:'-30px' },
+                { w:200, h:200, t:'80%',  l:'20%',  c:'rgba(255,180,0,0.07)',   dur:'30s', dx:'-50px', dy:'20px'  },
+            ];
+            orbData.forEach((o, i) => {
+                const div = document.createElement('div');
+                div.className = 'amb-orb';
+                div.style.cssText = `
                     width:${o.w}px; height:${o.h}px;
                     top:${o.t}; left:${o.l};
                     background:${o.c};
@@ -11782,193 +11792,193 @@ We're here to help! 🌟`,
                     animation-duration:${o.dur};
                     animation-delay:${i * -4}s;
                 `;
-                    canvas.appendChild(div);
-                });
-            }
+                canvas.appendChild(div);
+            });
+        }
 
-            /* ── 3. Cursor Trail ── */
-            const dot1 = document.getElementById('cursorDot1');
-            const dot2 = document.getElementById('cursorDot2');
-            if (dot1 && dot2 && window.innerWidth > 768) {
-                let mx = 0, my = 0, tx = 0, ty = 0;
-                document.addEventListener('mousemove', e => {
-                    mx = e.clientX; my = e.clientY;
-                    dot1.style.cssText += `left:${mx}px; top:${my}px; opacity:0.7;`;
-                });
-                (function animDot() {
-                    tx += (mx - tx) * 0.12;
-                    ty += (my - ty) * 0.12;
-                    dot2.style.cssText += `left:${tx}px; top:${ty}px; opacity:0.45;`;
-                    requestAnimationFrame(animDot);
-                })();
-                document.addEventListener('mouseleave', () => {
-                    dot1.style.opacity = '0'; dot2.style.opacity = '0';
-                });
-            }
+        /* ── 3. Cursor Trail ── */
+        const dot1 = document.getElementById('cursorDot1');
+        const dot2 = document.getElementById('cursorDot2');
+        if (dot1 && dot2 && window.innerWidth > 768) {
+            let mx = 0, my = 0, tx = 0, ty = 0;
+            document.addEventListener('mousemove', e => {
+                mx = e.clientX; my = e.clientY;
+                dot1.style.cssText += `left:${mx}px; top:${my}px; opacity:0.7;`;
+            });
+            (function animDot() {
+                tx += (mx - tx) * 0.12;
+                ty += (my - ty) * 0.12;
+                dot2.style.cssText += `left:${tx}px; top:${ty}px; opacity:0.45;`;
+                requestAnimationFrame(animDot);
+            })();
+            document.addEventListener('mouseleave', () => {
+                dot1.style.opacity = '0'; dot2.style.opacity = '0';
+            });
+        }
 
-            /* ── 4. Scroll Reveal ── */
-            function setupReveal() {
-                const io = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('visible');
-                            io.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.12 });
-
-                document.querySelectorAll('.reveal, .stagger').forEach(el => io.observe(el));
-            }
-            setupReveal();
-
-            // Re-run on page navigation
-            const origNavigateTo = window.navigateTo;
-            if (origNavigateTo) {
-                window.navigateTo = function (pageId, addToHistory) {
-                    origNavigateTo(pageId, addToHistory);
-                    setTimeout(setupReveal, 100);
-                };
-            }
-
-            /* ── 5. 3-D Card Tilt ── */
-            function initTilt() {
-                document.querySelectorAll('.tilt-card').forEach(card => {
-                    card.addEventListener('mousemove', e => {
-                        const r = card.getBoundingClientRect();
-                        const x = e.clientX - r.left - r.width / 2;
-                        const y = e.clientY - r.top - r.height / 2;
-                        const rx = (-y / r.height) * 8;
-                        const ry = (x / r.width) * 8;
-                        card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`;
-                        card.style.boxShadow = `${-ry}px ${rx}px 40px var(--greige-glow), 0 0 0 1px var(--greige-border)`;
-                    });
-                    card.addEventListener('mouseleave', () => {
-                        card.style.transform = '';
-                        card.style.boxShadow = '';
-                    });
-                });
-            }
-            initTilt();
-
-            /* ── 6. Animated Number Counters ── */
-            function countUp(el) {
-                const target = parseFloat(el.dataset.target || el.textContent.replace(/[^\d.+]/g, '')) || 0;
-                const suffix = el.textContent.replace(/[\d.]/g, '').trim();
-                const dur = 1400;
-                const start = performance.now();
-                (function tick(now) {
-                    const p = Math.min((now - start) / dur, 1);
-                    const ease = 1 - Math.pow(1 - p, 3);
-                    el.textContent = (Math.round(target * ease * 10) / 10) + suffix;
-                    if (p < 1) requestAnimationFrame(tick);
-                })(start);
-            }
-
-            const counterIO = new IntersectionObserver(entries => {
-                entries.forEach(e => {
-                    if (e.isIntersecting) {
-                        e.target.querySelectorAll('.act-stat-num, .train-stat-num, .vol-stat-num, .events-stat-num').forEach(n => {
-                            if (!n.dataset.counted) { n.dataset.counted = '1'; countUp(n); }
-                        });
+        /* ── 4. Scroll Reveal ── */
+        function setupReveal() {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        io.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.5 });
-            document.querySelectorAll('.act-stats-row, .train-stats-row, .vol-stats-row, .events-stats-row').forEach(r => counterIO.observe(r));
+            }, { threshold: 0.12 });
 
-            /* ── 7. Greige Dividers insertion (before inner-page headers) ── */
-            const heroSections = document.querySelectorAll(
-                '.train-hero, .act-page-header, .vol-hero, .events-hero, .start-hero, .about-hero'
-            );
-            heroSections.forEach(s => {
-                const div = document.createElement('div');
-                div.className = 'g-divider';
-                s.parentNode.insertBefore(div, s);
+            document.querySelectorAll('.reveal, .stagger').forEach(el => io.observe(el));
+        }
+        setupReveal();
+
+        // Re-run on page navigation
+        const origNavigateTo = window.navigateTo;
+        if (origNavigateTo) {
+            window.navigateTo = function(pageId, addToHistory) {
+                origNavigateTo(pageId, addToHistory);
+                setTimeout(setupReveal, 100);
+            };
+        }
+
+        /* ── 5. 3-D Card Tilt ── */
+        function initTilt() {
+            document.querySelectorAll('.tilt-card').forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const r = card.getBoundingClientRect();
+                    const x = e.clientX - r.left - r.width / 2;
+                    const y = e.clientY - r.top  - r.height / 2;
+                    const rx = (-y / r.height) * 8;
+                    const ry = ( x / r.width)  * 8;
+                    card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`;
+                    card.style.boxShadow = `${-ry}px ${rx}px 40px var(--greige-glow), 0 0 0 1px var(--greige-border)`;
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = '';
+                    card.style.boxShadow = '';
+                });
             });
+        }
+        initTilt();
 
-            /* ── 8. Page hero wave insertion ── */
-            heroSections.forEach(s => {
-                if (s.querySelector('.page-hero-wave')) return;
-                const fill = getComputedStyle(document.documentElement)
-                    .getPropertyValue('--greige-ultra').trim() || '#F2EEE9';
-                const wave = document.createElement('div');
-                wave.className = 'page-hero-wave';
-                wave.innerHTML = `<svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        /* ── 6. Animated Number Counters ── */
+        function countUp(el) {
+            const target = parseFloat(el.dataset.target || el.textContent.replace(/[^\d.+]/g, '')) || 0;
+            const suffix = el.textContent.replace(/[\d.]/g, '').trim();
+            const dur = 1400;
+            const start = performance.now();
+            (function tick(now) {
+                const p = Math.min((now - start) / dur, 1);
+                const ease = 1 - Math.pow(1 - p, 3);
+                el.textContent = (Math.round(target * ease * 10) / 10) + suffix;
+                if (p < 1) requestAnimationFrame(tick);
+            })(start);
+        }
+
+        const counterIO = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.querySelectorAll('.act-stat-num, .train-stat-num, .vol-stat-num, .events-stat-num').forEach(n => {
+                        if (!n.dataset.counted) { n.dataset.counted = '1'; countUp(n); }
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('.act-stats-row, .train-stats-row, .vol-stats-row, .events-stats-row').forEach(r => counterIO.observe(r));
+
+        /* ── 7. Greige Dividers insertion (before inner-page headers) ── */
+        const heroSections = document.querySelectorAll(
+            '.train-hero, .act-page-header, .vol-hero, .events-hero, .start-hero, .about-hero'
+        );
+        heroSections.forEach(s => {
+            const div = document.createElement('div');
+            div.className = 'g-divider';
+            s.parentNode.insertBefore(div, s);
+        });
+
+        /* ── 8. Page hero wave insertion ── */
+        heroSections.forEach(s => {
+            if (s.querySelector('.page-hero-wave')) return;
+            const fill = getComputedStyle(document.documentElement)
+                         .getPropertyValue('--greige-ultra').trim() || '#F2EEE9';
+            const wave = document.createElement('div');
+            wave.className = 'page-hero-wave';
+            wave.innerHTML = `<svg viewBox="0 0 1200 120" preserveAspectRatio="none">
                 <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,120.35,191.56,98.22Z" fill="var(--bg-page)"/>
             </svg>`;
-                s.style.position = 'relative';
-                s.style.overflow = 'hidden';
-                s.appendChild(wave);
-            });
+            s.style.position = 'relative';
+            s.style.overflow = 'hidden';
+            s.appendChild(wave);
+        });
 
-            /* ── 9. Add reveal class to inner-page content rows ── */
-            const innerRevealTargets = [
-                '.accordion-item', '.faq-item', '.guide-item',
-                '.path-card', '.about-feature', '.train-card',
-                '.act-org-card', '.vol-org-card', '.event-card',
-                '.feedback-form', '.info-panel'
-            ];
-            innerRevealTargets.forEach(sel => {
-                document.querySelectorAll(sel).forEach((el, i) => {
-                    el.classList.add('reveal');
-                    el.style.transitionDelay = (i % 4) * 0.08 + 's';
-                });
+        /* ── 9. Add reveal class to inner-page content rows ── */
+        const innerRevealTargets = [
+            '.accordion-item', '.faq-item', '.guide-item',
+            '.path-card', '.about-feature', '.train-card',
+            '.act-org-card', '.vol-org-card', '.event-card',
+            '.feedback-form', '.info-panel'
+        ];
+        innerRevealTargets.forEach(sel => {
+            document.querySelectorAll(sel).forEach((el, i) => {
+                el.classList.add('reveal');
+                el.style.transitionDelay = (i % 4) * 0.08 + 's';
             });
-            // Re-observe new reveals
-            setupReveal();
+        });
+        // Re-observe new reveals
+        setupReveal();
 
-            /* ── 10. Eyebrow shimmer on all eyebrow elements ── */
-            document.querySelectorAll('.sections-eyebrow, .train-eyebrow, .act-page-eyebrow, .premium-how-eyebrow, .about-eyebrow').forEach(el => {
-                el.classList.add('eyebrow-shimmer');
-            });
+        /* ── 10. Eyebrow shimmer on all eyebrow elements ── */
+        document.querySelectorAll('.sections-eyebrow, .train-eyebrow, .act-page-eyebrow, .premium-how-eyebrow, .about-eyebrow').forEach(el => {
+            el.classList.add('eyebrow-shimmer');
+        });
 
-            /* ── 11. Page transition on navigateTo ── */
-            const ptOverlay = document.getElementById('page-transition');
-            if (ptOverlay && origNavigateTo) {
-                window.navigateTo = (function (prev) {
-                    return function (pageId, addToHistory) {
-                        ptOverlay.classList.add('active');
+        /* ── 11. Page transition on navigateTo ── */
+        const ptOverlay = document.getElementById('page-transition');
+        if (ptOverlay && origNavigateTo) {
+            window.navigateTo = (function(prev) {
+                return function(pageId, addToHistory) {
+                    ptOverlay.classList.add('active');
+                    setTimeout(() => {
+                        prev(pageId, addToHistory);
                         setTimeout(() => {
-                            prev(pageId, addToHistory);
-                            setTimeout(() => {
-                                ptOverlay.classList.remove('active');
-                                ptOverlay.classList.add('out');
-                                setTimeout(() => ptOverlay.classList.remove('out'), 520);
-                            }, 80);
-                        }, 250);
-                    };
-                })(origNavigateTo);
-            }
+                            ptOverlay.classList.remove('active');
+                            ptOverlay.classList.add('out');
+                            setTimeout(() => ptOverlay.classList.remove('out'), 520);
+                        }, 80);
+                    }, 250);
+                };
+            })(origNavigateTo);
+        }
 
-            /* ── 12. Header scroll effect (add greige tint) ── */
-            const header = document.querySelector('header');
-            if (header) {
-                window.addEventListener('scroll', () => {
-                    if (window.scrollY > 60) {
-                        header.style.boxShadow = '0 4px 30px var(--greige-glow), 0 1px 0 var(--greige-border)';
-                    } else {
-                        header.style.boxShadow = '';
-                    }
-                }, { passive: true });
-            }
+        /* ── 12. Header scroll effect (add greige tint) ── */
+        const header = document.querySelector('header');
+        if (header) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 60) {
+                    header.style.boxShadow = '0 4px 30px var(--greige-glow), 0 1px 0 var(--greige-border)';
+                } else {
+                    header.style.boxShadow = '';
+                }
+            }, { passive: true });
+        }
 
-            /* ── 13. Greige bg class to calendar section ── */
-            const calSection = document.querySelector('.events-calendar-section');
-            if (calSection) calSection.classList.add('greige-bg');
+        /* ── 13. Greige bg class to calendar section ── */
+        const calSection = document.querySelector('.events-calendar-section');
+        if (calSection) calSection.classList.add('greige-bg');
 
-            /* ── 14. Glass card to path-cards and guide items ── */
-            document.querySelectorAll('.path-card, .guide-item, .premium-step-card').forEach(el => {
-                el.classList.add('glass-card');
+        /* ── 14. Glass card to path-cards and guide items ── */
+        document.querySelectorAll('.path-card, .guide-item, .premium-step-card').forEach(el => {
+            el.classList.add('glass-card');
+        });
+
+        /* ── 15. Observe stagger elements ── */
+        const staggerIO = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) { e.target.classList.add('visible'); staggerIO.unobserve(e.target); }
             });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.stagger').forEach(el => staggerIO.observe(el));
 
-            /* ── 15. Observe stagger elements ── */
-            const staggerIO = new IntersectionObserver(entries => {
-                entries.forEach(e => {
-                    if (e.isIntersecting) { e.target.classList.add('visible'); staggerIO.unobserve(e.target); }
-                });
-            }, { threshold: 0.1 });
-            document.querySelectorAll('.stagger').forEach(el => staggerIO.observe(el));
-
-        })();
+    })();
     </script>
 </body>
 

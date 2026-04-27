@@ -1,0 +1,14 @@
+﻿9347:                 const gcalBtn = gcalLink
+9348:                     ? `<a href="${gcalLink}" target="_blank" class="btn-register-event btn-gcal" title="أضف للـ Google Calendar" style="background:#fff; color:#333; border:2px solid #e0e0e0; display:inline-flex; align-items:center; gap:6px; text-decoration:none;">
+9349:                         <svg width="16" height="16" viewBox="0 0 48 48" style="flex-shrink:0">
+9350:                           <rect x="6" y="10" width="36" height="32" rx="3" fill="#fff" stroke="#dadce0" stroke-width="2"/>
+9351:                           <rect x="6" y="16" width="36" height="6" fill="#4285f4"/>
+9352:                           <rect x="6" y="10" width="36" height="6" rx="3" fill="#4285f4"/>
+9353:                           <circle cx="16" cy="6" r="2.5" fill="#333"/>
+9354:                           <circle cx="32" cy="6" r="2.5" fill="#333"/>
+9355:                           <line x1="16" y1="4" x2="16" y2="10" stroke="#333" stroke-width="2"/>
+9356:                           <line x1="32" y1="4" x2="32" y2="10" stroke="#333" stroke-width="2"/>
+9357:                           <text x="24" y="38" font-size="14" text-anchor="middle" fill="#333" font-family="Arial" font-weight="bold">G</text>
+9358:                         </svg>
+9359:                         Google Calendar</a>`
+9360:                     : '';

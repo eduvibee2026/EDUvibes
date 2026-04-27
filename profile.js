@@ -57,6 +57,8 @@ onAuthStateChanged(auth, async (user) => {
 
         // Populate UI
         populateProfile(profileData, user);
+        // Update stats card
+        if (typeof window.updateProfileStats === 'function') window.updateProfileStats(profileData);
     } catch (err) {
         console.error('Error loading profile:', err);
         showToast('حدث خطأ في تحميل البيانات', 'error');
@@ -189,7 +191,10 @@ logoutBtn.addEventListener('click', async () => {
 
 // ===== Toast =====
 function showToast(msg, type = 'success') {
-    toast.textContent = msg;
+    const msgEl = toast.querySelector('.pf-toast-msg');
+    const iconEl = toast.querySelector('.pf-toast-icon');
+    if (msgEl) msgEl.textContent = msg;
+    else toast.textContent = msg;
     toast.className = 'pf-toast ' + type + ' show';
     setTimeout(() => {
         toast.classList.remove('show');

@@ -1,108 +1,253 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" id="profileHtml">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EDUvibe — الملف الشخصي</title>
-    <meta name="description" content="صفحة الملف الشخصي - EDUvibe">
+    <title>EDUvibes — ملفي الشخصي</title>
+    <meta name="description" content="صفحة الملف الشخصي للمستخدم على منصة EDUvibes">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="profile.css">
 </head>
+
 <body>
 
     <!-- Loading Overlay -->
     <div class="profile-loading" id="profileLoading">
-        <div class="spinner"></div>
+        <div class="pf-loader">
+            <div class="pf-loader-ring"></div>
+            <span>جاري التحميل...</span>
+        </div>
     </div>
 
-    <!-- Top Bar -->
-    <nav class="profile-topbar">
-        <a href="index.html" class="profile-topbar-logo">
-            EDU<span>vibe</span>
-        </a>
-        <a href="index.html" class="profile-topbar-back">
-            <i class="fa fa-arrow-right"></i> الرجوع للرئيسية
-        </a>
-    </nav>
+    <!-- ===== HEADER (matches index.html style) ===== -->
+    <header class="pf-header">
+        <div class="pf-header-inner">
+            <!-- Logo -->
+            <a href="index.html" class="pf-logo">
+                <img src="data/logo header.png" alt="EDUvibes Logo" class="pf-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <span class="pf-logo-text" style="display:none;">EDU<em>vibes</em></span>
+            </a>
 
-    <!-- Profile Header -->
-    <header class="profile-header">
-        <div class="profile-avatar-wrap">
-            <div class="profile-avatar" id="avatarDisplay"></div>
-            <label class="profile-avatar-edit" for="avatarInput" title="تغيير الصورة">
-                <i class="fa fa-camera"></i>
-            </label>
-            <input type="file" id="avatarInput" class="profile-avatar-input" accept="image/*">
+            <!-- Nav Links -->
+            <nav class="pf-nav">
+                <a href="index.html#home" class="pf-nav-link">الرئيسية</a>
+                <a href="index.html#activities" class="pf-nav-link">الأنشطة</a>
+                <a href="index.html#volunteer" class="pf-nav-link">التطوع</a>
+                <a href="index.html#training" class="pf-nav-link">التدريب</a>
+                <a href="index.html#events" class="pf-nav-link">الفعاليات</a>
+            </nav>
+
+            <!-- Header Actions -->
+            <div class="pf-header-actions">
+                <button class="pf-dark-btn" id="pfDarkBtn" onclick="toggleProfileDark()" title="تبديل الوضع الليلي">
+                    <span class="moon-icon">🌙</span>
+                    <span class="sun-icon">☀️</span>
+                </button>
+                <a href="index.html" class="pf-back-btn">
+                    <i class="fa fa-arrow-right"></i>
+                    <span>الرئيسية</span>
+                </a>
+            </div>
         </div>
-        <h1 class="profile-header-name" id="headerName">...</h1>
-        <p class="profile-header-email" id="headerEmail">...</p>
     </header>
 
-    <!-- Content -->
-    <main class="profile-content">
+    <!-- ===== PROFILE HERO ===== -->
+    <section class="pf-hero">
+        <div class="pf-hero-orb pf-hero-orb-1"></div>
+        <div class="pf-hero-orb pf-hero-orb-2"></div>
+
+        <div class="pf-hero-inner">
+            <!-- Avatar -->
+            <div class="pf-avatar-wrap">
+                <div class="pf-avatar" id="avatarDisplay"></div>
+                <label class="pf-avatar-edit-btn" for="avatarInput" title="تغيير الصورة">
+                    <i class="fa fa-camera"></i>
+                </label>
+                <input type="file" id="avatarInput" class="pf-avatar-input" accept="image/*">
+            </div>
+
+            <!-- User Info -->
+            <div class="pf-hero-info">
+                <h1 class="pf-hero-name" id="headerName">جاري التحميل...</h1>
+                <p class="pf-hero-email" id="headerEmail"></p>
+                <div class="pf-hero-badge">
+                    <i class="fa fa-star"></i>
+                    <span>عضو EDUvibes</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wave divider -->
+        <div class="pf-hero-wave">
+            <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+                <path d="M0,40 C300,80 900,0 1200,40 L1200,80 L0,80 Z" fill="var(--pf-bg)"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="pf-content">
 
         <!-- Personal Info Card -->
-        <section class="profile-card">
-            <h2 class="profile-card-title"><i class="fa fa-user"></i> المعلومات الشخصية</h2>
-
-            <div class="pf-field" id="nameField">
-                <label class="pf-label">الاسم بالكامل</label>
-                <input type="text" class="pf-input" id="pfName" placeholder="اكتب اسمك الكامل">
-                <div class="pf-error">الاسم مطلوب</div>
+        <section class="pf-card pf-reveal">
+            <div class="pf-card-header">
+                <div class="pf-card-icon">
+                    <i class="fa fa-user"></i>
+                </div>
+                <div>
+                    <h2 class="pf-card-title">المعلومات الشخصية</h2>
+                    <p class="pf-card-subtitle">تحديث بياناتك الشخصية</p>
+                </div>
             </div>
 
-            <div class="pf-field">
-                <label class="pf-label">البريد الإلكتروني</label>
-                <input type="email" class="pf-input pf-input-readonly" id="pfEmail" disabled>
+            <div class="pf-fields-grid">
+                <div class="pf-field" id="nameField">
+                    <label class="pf-label">
+                        <i class="fa fa-user-circle"></i> الاسم بالكامل
+                    </label>
+                    <input type="text" class="pf-input" id="pfName" placeholder="اكتب اسمك الكامل">
+                    <div class="pf-error"><i class="fa fa-exclamation-circle"></i> الاسم مطلوب</div>
+                </div>
+
+                <div class="pf-field">
+                    <label class="pf-label">
+                        <i class="fa fa-envelope"></i> البريد الإلكتروني
+                    </label>
+                    <div class="pf-input-locked">
+                        <input type="email" class="pf-input" id="pfEmail" disabled>
+                        <span class="pf-locked-badge"><i class="fa fa-lock"></i></span>
+                    </div>
+                </div>
+
+                <div class="pf-field">
+                    <label class="pf-label">
+                        <i class="fa fa-university"></i> الجامعة
+                    </label>
+                    <input type="text" class="pf-input" id="pfUniversity" placeholder="مثال: جامعة عين شمس">
+                </div>
+
+                <div class="pf-field">
+                    <label class="pf-label">
+                        <i class="fa fa-lightbulb"></i> مجال الاهتمام
+                    </label>
+                    <div class="pf-select-wrap">
+                        <select class="pf-input" id="pfInterest">
+                            <option value="">— اختر مجالك —</option>
+                            <option value="web">🌐 Web & App Development</option>
+                            <option value="ai">🤖 AI & Data Science</option>
+                            <option value="security">🔒 Cybersecurity</option>
+                            <option value="design">🎨 UI/UX Design</option>
+                            <option value="marketing">📢 Marketing & Media</option>
+                            <option value="business">💼 Business & Finance</option>
+                            <option value="engineering">⚙️ Engineering</option>
+                            <option value="bio">🧬 Biological Sciences</option>
+                            <option value="volunteer">🤝 Volunteering</option>
+                            <option value="other">✨ أخرى</option>
+                        </select>
+                        <i class="fa fa-chevron-down pf-select-arrow"></i>
+                    </div>
+                </div>
             </div>
 
-            <div class="pf-field">
-                <label class="pf-label">الجامعة</label>
-                <input type="text" class="pf-input" id="pfUniversity" placeholder="مثال: جامعة عين شمس">
-            </div>
-
-            <div class="pf-field">
-                <label class="pf-label">مجال الاهتمام</label>
-                <select class="pf-input" id="pfInterest">
-                    <option value="">— اختر مجال —</option>
-                    <option value="web">Web & App Development</option>
-                    <option value="ai">AI & Data Science</option>
-                    <option value="security">Cybersecurity</option>
-                    <option value="design">UI/UX Design</option>
-                    <option value="marketing">Marketing & Media</option>
-                    <option value="business">Business & Finance</option>
-                    <option value="engineering">Engineering</option>
-                    <option value="bio">Biological Sciences</option>
-                    <option value="volunteer">Volunteering</option>
-                    <option value="other">أخرى</option>
-                </select>
-            </div>
-
-            <!-- Hidden photo URL field -->
+            <!-- Hidden -->
             <input type="hidden" id="pfPhotoUrl">
         </section>
 
-        <!-- Save Button Card -->
-        <section class="profile-card">
+        <!-- Save Button -->
+        <section class="pf-card pf-card-actions pf-reveal" style="animation-delay: 0.1s;">
             <button class="pf-save-btn" id="saveBtn">
-                <i class="fa fa-check"></i> حفظ التغييرات
+                <i class="fa fa-check-circle"></i>
+                <span>حفظ التغييرات</span>
             </button>
         </section>
 
-        <!-- Logout Card -->
-        <section class="profile-card" style="border: none; box-shadow: none; background: transparent; padding: 0;">
+        <!-- Stats Card -->
+        <section class="pf-card pf-stats-card pf-reveal" style="animation-delay: 0.2s;">
+            <div class="pf-card-header">
+                <div class="pf-card-icon" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">
+                    <i class="fa fa-chart-bar"></i>
+                </div>
+                <div>
+                    <h2 class="pf-card-title">إحصائياتي</h2>
+                    <p class="pf-card-subtitle">نشاطك على المنصة</p>
+                </div>
+            </div>
+            <div class="pf-stats-row">
+                <div class="pf-stat-item">
+                    <span class="pf-stat-num" id="statFollows">0</span>
+                    <span class="pf-stat-label">أنشطة متابعة</span>
+                </div>
+                <div class="pf-stat-divider"></div>
+                <div class="pf-stat-item">
+                    <span class="pf-stat-num" id="statDays">—</span>
+                    <span class="pf-stat-label">أيام منذ الانضمام</span>
+                </div>
+                <div class="pf-stat-divider"></div>
+                <div class="pf-stat-item">
+                    <span class="pf-stat-num">✓</span>
+                    <span class="pf-stat-label">حساب موثق</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Logout -->
+        <section class="pf-card pf-card-danger pf-reveal" style="animation-delay: 0.3s;">
             <button class="pf-logout-btn" id="logoutBtn">
-                <i class="fa fa-sign-out-alt"></i> تسجيل الخروج
+                <i class="fa fa-sign-out-alt"></i>
+                <span>تسجيل الخروج</span>
             </button>
         </section>
 
     </main>
 
     <!-- Toast Notification -->
-    <div class="pf-toast" id="pfToast"></div>
+    <div class="pf-toast" id="pfToast">
+        <i class="fa fa-check-circle pf-toast-icon"></i>
+        <span class="pf-toast-msg"></span>
+    </div>
 
     <!-- Profile JS -->
     <script type="module" src="profile.js"></script>
 
+    <script>
+        // Dark mode sync with index.html preference
+        function toggleProfileDark() {
+            const html = document.getElementById('profileHtml');
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            html.setAttribute('data-theme', isDark ? '' : 'dark');
+            localStorage.setItem('eduvibes_theme', isDark ? 'light' : 'dark');
+        }
+
+        // Apply saved theme on load
+        (function () {
+            const saved = localStorage.getItem('eduvibes_theme');
+            if (saved === 'dark') {
+                document.getElementById('profileHtml').setAttribute('data-theme', 'dark');
+            }
+        })();
+
+        // Stats: count follows from localStorage or Firestore
+        function updateStats(profileData) {
+            if (profileData && profileData.createdAt) {
+                const days = Math.floor((Date.now() - new Date(profileData.createdAt)) / 86400000);
+                const el = document.getElementById('statDays');
+                if (el) el.textContent = days;
+            }
+            if (profileData && profileData.follows) {
+                const count = Object.values(profileData.follows).filter(Boolean).length;
+                const el = document.getElementById('statFollows');
+                if (el) el.textContent = count;
+            }
+        }
+        window.updateProfileStats = updateStats;
+
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.pf-reveal').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>

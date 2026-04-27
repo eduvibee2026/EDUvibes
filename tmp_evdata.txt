@@ -1,0 +1,287 @@
+﻿8915:         const eventsData = [
+8916:             {
+8917:                 badge: "ملتقى توظيفي",
+8918:                 name: "ASU Career Expo 2026",
+8919:                 tagline: "من أكبر الملتقيات التوظيفية في مصر بمشاركة أكثر من 100 شركة وبنك عالمي",
+8920:                 date: "7 - 8 أبريل 2026",
+8921:                 startISO: "2026-04-07",
+8922:                 endISO:   "2026-04-09",
+8923:                 location: "جامعة عين شمس، القاهرة",
+8924:                 pricing: { student: "مجاني لطلاب وخريجي عين شمس", graduate: "275 جنيه للآخرين" },
+8925:                 goals: [
+8926:                     "تسهيل الانتقال من الدراسة إلى سوق العمل عبر التواصل المباشر مع جهات التوظيف",
+8927:                     "إقامة ورش عمل لتطوير المهارات الشخصية والمهنية",
+8928:                     "توفير فرص تدريب وتوظيف حقيقية للطلاب والخريجين",
+8929:                     "توسيع شبكة علاقات الطلاب والخريجين بينهم وبين الشركات"
+8930:                 ],
+8931:                 registerLink: "https://careerexpo.asu.edu.eg/attendee-register",
+8932:                 socials: [
+8933:                     { icon: "fab fa-whatsapp", label: "واتساب", url: "https://www.whatsapp.com/channel/0029Vb7KfyxL2ATrTuGIVG0X" },
+8934:                     { icon: "fab fa-facebook", label: "فيسبوك", url: "https://www.facebook.com/ASUCCOFFICIAL" },
+8935:                     { icon: "fab fa-linkedin", label: "لينكدإن", url: "https://www.linkedin.com/company/asucareercenter/" },
+8936:                     { icon: "fab fa-instagram", label: "إنستجرام", url: "https://www.instagram.com/asucareercenter" }
+8937:                 ]
+8938:             },
+8939:             {
+8940:                 badge: "مؤتمر مهني",
+8941:                 name: "Egypt Career Summit",
+8942:                 tagline: "أكبر حدث للتطوير المهني في مصر والشرق الأوسط",
+8943:                 date: "3 - 4 أبريل 2026",
+8944:                 startISO: "2026-04-03",
+8945:                 endISO:   "2026-04-05",
+8946:                 location: "الجامعة البريطانية في مصر (BUE)",
+8947:                 pricing: { student: "450 جنيه للطلاب", graduate: "500 جنيه للخريجين" },
+8948:                 goals: [
+8949:                     "سد الفجوة بين الشباب وسوق العمل عبر التواصل المباشر مع الشركات",
+8950:                     "تقديم ورش عمل وجلسات تدريبية متعددة في مجالات متنوعة",
+8951:                     "إتاحة أكثر من 1000 وظيفة وفرصة تدريب",
+8952:                     "تجميع خبراء من مجالات متعددة لتبادل الخبرات والرؤى حول مستقبل العمل"
+8953:                 ],
+8954:                 registerLink: "https://career-180.com/en/events/egypt-career-summit9th/register",
+8955:                 socials: [
+8956:                     { icon: "fab fa-facebook", label: "فيسبوك", url: "https://www.facebook.com/Egyptcareersummit" },
+8957:                     { icon: "fab fa-linkedin", label: "لينكدإن", url: "https://www.linkedin.com/company/egypt-career-summit/" }
+8958:                 ]
+8959:             },
+8960:             {
+8961:                 badge: "مؤتمر دولي",
+8962:                 name: "IEEE - ICAISET26",
+8963:                 tagline: "المؤتمر الدولي حول الذكاء الاصطناعي والأنظمة والتقنيات الناشئة",
+8964:                 date: "21 - 23 أبريل 2026",
+8965:                 startISO: "2026-04-21",
+8966:                 endISO:   "2026-04-24",
+8967:                 location: "أكاديمية الشروق، القاهرة",
+8968:                 pricing: { student: "لم يُعلن عنه بعد", graduate: "—" },
+8969:                 goals: [
+8970:                     "عرض أحدث الأبحاث في الذكاء الاصطناعي وتطبيقاته في الأنظمة الذكية والبنية التحتية",
+8971:                     "مناقشة التحديات الأمنية والخصوصية المرتبطة بالأنظمة الذكية",
+8972:                     "تعزيز التعاون الدولي بين الباحثين والأكاديميين والشركات"
+8973:                 ],
+8974:                 registerLink: null,
+8975:                 socials: [
+8976:                     { icon: "fab fa-instagram", label: "إنستجرام", url: "https://www.instagram.com/elshoroukacd" },
+8977:                     { icon: "fab fa-facebook", label: "فيسبوك", url: "https://www.facebook.com/share/14ZZ1kHqLD4/" },
+8978:                     { icon: "fab fa-linkedin", label: "لينكدإن", url: "https://www.linkedin.com/school/shorouk-academy/" }
+8979:                 ]
+8980:             },
+8981:             {
+8982:                 badge: "معرض تعليمي",
+8983:                 name: "EduTech Fair & Forum",
+8984:                 tagline: "أكبر حدث للتعليم الفني والتكنولوجي في مصر",
+8985:                 date: "20 - 21 أبريل 2026",
+8986:                 startISO: "2026-04-20",
+8987:                 endISO:   "2026-04-22",
+8988:                 location: "مدينة الإعلام، القاهرة",
+8989:                 pricing: { student: "مجاني", graduate: "مجاني (يلزم التسجيل المسبق)" },
+8990:                 goals: [
+8991:                     "عرض أحدث التقنيات في مجال التعليم الفني والتكنولوجي",
+8992:                     "تقديم جلسات تفاعلية وورش عمل لربط الطلاب بسوق العمل",
+8993:                     "تسليط الضوء على قصص نجاح عالمية في التعليم الفني والتكنولوجي",
+8994:                     "معارض للشركات والمؤسسات لعرض منتجات وخدمات تدعم التعليم الفني والتكنولوجي"
+8995:                 ],
+8996:                 registerLink: "https://www.tech.edutech-eg.com/register",
+8997:                 socials: [
+8998:                     { icon: "fab fa-facebook", label: "فيسبوك", url: "https://www.facebook.com/share/1L5dkM5MG8/" },
+8999:                     { icon: "fab fa-linkedin", label: "لينكدإن", url: "https://www.linkedin.com/in/EduTech%20Fair%20and%20Forum" },
+9000:                     { icon: "fab fa-instagram", label: "إنستجرام", url: "https://www.instagram.com/edutech.eg" }
+9001:                 ]
+9002:             },
+9003:             {
+9004:                 badge: "قمة ريادة أعمال",
+9005:                 name: "RiseUp Summit 2026",
+9006:                 tagline: "أكبر حدث لرواد الأعمال والمبتكرين في مصر",
+9007:                 date: "8 - 10 مايو 2026",
+9008:                 location: "المتحف المصري الكبير، القاهرة",
+9009:                 pricing: { student: "تبدأ من 500 جنيه (مع تخفيضات للطلاب)", graduate: "—" },
+9010:                 goals: [
+9011:                     "تعلّم عملي عبر ورش عمل تغطي أحدث الاتجاهات التكنولوجية في عدة مجالات",
+9012:                     "تشجيع الطلبة عبر عرض قصص نجاح لرواد أعمال مصريين",
+9013:                     "توسيع شبكة علاقات الطلاب بالشركات والمجالات التي يهتمون بها"
+9014:                 ],
+9015:                 registerLink: "https://riseupsummit.com/",
+9016:                 socials: [
+9017:                     { icon: "fab fa-facebook", label: "فيسبوك", url: "https://www.facebook.com/share/189KZqZDkG/" },
+9018:                     { icon: "fab fa-linkedin", label: "لينكدإن", url: "https://www.linkedin.com/company/riseup-summit/" },
+9019:                     { icon: "fab fa-instagram", label: "إنستجرام", url: "https://www.instagram.com/riseupsummit" }
+9020:                 ]
+9021:             },
+9022:             {
+9023:                 badge: "قمة ريادة أعمال",
+9024:                 name: "Techne Summit 2026",
+9025:                 tagline: "أكبر حدث لريادة الأعمال والابتكار في مصر والمنطقة بمشاركة أكثر من 55,000 زائر من 70+ دولة و450+ متحدث و150+ مستثمر",
+9026:                 date: "26-27 سبتمبر (القاهرة) | 3-5 أكتوبر (الإسكندرية)",
+9027:                 location: "القاهرة والإسكندرية",
+9028:                 pricing: { student: "تذاكر الطلاب تبدأ من 300 جنيه", graduate: "—" },
+9029:                 goals: [
+9030:                     "تمكين الشركات الناشئة عبر توفير منصة لعرض أفكارهم أمام مستثمرين عالميين مع مسابقات Pitching وفرص تمويل",
+9031:                     "ربط رواد الأعمال المصريين والعرب بشبكة من المستثمرين والخبراء والشركات من أكثر من 70 دولة",
+9032:                     "خلق فرص تعاون بين الشركات الناشئة والمؤسسات الكبرى والجهات الحكومية"
+9033:                 ],
+9034:                 registerLink: "https://forms.zohopublic.com/techne/form/TechneSummitCairoContactUsForm1/formperma/uVYvNNQwgOS21s91Q9tuso1dWSm8_Yhd56K6EorMefE",
+9035:                 socials: []
+9036:             },
+9037:             {
+9038:                 badge: "قمة إبداعية",
+9039:                 name: "Creative Industry Summit 2026",
+9040:                 tagline: "واحد من أهم الفعاليات الإبداعية في مصر والمنطقة، منصة ضخمة تجمع آلاف المتحدثين ومئات ساعات الجلسات وورش العمل تخدم الاقتصاد الإبداعي",
+9041:                 date: "أكتوبر 2026",
+9042:                 location: "لم يُعلن عنه بعد",
+9043:                 pricing: { student: "لم يُعلن عنه بعد", graduate: "—" },
+9044:                 goals: [
+9045:                     "تعزيز الاقتصاد الإبداعي من خلال نشر الأفكار المبتكرة وتحويلها لمشروعات واقعية",
+9046:                     "توفير مساحة للتواصل بين الطلاب ورواد الأعمال والمديرين التنفيذيين",
+9047:                     "الاحتفال سنوياً بمهرجان يجمع كل قطاعات الصناعة الإبداعية"
+9048:                 ],
+9049:                 registerLink: "https://creativeindmena.com/",
+9050:                 socials: [
+9051:                     { icon: "fab fa-linkedin", label: "لينكدإن", url: "https://www.linkedin.com/company/creativeindmena/" },
+9052:                     { icon: "fab fa-instagram", label: "إنستجرام", url: "https://www.instagram.com/creativeindmena" },
+9053:                     { icon: "fab fa-youtube", label: "يوتيوب", url: "https://www.youtube.com/c/CreativeIndMena" }
+9054:                 ]
+9055:             },
+9056:             {
+9057:                 badge: "معرض تعليمي",
+9058:                 name: "Edu Gate 2026",
+9059:                 tagline: "واحد من أهم المعارض التعليمية في مصر والمنطقة تحت رعاية وزارة التعليم العالي، منصة رئيسية لعرض الفرص التعليمية المحلية والدولية",
+9060:                 date: "أبريل 2026",
+9061:                 location: "مركز المنارة الدولي للمؤتمرات، التجمع الخامس، القاهرة",
+9062:                 pricing: { student: "مجاني (يلزم التسجيل المسبق)", graduate: "مجاني لأولياء الأمور" },
+9063:                 goals: [
+9064:                     "ربط الطلاب المصريين والعرب بالجامعات والمؤسسات التعليمية داخل مصر وخارجها",
+9065:                     "توفير معلومات مباشرة عن التخصصات والمنح الدراسية والبرامج الأكاديمية",
+9066:                     "خلق مساحة للتواصل بين الطلاب وأولياء الأمور والجامعات والمؤسسات التعليمية"
+9067:                 ],
+9068:                 registerLink: "https://edugate-eg.com",
+9069:                 socials: []
+9070:             },
+9071:             {
+9072:                 badge: "معرض تكنولوجي",
+9073:                 name: "Cairo ICT",
+9074:                 tagline: "أكبر حدث تكنولوجي في مصر والشرق الأوسط، يقام سنويًا في مركز مصر الدولي للمعارض",
+9075:                 date: "نوفمبر من كل عام",
+9076:                 location: "مركز مصر الدولي للمعارض، القاهرة",
+9077:                 pricing: { student: "غير معلن بعد", graduate: "—" },
+9078:                 goals: [
+9079:                     "استعراض أحدث تقنيات الذكاء الاصطناعي والتحول الرقمي",
+9080:                     "مناقشة التحديات الأمنية والحلول الذكية للمدن والمؤسسات",
+9081:                     "توفير منصة تواصل بين الشركات الكبرى والناشئة في قطاع التكنولوجيا"
+9082:                 ],
+9083:                 registerLink: "https://cairoict.com/student-youth-registration/",
+9084:                 socials: [
+9085:                     { icon: "fab fa-facebook", label: "فيسبوك", url: "https://www.facebook.com/cairoict/" }
+9086:                 ]
+9087:             },
+9088:             {
+9089:                 badge: "تمكين المرأة",
+9090:                 name: "She Can 2026",
+9091:                 tagline: "أكبر حدث سنوي في مصر والشرق الأوسط مخصص لتمكين المرأة ودعم رائدات الأعمال، يجمع آلاف السيدات والشباب من مختلف المحافظات",
+9092:                 date: "17 - 18 أبريل 2026",
+9093:                 location: "The Greek Campus، القاهرة",
+9094:                 pricing: { student: "تذاكر رمزية تبدأ من 150 جنيه", graduate: "—" },
+9095:                 goals: [
+9096:                     "ورش عمل تدريبية في مجالات التسويق والإدارة والتمويل",
+9097:                     "دعم ريادة الأعمال عبر توفير فرص عرض المشاريع الناشئة أمام الجمهور والمستثمرين",
+9098:                     "التثقيف والتوعية بقضايا المرأة والمساواة وريادة الأعمال"
+9099:                 ],
+9100:                 registerLink: "https://form.typeform.com/to/CyGmKfwW",
+9101:                 socials: [
+9102:                     { icon: "fab fa-instagram", label: "إنستجرام", url: "https://www.instagram.com/shecanevent" },
+9103:                     { icon: "fab fa-facebook", label: "فيسبوك", url: "https://www.facebook.com/Entreprenelle/" }
+9104:                 ]
+9105:             },
+9106:             {
+9107:                 badge: "مؤتمر طبي",
+9108:                 name: "Cairo FACE Summit",
+9109:                 tagline: "مؤتمر عالمي متخصص في طب وتجميل الوجه، يجمع أكثر من 3,000 مشارك و150+ خبير دولي لتقديم أحدث الابتكارات في جراحات وتجميل الوجه",
+9110:                 date: "6 - 9 مايو 2026",
+9111:                 location: "فندق كايرو هيليوبوليس شيراتون، القاهرة",
+9112:                 pricing: { student: "لم يُعلن عنه بعد", graduate: "—" },
+9113:                 goals: [
+9114:                     "تدريب عملي مباشر من خلال عمليات جراحية حية ودورات تشريحية",
+9115:                     "تبادل الخبرات العالمية بين جراحي التجميل وأطباء الجلدية وأطباء الأنف والأذن والحنجرة",
+9116:                     "تعزيز الابتكار في تقنيات الحقن وشد الوجه وتجميل الأنف وإعادة بناء الوجه"
+9117:                 ],
+9118:                 registerLink: "https://cairoface.com/",
+9119:                 socials: [
+9120:                     { icon: "fab fa-instagram", label: "إنستجرام", url: "https://www.instagram.com/cairo.face.summit/" },
+9121:                     { icon: "fab fa-linkedin", label: "لينكدإن", url: "https://www.linkedin.com/company/cairo-face/" }
+9122:                 ]
+9123:             },
+9124:             {
+9125:                 badge: "مؤتمر تقني",
+9126:                 name: "AI & Digital Foundations Conference",
+9127:                 tagline: "مؤتمر تقني مقدم من الركن الأمريكي لتعليم الطلاب أساسيات الشبكة والمفاهيم الرقمية",
+9128:                 date: "21 - 22 أبريل 2026",
+9129:                 location: "مكتبة المعادي العامة، القاهرة",
+9130:                 pricing: { student: "مجاني", graduate: "مجاني" },
+9131:                 goals: [
+9132:                     "تعريف الطلاب بمكونات أجهزة الحاسوب وكيفية تفاعل البرامج مع الأجهزة",
+9133:                     "تغطية مفاهيم أساسية مثل شبكات الكمبيوتر والأمن السيبراني",
+9134:                     "تعليم كيفية استخدام أدوات الحوسبة السحابية"
+9135:                 ],
+9136:                 registerLink: "https://docs.google.com/forms/d/e/1FAIpQLSc6yGGtn3kEfDOTOmf8Cr7XzBAD1jxbXOFwVoWhTPzKJP8EQg/viewform",
+9137:                 socials: []
+9138:             },
+9139:             {
+9140:                 badge: "فعالية شبابية",
+9141:                 name: "Evolve Group Event",
+9142:                 tagline: "مؤتمر منظم لدعم وتأهيل الشباب في عدة مجالات لبناء جيل قادر على الفهم والتجربة واتخاذ القرار الصحيح",
+9143:                 date: "23 أبريل 2026",
+9144:                 location: "مكتبة مصر العامة، القاهرة",
+9145:                 pricing: { student: "مجاني (يلزم التسجيل المسبق)", graduate: "مجاني" },
+9146:                 goals: [
+9147:                     "بناء شبكة علاقات قوية مع الشركات ورواد الأعمال",
+9148:                     "ورش عمل في مجالات Cyber Security وData Analytics وFront-End Development",
+9149:                     "تشجيع الطلبة عبر عرض قصص نجاح لطلاب آخرين"
+9150:                 ],
+9151:                 registerLink: "https://docs.google.com/forms/d/e/1FAIpQLSc9FHW_wufSYIQdHBribnQU4xKcti04-adScXps3WyVyTe2Ww/closedform",
+9152:                 socials: []
+9153:             },
+9154:             {
+9155:                 badge: "مسابقة برمجة",
+9156:                 name: "ECPC - Egyptian Collegiate Programming Contest",
+9157:                 tagline: "النسخة المحلية من أكبر مسابقة برمجة جامعية على مستوى العالم، تُنظَّم سنوياً في مصر كجزء من التصفيات الإقليمية لإفريقيا والعالم العربي",
+9158:                 date: "النصف الثاني من 2026",
+9159:                 location: "المركز الإقليمي للمعلوماتية - الأكاديمية العربية للعلوم والتكنولوجيا",
+9160:                 pricing: { student: "مجاني تماماً للطلاب الجامعيين (فرق من 3 طلاب)", graduate: "—" },
+9161:                 goals: [
+9162:                     "تجربة عملية قوية في البرمجة التنافسية تحت ضغط الوقت",
+9163:                     "بناء شبكة علاقات مع طلاب من مختلف الجامعات المصرية والعربية",
+9164:                     "تعزيز السيرة الذاتية بمسابقة ICPC المعترف بها عالمياً"
+9165:                 ],
+9166:                 registerLink: "https://icpc.global/regionals/finder/ECPCQ-2027",
+9167:                 socials: [
+9168:                     { icon: "fab fa-facebook", label: "فيسبوك", url: "https://www.facebook.com/EgyptCPC/" },
+9169:                     { icon: "fab fa-linkedin", label: "لينكدإن", url: "https://www.linkedin.com/company/ecpc-egyptian-collegiate-programming-contest/" }
+9170:                 ]
+9171:             }
+9172:         ];
+9173: 
+9174:         let currentCalMonth = 3; // April (0-indexed)
+9175:         let currentCalYear = 2026;
+9176: 
+9177:         function changeCalendarMonth(dir) {
+9178:             currentCalMonth += dir;
+9179:             if (currentCalMonth > 11) { currentCalMonth = 0; currentCalYear++; }
+9180:             if (currentCalMonth < 0) { currentCalMonth = 11; currentCalYear--; }
+9181:             renderEventsCalendar();
+9182:         }
+9183: 
+9184:         function renderEventsCalendar() {
+9185:             const calContainer = document.getElementById('eventsCalendarGrid');
+9186:             if (!calContainer) return;
+9187: 
+9188:             calContainer.innerHTML = '';
+9189:             const dayNames = ['أحد', 'إثنين', 'ثلاثاء', 'أربعاء', 'خميس', 'جمعة', 'سبت'];
+9190:             dayNames.forEach(d => {
+9191:                 calContainer.innerHTML += `<div class="cal-day-name">${d}</div>`;
+9192:             });
+9193: 
+9194:             const firstDay = new Date(currentCalYear, currentCalMonth, 1).getDay();
+9195:             const daysInMonth = new Date(currentCalYear, currentCalMonth + 1, 0).getDate();
+9196: 
+9197:             const monthNamesAr = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'];
+9198:             const calDisplay = document.getElementById('calMonthYearDisplay');
+9199:             if (calDisplay) calDisplay.innerText = `${monthNamesAr[currentCalMonth]} ${currentCalYear}`;
+9200: 
+9201:             const currentMonthName = monthNamesAr[currentCalMonth];

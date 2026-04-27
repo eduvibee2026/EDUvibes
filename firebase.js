@@ -1,15 +1,15 @@
 // firebase.js — Shared Firebase Configuration
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-auth.js";
-import { getFirestore, doc, setDoc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-auth.js";
+import { getFirestore, doc, setDoc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBlJPUnOsXvnS0yiPJs0UxT02fcUPr8gyo",
-    authDomain: "eduvibes-60060.firebaseapp.com",
-    projectId: "eduvibes-60060",
-    storageBucket: "eduvibes-60060.firebasestorage.app",
-    messagingSenderId: "875311364757",
-    appId: "1:875311364757:web:a6927ad93ea3f02f78799c"
+    apiKey: "AIzaSyBFq2gJav9bCRLWefWfPExmjki08KNyLUQ",
+    authDomain: "eduvibes-62426.firebaseapp.com",
+    projectId: "eduvibes-62426",
+    storageBucket: "eduvibes-62426.firebasestorage.app",
+    messagingSenderId: "587654080019",
+    appId: "1:587654080019:web:2e1500022541c6fbf241e6"
 };
 
 const app = initializeApp(firebaseConfig);
