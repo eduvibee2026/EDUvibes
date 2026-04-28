@@ -221,10 +221,11 @@
 
     // ── Full Search Results Overlay ──
     function renderFullResults(results, query) {
-        let overlay = document.getElementById('searchResultsOverlay');
+        let overlay = document.getElementById('page-search-results');
         if (!overlay) {
             overlay = document.createElement('div');
-            overlay.id = 'searchResultsOverlay';
+            overlay.id = 'page-search-results';
+            overlay.className = 'page-content';
             document.body.appendChild(overlay);
         }
 
@@ -237,7 +238,6 @@
                     <i class="fa fa-search"></i>
                     <input type="text" id="overlaySearchInput" placeholder="${placeholder}" onkeyup="handleOverlaySearch(event)">
                 </div>
-                <button class="search-overlay-close" onclick="closeSearchOverlay()"><i class="fa fa-times"></i></button>
             </div>
         `;
 
@@ -254,13 +254,11 @@
                         </a>
                     </div>
                 </div>`;
-            overlay.classList.add('open');
-            document.body.style.overflow = 'hidden';
             return;
         }
 
         if (results.length === 0 && query.length < 2) {
-             overlay.innerHTML = `
+            overlay.innerHTML = `
                 <div class="search-overlay-inner">
                     ${headerHtml}
                     <div class="search-full-empty" style="padding: 100px 30px;">
@@ -269,8 +267,6 @@
                         <p>${lang === 'ar' ? 'ابدأ بكتابة كلمات مثل "برمجة"، "تطوع"، "تدريب"...' : 'Start typing keywords like "Coding", "Volunteer", "Internship"...'}</p>
                     </div>
                 </div>`;
-            overlay.classList.add('open');
-            document.body.style.overflow = 'hidden';
             return;
         }
 
@@ -333,24 +329,30 @@
                 <div class="search-results-list" id="searchResultsList">${cardsHtml}</div>
             </div>`;
 
-        overlay.classList.add('open');
-        document.body.style.overflow = 'hidden';
-
         // Store results for filtering
         overlay._allResults = results;
         overlay._query = query;
     }
 
     // ── Handle Typing in Overlay Search ──
-    window.handleOverlaySearch = function(e) {
+    window.handleOverlaySearch = function (e) {
         const query = e.target.value.trim();
+
+        // On Enter with exactly 1 result → go directly to it
+        if (e.key === 'Enter') {
+            const results = query.length >= 2 ? searchItems(query) : [];
+            if (results.length === 1) {
+                handleSearchResultClick(results[0]._page, results[0].id, results[0].title);
+                return;
+            }
+        }
+
         if (query.length < 2) {
-            // Optional: show empty state or just keep current
             return;
         }
         const results = searchItems(query);
         renderFullResults(results, query);
-        
+
         // Re-focus because renderFullResults rewrites HTML
         const overlayInput = document.getElementById('overlaySearchInput');
         if (overlayInput) {
@@ -362,7 +364,7 @@
 
     // ── Filter within results ──
     window.filterSearchResults = function (cat, btn) {
-        const overlay = document.getElementById('searchResultsOverlay');
+        const overlay = document.getElementById('page-search-results');
         if (!overlay || !overlay._allResults) return;
 
         document.querySelectorAll('.search-filter-chip').forEach(c => c.classList.remove('active'));
@@ -409,9 +411,8 @@
         const item = searchIndex.find(it => it.id === id);
         if (!item) return;
 
-        // 1. Close search autocomplete and overlay
+        // 1. Close search autocomplete
         closeAutocomplete();
-        closeSearchOverlay();
         document.getElementById('globalSearchInput').value = '';
 
         // 2. Navigate to the target page normally
@@ -433,15 +434,15 @@
             modal.id = 'searchDetailModal';
             modal.className = 'search-detail-modal'; // This acts as the overlay
             document.body.appendChild(modal);
-            
+
             // Close on background click
-            modal.onclick = (e) => { if(e.target === modal) closeSearchDetailModal(); };
+            modal.onclick = (e) => { if (e.target === modal) closeSearchDetailModal(); };
         }
 
         const lang = (typeof currentLang !== 'undefined' ? currentLang : 'ar');
         const org = item._original || {};
         const aboutText = lang === 'ar' ? (item.description_ar || '') : (item.description_en || '');
-        
+
         // Social links logic
         const socialIconMap = {
             facebook: 'fab fa-facebook-f', instagram: 'fab fa-instagram',
@@ -492,10 +493,10 @@
                 <div class="act-modal-header">
 
                     <button class="act-modal-close" onclick="closeSearchDetailModal()"><i class="fa fa-times"></i></button>
-                    ${item.image ? 
-                        `<img class="act-modal-logo" src="${item.image}" alt="${item.title}">` : 
-                        `<div class="act-modal-logo-placeholder">${item.icon.includes('fa-') ? `<i class="fa ${item.icon}"></i>` : '🎓'}</div>`
-                    }
+                    ${item.image ?
+                `<img class="act-modal-logo" src="${item.image}" alt="${item.title}">` :
+                `<div class="act-modal-logo-placeholder">${item.icon.includes('fa-') ? `<i class="fa ${item.icon}"></i>` : '🎓'}</div>`
+            }
                     <div class="act-modal-name">${item.title}</div>
                     <div class="act-modal-cat">${lang === 'ar' ? item.categoryLabel_ar : item.categoryLabel_en}</div>
                     <div class="act-modal-social-row">${socialHtml}</div>
@@ -511,43 +512,49 @@
     }
 
 
-    window.closeSearchDetailModal = function() {
+    window.closeSearchDetailModal = function () {
         const modal = document.getElementById('searchDetailModal');
         if (modal) {
             modal.classList.remove('open');
         }
         // Always attempt to restore scroll if no overlays are open
-        const overlay = document.getElementById('searchResultsOverlay');
-        const overlayOpen = overlay && overlay.classList.contains('open');
+        const overlay = document.getElementById('page-search-results');
         const detailOpen = modal && modal.classList.contains('open');
         
-        if (!overlayOpen && !detailOpen) {
+        if (!detailOpen) {
             document.body.style.overflow = '';
         }
     };
 
     // ── Close Overlay ──
     window.closeSearchOverlay = function () {
-        const overlay = document.getElementById('searchResultsOverlay');
-        if (overlay) {
-            overlay.classList.remove('open');
-        }
-        closeSearchDetailModal(); // This will handle scroll restoration
+        // Obsolete: it's a page now
+        closeSearchDetailModal();
         document.body.style.overflow = '';
     };
 
 
 
     // ── Global Search Function (used by Enter/click) ──
-    window.showGlobalSearchPopup = function(initialQuery = '') {
+    window.showGlobalSearchPopup = function (initialQuery = '') {
         const input = document.getElementById('globalSearchInput');
         const query = initialQuery || (input ? input.value.trim() : '');
-        
-        // Even if query is short, show the overlay (it will have its own input now)
+
         const results = query.length >= 2 ? searchItems(query) : [];
+
+        // If exactly 1 result → go directly to it (no results page)
+        if (results.length === 1) {
+            closeAutocomplete();
+            if (input) input.value = '';
+            handleSearchResultClick(results[0]._page, results[0].id, results[0].title);
+            return;
+        }
+
+        // Otherwise, render results first (creates the page element), then navigate to it
         renderFullResults(results, query);
-        
-        // Focus the input inside the overlay
+        if (typeof navigateTo === 'function') navigateTo('search-results');
+
+        // Focus the input inside the page
         setTimeout(() => {
             const overlayInput = document.getElementById('overlaySearchInput');
             if (overlayInput) {

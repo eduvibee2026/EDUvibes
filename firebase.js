@@ -1,7 +1,7 @@
 // firebase.js — Shared Firebase Configuration
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-auth.js";
-import { getFirestore, doc, setDoc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
+import { getFirestore, doc, setDoc, getDoc, updateDoc, addDoc, collection } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBFq2gJav9bCRLWefWfPExmjki08KNyLUQ",
@@ -22,5 +22,6 @@ export {
     createUserWithEmailAndPassword, signInWithEmailAndPassword,
     signOut, onAuthStateChanged,
     GoogleAuthProvider, signInWithPopup,
-    doc, setDoc, getDoc, updateDoc
+    doc, setDoc, getDoc, updateDoc,
+    addDoc, collection
 };

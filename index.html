@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl" id="mainHtml">
 
 <head>
@@ -504,36 +504,14 @@
             box-shadow: 0 0 8px rgba(255, 180, 0, 0.6);
         }
 
-        /* ── 10. Card Tilt (3-D via JS) — base styles ── */
-        .tilt-card {
-            transform-style: preserve-3d;
-            will-change: transform;
-            transition: transform .15s ease, box-shadow .3s;
-        }
+
 
         /* ── 11. Stat counter animation ── */
         .count-up {
             display: inline-block;
         }
 
-        /* ── 12. Page-transition overlay ── */
-        #page-transition {
-            position: fixed;
-            inset: 0;
-            background: linear-gradient(135deg, var(--greige-ultra), var(--bg-subtle));
-            z-index: 9999;
-            pointer-events: none;
-            clip-path: circle(0% at 50% 50%);
-            transition: clip-path .5s cubic-bezier(.7, 0, .3, 1);
-        }
 
-        #page-transition.active {
-            clip-path: circle(150% at 50% 50%);
-        }
-
-        #page-transition.out {
-            clip-path: circle(0% at 50% 50%);
-        }
 
         /* ── 13. Footer greige top border ── */
         footer::before {
@@ -548,19 +526,7 @@
                     var(--greige-light));
         }
 
-        /* ── 14. Cursor trail dots ── */
-        .cursor-dot {
-            position: fixed;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--greige);
-            pointer-events: none;
-            z-index: 99999;
-            opacity: 0;
-            transform: translate(-50%, -50%);
-            transition: opacity .2s;
-        }
+
 
         /* ── 15. Dark hero sections Greige glow accent ── */
         .train-hero,
@@ -657,6 +623,220 @@
             pointer-events: none;
         }
 
+        /* ============================================================
+           MODERN CATEGORIES GRID — no images, icon-based
+        ============================================================ */
+        .modern-sections-wrapper {
+            padding: 50px 6% 90px;
+            background: var(--bg-subtle);
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+            position: relative;
+        }
+
+        .modern-sections-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, var(--greige) 1px, transparent 1px);
+            background-size: 32px 32px;
+            opacity: .05;
+            pointer-events: none;
+        }
+
+        .modern-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 28px;
+            padding: 44px 40px 40px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            transition: transform 0.4s cubic-bezier(0.2,0.8,0.2,1),
+                        box-shadow 0.4s,
+                        border-color 0.4s;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+        }
+
+        .modern-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 10% 10%, rgba(var(--card-color-rgb), 0.07) 0%, transparent 60%);
+            transition: opacity 0.4s;
+            opacity: 0;
+            border-radius: inherit;
+        }
+
+        .modern-card:hover::before { opacity: 1; }
+
+        .modern-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 60px rgba(var(--card-color-rgb), 0.15), 0 4px 20px rgba(0,0,0,0.05);
+            border-color: rgba(var(--card-color-rgb), 0.35);
+        }
+
+        .mcard-number {
+            position: absolute;
+            bottom: -18px;
+            left: -8px;
+            font-size: 7rem;
+            font-weight: 900;
+            color: rgba(var(--card-color-rgb), 0.06);
+            line-height: 1;
+            pointer-events: none;
+            user-select: none;
+            transition: color 0.4s, transform 0.4s;
+            letter-spacing: -4px;
+        }
+
+        .modern-card:hover .mcard-number {
+            color: rgba(var(--card-color-rgb), 0.12);
+            transform: scale(1.05) rotate(-3deg);
+        }
+
+        .mcard-icon-wrap {
+            position: relative;
+            width: 72px;
+            height: 72px;
+            margin-bottom: 28px;
+            flex-shrink: 0;
+        }
+
+        .mcard-icon-ring {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: rgba(var(--card-color-rgb), 0.12);
+            transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), background 0.4s;
+        }
+
+        .modern-card:hover .mcard-icon-ring {
+            background: rgba(var(--card-color-rgb), 0.2);
+            transform: scale(1.15);
+        }
+
+        .mcard-icon {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.7rem;
+            color: var(--card-color);
+            line-height: 72px;
+            text-align: center;
+            transition: transform 0.4s cubic-bezier(0.2,0.8,0.2,1);
+        }
+
+        .modern-card:hover .mcard-icon {
+            transform: scale(1.15) rotate(-5deg);
+        }
+
+        .mcard-content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mcard-tag-row {
+            display: flex;
+            gap: 7px;
+            flex-wrap: wrap;
+            margin-bottom: 14px;
+        }
+
+        .mcard-tag {
+            background: rgba(var(--card-color-rgb), 0.1);
+            color: var(--card-color);
+            border-radius: 20px;
+            padding: 3px 11px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            transition: background 0.3s;
+        }
+
+        .modern-card:hover .mcard-tag {
+            background: rgba(var(--card-color-rgb), 0.18);
+        }
+
+        .mcard-title {
+            font-size: 1.65rem;
+            font-weight: 900;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .mcard-desc {
+            font-size: 0.93rem;
+            color: var(--text-secondary);
+            line-height: 1.85;
+            margin-bottom: 28px;
+            flex: 1;
+        }
+
+        .mcard-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            background: var(--card-color);
+            color: #000;
+            border: none;
+            padding: 12px 26px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Tajawal', sans-serif;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+            box-shadow: 0 6px 20px rgba(var(--card-color-rgb), 0.25);
+        }
+
+        .mcard-btn:hover {
+            transform: translateX(-4px);
+            box-shadow: 0 10px 28px rgba(var(--card-color-rgb), 0.4);
+            filter: brightness(1.08);
+        }
+
+        /* Accent left border on hover */
+        .modern-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 4px;
+            height: 0;
+            background: var(--card-color);
+            border-radius: 0 28px 28px 0;
+            transition: height 0.5s ease;
+        }
+
+        .modern-card:hover::after { height: 100%; }
+
+        @media (max-width: 900px) {
+            .modern-sections-wrapper {
+                grid-template-columns: 1fr;
+                padding: 30px 5% 60px;
+                gap: 22px;
+            }
+            .mcard-title { font-size: 1.35rem; }
+            .modern-card { padding: 32px 28px 28px; }
+        }
+
+        @media (max-width: 480px) {
+            .mcard-icon-wrap { width: 58px; height: 72px; }
+            .mcard-icon { line-height: 58px; font-size: 1.4rem; }
+        }
+
         /* ── 20. Train / Vol / Events Hero wave bottom ── */
         .page-hero-wave {
             position: absolute;
@@ -692,34 +872,34 @@
         /* --- الهيدر والقائمة (تصميم احترافي) --- */
         header {
             background: var(--header-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 12px 6%;
+            backdrop-filter: blur(18px) saturate(1.8);
+            -webkit-backdrop-filter: blur(18px) saturate(1.8);
+            padding: 10px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 1px 20px rgba(0, 0, 0, 0.06);
             border-bottom: 1px solid var(--header-border);
-            transition: all 0.3s ease;
+            transition: all 0.35s ease;
         }
 
         .logo img {
-            height: 55px;
+            height: 50px;
             cursor: pointer;
             transition: transform 0.3s ease, filter 0.3s ease;
             filter: var(--logo-filter);
         }
 
         .logo img:hover {
-            transform: scale(1.03);
+            transform: scale(1.05);
         }
 
         nav {
             display: flex;
-            gap: 28px;
+            gap: 6px;
             align-items: center;
         }
 
@@ -727,40 +907,47 @@
             text-decoration: none;
             color: var(--text-secondary);
             font-weight: 700;
-            font-size: 15px;
+            font-size: 14px;
             transition: all 0.3s ease;
             cursor: pointer;
             position: relative;
-            padding: 5px 0;
+            padding: 8px 14px;
+            border-radius: 10px;
+            white-space: nowrap;
         }
 
         nav a::after {
             content: '';
             position: absolute;
             width: 0;
-            height: 3px;
-            bottom: -2px;
+            height: 2.5px;
+            bottom: 2px;
             left: 50%;
-            background-color: var(--primary-color);
+            background: linear-gradient(90deg, var(--primary-color), #ff9800);
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             transform: translateX(-50%);
             border-radius: 3px;
         }
 
-        nav a:hover,
+        nav a:hover {
+            color: var(--text-link-hover);
+            background: rgba(255, 180, 0, 0.06);
+        }
+
         nav a.active {
             color: var(--text-link-hover);
+            background: rgba(255, 180, 0, 0.08);
         }
 
         nav a:hover::after,
         nav a.active::after {
-            width: 100%;
+            width: 60%;
         }
 
         .header-tools {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         /* أزرار الترجمة والصوت والدخول (Premium Shape) */
@@ -768,46 +955,240 @@
             border: none;
             background: var(--bg-tool-btn);
             color: var(--text-primary);
-            padding: 8px 18px;
-            border-radius: 30px;
+            padding: 8px 16px;
+            border-radius: 12px;
             cursor: pointer;
             font-weight: 700;
-            font-size: 14px;
+            font-size: 13px;
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 6px;
-            box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+            box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
         }
 
         .tool-btn:hover {
             background: var(--bg-tool-btn-hover);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05), inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06), inset 0 0 0 1px rgba(0, 0, 0, 0.08);
             color: var(--text-link-hover);
         }
 
         .btn-register {
-            background: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), #e6a200);
             color: var(--secondary-color);
             border: none;
-            padding: 12px 28px;
-            border-radius: 25px;
+            padding: 10px 24px;
+            border-radius: 12px;
             font-weight: 700;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             cursor: pointer;
             transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            animation: yellowPulse 2s infinite;
+            animation: yellowPulse 2.5s infinite;
         }
 
         .btn-register:hover {
             transform: translateY(-2px) scale(1.03);
-            box-shadow: 0 6px 18px rgba(255, 180, 0, 0.35);
+            box-shadow: 0 6px 20px rgba(255, 180, 0, 0.35);
+        }
+
+        .btn-register.logged-in {
+            background: linear-gradient(135deg, #2d2d2d, #444);
+            color: #fff;
+            font-size: 0.85rem;
+            padding: 8px 18px;
+            animation: none;
+        }
+
+        .btn-register.logged-in:hover {
+            background: linear-gradient(135deg, #444, #555);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+
+
+        /* --- Notification Panel --- */
+        .notif-panel {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 380px;
+            max-width: 90vw;
+            height: 100vh;
+            background: var(--card-bg, rgba(22, 22, 30, 0.97));
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-left: 1px solid rgba(255,255,255,0.08);
+            z-index: 10001;
+            transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            box-shadow: -10px 0 40px rgba(0,0,0,0.4);
+        }
+
+        .notif-panel.open {
+            right: 0;
+        }
+
+        .notif-panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            flex-shrink: 0;
+        }
+
+        .notif-panel-header h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-color, #fff);
+            margin: 0;
+        }
+
+        .notif-close-btn {
+            background: rgba(255,255,255,0.08);
+            border: none;
+            color: var(--text-color, #fff);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 1.4rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .notif-close-btn:hover {
+            background: rgba(255,70,87,0.2);
+            color: #ff4757;
+        }
+
+        .notif-panel-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 12px;
+        }
+
+        .notif-panel-body::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .notif-panel-body::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        }
+
+        .notif-empty {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            gap: 16px;
+            color: rgba(255,255,255,0.3);
+        }
+
+        .notif-empty i {
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+
+        .notif-empty p {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .notif-item {
+            display: flex;
+            gap: 14px;
+            padding: 14px 16px;
+            border-radius: 14px;
+            margin-bottom: 8px;
+            transition: all 0.2s ease;
+            cursor: default;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid transparent;
+        }
+
+        .notif-item:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(255,255,255,0.06);
+        }
+
+        .notif-item.unread {
+            background: rgba(255,180,0,0.06);
+            border-color: rgba(255,180,0,0.15);
+        }
+
+        .notif-item.unread::before {
+            content: '';
+            position: absolute;
+            right: 12px;
+            top: 12px;
+            width: 8px;
+            height: 8px;
+            background: var(--primary-color);
+            border-radius: 50%;
+        }
+
+        .notif-item-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(255,180,0,0.15), rgba(255,180,0,0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--primary-color);
+            font-size: 1rem;
+        }
+
+        .notif-item-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .notif-item-title {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text-color, #fff);
+            margin-bottom: 4px;
+        }
+
+        .notif-item-body {
+            font-size: 0.82rem;
+            color: var(--text-secondary, rgba(255,255,255,0.55));
+            line-height: 1.5;
+            margin-bottom: 6px;
+        }
+
+        .notif-item-time {
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.3);
+        }
+
+        .notif-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 10000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .notif-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
         }
 
         /* --- التحكم في عرض الصفحات --- */
@@ -1493,6 +1874,512 @@
             width: 100%;
         }
 
+        /* --- Event Submission CTA Banner --- */
+        .submit-event-cta {
+            position: relative;
+            padding: 50px 5%;
+            text-align: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        }
+
+        .submit-event-cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle at 20% 50%, rgba(255, 180, 0, 0.08) 0%, transparent 50%),
+                              radial-gradient(circle at 80% 50%, rgba(255, 180, 0, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .submit-event-cta::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            animation: shimmerLine 4s ease-in-out infinite;
+        }
+
+        .submit-cta-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .submit-cta-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--primary-color), #ff8c00);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: #000;
+            box-shadow: 0 10px 30px rgba(255, 180, 0, 0.3);
+            animation: floatIcon 3s ease-in-out infinite;
+        }
+
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .submit-cta-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .submit-cta-desc {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .submit-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--primary-color), #e6a200);
+            color: #000;
+            border: none;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            font-family: 'Tajawal', sans-serif;
+            transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 8px 25px rgba(255, 180, 0, 0.35);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: sweepShine 2.5s ease-in-out infinite 1.5s;
+        }
+
+        .submit-cta-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(255, 180, 0, 0.5);
+        }
+
+        .submit-cta-btn:active {
+            transform: scale(0.97);
+        }
+
+        .submit-cta-sparkles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .submit-cta-sparkles span {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            animation: sparkleFloat 4s linear infinite;
+            opacity: 0;
+        }
+
+        .submit-cta-sparkles span:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .submit-cta-sparkles span:nth-child(2) { left: 25%; animation-delay: 0.8s; }
+        .submit-cta-sparkles span:nth-child(3) { left: 50%; animation-delay: 1.6s; }
+        .submit-cta-sparkles span:nth-child(4) { left: 75%; animation-delay: 2.4s; }
+        .submit-cta-sparkles span:nth-child(5) { left: 90%; animation-delay: 3.2s; }
+
+        @keyframes sparkleFloat {
+            0% { bottom: -10px; opacity: 0; transform: scale(0); }
+            20% { opacity: 1; transform: scale(1); }
+            100% { bottom: 110%; opacity: 0; transform: scale(0.5); }
+        }
+
+        /* --- Event Submission Modal --- */
+        .submit-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+            padding: 20px;
+        }
+
+        .submit-modal-overlay.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .submit-modal-box {
+            background: var(--bg-modal);
+            border-radius: 24px;
+            width: 100%;
+            max-width: 640px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-light);
+            transform: translateY(30px) scale(0.95);
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+        }
+
+        .submit-modal-overlay.open .submit-modal-box {
+            transform: translateY(0) scale(1);
+        }
+
+        .submit-modal-header {
+            position: sticky;
+            top: 0;
+            background: var(--bg-modal);
+            padding: 24px 28px 16px;
+            border-bottom: 1px solid var(--border-light);
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 24px 24px 0 0;
+        }
+
+        .submit-modal-header-info {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .submit-modal-header-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary-color), #ff8c00);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: #000;
+            flex-shrink: 0;
+        }
+
+        .submit-modal-header h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .submit-modal-header p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 2px 0 0;
+        }
+
+        .submit-modal-close {
+            background: var(--bg-tool-btn);
+            border: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            transition: all 0.25s;
+            flex-shrink: 0;
+        }
+
+        .submit-modal-close:hover {
+            background: var(--bg-tool-btn-hover);
+            color: var(--text-primary);
+            transform: rotate(90deg);
+        }
+
+        .submit-modal-body {
+            padding: 24px 28px 28px;
+        }
+
+        .submit-form-group {
+            margin-bottom: 20px;
+        }
+
+        .submit-form-group label {
+            display: block;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            margin-bottom: 7px;
+        }
+
+        .submit-form-group label .optional-tag {
+            font-weight: 400;
+            font-size: 0.8rem;
+            color: var(--text-faint);
+            margin-right: 6px;
+        }
+
+        .submit-form-group input,
+        .submit-form-group textarea,
+        .submit-form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 14px;
+            border: 1.5px solid var(--border-input);
+            outline: none;
+            background: var(--bg-input);
+            color: var(--text-primary);
+            font-family: 'Tajawal', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .submit-form-group input:focus,
+        .submit-form-group textarea:focus,
+        .submit-form-group select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(255, 180, 0, 0.12);
+        }
+
+        .submit-form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-form-group select {
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: left 14px center;
+            padding-left: 36px;
+            cursor: pointer;
+        }
+
+        .submit-form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        /* File upload area */
+        .submit-file-upload {
+            border: 2px dashed var(--border-medium);
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: var(--bg-input);
+            position: relative;
+        }
+
+        .submit-file-upload:hover {
+            border-color: var(--primary-color);
+            background: rgba(255, 180, 0, 0.04);
+        }
+
+        .submit-file-upload.has-file {
+            border-color: var(--primary-color);
+            background: rgba(255, 180, 0, 0.06);
+        }
+
+        .submit-file-upload input[type="file"] {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .submit-file-icon {
+            font-size: 2rem;
+            color: var(--text-faint);
+            margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+
+        .submit-file-upload:hover .submit-file-icon {
+            color: var(--primary-color);
+        }
+
+        .submit-file-text {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .submit-file-text strong {
+            color: var(--primary-color);
+        }
+
+        .submit-file-name {
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            display: none;
+        }
+
+        /* Submit button */
+        .submit-form-btn {
+            width: 100%;
+            padding: 14px 28px;
+            border-radius: 16px;
+            border: none;
+            background: linear-gradient(135deg, var(--primary-color), #e6a200);
+            color: #000;
+            font-weight: 700;
+            font-size: 1rem;
+            font-family: 'Tajawal', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .submit-form-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 180, 0, 0.35);
+        }
+
+        .submit-form-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        .submit-form-btn .spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(0,0,0,0.2);
+            border-top-color: #000;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+
+        .submit-form-btn.loading .spinner {
+            display: block;
+        }
+
+        .submit-form-btn.loading .btn-text {
+            display: none;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Success state */
+        .submit-success-view {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .submit-success-view.show {
+            display: block;
+            animation: fadeScaleIn 0.5s ease;
+        }
+
+        @keyframes fadeScaleIn {
+            from { opacity: 0; transform: scale(0.85); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .submit-success-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: #fff;
+            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3);
+        }
+
+        .submit-success-view h3 {
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .submit-success-view p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 400px;
+            margin: 0 auto 24px;
+        }
+
+        .submit-success-close-btn {
+            padding: 12px 32px;
+            border-radius: 14px;
+            border: none;
+            background: var(--bg-tool-btn);
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 0.95rem;
+            font-family: 'Tajawal', sans-serif;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+
+        .submit-success-close-btn:hover {
+            background: var(--bg-tool-btn-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .submit-form-row {
+                grid-template-columns: 1fr;
+            }
+            .submit-modal-body {
+                padding: 20px 18px 24px;
+            }
+            .submit-modal-header {
+                padding: 18px 18px 14px;
+            }
+            .submit-cta-title {
+                font-size: 1.2rem;
+            }
+            .submit-cta-btn {
+                font-size: 0.9rem;
+                padding: 12px 28px;
+            }
+        }
+
         /* --- الفوتر (Footer) --- */
         footer {
             background: var(--bg-section-dark);
@@ -2116,6 +3003,157 @@
 
         /* ===== End Training Page ===== */
 
+        /* ============================================================
+           SMART FILTER BAR — Auto-collapse on scroll-down, expand on scroll-up
+           Works for: .train-filter-bar, .vol-filter-bar, .act-filter-bar
+        ============================================================ */
+
+        /* ── Transition for all filter bars ── */
+        .train-filter-bar,
+        .act-filter-bar {
+            transition:
+                padding 0.32s cubic-bezier(.4,0,.2,1),
+                transform 0.32s cubic-bezier(.4,0,.2,1),
+                box-shadow 0.32s ease,
+                max-height 0.32s cubic-bezier(.4,0,.2,1),
+                opacity 0.25s ease;
+            will-change: transform, padding;
+            overflow: hidden;
+        }
+
+        /* ── Compact state (scroll-down) ── */
+        .train-filter-bar.filter-compact,
+        .act-filter-bar.filter-compact {
+            padding-top: 8px !important;
+            padding-bottom: 8px !important;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+        }
+
+        /* Hide search row and cats row in compact mode — show only the toggle pill */
+        .train-filter-bar.filter-compact .train-search-wrap,
+        .train-filter-bar.filter-compact .train-cats,
+        .train-filter-bar.filter-compact .train-results-info,
+        .act-filter-bar.filter-compact .act-filter-btn:not(.filter-toggle-pill) {
+            max-height: 0;
+            opacity: 0;
+            pointer-events: none;
+            overflow: hidden;
+            margin: 0 !important;
+            transition: max-height 0.28s ease, opacity 0.22s ease, margin 0.28s ease;
+        }
+
+        .train-search-wrap,
+        .train-cats,
+        .train-results-info {
+            max-height: 200px;
+            opacity: 1;
+            transition: max-height 0.32s cubic-bezier(.4,0,.2,1), opacity 0.25s ease, margin 0.28s ease;
+        }
+
+        /* ── Compact toggle pill (always visible) ── */
+        .filter-toggle-pill {
+            display: none; /* shown via JS when compact */
+            align-items: center;
+            gap: 8px;
+            background: var(--primary-color);
+            color: #111;
+            border: none;
+            border-radius: 50px;
+            padding: 7px 18px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(255,180,0,0.25);
+            transition: background 0.2s, transform 0.2s;
+            white-space: nowrap;
+        }
+
+        .filter-toggle-pill:hover {
+            background: #e6a200;
+            transform: scale(1.04);
+        }
+
+        .filter-toggle-pill i {
+            font-size: 0.8rem;
+        }
+
+        /* When compact: show pill, hide normal content using the class approach above */
+        .train-filter-bar.filter-compact .filter-toggle-pill,
+        .act-filter-bar.filter-compact .filter-toggle-pill {
+            display: flex;
+        }
+
+        /* ── Expanded overlay (when user taps pill while compact) ── */
+        .filter-expanded-panel {
+            position: fixed;
+            top: 68px;
+            right: 0; left: 0;
+            background: var(--filter-bar-bg, #fff);
+            border-bottom: 1px solid var(--filter-bar-border, #f0f0f0);
+            padding: 16px 8%;
+            z-index: 200;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+            transform: translateY(-110%);
+            transition: transform 0.3s cubic-bezier(.4,0,.2,1), opacity 0.25s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .filter-expanded-panel.open {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Backdrop for expanded panel */
+        .filter-panel-backdrop {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.18);
+            z-index: 199;
+            backdrop-filter: blur(2px);
+        }
+
+        .filter-panel-backdrop.open {
+            display: block;
+        }
+
+        /* Active-filter badge on the pill */
+        .filter-active-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #111;
+            color: #fff;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        /* ── Scroll-up reveal animation ── */
+        @keyframes filterSlideDown {
+            from { transform: translateY(-8px); opacity: 0.7; }
+            to   { transform: translateY(0);    opacity: 1; }
+        }
+
+        .train-filter-bar.filter-revealed,
+        .act-filter-bar.filter-revealed {
+            animation: filterSlideDown 0.25s ease;
+        }
+
+        /* ── Mobile: tighter compact pill layout ── */
+        @media (max-width: 700px) {
+            .filter-expanded-panel {
+                padding: 14px 5%;
+                top: 60px;
+            }
+        }
+
         /* --- الشات بوت الذكي --- */
         #chatbot-toggle {
             position: fixed;
@@ -2139,6 +3177,99 @@
         #chatbot-toggle:hover {
             transform: scale(1.1);
         }
+
+        /* ── Motivational Popup Toast ── */
+        #motiv-popup {
+            position: fixed;
+            bottom: 105px;
+            left: 30px;
+            width: 280px;
+            background: var(--bg-card);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            z-index: 1999;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1.5px solid var(--border-light);
+            transform: translateY(20px) scale(0.95);
+            opacity: 0;
+            pointer-events: none;
+            transition: transform 0.35s cubic-bezier(.34,1.56,.64,1), opacity 0.3s ease;
+        }
+        #motiv-popup.motiv-show {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+            pointer-events: all;
+        }
+        .motiv-accent-bar {
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), #ff8c00);
+            width: 100%;
+        }
+        .motiv-body {
+            padding: 14px 14px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .motiv-top-row {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 8px;
+        }
+        .motiv-icon { font-size: 1.5rem; line-height: 1; flex-shrink: 0; }
+        .motiv-text-wrap { flex: 1; }
+        .motiv-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 2px;
+        }
+        .motiv-message {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+        .motiv-sub {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.35;
+        }
+        .motiv-close-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-muted);
+            font-size: 1rem;
+            padding: 0;
+            flex-shrink: 0;
+            transition: color 0.2s;
+        }
+        .motiv-close-btn:hover { color: var(--text-primary); }
+        .motiv-cta-btn {
+            margin: 0 14px 12px;
+            background: var(--primary-color);
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            padding: 9px 14px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-family: inherit;
+        }
+        .motiv-cta-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(255,180,0,0.4);
+        }
+        [data-theme="dark"] #motiv-popup { border-color: var(--border-medium); }
 
         #chat-window {
             position: fixed;
@@ -2450,6 +3581,30 @@
 
         .modal-form {
             padding: 0 32px 32px;
+        }
+
+        .interest-chip {
+            padding: 6px 12px;
+            background: var(--bg-auth-tab, #f5f5f5);
+            border: 1px solid var(--border-light, #eee);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text-muted, #777);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+            display: inline-block;
+        }
+        
+        .interest-chip.selected {
+            background: var(--primary-color);
+            color: #000;
+            border-color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .interest-chip:hover:not(.selected) {
+            background: var(--bg-card, #e0e0e0);
         }
 
         .modal-form .form-group {
@@ -4596,15 +5751,16 @@
         /* ===== لاب توب صغير / تابلت كبير (max 1024px) ===== */
         @media (max-width: 1024px) {
             header {
-                padding: 12px 4%;
+                padding: 10px 3%;
             }
 
             nav {
-                gap: 14px;
+                gap: 4px;
             }
 
             nav a {
-                font-size: 14px;
+                font-size: 13px;
+                padding: 7px 10px;
             }
 
             .hero h1 {
@@ -4706,6 +5862,11 @@
             .btn-register {
                 padding: 8px 14px;
                 font-size: 13px;
+            }
+
+            .notif-panel {
+                width: 100%;
+                max-width: 100vw;
             }
 
             /* Hero */
@@ -6646,6 +7807,313 @@
             font-size: 1.2rem;
             box-shadow: 0 8px 20px rgba(255, 180, 0, 0.2);
         }
+
+        /* ===== Event Submission Modal ===== */
+        .submit-modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .35s ease, visibility .35s ease;
+        }
+        .submit-modal-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .submit-modal-box {
+            background: #fff;
+            width: 94%;
+            max-width: 620px;
+            max-height: 90vh;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+            transform: translateY(40px) scale(0.96);
+            transition: transform .35s cubic-bezier(.22,1,.36,1);
+        }
+        .submit-modal-overlay.open .submit-modal-box {
+            transform: translateY(0) scale(1);
+        }
+
+        /* Header */
+        .submit-modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 28px;
+            background: linear-gradient(135deg, var(--primary-color), #6c3ad1);
+            color: #fff;
+            flex-shrink: 0;
+        }
+        .submit-modal-header-info {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .submit-modal-header-icon {
+            width: 48px; height: 48px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+        .submit-modal-header h2 {
+            font-size: 1.2rem;
+            margin: 0;
+            font-weight: 700;
+        }
+        .submit-modal-header p {
+            font-size: 0.82rem;
+            margin: 3px 0 0;
+            opacity: 0.85;
+        }
+        .submit-modal-close {
+            background: rgba(255,255,255,0.18);
+            border: none;
+            color: #fff;
+            width: 38px; height: 38px;
+            border-radius: 12px;
+            font-size: 1.15rem;
+            cursor: pointer;
+            transition: background .2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .submit-modal-close:hover { background: rgba(255,255,255,0.32); }
+
+        /* Body */
+        .submit-modal-body {
+            padding: 24px 28px 28px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        /* Form groups */
+        .submit-form-group {
+            margin-bottom: 18px;
+            flex: 1;
+        }
+        .submit-form-group label {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 7px;
+        }
+        .optional-tag {
+            font-weight: 400;
+            font-size: 0.78rem;
+            color: #999;
+        }
+        .submit-form-group input[type="text"],
+        .submit-form-group input[type="email"],
+        .submit-form-group input[type="url"],
+        .submit-form-group input[type="date"],
+        .submit-form-group select,
+        .submit-form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e8e8ef;
+            border-radius: 12px;
+            font-size: 0.92rem;
+            font-family: inherit;
+            background: #fafafe;
+            color: #222;
+            transition: border-color .25s, box-shadow .25s;
+            outline: none;
+            box-sizing: border-box;
+        }
+        .submit-form-group input:focus,
+        .submit-form-group select:focus,
+        .submit-form-group textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(124,58,209,0.1);
+        }
+        .submit-form-group textarea { resize: vertical; min-height: 90px; }
+        .submit-form-group select { cursor: pointer; appearance: none; -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23666' d='M1.41 0L6 4.58 10.59 0 12 1.41l-6 6-6-6z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: left 14px center;
+            padding-left: 36px;
+        }
+
+        /* Side-by-side rows */
+        .submit-form-row {
+            display: flex;
+            gap: 16px;
+        }
+
+        /* File upload dropzone */
+        .submit-file-upload {
+            position: relative;
+            border: 2px dashed #d0d0dd;
+            border-radius: 14px;
+            padding: 28px 16px;
+            text-align: center;
+            transition: border-color .3s, background .3s;
+            cursor: pointer;
+            background: #fafafe;
+        }
+        .submit-file-upload:hover,
+        .submit-file-upload.has-file {
+            border-color: var(--primary-color);
+            background: rgba(124,58,209,0.04);
+        }
+        .submit-file-upload input[type="file"] {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .submit-file-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            opacity: 0.7;
+        }
+        .submit-file-text {
+            font-size: 0.88rem;
+            color: #777;
+        }
+        .submit-file-text strong { color: var(--primary-color); }
+        .submit-file-name {
+            display: none;
+            font-size: 0.82rem;
+            color: var(--primary-color);
+            margin-top: 8px;
+            font-weight: 600;
+        }
+
+        /* Submit button */
+        .submit-form-btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--primary-color), #6c3ad1);
+            color: #fff;
+            font-size: 1.05rem;
+            font-weight: 700;
+            font-family: inherit;
+            cursor: pointer;
+            transition: transform .2s, box-shadow .2s, opacity .2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 6px;
+            position: relative;
+        }
+        .submit-form-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(124,58,209,0.3); }
+        .submit-form-btn:active { transform: translateY(0); }
+        .submit-form-btn .spinner {
+            display: none;
+            width: 22px; height: 22px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: submitSpin .7s linear infinite;
+        }
+        .submit-form-btn.loading .btn-text { display: none; }
+        .submit-form-btn.loading .spinner { display: block; }
+        .submit-form-btn.loading { opacity: 0.8; pointer-events: none; }
+
+        @keyframes submitSpin { to { transform: rotate(360deg); } }
+
+        /* Success view */
+        .submit-success-view {
+            display: none;
+            text-align: center;
+            padding: 60px 28px;
+        }
+        .submit-success-view.show { display: block; }
+        .submit-success-icon {
+            width: 80px; height: 80px;
+            background: linear-gradient(135deg, #34c759, #30d158);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: #fff;
+            margin: 0 auto 20px;
+            animation: successPop .5s cubic-bezier(.22,1,.36,1);
+        }
+        @keyframes successPop {
+            0% { transform: scale(0); opacity: 0; }
+            60% { transform: scale(1.15); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .submit-success-view h3 {
+            font-size: 1.3rem;
+            color: #222;
+            margin: 0 0 12px;
+        }
+        .submit-success-view p {
+            font-size: 0.92rem;
+            color: #666;
+            line-height: 1.7;
+            margin: 0 0 28px;
+        }
+        .submit-success-close-btn {
+            padding: 12px 40px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary-color), #6c3ad1);
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            transition: transform .2s, box-shadow .2s;
+        }
+        .submit-success-close-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(124,58,209,0.3); }
+
+        /* Dark mode */
+        [data-theme="dark"] .submit-modal-box { background: #1e1e2e; }
+        [data-theme="dark"] .submit-form-group label { color: #ccc; }
+        [data-theme="dark"] .submit-form-group input,
+        [data-theme="dark"] .submit-form-group select,
+        [data-theme="dark"] .submit-form-group textarea {
+            background: #2a2a3d;
+            border-color: #3a3a50;
+            color: #eee;
+        }
+        [data-theme="dark"] .submit-form-group input:focus,
+        [data-theme="dark"] .submit-form-group select:focus,
+        [data-theme="dark"] .submit-form-group textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(124,58,209,0.2);
+        }
+        [data-theme="dark"] .submit-file-upload {
+            border-color: #3a3a50;
+            background: #2a2a3d;
+        }
+        [data-theme="dark"] .submit-file-text { color: #aaa; }
+        [data-theme="dark"] .submit-success-view h3 { color: #eee; }
+        [data-theme="dark"] .submit-success-view p { color: #aaa; }
+        [data-theme="dark"] .optional-tag { color: #777; }
+
+        /* Mobile responsive */
+        @media (max-width: 600px) {
+            .submit-modal-box { width: 100%; max-width: 100%; max-height: 100vh; border-radius: 0; }
+            .submit-modal-header { padding: 16px 20px; }
+            .submit-modal-body { padding: 18px 20px 24px; }
+            .submit-form-row { flex-direction: column; gap: 0; }
+            .submit-modal-header h2 { font-size: 1.05rem; }
+        }
     </style>
 </head>
 
@@ -6653,33 +8121,26 @@
 
     <!-- ═══ Modern Effects Infrastructure ═══ -->
     <div id="scroll-progress"></div>
-    <div id="page-transition"></div>
     <div id="ambient-canvas" aria-hidden="true"></div>
-    <div class="cursor-dot" id="cursorDot1"></div>
-    <div class="cursor-dot" id="cursorDot2"
-        style="width:14px;height:14px;background:rgba(255,180,0,0.4);transition-delay:.05s"></div>
 
     <!-- Mobile nav overlay -->
     <div class="mobile-nav-overlay" id="mobileNavOverlay" onclick="closeMobileNav()"></div>
 
     <header>
-        <div class="logo" onclick="navigateTo('home')">
-            <img src="data/logo header.png" alt="Eduvibes Logo">
+        <div class="header-left">
+            <div class="logo" onclick="navigateTo('home')">
+                <img src="data/logo header.png" alt="Eduvibes Logo">
+            </div>
+
         </div>
         <nav id="mainNav">
-            <a onclick="navigateTo('start'); closeMobileNav();" class="nav-link"
-                style="color:var(--primary-color); font-weight:bold;" data-key="nav_start">ابدأ منين <i
-                    class="fa fa-rocket"></i></a>
-            <a onclick="navigateTo('home'); closeMobileNav();" class="nav-link active" data-key="nav_home">الصفحة
-                الرئيسية</a>
-            <a onclick="navigateTo('activities'); closeMobileNav();" class="nav-link" data-key="nav_activities">الأنشطة
-                الطلابية</a>
-            <a onclick="navigateTo('volunteer'); closeMobileNav();" class="nav-link" data-key="nav_volunteer">الأنشطة
-                التطوعية</a>
-            <a onclick="navigateTo('training'); closeMobileNav();" class="nav-link" data-key="nav_training">فرص
-                التدريب</a>
+            <a onclick="navigateTo('home'); closeMobileNav();" class="nav-link active" data-key="nav_home">الصفحة الرئيسية</a>
+            <a onclick="navigateTo('start'); closeMobileNav();" class="nav-link" data-key="nav_start">ابدأ منين <i class="fa fa-rocket"></i></a>
+            <a onclick="navigateTo('activities'); closeMobileNav();" class="nav-link" data-key="nav_activities">الأنشطة الطلابية</a>
+            <a onclick="navigateTo('volunteer'); closeMobileNav();" class="nav-link" data-key="nav_volunteer">الأنشطة التطوعية</a>
+            <a onclick="navigateTo('training'); closeMobileNav();" class="nav-link" data-key="nav_training">فرص التدريب</a>
             <a onclick="navigateTo('events'); closeMobileNav();" class="nav-link" data-key="nav_events">الفعاليات</a>
-            <a onclick="navigateTo('contact'); closeMobileNav();" class="nav-link" data-key="nav_contact">تواصل معنا</a>
+            <a onclick="navigateTo('contact'); closeMobileNav();" class="nav-link" data-key="nav_contact">من نحن</a>
         </nav>
         <div class="header-tools">
             <button id="darkModeBtn" onclick="toggleDarkMode()" title="تبديل الوضع الليلي"
@@ -6690,8 +8151,8 @@
             <button class="tool-btn" onclick="toggleVoiceReader()" id="voiceReaderBtn"><i
                     class="fa fa-volume-up"></i></button>
             <button class="tool-btn" onclick="switchLanguage()" id="langBtn">EN</button>
-            <button class="btn-register" onclick="toggleAuthModal()" id="authBtn" data-key="btn_login">تسجيل
-                الدخول</button>
+
+            <button class="btn-register" onclick="handleAuthBtnClick()" id="authBtn" data-key="btn_login">انضم الينا</button>
             <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileNav()" aria-label="القائمة">
                 <span></span>
                 <span></span>
@@ -6699,6 +8160,21 @@
             </button>
         </div>
     </header>
+
+    <!-- Notification Panel -->
+    <div class="notif-panel" id="notifPanel">
+        <div class="notif-panel-header">
+            <h3 id="notifPanelTitle">سجل الإشعارات</h3>
+            <button class="notif-close-btn" onclick="toggleNotifPanel()">&times;</button>
+        </div>
+        <div class="notif-panel-body" id="notifPanelBody">
+            <div class="notif-empty" id="notifEmpty">
+                <i class="fa fa-bell-slash"></i>
+                <p id="notifEmptyText">لا توجد إشعارات حالياً</p>
+            </div>
+        </div>
+    </div>
+    <div class="notif-overlay" id="notifOverlay" onclick="toggleNotifPanel()"></div>
 
     <div class="search-container">
         <i class="fa fa-search" onclick="performGlobalSearch()"></i>
@@ -6975,93 +8451,79 @@
             <p class="sections-sub" data-key="sections_intro_sub">كل اللي محتاجه كطالب في مكان واحد</p>
         </div>
 
-        <!-- ===== سيكشنز الأقسام - تصميم بريميوم ===== -->
-        <div class="premium-sections-wrapper">
+        <!-- ===== سيكشنز الأقسام - تصميم بريميوم بدون صور ===== -->
+        <div class="modern-sections-wrapper">
 
-            <div class="premium-card tilt-card reveal reveal-left" onclick="navigateTo('activities')">
-                <div class="pcard-image-wrap">
-                    <img src="data/student activities.jpeg" alt="Activities">
-                    <div class="pcard-overlay"></div>
-                    <span class="pcard-badge"><i class="fa fa-graduation-cap"></i> <span
-                            data-key="nav_activities">الأنشطة الطلابية</span></span>
+            <div class="modern-card stagger reveal" onclick="navigateTo('activities')" style="--card-color:#ffb400;--card-color-rgb:255,180,0;">
+                <div class="mcard-icon-wrap">
+                    <div class="mcard-icon-ring"></div>
+                    <i class="fa fa-graduation-cap mcard-icon"></i>
                 </div>
-                <div class="pcard-body">
-                    <div class="pcard-tag-row">
-                        <span class="pcard-tag" data-key="pcard_tag_skill">تطوير مهاري</span>
-                        <span class="pcard-tag" data-key="pcard_tag_env">بيئة تنافسية</span>
-                        <span class="pcard-tag" data-key="pcard_tag_diverse">مجالات متنوعة</span>
+                <div class="mcard-content">
+                    <div class="mcard-tag-row">
+                        <span class="mcard-tag" data-key="pcard_tag_skill">تطوير مهاري</span>
+                        <span class="mcard-tag" data-key="pcard_tag_env">بيئة تنافسية</span>
+                        <span class="mcard-tag" data-key="pcard_tag_diverse">مجالات متنوعة</span>
                     </div>
-                    <h3 data-key="home_act_title">الأنشطة الطلابية</h3>
-                    <p data-key="home_act_desc">اكتشف جميع الأنشطة الطلابية من مختلف المجالات التي تناسب اهتماماتك
-                        وتساعدك على تطوير مهاراتك داخل بيئة تنافسية محفزة.</p>
-                    <button class="pcard-btn" data-key="home_act_btn">استكشف الآن <i
-                            class="fa fa-arrow-left"></i></button>
+                    <h3 class="mcard-title" data-key="home_act_title">الأنشطة الطلابية</h3>
+                    <p class="mcard-desc" data-key="home_act_desc">اكتشف جميع الأنشطة الطلابية من مختلف المجالات التي تناسب اهتماماتك وتساعدك على تطوير مهاراتك داخل بيئة تنافسية محفزة.</p>
+                    <button class="mcard-btn" data-key="home_act_btn">استكشف الآن <i class="fa fa-arrow-left"></i></button>
                 </div>
+                <div class="mcard-number">01</div>
             </div>
 
-            <div class="premium-card premium-card--reverse tilt-card reveal reveal-right"
-                onclick="navigateTo('volunteer')">
-                <div class="pcard-image-wrap">
-                    <img src="data/volunteer.jpeg" alt="Volunteer">
-                    <div class="pcard-overlay"></div>
-                    <span class="pcard-badge pcard-badge--green"><i class="fa fa-heart"></i> <span
-                            data-key="nav_volunteer">الأنشطة التطوعية</span></span>
+            <div class="modern-card reveal" onclick="navigateTo('volunteer')" style="--card-color:#22c55e;--card-color-rgb:34,197,94;">
+                <div class="mcard-icon-wrap">
+                    <div class="mcard-icon-ring"></div>
+                    <i class="fa fa-heart mcard-icon"></i>
                 </div>
-                <div class="pcard-body">
-                    <div class="pcard-tag-row">
-                        <span class="pcard-tag" data-key="pcard_tag_service">خدمة مجتمع</span>
-                        <span class="pcard-tag" data-key="pcard_tag_exp">خبرات عملية</span>
-                        <span class="pcard-tag" data-key="pcard_tag_impact">تطوع مؤثر</span>
+                <div class="mcard-content">
+                    <div class="mcard-tag-row">
+                        <span class="mcard-tag" data-key="pcard_tag_service">خدمة مجتمع</span>
+                        <span class="mcard-tag" data-key="pcard_tag_exp">خبرات عملية</span>
+                        <span class="mcard-tag" data-key="pcard_tag_impact">تطوع مؤثر</span>
                     </div>
-                    <h3 data-key="home_vol_title">الأنشطة التطوعية</h3>
-                    <p data-key="home_vol_desc">تصفح فرص التطوع المتاحة في مجالات متنوعة وساهم في خدمة المجتمع واكتساب
-                        خبرات عملية كثيرة.</p>
-                    <button class="pcard-btn" data-key="home_vol_btn">ابدأ التطوع <i
-                            class="fa fa-arrow-left"></i></button>
+                    <h3 class="mcard-title" data-key="home_vol_title">الأنشطة التطوعية</h3>
+                    <p class="mcard-desc" data-key="home_vol_desc">تصفح فرص التطوع المتاحة في مجالات متنوعة وساهم في خدمة المجتمع واكتساب خبرات عملية كثيرة.</p>
+                    <button class="mcard-btn" data-key="home_vol_btn">ابدأ التطوع <i class="fa fa-arrow-left"></i></button>
                 </div>
+                <div class="mcard-number">02</div>
             </div>
 
-            <div class="premium-card tilt-card reveal reveal-left" onclick="navigateTo('training')">
-                <div class="pcard-image-wrap">
-                    <img src="data/interships.jpg" alt="internships">
-                    <div class="pcard-overlay"></div>
-                    <span class="pcard-badge pcard-badge--blue"><i class="fa fa-briefcase"></i> <span
-                            data-key="nav_training">فرص التدريب</span></span>
+            <div class="modern-card reveal" onclick="navigateTo('training')" style="--card-color:#3b82f6;--card-color-rgb:59,130,246;">
+                <div class="mcard-icon-wrap">
+                    <div class="mcard-icon-ring"></div>
+                    <i class="fa fa-briefcase mcard-icon"></i>
                 </div>
-                <div class="pcard-body">
-                    <div class="pcard-tag-row">
-                        <span class="pcard-tag" data-key="pcard_tag_work">سوق العمل</span>
-                        <span class="pcard-tag" data-key="pcard_tag_real">بيئة حقيقية</span>
-                        <span class="pcard-tag" data-key="pcard_tag_career">مسار مهني</span>
+                <div class="mcard-content">
+                    <div class="mcard-tag-row">
+                        <span class="mcard-tag" data-key="pcard_tag_work">سوق العمل</span>
+                        <span class="mcard-tag" data-key="pcard_tag_real">بيئة حقيقية</span>
+                        <span class="mcard-tag" data-key="pcard_tag_career">مسار مهني</span>
                     </div>
-                    <h3 data-key="home_train_title">فرص التدريب</h3>
-                    <p data-key="home_train_desc">اعثر على فرص التدريب المتاحة في تخصصات مختلفة وابدأ رحلتك المهنية
-                        باكتساب خبرات داخل بيئة عمل حقيقية.</p>
-                    <button class="pcard-btn" data-key="home_train_btn">جد فرصتك <i
-                            class="fa fa-arrow-left"></i></button>
+                    <h3 class="mcard-title" data-key="home_train_title">فرص التدريب</h3>
+                    <p class="mcard-desc" data-key="home_train_desc">اعثر على فرص التدريب المتاحة في تخصصات مختلفة وابدأ رحلتك المهنية باكتساب خبرات داخل بيئة عمل حقيقية.</p>
+                    <button class="mcard-btn" data-key="home_train_btn">جد فرصتك <i class="fa fa-arrow-left"></i></button>
                 </div>
+                <div class="mcard-number">03</div>
             </div>
 
-            <div class="premium-card premium-card--reverse tilt-card reveal reveal-right"
-                onclick="navigateTo('events')">
-                <div class="pcard-image-wrap">
-                    <img src="data/events.jpeg" alt="Events">
-                    <div class="pcard-overlay"></div>
-                    <span class="pcard-badge pcard-badge--purple"><i class="fa fa-calendar"></i> <span
-                            data-key="nav_events">الفعاليات</span></span>
+            <div class="modern-card reveal" onclick="navigateTo('events')" style="--card-color:#a855f7;--card-color-rgb:168,85,247;">
+                <div class="mcard-icon-wrap">
+                    <div class="mcard-icon-ring"></div>
+                    <i class="fa fa-calendar-alt mcard-icon"></i>
                 </div>
-                <div class="pcard-body">
-                    <div class="pcard-tag-row">
-                        <span class="pcard-tag" data-key="pcard_tag_workshops">ورش عمل</span>
-                        <span class="pcard-tag" data-key="pcard_tag_conferences">مؤتمرات</span>
-                        <span class="pcard-tag" data-key="pcard_tag_network">نتورك</span>
+                <div class="mcard-content">
+                    <div class="mcard-tag-row">
+                        <span class="mcard-tag" data-key="pcard_tag_workshops">ورش عمل</span>
+                        <span class="mcard-tag" data-key="pcard_tag_conferences">مؤتمرات</span>
+                        <span class="mcard-tag" data-key="pcard_tag_network">نتورك</span>
                     </div>
-                    <h3 data-key="home_events_title">الفعاليات</h3>
-                    <p data-key="home_events_desc">تابع أحدث الفعاليات وورش العمل والمؤتمرات وشارك بها لتوسيع معرفتك
-                        وتكوين شبكة علاقات داخل مجال اهتمامك.</p>
-                    <button class="pcard-btn" data-key="home_events_btn">شاهد الفعاليات <i
-                            class="fa fa-arrow-left"></i></button>
+                    <h3 class="mcard-title" data-key="home_events_title">الفعاليات</h3>
+                    <p class="mcard-desc" data-key="home_events_desc">تابع أحدث الفعاليات وورش العمل والمؤتمرات وشارك بها لتوسيع معرفتك وتكوين شبكة علاقات داخل مجال اهتمامك.</p>
+                    <button class="mcard-btn" data-key="home_events_btn">شاهد الفعاليات <i class="fa fa-arrow-left"></i></button>
                 </div>
+                <div class="mcard-number">04</div>
             </div>
 
         </div>
@@ -7076,22 +8538,13 @@
             <div class="premium-how-header reveal">
                 <span class="premium-how-eyebrow eyebrow-shimmer" data-key="how_eyebrow">دليلك للبداية</span>
                 <h2 class="premium-how-title" data-key="how_title">إزاي تستفيد من المنصة؟</h2>
-                <p class="premium-how-subtitle" data-key="how_sub">٤ خطوات بسيطة عشان تبدأ رحلتك وتكون جزء من مجتمعنا
+                <p class="premium-how-subtitle" data-key="how_sub">٣ خطوات بسيطة عشان تبدأ رحلتك وتكون جزء من مجتمعنا
                 </p>
             </div>
 
             <div class="premium-steps-grid stagger" style="max-width: 1200px; margin: 0 auto;">
                 <div class="premium-step-card glass-card">
                     <div class="premium-step-number">١</div>
-                    <div class="premium-step-icon"><i class="fa fa-user-plus"></i></div>
-                    <h3 class="premium-step-title" data-key="how_step1_title">أنشئ حسابك</h3>
-                    <p class="premium-step-desc" data-key="how_step1_desc">سجل في المنصة مجاناً عشان يكون ليك بروفايل
-                        خاص تقدر من خلاله تتابع
-                        المنظمات والأنشطة وتشارك في الفعاليات.</p>
-                </div>
-
-                <div class="premium-step-card glass-card">
-                    <div class="premium-step-number">٢</div>
                     <div class="premium-step-icon"><i class="fa fa-search"></i></div>
                     <h3 class="premium-step-title" data-key="how_step2_title">استكشف الفرص</h3>
                     <p class="premium-step-desc" data-key="how_step2_desc">استخدم شريط البحث أو تصفح الأقسام المختلفة
@@ -7100,7 +8553,7 @@
                 </div>
 
                 <div class="premium-step-card glass-card">
-                    <div class="premium-step-number">٣</div>
+                    <div class="premium-step-number">٢</div>
                     <div class="premium-step-icon"><i class="fa fa-bell"></i></div>
                     <h3 class="premium-step-title" data-key="how_step3_title">تابع وتفاعل</h3>
                     <p class="premium-step-desc" data-key="how_step3_desc">اعمل "متابعة" للأنشطة والمنظمات اللي بتهمك
@@ -7109,7 +8562,7 @@
                 </div>
 
                 <div class="premium-step-card glass-card">
-                    <div class="premium-step-number">٤</div>
+                    <div class="premium-step-number">٣</div>
                     <div class="premium-step-icon"><i class="fa fa-rocket"></i></div>
                     <h3 class="premium-step-title" data-key="how_step4_title">ابدأ رحلتك</h3>
                     <p class="premium-step-desc" data-key="how_step4_desc">قدم على الفرصة وابدأ طور من مهاراتك، ابنِ
@@ -7117,15 +8570,25 @@
                         بمستقبلك المهني.</p>
                 </div>
             </div>
+        </section>
+        <!-- ===== نهاية سيكشن ازاي تستفيد ===== -->
 
-            <div style="text-align:center; margin-top: 60px; position: relative; z-index: 2;">
-                <button class="main-btn mag-btn" onclick="toggleAuthModal()"
-                    style="font-size:1.1rem; padding: 15px 40px; box-shadow: 0 10px 25px rgba(255, 180, 0, 0.3);">
-                    <i class="fa fa-user-plus"></i> <span data-key="how_btn_register">أنشئ حسابك الآن</span>
+        <!-- ===== Submit Event CTA Banner ===== -->
+        <section class="submit-event-cta reveal">
+            <div class="submit-cta-sparkles">
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="submit-cta-inner">
+                <div class="submit-cta-icon"><i class="fa fa-paper-plane"></i></div>
+                <h2 class="submit-cta-title">هل لديك نشاط أو فعالية طلابية؟ يمكنك مشاركتها معنا عبر هذا النموذج</h2>
+                <p class="submit-cta-desc">إذا كنت منظم نشاط طلابي أو فعالية، يمكنك إرسال تفاصيلها وسيتم مراجعتها ونشرها على المنصة</p>
+                <button class="submit-cta-btn" onclick="openSubmitEventModal()" id="openSubmitFormBtn">
+                    <i class="fa fa-plus-circle"></i>
+                    أرسل فعاليتك الآن
                 </button>
             </div>
         </section>
-        <!-- ===== نهاية سيكشن ازاي تستفيد ===== -->
+        <!-- ===== نهاية CTA ===== -->
 
         <!-- ===== Events Calendar Section ===== -->
         <div class="g-divider"></div>
@@ -7177,7 +8640,7 @@
                         <label data-key="form_comment">التعليق</label>
                         <textarea id="cComment" rows="5" required></textarea>
                     </div>
-                    <button type="submit" class="main-btn" data-key="form_btn_send">إرسال الكومنت</button>
+                    <button type="submit" class="main-btn" data-key="form_btn_send">إرسال</button>
                 </form>
             </div>
         </section>
@@ -7234,7 +8697,12 @@
         </div>
 
         <!-- Vol Filter Bar - نفس ستايل train-filter-bar -->
-        <div class="train-filter-bar vol-filter-bar">
+        <div class="train-filter-bar vol-filter-bar" id="volFilterBar">
+            <button class="filter-toggle-pill" onclick="toggleExpandedPanel('vol')">
+                <i class="fa fa-sliders-h"></i>
+                <span>الفلاتر</span>
+                <span class="filter-active-badge" id="volActiveBadge" style="display:none">1</span>
+            </button>
             <div class="train-search-wrap">
                 <i class="fa fa-search"></i>
                 <input type="text" id="volSearchInput" placeholder="ابحث عن منظمة، مجال، موقع..."
@@ -7283,7 +8751,12 @@
             </div>
         </div>
         <!-- Filter & Search -->
-        <div class="train-filter-bar">
+        <div class="train-filter-bar" id="trainFilterBar">
+            <button class="filter-toggle-pill" onclick="toggleExpandedPanel('train')">
+                <i class="fa fa-sliders-h"></i>
+                <span>الفلاتر</span>
+                <span class="filter-active-badge" id="trainActiveBadge" style="display:none">1</span>
+            </button>
             <div class="train-search-wrap">
                 <i class="fa fa-search"></i>
                 <input type="text" id="trainSearchInput" placeholder="ابحث عن شركة أو مجال..."
@@ -7480,8 +8953,8 @@
                     </a>
                 </div>
                 <div class="footer-social">
-                    <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/share/1AmMX7CWAh/?mibextid=wwXIfr" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/eduvibes_eg?igsh=MWx0aXkyc3dkMGRmMQ%3D%3D&utm_source=qr" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
@@ -7510,6 +8983,124 @@
             </div>
             <div class="act-modal-body" id="actModalBody"></div>
         </div>
+    </div>
+
+    <!-- ===== Event Submission Modal ===== -->
+    <div class="submit-modal-overlay" id="submitEventModal" onclick="closeSubmitEventModal(event)">
+        <div class="submit-modal-box" onclick="event.stopPropagation()">
+            <!-- Header -->
+            <div class="submit-modal-header">
+                <div class="submit-modal-header-info">
+                    <div class="submit-modal-header-icon"><i class="fa fa-paper-plane"></i></div>
+                    <div>
+                        <h2>إرسال فعالية جديدة</h2>
+                        <p>سيتم مراجعة البيانات قبل النشر</p>
+                    </div>
+                </div>
+                <button class="submit-modal-close" onclick="closeSubmitEventModal()"><i class="fa fa-times"></i></button>
+            </div>
+
+            <!-- Form Body -->
+            <div class="submit-modal-body" id="submitFormView">
+                <form id="submitEventForm" onsubmit="handleEventSubmission(event)">
+                    <!-- Event Title -->
+                    <div class="submit-form-group">
+                        <label><i class="fa fa-heading" style="color:var(--primary-color);margin-left:6px;"></i> عنوان الفعالية</label>
+                        <input type="text" id="seTitle" placeholder="مثال: هاكاثون الابتكار الرقمي" required>
+                    </div>
+
+                    <!-- Category -->
+                    <div class="submit-form-group">
+                        <label><i class="fa fa-tag" style="color:var(--primary-color);margin-left:6px;"></i> التصنيف</label>
+                        <select id="seCategory" required>
+                            <option value="" disabled selected>اختر تصنيف الفعالية</option>
+                            <option value="نشاط طلابي">نشاط طلابي</option>
+                            <option value="تطوع">تطوع</option>
+                            <option value="فعالية">فعالية</option>
+                            <option value="تدريب">تدريب</option>
+                        </select>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="submit-form-group">
+                        <label><i class="fa fa-align-right" style="color:var(--primary-color);margin-left:6px;"></i> وصف الفعالية</label>
+                        <textarea id="seDescription" placeholder="اكتب وصفاً تفصيلياً عن الفعالية وأهدافها..." rows="4" required></textarea>
+                    </div>
+
+                    <!-- Organizer Name & Contact Email (side by side) -->
+                    <div class="submit-form-row">
+                        <div class="submit-form-group">
+                            <label><i class="fa fa-user" style="color:var(--primary-color);margin-left:6px;"></i> اسم المنظم</label>
+                            <input type="text" id="seOrganizer" placeholder="اسم الجهة المنظمة" required>
+                        </div>
+                        <div class="submit-form-group">
+                            <label><i class="fa fa-envelope" style="color:var(--primary-color);margin-left:6px;"></i> البريد الإلكتروني</label>
+                            <input type="email" id="seEmail" placeholder="example@email.com" required>
+                        </div>
+                    </div>
+
+                    <!-- Event Date & Location (side by side) -->
+                    <div class="submit-form-row">
+                        <div class="submit-form-group">
+                            <label><i class="fa fa-calendar-alt" style="color:var(--primary-color);margin-left:6px;"></i> تاريخ الفعالية</label>
+                            <input type="date" id="seDate" required>
+                        </div>
+                        <div class="submit-form-group">
+                            <label><i class="fa fa-map-marker-alt" style="color:var(--primary-color);margin-left:6px;"></i> الموقع</label>
+                            <input type="text" id="seLocation" placeholder="مثال: القاهرة - مركز المؤتمرات" required>
+                        </div>
+                    </div>
+
+                    <!-- Registration Link (optional) -->
+                    <div class="submit-form-group">
+                        <label><i class="fa fa-link" style="color:var(--primary-color);margin-left:6px;"></i> رابط التسجيل <span class="optional-tag">(اختياري)</span></label>
+                        <input type="url" id="seRegLink" placeholder="https://...">
+                    </div>
+
+                    <!-- Image Upload (optional) -->
+                    <div class="submit-form-group">
+                        <label><i class="fa fa-image" style="color:var(--primary-color);margin-left:6px;"></i> صورة الفعالية <span class="optional-tag">(اختياري)</span></label>
+                        <div class="submit-file-upload" id="seFileDropzone">
+                            <input type="file" id="seImage" accept="image/*" onchange="handleSubmitFileChange(this)">
+                            <div class="submit-file-icon"><i class="fa fa-cloud-upload-alt"></i></div>
+                            <div class="submit-file-text">اسحب الصورة هنا أو <strong>اضغط للاختيار</strong></div>
+                            <div class="submit-file-name" id="seFileName"></div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="submit-form-btn" id="submitEventBtn">
+                        <span class="btn-text"><i class="fa fa-paper-plane"></i> إرسال للمراجعة</span>
+                        <div class="spinner"></div>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Success View -->
+            <div class="submit-success-view" id="submitSuccessView">
+                <div class="submit-success-icon"><i class="fa fa-check"></i></div>
+                <h3>تم إرسال الفعالية بنجاح! 🎉</h3>
+                <p>شكراً لك! سيتم مراجعة بيانات الفعالية من قبل فريق EDUvibe وسيتم نشرها بعد الموافقة عليها.</p>
+                <button class="submit-success-close-btn" onclick="closeSubmitEventModal()">إغلاق</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Motivational Popup Toast ===== -->
+    <div id="motiv-popup" role="status" aria-live="polite">
+        <div class="motiv-accent-bar"></div>
+        <div class="motiv-body">
+            <div class="motiv-top-row">
+                <span class="motiv-icon" id="motivIcon">🚀</span>
+                <div class="motiv-text-wrap">
+                    <div class="motiv-label" id="motivLabel">فرصة جديدة</div>
+                    <div class="motiv-message" id="motivMessage">قدم دلوقتي</div>
+                </div>
+                <button class="motiv-close-btn" onclick="closeMotivPopup()" aria-label="close">✕</button>
+            </div>
+            <div class="motiv-sub" id="motivSub"></div>
+        </div>
+        <button class="motiv-cta-btn" id="motivCtaBtn" onclick="motivGo()">اكتشف الفرصة ←</button>
     </div>
 
     <div id="chatbot-toggle" onclick="toggleChatWindow()">
@@ -7556,6 +9147,15 @@
                     <div class="form-group">
                         <label data-key="form_password">كلمة المرور</label>
                         <input type="password" id="rPassword" minlength="6" required>
+                    </div>
+                    <div class="form-group" style="margin-top: 15px; margin-bottom: 20px;">
+                        <label style="display:flex; justify-content:space-between; align-items:center;">
+                            <span data-key="form_interests">مجالات الاهتمام (اختر حتى 3)</span>
+                            <span id="interestsCount" style="font-size:0.75rem; color:var(--text-muted); font-weight:normal;">0 / 3</span>
+                        </label>
+                        <div id="interestsGrid" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;">
+                            <!-- populated by JS -->
+                        </div>
                     </div>
                     <div id="registerError" style="color:#e53935;font-size:0.85rem;margin-bottom:10px;display:none;">
                     </div>
@@ -7650,8 +9250,8 @@
                 nav_training: "فرص التدريب",
                 nav_events: "الفعاليات",
                 nav_start: "ابدأ منين",
-                nav_contact: "تواصل معنا",
-                btn_login: "تسجيل الدخول",
+                nav_contact: "من نحن",
+                btn_login: "انضم الينا",
                 hero_badge: "✨ منصتك المتكاملة للأنشطة والتدريب",
                 hero_title: "ابدأ من هنا...واكتشف عالم الأنشطة اللي شبهك",
                 hero_desc: "بدل ما تدور كتير...كل الانشطة وفرص التطوع والفعاليات بقت في مكان واحد",
@@ -7673,7 +9273,7 @@
                 home_events_btn: "شاهد الفعاليات",
                 how_eyebrow: "دليلك للبداية",
                 how_title: "إزاي تستفيد من المنصة؟",
-                how_sub: "٤ خطوات بسيطة عشان تبدأ رحلتك وتكون جزء من مجتمعنا",
+                how_sub: "٣ خطوات بسيطة عشان تبدأ رحلتك وتكون جزء من مجتمعنا",
                 how_step1_title: "أنشئ حسابك",
                 how_step1_desc: "سجل في المنصة مجاناً عشان يكون ليك بروفايل خاص تقدر من خلاله تتابع المنظمات والأنشطة وتشارك في الفعاليات.",
                 how_step2_title: "استكشف الفرص",
@@ -7772,7 +9372,7 @@
                 form_name: "الاسم",
                 form_email: "الايميل",
                 form_comment: "التعليق",
-                form_btn_send: "إرسال الكومنت",
+                form_btn_send: "إرسال",
                 events_map_eyebrow: "خريطة الفعاليات",
                 events_map_title: "اكتشف الفعاليات القادمة",
                 cal_event_legend: "يوم به فعالية",
@@ -7859,8 +9459,8 @@
                 nav_training: "Internships",
                 nav_events: "Events",
                 nav_start: "Where to Start?",
-                nav_contact: "Contact Us",
-                btn_login: "Login",
+                nav_contact: "About Us",
+                btn_login: "Join Us",
                 hero_badge: "✨ Your Integrated Platform for Activities & Training",
                 hero_title: "Start Here... And Discover Activities Like You",
                 hero_desc: "Instead of searching too much... All activities, volunteer opportunities, and events are in one place",
@@ -7882,7 +9482,7 @@
                 home_events_btn: "View Events",
                 how_eyebrow: "Your Guide to Starting",
                 how_title: "How to benefit from the platform?",
-                how_sub: "4 simple steps to start your journey and be part of our community",
+                how_sub: "3 simple steps to start your journey and be part of our community",
                 how_step1_title: "Create Your Account",
                 how_step1_desc: "Register on the platform for free to have a special profile through which you can follow organizations.",
                 how_step2_title: "Explore Opportunities",
@@ -8523,8 +10123,12 @@
             },
             {
                 name: "Biology Club", img: "data/Student activities logos/biology club.jpg", cat: "non-technique",
-                link: "",
-                socialLinks: {},
+                link: "https://www.facebook.com/profile.php?id=61564650366665",
+                socialLinks: {
+                    facebook: "https://www.facebook.com/profile.php?id=61564650366665",
+                    linkedin: "https://www.linkedin.com/company/the-biology-club-fscu/",
+                    youtube: "https://www.youtube.com/@biologyclub-egypt"
+                },
                 ar_about: "هو نشاط طلابي حديث نسبيًا (تأسس عام 2024) يهدف إلى نشر الثقافة العلمية بين الطلاب وربطهم بمجالات البيولوجيا الحديثة، مع التركيز على التعليم العملي والتواصل المجتمعي. النادي يعمل على بناء مجتمع شبابي علمي يهتم بالبيولوجيا والتكنولوجيا الحيوية.",
                 en_about: "A relatively new student activity (founded in 2024) aiming to spread scientific culture among students and connect them with modern biology fields, focusing on practical education and community outreach.",
                 nonTechFields: {},
@@ -8535,9 +10139,15 @@
             },
             {
                 name: "SBS", img: "data/Student activities logos/SBS.jpg", cat: "non-technique",
-                link: "",
+                link: "https://sbs-student-activity.page.gd/home.html",
                 email: "sbsstudentactivity@gmail.com",
-                socialLinks: {},
+                socialLinks: {
+                    website: "https://sbs-student-activity.page.gd/home.html",
+                    facebook: "https://www.facebook.com/SBS.Student.Activity",
+                    linkedin: "https://www.linkedin.com/company/sbs-student-activity/",
+                    instagram: "https://www.instagram.com/sbs_student_activity",
+                    tiktok: "https://www.tiktok.com/@sbs.student.activity"
+                },
                 ar_about: "هو نشاط طلابي في جامعة القاهرة يهدف إلى دعم الطلاب أكاديميًا ومهنيًا، مع توفير بيئة تعليمية وتفاعلية تساعدهم على بناء مستقبلهم بخطوات واضحة. المبادرة غير هادفة للربح، وتعمل على تمكين الشباب من خلال أنشطة متنوعة تجمع بين الجانب العملي والاجتماعي.",
                 en_about: "A student activity at Cairo University aiming to support students academically and professionally, providing an educational and interactive environment to help them build their future with clear steps.",
                 nonTechFields: {
@@ -8552,10 +10162,10 @@
             },
             {
                 name: "LinkCU", img: "data/Student activities logos/LINK-CUjpg.jpg", cat: "technique",
-                link: "https://www.facebook.com/link.cu",
+                link: "https://www.facebook.com/link.cufc",
                 email: "linkcu18@gmail.com",
                 socialLinks: {
-                    facebook: "https://www.facebook.com/link.cu",
+                    facebook: "https://www.facebook.com/link.cufc",
                     instagram: "https://www.instagram.com/linkcu",
                     website: "https://linkcu23.com/",
                     linkedin: "https://eg.linkedin.com/company/linkcu2018"
@@ -8639,9 +10249,11 @@
             },
             {
                 name: "TEDx", img: "data/Student activities logos/TEDX.jpg", cat: "non-technique",
-                link: "",
+                link: "https://www.facebook.com/TEDxHelwanUniversity",
                 email: "tedxhelwanuni.official@gmail.com",
-                socialLinks: {},
+                socialLinks: {
+                    facebook: "https://www.facebook.com/TEDxHelwanUniversity"
+                },
                 ar_about: "هو حدث مستقل مُرخص من منظمة TED العالمية، يُنظم داخل جامعة حلوان بهدف نشر الأفكار الملهمة ومشاركة قصص وتجارب متنوعة مع المجتمع الطلابي. يُعتبر واحدًا من أبرز الفعاليات الشبابية التي تجمع بين الإبداع، الفكر النقدي، والتواصل.",
                 en_about: "An independently licensed event from the global TED organization, organized at Helwan University to spread inspiring ideas and share diverse stories with the student community. One of the most prominent youth events combining creativity, critical thinking, and communication.",
                 nonTechFields: {
@@ -8754,7 +10366,7 @@
                 type: "ميداني + أحياناً أونلاين",
                 skills: ["تنظيم", "التزام", "شغل جماعي"],
                 perks: ["شهادة", "خبرة ميدانية", "المشاركة في حملات كبيرة"],
-                apply: "من الموقع الرسمي أو عبر الحملات التطوعية",
+                apply: "فورم التقديم مغلقة حاليا",
                 ar_about: "أول مؤسسة في مصر متخصصة في مكافحة الجوع وتوفير الغذاء للأسر المحتاجة.",
                 en_about: "Egypt's first institution specializing in fighting hunger and providing food for families in need."
             },
@@ -8780,7 +10392,7 @@
                 type: "ميداني + طوارئ",
                 skills: ["تحمّل ضغط", "سرعة استجابة", "مهارات إسعاف (يفضل)"],
                 perks: ["شهادة", "تدريب إسعافات أولية", "خبرة قوية جداً"],
-                apply: "الموقع الرسمي أو التسجيل في برامج المتطوعين",
+                apply: "فورم التقديم مغلقة حاليا",
                 ar_about: "منظمة إنسانية تأسست سنة 1911 وبتقدم خدمات إغاثة وطوارئ في مصر.",
                 en_about: "Humanitarian organization founded in 1911, providing relief and emergency services across Egypt."
             },
@@ -8800,7 +10412,7 @@
             {
                 name: "مستشفى 57357",
                 img: "vol_57357.jpg",
-                link: "https://www.57357.org/en/education/courses/virtual-clinical-pharmacy-internship-2026",
+                link: "https://old.57357.org/ar/%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d8%ac-%d8%a7%d9%84%d9%85%d8%aa%d8%b7%d9%88%d8%b9%d9%8a%d9%86/",
                 fields: ["دعم المرضى", "تنظيم Events", "توعية"],
                 location: "القاهرة",
                 type: "ميداني",
@@ -8819,7 +10431,7 @@
                 type: "ميداني",
                 skills: ["Teamwork", "اهتمام بالبيئة"],
                 perks: ["شهادة", "مشاركة في مبادرات بيئية"],
-                apply: "عبر صفحة فيسبوك",
+                apply: "فورم التقديم مغلقة حاليا",
                 ar_about: "مبادرة بيئية للحفاظ على نهر النيل من التلوث.",
                 en_about: "An environmental initiative to protect the Nile River from pollution."
             },
@@ -8832,7 +10444,7 @@
                 type: "Hybrid",
                 skills: ["Communication", "تنظيم"],
                 perks: ["شهادة", "خبرة"],
-                apply: "عبر فيسبوك",
+                apply: "فورم التقديم مغلقة حاليا",
                 ar_about: "مبادرة تهدف لتقليل استخدام البلاستيك في مصر.",
                 en_about: "An initiative aimed at reducing plastic use in Egypt."
             },
@@ -8891,7 +10503,7 @@
             {
                 name: "صناع الحياة",
                 img: "vol_sona3.jpg",
-                link: "https://www.sonaa3alhaiat.org",
+                link: "https://lifemakers.org/vol-become/volunteer-form",
                 fields: ["التعليم", "الصحة", "التمكين الاقتصادي", "خدمة اللاجئين"],
                 location: "جميع محافظات مصر",
                 type: "ميداني",
@@ -8923,7 +10535,7 @@
                 type: "ميداني",
                 skills: ["الابتكار وحل المشكلات", "العمل الجماعي", "القدرة على التكيف"],
                 perks: ["شهادات رسمية", "شبكة علاقات قوية", "تجربة عملية ضمن رؤية مصر 2030"],
-                apply: "من خلال رابط الانضمام على الموقع الرسمي",
+                apply: "الفورم مغلق حاليا",
                 ar_about: "كيان شبابي وطني يهدف لتمكين الشباب المصري وإعدادهم كقادة فاعلين عبر برامج تعليمية ومبادرات مرتبطة برؤية مصر 2030.",
                 en_about: "A national youth entity empowering Egyptian youth to become effective leaders through educational programs aligned with Egypt's 2030 Vision."
             }
@@ -8942,12 +10554,12 @@
                 data: { الجهة: "Microsoft", المجال: "برمجة / Data / AI / Cybersecurity", المكان: "Hybrid / Onsite (حسب الدولة)", المدة: "8 – 12 أسبوع", مدفوع: "نعم", تفاصيل: "تدريب عملي داخل فرق Microsoft" }
             },
             {
-                name: "Vodafone Summer Internship", img: "train_voda.jpg", link: "https://share.google/tpSR0ayvcSd1u9drU",
+                name: "Vodafone Summer Internship", img: "train_voda.jpg", link: "https://opportunities.vodafone.com/go/Early-Careers/4183401/",
                 category: "اتصالات", paid: "مدفوع", type: "Onsite",
                 data: { الجهة: "Vodafone Egypt", المجال: "Business / Marketing / IT / HR", المكان: "Onsite (مصر)", المدة: "شهر – شهرين", مدفوع: "غالبًا مدفوع", تفاصيل: "تدريب صيفي للطلبة في مجالات مختلفة" }
             },
             {
-                name: "Orange Digital Center Training", img: "train_orange.jpg", link: "https://www.orange.eg/ar/about/company-overview/social-responsibility/initiative-200hands/trained-employed/maadi-ytc",
+                name: "Orange Digital Center Training", img: "train_orange.jpg", link: "https://www.orange.eg/ar/about/company-overview/social-responsibility/initiative-200hands/trained-employed/trained-employed",
                 category: "تكنولوجيا", paid: "مجاني", type: "Hybrid",
                 data: { الجهة: "Orange", المجال: "برمجة / AI / Data Analysis", المكان: "Hybrid", المدة: "1 – 3 شهور", مدفوع: "مجاني (أحيانًا مع شهادة)", تفاصيل: "تدريب تقني قوي مع مشاريع عملية" }
             },
@@ -8982,9 +10594,9 @@
                 data: { الجهة: "Nestlé", المجال: "Marketing / HR / Business", المكان: "Onsite / Hybrid", المدة: "1 – 3 شهور", مدفوع: "غالبًا مدفوع", تفاصيل: "تدريب داخل أكبر شركة أغذية في العالم" }
             },
             {
-                name: "Siemens Internship", img: "train_siemens.jpg", link: "https://share.google/S83TtEXlsJ4efxQAt",
+                name: "Siemens Internship", img: "train_siemens.jpg", link: "مغلق",
                 category: "هندسة", paid: "مدفوع", type: "Hybrid",
-                data: { الجهة: "Siemens", المجال: "Engineering / Automation / IT", المكان: "Onsite / Hybrid", المدة: "2 – 6 شهور", مدفوع: "نعم", تفاصيل: "تدريب في الأنظمة الصناعية والتكنولوجيا" }
+                data: { الجهة: "Siemens", المجال: "Engineering / Automation / IT", المكان: "Onsite / Hybrid", المدة: "2 – 6 شهور", مدفوع: "نعم", تفاصيل: "فورم التقديم مغلقة حاليا" }
             },
             {
                 name: "EY Internship Program", img: "train_ey.jpg", link: "https://share.google/qAvGui9WXHmrvfFlq",
@@ -8992,9 +10604,9 @@
                 data: { الجهة: "EY (Ernst & Young)", المجال: "Accounting / Consulting / Business", المكان: "Onsite", المدة: "1 – 2 شهر", مدفوع: "أحيانًا مدفوع", تفاصيل: "تدريب في مجال الاستشارات والمحاسبة" }
             },
             {
-                name: "البنك الأهلي المصري - NBE", img: "train_nbe.jpg", link: "https://www.nbe.com.eg/NBE/E/",
+                name: "البنك الأهلي المصري - NBE", img: "train_nbe.jpg", link: "مغلق",
                 category: "بنوك ومال", paid: "غير محدد", type: "Onsite",
-                data: { الجهة: "البنك الأهلي المصري", المجال: "العمل المصرفي / الإداري", المكان: "Onsite (مصر)", المدة: "غالبًا شهر", مدفوع: "غير محدد", تفاصيل: "يفتح باب التقديم سنوياً (غالبًا فبراير أو مايو) للفرق الثانية والثالثة بتقدير لا يقل عن جيد جداً" }
+                data: { الجهة: "البنك الأهلي المصري", المجال: "العمل المصرفي / الإداري", المكان: "Onsite (مصر)", المدة: "غالبًا شهر", مدفوع: "غير محدد", تفاصيل: "فورم التقديم مغلقة حاليا" }
             },
             {
                 name: "CIB Summer Internship", img: "train_cib.jpg", link: "https://www.cibeg.com/en/Careers",
@@ -9052,24 +10664,9 @@
                 data: { الجهة: "Red Bull", المجال: "التسويق الميداني / التواصل / تنظيم الفعاليات", المكان: "Onsite / الميدان", المدة: "حسب البرنامج الأكاديمي", مدفوع: "نعم", تفاصيل: "من أشهر البرامج العالمية - تمثيل العلامة التجارية داخل الجامعات وتطوير مهارات البيع والتسويق" }
             },
             {
-                name: "برنامج إنماء - Inma", img: "train_inma.jpg", link: "https://share.google/EUtmL21m4kPCbs15S",
-                category: "ريادة أعمال", paid: "غير محدد", type: "Onsite",
-                data: { الجهة: "شركة انطلاق", المجال: "ريادة الأعمال", المكان: "Onsite / الجامعات", المدة: "غير محددة", مدفوع: "غير محدد", تفاصيل: "يركز على ريادة الأعمال ويبحث عن طلاب نشطين لنشر الوعي ببيئة الأعمال والشركات الناشئة" }
-            },
-            {
                 name: "Falak Startups Internship", img: "train_falak.jpg", link: "https://www.linkedin.com/company/falakstartups/",
                 category: "ريادة أعمال", paid: "مدفوع", type: "Onsite",
                 data: { الجهة: "Falak Startups", المجال: "ريادة الأعمال / إدارة العمليات / الاستثمار", المكان: "Onsite (القاهرة)", المدة: "شهر إلى شهرين", مدفوع: "مدفوع", تفاصيل: "تجربة تدريبية متكاملة داخل بيئة الشركات الناشئة تشمل الإدارة واللوجستيات عبر حلول التسويق المبتكرة" }
-            },
-            {
-                name: "The Greek Campus Internship", img: "train_greek.jpg", link: "https://share.google/J84KQmX5UH8Sb3ybk",
-                category: "ريادة أعمال", paid: "غير محدد", type: "Onsite",
-                data: { الجهة: "The Greek Campus", المجال: "إدارة العمليات / اللوجستيات / تسويق الفعاليات", المكان: "Onsite (وسط البلد)", المدة: "حسب الموسم", مدفوع: "غير محدد", تفاصيل: "العمل في قلب تجمع التكنولوجيا في مصر وتنظيم أحداث كبرى مثل RiseUp Summit" }
-            },
-            {
-                name: "NIGSD Training Programs", img: "train_nigsd.jpg", link: "https://www.facebook.com/NIGSDEGYPT/",
-                category: "ريادة أعمال", paid: "مجاني", type: "Hybrid",
-                data: { الجهة: "المعهد القومي للحوكمة والتنمية المستدامة", المجال: "الإدارة / الحوكمة / التنمية المستدامة", المكان: "Onsite / Hybrid", المدة: "حسب البرنامج", مدفوع: "غالبًا مجاني ومدعوم", تفاصيل: "تدريبات لنشر ثقافة الحوكمة وتعزيز مهارات التخطيط الاستراتيجي لدى الشباب" }
             }
         ];
 
@@ -9165,7 +10762,7 @@
                     "إتاحة أكثر من 1000 وظيفة وفرصة تدريب",
                     "تجميع خبراء من مجالات متعددة لتبادل الخبرات والرؤى حول مستقبل العمل"
                 ],
-                registerLink: "https://career-180.com/en/events/egypt-career-summit9th/register",
+                registerLink: "مغلق",
                 socials: [
                     { icon: "fab fa-facebook", label: "فيسبوك", url: "https://www.facebook.com/Egyptcareersummit" },
                     { icon: "fab fa-linkedin", label: "لينكدإن", url: "https://www.linkedin.com/company/egypt-career-summit/" }
@@ -9185,7 +10782,7 @@
                     "مناقشة التحديات الأمنية والخصوصية المرتبطة بالأنظمة الذكية",
                     "تعزيز التعاون الدولي بين الباحثين والأكاديميين والشركات"
                 ],
-                registerLink: null,
+                registerLink: "مغلق",
                 socials: [
                     { icon: "fab fa-instagram", label: "إنستجرام", url: "https://www.instagram.com/elshoroukacd" },
                     { icon: "fab fa-facebook", label: "فيسبوك", url: "https://www.facebook.com/share/14ZZ1kHqLD4/" },
@@ -9207,7 +10804,7 @@
                     "تسليط الضوء على قصص نجاح عالمية في التعليم الفني والتكنولوجي",
                     "معارض للشركات والمؤسسات لعرض منتجات وخدمات تدعم التعليم الفني والتكنولوجي"
                 ],
-                registerLink: "https://www.tech.edutech-eg.com/register",
+                registerLink: "مغلق",
                 socials: [
                     { icon: "fab fa-facebook", label: "فيسبوك", url: "https://www.facebook.com/share/1L5dkM5MG8/" },
                     { icon: "fab fa-linkedin", label: "لينكدإن", url: "https://www.linkedin.com/in/EduTech%20Fair%20and%20Forum" },
@@ -9287,7 +10884,7 @@
                     "توفير معلومات مباشرة عن التخصصات والمنح الدراسية والبرامج الأكاديمية",
                     "خلق مساحة للتواصل بين الطلاب وأولياء الأمور والجامعات والمؤسسات التعليمية"
                 ],
-                registerLink: "https://edugate-eg.com",
+                registerLink: "https://reg.edugate-eg.com/register?id=60&_gl=1*1qandbs*_gcl_au*MTgyMTE5NzU2MC4xNzc3MzM4ODkx*_ga*MjA2MDQxMjc2Ni4xNzc3MzM4ODkx*_ga_VF13J5LR0D*czE3NzczMzg4OTAkbzEkZzAkdDE3NzczMzg4OTAkajYwJGwwJGgw*_ga_C6M3EY9BLC*czE3NzczMzg4OTAkbzEkZzAkdDE3NzczMzg4OTAkajYwJGwwJGgw",
                 socials: []
             },
             {
@@ -9323,7 +10920,7 @@
                     "دعم ريادة الأعمال عبر توفير فرص عرض المشاريع الناشئة أمام الجمهور والمستثمرين",
                     "التثقيف والتوعية بقضايا المرأة والمساواة وريادة الأعمال"
                 ],
-                registerLink: "https://form.typeform.com/to/CyGmKfwW",
+                registerLink: "مغلق",
                 socials: [
                     { icon: "fab fa-instagram", label: "إنستجرام", url: "https://www.instagram.com/shecanevent" },
                     { icon: "fab fa-facebook", label: "فيسبوك", url: "https://www.facebook.com/Entreprenelle/" }
@@ -9363,7 +10960,7 @@
                     "تغطية مفاهيم أساسية مثل شبكات الكمبيوتر والأمن السيبراني",
                     "تعليم كيفية استخدام أدوات الحوسبة السحابية"
                 ],
-                registerLink: "https://docs.google.com/forms/d/e/1FAIpQLSc6yGGtn3kEfDOTOmf8Cr7XzBAD1jxbXOFwVoWhTPzKJP8EQg/viewform",
+                registerLink: "مغلق",
                 socials: []
             },
             {
@@ -9380,7 +10977,7 @@
                     "ورش عمل في مجالات Cyber Security وData Analytics وFront-End Development",
                     "تشجيع الطلبة عبر عرض قصص نجاح لطلاب آخرين"
                 ],
-                registerLink: "https://docs.google.com/forms/d/e/1FAIpQLSc9FHW_wufSYIQdHBribnQU4xKcti04-adScXps3WyVyTe2Ww/closedform",
+                registerLink: "مغلق",
                 socials: []
             },
             {
@@ -9506,7 +11103,7 @@
                         <h4 style="margin: 0 0 6px 0; font-size:1.1rem; color:var(--text-primary,#111);">${ev.name}</h4>
                         <p style="margin:0 0 12px 0; font-size:0.9rem; color:var(--text-muted,#555);">📍 ${ev.location}</p>
                         <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
-                            ${ev.registerLink ? `<a href="${ev.registerLink}" target="_blank" class="train-modal-apply-btn" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--primary-color);color:#000;text-decoration:none;border-radius:10px;font-weight:bold;font-size:0.85rem;"><i class="fa fa-external-link-alt"></i> التفاصيل والتسجيل</a>` : ''}
+                            ${ev.registerLink === 'مغلق' ? `<a class="train-modal-apply-btn" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--bg-tertiary, #e0e0e0);color:var(--text-secondary, #666);text-decoration:none;border-radius:10px;font-weight:bold;font-size:0.85rem;cursor:not-allowed;" onclick="event.stopPropagation(); return false;"><i class="fa fa-lock"></i> ${currentLang === 'ar' ? 'الفورم مغلق حالياً' : 'Form Closed'}</a>` : (ev.registerLink ? `<a href="${ev.registerLink}" target="_blank" class="train-modal-apply-btn" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--primary-color);color:#000;text-decoration:none;border-radius:10px;font-weight:bold;font-size:0.85rem;"><i class="fa fa-external-link-alt"></i> التفاصيل والتسجيل</a>` : '')}
                             ${gcalModalBtn}
                         </div>
                     </div>
@@ -9574,9 +11171,14 @@
                 const socialsHTML = ev.socials.map(s =>
                     `<a href="${s.url}" target="_blank" class="btn-social"><i class="${s.icon}"></i> ${s.label}</a>`
                 ).join('');
-                const registerBtn = ev.registerLink
-                    ? `<a href="${ev.registerLink}" target="_blank" class="btn-register-event"><i class="fa fa-pen"></i> سجّل الآن</a>`
-                    : `<span class="btn-register-event" style="opacity:0.5;cursor:default;"><i class="fa fa-clock"></i> قريباً</span>`;
+                let registerBtn;
+                if (ev.registerLink === 'مغلق') {
+                    registerBtn = `<a class="btn-register-event" style="background: var(--bg-tertiary, #e0e0e0); color: var(--text-secondary, #666); cursor: not-allowed; text-decoration: none;" onclick="event.stopPropagation(); return false;"><i class="fa fa-lock"></i> ${currentLang === 'ar' ? 'الفورم مغلق حالياً' : 'Form Closed'}</a>`;
+                } else if (ev.registerLink) {
+                    registerBtn = `<a href="${ev.registerLink}" target="_blank" class="btn-register-event"><i class="fa fa-pen"></i> ${currentLang === 'ar' ? 'سجّل الآن' : 'Register'}</a>`;
+                } else {
+                    registerBtn = `<span class="btn-register-event" style="opacity:0.5;cursor:default;"><i class="fa fa-clock"></i> ${currentLang === 'ar' ? 'قريباً' : 'Soon'}</span>`;
+                }
                 const gcalLink = generateGoogleCalLink(ev);
                 const gcalBtn = gcalLink
                     ? `<a href="${gcalLink}" target="_blank" class="btn-register-event btn-gcal" title="أضف للـ Google Calendar" style="background:linear-gradient(135deg, #4285f4, #34a853); color:white; border:none; display:inline-flex; align-items:center; gap:6px; text-decoration:none; padding: 8px 16px; border-radius: 8px; font-weight: bold; transition: opacity 0.2s; box-shadow:0 2px 6px rgba(66,133,244,0.3);" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
@@ -9694,7 +11296,7 @@
         // On first load, check if there's a hash in the URL
         (function initPageFromHash() {
             const hash = window.location.hash.replace('#', '');
-            const validPages = ['home', 'activities', 'volunteer', 'training', 'events', 'contact'];
+            const validPages = ['home', 'activities', 'volunteer', 'training', 'events', 'contact', 'search-results'];
             if (hash && validPages.includes(hash)) {
                 history.replaceState({ pageId: hash }, '', '#' + hash);
                 navigateTo(hash, false);
@@ -9838,15 +11440,7 @@
                 <h1 class="act-page-title">${currentLang === 'ar' ? 'الأنشطة الطلابية' : 'Student Activities'}</h1>
                 <p class="act-page-subtitle">${currentLang === 'ar' ? 'اختر المجال اللي يناسبك واكتشف المنظمات المناسبة' : 'Choose the field that suits you and discover matching organizations'}</p>
                 
-                <div class="act-definition-card">
-                    <div class="act-def-icon"><i class="fa fa-lightbulb"></i></div>
-                    <div class="act-def-content">
-                        ${currentLang === 'ar' ?
-                    '<strong>النشاط الطلابي</strong> هو مبادرات ينظمها الطلاب داخل الجامعات والمعاهد لتوسيع خبراتهم خارج حدود الدراسة الأكاديمية، ويجمع بين التعلم العملي وبناء مجتمع شبابي نشط. يهدف إلى تنمية المهارات الشخصية مثل القيادة، العمل الجماعي، التواصل وحل المشكلات، إلى جانب تأهيل الطلاب لسوق العمل عبر التدريب العملي والمشروعات التطبيقية. كما يسعى إلى خدمة المجتمع من خلال أنشطة تطوعية ومبادرات اجتماعية، ونشر الثقافة والوعي عبر ندوات ومؤتمرات تثقيفية. باختصار، النشاط الطلابي هو منصة متكاملة تساعد الطالب على اكتساب خبرة حقيقية وبناء شبكة علاقات، ليخرج من الجامعة ليس فقط بشهادة أكاديمية بل أيضًا بمهارات وخبرات تؤهله للحياة العملية والمجتمعية.'
-                    :
-                    '<strong>Student activities</strong> are initiatives organized by students within universities to expand their experiences beyond academic boundaries, combining practical learning with building an active youth community. They aim to develop personal skills such as leadership, teamwork, communication, and problem-solving, along with preparing students for the job market. Furthermore, they seek to serve the community through volunteering, while spreading culture and awareness. In short, student activities serve as a comprehensive platform helping students gain real experience and build a strong network, enabling them to graduate not just with a degree, but with the skills needed for professional and social life.'}
-                    </div>
-                </div>
+
 
                 <div class="act-stats-row">
                     <div class="act-stat-item">
@@ -9856,7 +11450,12 @@
                 </div>
             </div>
 
-            <div class="train-filter-bar" style="top:68px;">
+            <div class="train-filter-bar" id="actFilterBar" style="top:68px;">
+                <button class="filter-toggle-pill" onclick="toggleExpandedPanel('act')">
+                    <i class="fa fa-sliders-h"></i>
+                    <span>الفلاتر</span>
+                    <span class="filter-active-badge" id="actActiveBadge" style="display:none">1</span>
+                </button>
                 <div class="act-search-inner" style="position:relative;max-width:480px;margin-bottom:14px;">
                     <input type="text" id="actSearchInput"
                         style="width:100%;padding:12px 16px 12px 44px;border:2px solid #eee;border-radius:40px;font-family:'Tajawal',sans-serif;font-size:0.9rem;outline:none;"
@@ -10224,7 +11823,7 @@
                         <button class="follow-btn" onclick="event.stopPropagation();toggleFollow('volunteer','${org.name.replace(/'/g, "\\\'")}',this)" id="follow-vol-${org.name.replace(/[^a-zA-Z0-9\u0600-\u06FF]/g, '_')}">
                             <i class="fa-regular fa-heart"></i> <span>${currentLang === 'ar' ? 'متابعة' : 'Follow'}</span>
                         </button>
-                        <a href="${org.link}" target="_blank"><i class="fa fa-external-link-alt"></i> ${_t('vol_register')}</a>
+                        ${org.apply.includes('مغلق') ? `<a style="background: var(--bg-tertiary, #e0e0e0); color: var(--text-secondary, #666); cursor: not-allowed; text-decoration: none;" onclick="return false;"><i class="fa fa-lock"></i> ${currentLang === 'ar' ? 'الفورم مغلق حالياً' : 'Form Currently Closed'}</a>` : `<a href="${org.link}" target="_blank"><i class="fa fa-external-link-alt"></i> ${_t('vol_register')}</a>`}
                     </div>
                 </div>`;
             });
@@ -10387,7 +11986,7 @@
                         <button class="follow-btn" onclick="event.stopPropagation();toggleFollow('volunteer','${org.name.replace(/'/g, "\\'")}',this)" id="follow-vol-${org.name.replace(/[^a-zA-Z0-9\u0600-\u06FF]/g, '_')}">
                             <i class="fa-regular fa-heart"></i> <span>${currentLang === 'ar' ? 'متابعة' : 'Follow'}</span>
                         </button>
-                        <a href="${org.link}" target="_blank"><i class="fa fa-external-link-alt"></i> ${_t('vol_register')}</a>
+                        ${org.apply.includes('مغلق') ? `<a style="background: var(--bg-tertiary, #e0e0e0); color: var(--text-secondary, #666); cursor: not-allowed; text-decoration: none;" onclick="return false;"><i class="fa fa-lock"></i> ${currentLang === 'ar' ? 'الفورم مغلق حالياً' : 'Form Currently Closed'}</a>` : `<a href="${org.link}" target="_blank"><i class="fa fa-external-link-alt"></i> ${_t('vol_register')}</a>`}
                     </div>
                 </div>`;
             });
@@ -10443,7 +12042,7 @@
                             <i class="fa-regular fa-heart"></i> <span>${currentLang === 'ar' ? 'متابعة' : 'Follow'}</span>
                         </button>
                         <button class="train-btn-details" onclick="openTrainModal('${org.name.replace(/'/g, "\\'")}')"><i class="fa fa-info-circle"></i> ${currentLang === 'ar' ? 'التفاصيل' : 'Details'}</button>
-                        ${org.link ? `<a class="train-btn-apply" href="${org.link}" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-external-link-alt"></i> ${currentLang === 'ar' ? 'قدّم' : 'Apply'}</a>` : ''}
+                        ${org.link === 'مغلق' ? `<a class="train-btn-apply" style="background: var(--bg-tertiary, #e0e0e0); color: var(--text-secondary, #666); cursor: not-allowed; text-decoration: none;" onclick="event.stopPropagation(); return false;"><i class="fa fa-lock"></i> ${currentLang === 'ar' ? 'مغلق حالياً' : 'Closed'}</a>` : (org.link ? `<a class="train-btn-apply" href="${org.link}" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-external-link-alt"></i> ${currentLang === 'ar' ? 'قدّم' : 'Apply'}</a>` : '')}
                     </div>
                 `;
                 grid.appendChild(card);
@@ -10456,7 +12055,25 @@
             document.getElementById('trainModalIcon').textContent = catIcons[org.category] || '🏢';
             document.getElementById('trainModalName').textContent = org.name;
             document.getElementById('trainModalCat').textContent = translateField(org.category);
-            document.getElementById('trainModalLink').href = org.link || '#';
+
+            const modalLink = document.getElementById('trainModalLink');
+            if (org.link === 'مغلق') {
+                modalLink.href = '#';
+                modalLink.style.background = 'var(--bg-tertiary, #e0e0e0)';
+                modalLink.style.color = 'var(--text-secondary, #666)';
+                modalLink.style.cursor = 'not-allowed';
+                modalLink.innerHTML = `<i class="fa fa-lock"></i> ${currentLang === 'ar' ? 'الفورم مغلق حالياً' : 'Form Closed'}`;
+                modalLink.onclick = (e) => { e.preventDefault(); return false; };
+                modalLink.style.display = 'inline-flex';
+            } else {
+                modalLink.href = org.link || '#';
+                modalLink.style.background = '';
+                modalLink.style.color = '';
+                modalLink.style.cursor = '';
+                modalLink.innerHTML = `<i class="fa fa-external-link-alt"></i> ${currentLang === 'ar' ? 'قدّم الآن' : 'Apply Now'}`;
+                modalLink.onclick = null;
+                modalLink.style.display = org.link ? 'inline-flex' : 'none';
+            }
 
             const fields = [
                 { icon: 'fa-building', label: currentLang === 'ar' ? 'الجهة' : 'Entity', val: translateField(org.data.الجهة) },
@@ -10920,7 +12537,12 @@ We're here to help! 🌟`,
                 avatar.innerHTML = '';
                 avatar.innerText = (userData.name || 'U').charAt(0).toUpperCase();
             }
-            document.getElementById('authBtn').innerText = translations[currentLang]['auth_profile'];
+            // Show user's first name on the header button
+            const authBtn = document.getElementById('authBtn');
+            const firstName = (userData.name || '').split(' ')[0] || translations[currentLang]['auth_profile'];
+            authBtn.innerHTML = `<i class="fa fa-user-circle"></i> ${firstName}`;
+            authBtn.removeAttribute('data-key'); // prevent translation overwrite
+            authBtn.classList.add('logged-in');
             // Show/update profile link
             let profileLink = document.getElementById('profilePageLink');
             if (!profileLink) {
@@ -10934,6 +12556,15 @@ We're here to help! 🌟`,
             profileLink.innerHTML = `<i class="fa fa-user-edit"></i> ${translations[currentLang]['auth_edit_profile']}`;
         }
 
+        // Handle auth button click: if logged in go to profile, otherwise open auth modal
+        function handleAuthBtnClick() {
+            if (currentUser) {
+                window.location.href = 'profile.html';
+            } else {
+                toggleAuthModal();
+            }
+        }
+
         function resetAuthUI() {
             document.getElementById('registerForm').style.display = 'block';
             document.getElementById('loginForm').style.display = 'none';
@@ -10941,9 +12572,103 @@ We're here to help! 🌟`,
             document.querySelector('.auth-tabs').style.display = 'flex';
             document.getElementById('tabRegister').classList.add('active');
             document.getElementById('tabLogin').classList.remove('active');
-            document.getElementById('authBtn').setAttribute('data-key', 'btn_login');
+            const authBtn = document.getElementById('authBtn');
+            authBtn.setAttribute('data-key', 'btn_login');
+            authBtn.classList.remove('logged-in');
+            authBtn.innerHTML = translations[currentLang]['btn_login'];
             applyTranslations();
         }
+
+        // ==========================================
+        // ============ Notification Panel ============
+        // ==========================================
+
+        let notifItems = JSON.parse(localStorage.getItem('eduvibe_notifs') || '[]');
+
+        function toggleNotifPanel() {
+            const panel = document.getElementById('notifPanel');
+            const overlay = document.getElementById('notifOverlay');
+            const isOpen = panel.classList.contains('open');
+            if (isOpen) {
+                panel.classList.remove('open');
+                overlay.classList.remove('open');
+            } else {
+                panel.classList.add('open');
+                overlay.classList.add('open');
+                // Mark all as read
+                notifItems.forEach(n => n.read = true);
+                localStorage.setItem('eduvibe_notifs', JSON.stringify(notifItems));
+                updateNotifBadge();
+            }
+        }
+
+        function addNotification(title, body, icon) {
+            const notif = {
+                id: Date.now(),
+                title: title,
+                body: body,
+                icon: icon || 'fa-bell',
+                time: new Date().toISOString(),
+                read: false
+            };
+            notifItems.unshift(notif);
+            if (notifItems.length > 50) notifItems = notifItems.slice(0, 50);
+            localStorage.setItem('eduvibe_notifs', JSON.stringify(notifItems));
+            renderNotifPanel();
+            updateNotifBadge();
+        }
+
+        function updateNotifBadge() {
+            const badge = document.getElementById('notifBadge');
+            const unread = notifItems.filter(n => !n.read).length;
+            badge.textContent = unread;
+            badge.style.display = unread > 0 ? 'flex' : 'none';
+        }
+
+        function renderNotifPanel() {
+            const body = document.getElementById('notifPanelBody');
+            const empty = document.getElementById('notifEmpty');
+            if (notifItems.length === 0) {
+                empty.style.display = 'flex';
+                // Clear any rendered items
+                body.querySelectorAll('.notif-item').forEach(el => el.remove());
+                return;
+            }
+            empty.style.display = 'none';
+            // Remove old items
+            body.querySelectorAll('.notif-item').forEach(el => el.remove());
+            notifItems.forEach(n => {
+                const item = document.createElement('div');
+                item.className = 'notif-item' + (n.read ? '' : ' unread');
+                const timeAgo = getTimeAgo(n.time);
+                item.innerHTML = `
+                    <div class="notif-item-icon"><i class="fa ${n.icon}"></i></div>
+                    <div class="notif-item-content">
+                        <div class="notif-item-title">${n.title}</div>
+                        <div class="notif-item-body">${n.body}</div>
+                        <div class="notif-item-time">${timeAgo}</div>
+                    </div>
+                `;
+                body.appendChild(item);
+            });
+        }
+
+        function getTimeAgo(isoStr) {
+            const diff = Date.now() - new Date(isoStr).getTime();
+            const mins = Math.floor(diff / 60000);
+            if (mins < 1) return currentLang === 'ar' ? 'الآن' : 'Just now';
+            if (mins < 60) return currentLang === 'ar' ? `منذ ${mins} دقيقة` : `${mins}m ago`;
+            const hrs = Math.floor(mins / 60);
+            if (hrs < 24) return currentLang === 'ar' ? `منذ ${hrs} ساعة` : `${hrs}h ago`;
+            const days = Math.floor(hrs / 24);
+            return currentLang === 'ar' ? `منذ ${days} يوم` : `${days}d ago`;
+        }
+
+        // Initialize notification panel on load
+        document.addEventListener('DOMContentLoaded', function() {
+            renderNotifPanel();
+            updateNotifBadge();
+        });
 
         // Register
         async function handleRegister(e) {
@@ -10958,7 +12683,7 @@ We're here to help! 🌟`,
                 const password = document.getElementById('rPassword').value;
 
                 const cred = await window.firebaseCreateUser(email, password);
-                const newProfile = { name, email, createdAt: new Date().toISOString() };
+                const newProfile = { name, email, interests: window.selectedInterests || [], createdAt: new Date().toISOString() };
                 await window.firebaseSaveProfile(cred.user.uid, newProfile);
 
                 // Set currentUser with uid
@@ -11041,6 +12766,138 @@ We're here to help! 🌟`,
             e.preventDefault();
             alert(translations[currentLang]['contact_success']);
             document.getElementById('contactForm').reset();
+        }
+
+        // ==========================================
+        // =========== نظام إرسال الفعاليات (Event Submission) ===========
+        // ==========================================
+
+        function openSubmitEventModal() {
+            const modal = document.getElementById('submitEventModal');
+            const formView = document.getElementById('submitFormView');
+            const successView = document.getElementById('submitSuccessView');
+            // Reset to form view
+            formView.style.display = '';
+            successView.classList.remove('show');
+            modal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSubmitEventModal(e) {
+            if (e && e.target !== e.currentTarget) return;
+            const modal = document.getElementById('submitEventModal');
+            modal.classList.remove('open');
+            document.body.style.overflow = '';
+            // Reset form after close animation
+            setTimeout(() => {
+                const form = document.getElementById('submitEventForm');
+                if (form) form.reset();
+                const fileUpload = document.getElementById('seFileDropzone');
+                if (fileUpload) fileUpload.classList.remove('has-file');
+                const fileName = document.getElementById('seFileName');
+                if (fileName) { fileName.style.display = 'none'; fileName.textContent = ''; }
+                const btn = document.getElementById('submitEventBtn');
+                if (btn) { btn.classList.remove('loading'); btn.disabled = false; }
+            }, 400);
+        }
+
+        function handleSubmitFileChange(input) {
+            const dropzone = document.getElementById('seFileDropzone');
+            const fileNameEl = document.getElementById('seFileName');
+            if (input.files && input.files[0]) {
+                dropzone.classList.add('has-file');
+                fileNameEl.textContent = '📎 ' + input.files[0].name;
+                fileNameEl.style.display = 'block';
+            } else {
+                dropzone.classList.remove('has-file');
+                fileNameEl.style.display = 'none';
+                fileNameEl.textContent = '';
+            }
+        }
+
+        // Convert image to base64 for Firestore storage (small images only)
+        function fileToBase64(file) {
+            return new Promise((resolve, reject) => {
+                if (!file) { resolve(null); return; }
+                // Limit to 1MB
+                if (file.size > 1024 * 1024) {
+                    reject(new Error('حجم الصورة كبير جداً. الحد الأقصى 1 ميجابايت'));
+                    return;
+                }
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+
+        async function handleEventSubmission(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitEventBtn');
+            btn.classList.add('loading');
+            btn.disabled = true;
+
+            try {
+                // Gather form data
+                const title = document.getElementById('seTitle').value.trim();
+                const category = document.getElementById('seCategory').value;
+                const description = document.getElementById('seDescription').value.trim();
+                const organizer = document.getElementById('seOrganizer').value.trim();
+                const email = document.getElementById('seEmail').value.trim();
+                const eventDate = document.getElementById('seDate').value;
+                const location = document.getElementById('seLocation').value.trim();
+                const regLink = document.getElementById('seRegLink').value.trim();
+                const imageFile = document.getElementById('seImage').files[0] || null;
+
+                // Convert image to base64 if provided
+                let imageData = null;
+                if (imageFile) {
+                    try {
+                        imageData = await fileToBase64(imageFile);
+                    } catch (imgErr) {
+                        alert(imgErr.message);
+                        btn.classList.remove('loading');
+                        btn.disabled = false;
+                        return;
+                    }
+                }
+
+                const submission = {
+                    title,
+                    category,
+                    description,
+                    organizer,
+                    email,
+                    eventDate,
+                    location,
+                    registrationLink: regLink || null,
+                    imageBase64: imageData,
+                    status: 'pending', // pending | approved | rejected
+                    submittedAt: new Date().toISOString(),
+                    reviewedAt: null,
+                    reviewNotes: null
+                };
+
+                // Save to Firestore
+                if (window.firebaseAddSubmission) {
+                    await window.firebaseAddSubmission(submission);
+                } else {
+                    console.warn('Firebase submission function not available, logging to console');
+                    console.log('Event Submission:', submission);
+                }
+
+                // Show success view
+                const formView = document.getElementById('submitFormView');
+                const successView = document.getElementById('submitSuccessView');
+                formView.style.display = 'none';
+                successView.classList.add('show');
+
+            } catch (err) {
+                console.error('Submission error:', err);
+                alert('حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.');
+                btn.classList.remove('loading');
+                btn.disabled = false;
+            }
         }
 
         // ==========================================
@@ -11360,7 +13217,7 @@ We're here to help! 🌟`,
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
         import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-auth.js";
-        import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
+        import { getFirestore, doc, setDoc, getDoc, addDoc, collection } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
         import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-functions.js";
 
         const firebaseConfig = {
@@ -11389,6 +13246,7 @@ We're here to help! 🌟`,
             const snap = await getDoc(doc(db, "users", uid));
             return snap.exists() ? snap.data() : null;
         };
+        window.firebaseAddSubmission = (data) => addDoc(collection(db, "event_submissions"), data);
 
         // Auto-restore session on page load
         // IMPORTANT: _authReadyResolve() is called once (whether user is logged in or not)
@@ -11425,8 +13283,8 @@ We're here to help! 🌟`,
                 nav_training: "فرص التدريب",
                 nav_events: "الفعاليات",
                 nav_start: "ابدأ منين",
-                nav_contact: "تواصل معنا",
-                btn_login: "تسجيل الدخول",
+                nav_contact: "من نحن",
+                btn_login: "انضم الينا",
                 hero_badge: "✨ منصتك المتكاملة للأنشطة والتدريب",
                 hero_title: "ابدأ من هنا...واكتشف عالم الأنشطة اللي شبهك",
                 hero_desc: "بدل ما تدور كتير...كل الانشطة وفرص التطوع والفعاليات بقت في مكان واحد",
@@ -11448,7 +13306,7 @@ We're here to help! 🌟`,
                 home_events_btn: "شاهد الفعاليات",
                 how_eyebrow: "دليلك للبداية",
                 how_title: "إزاي تستفيد من المنصة؟",
-                how_sub: "٤ خطوات بسيطة عشان تبدأ رحلتك وتكون جزء من مجتمعنا",
+                how_sub: "٣ خطوات بسيطة عشان تبدأ رحلتك وتكون جزء من مجتمعنا",
                 how_step1_title: "أنشئ حسابك",
                 how_step1_desc: "سجل في المنصة مجاناً عشان يكون ليك بروفايل خاص تقدر من خلاله تتابع المنظمات والأنشطة وتشارك في الفعاليات.",
                 how_step2_title: "استكشف الفرص",
@@ -11540,7 +13398,7 @@ We're here to help! 🌟`,
                 form_name: "الاسم",
                 form_email: "الايميل",
                 form_comment: "التعليق",
-                form_btn_send: "إرسال الكومنت",
+                form_btn_send: "إرسال",
                 events_map_eyebrow: "خريطة الفعاليات",
                 events_map_title: "اكتشف الفعاليات القادمة",
                 cal_event_legend: "يوم به فعالية",
@@ -11567,8 +13425,8 @@ We're here to help! 🌟`,
                 nav_training: "Internships",
                 nav_events: "Events",
                 nav_start: "Where to Start?",
-                nav_contact: "Contact Us",
-                btn_login: "Login",
+                nav_contact: "About Us",
+                btn_login: "Join Us",
                 hero_badge: "✨ Your Integrated Platform for Activities & Training",
                 hero_title: "Start Here... And Discover Activities Like You",
                 hero_desc: "Instead of searching too much... All activities, volunteer opportunities, and events are in one place",
@@ -11590,7 +13448,7 @@ We're here to help! 🌟`,
                 home_events_btn: "View Events",
                 how_eyebrow: "Your Guide to Starting",
                 how_title: "How to benefit from the platform?",
-                how_sub: "4 simple steps to start your journey and be part of our community",
+                how_sub: "3 simple steps to start your journey and be part of our community",
                 how_step1_title: "Create Your Account",
                 how_step1_desc: "Register on the platform for free to have a special profile through which you can follow organizations.",
                 how_step2_title: "Explore Opportunities",
@@ -11706,6 +13564,37 @@ We're here to help! 🌟`,
         // Translations consolidated at top.
 
 
+        window.selectedInterests = [];
+        window.toggleInterest = function(el) {
+            const field = el.getAttribute('data-field');
+            if (window.selectedInterests.includes(field)) {
+                window.selectedInterests = window.selectedInterests.filter(f => f !== field);
+                el.classList.remove('selected');
+            } else {
+                if (window.selectedInterests.length >= 3) {
+                    alert(currentLang === 'ar' ? 'يمكنك اختيار 3 مجالات كحد أقصى' : 'You can select up to 3 fields');
+                    return;
+                }
+                window.selectedInterests.push(field);
+                el.classList.add('selected');
+            }
+            document.getElementById('interestsCount').innerText = `${window.selectedInterests.length} / 3`;
+        };
+
+        function updateInterestsGrid() {
+            if (translations['ar']) translations['ar']['form_interests'] = 'مجالات الاهتمام (اختر حتى 3 مجالات)';
+            if (translations['en']) translations['en']['form_interests'] = 'Interested Fields (Up to 3)';
+            
+            const grid = document.getElementById('interestsGrid');
+            if (!grid) return;
+            const fields = Object.keys(fieldCategories || {}).filter(c => c !== 'all');
+            grid.innerHTML = fields.map(f => {
+                const isSelected = window.selectedInterests.includes(f);
+                const label = typeof translateField !== 'undefined' ? translateField(f) : f;
+                return `<div class="interest-chip ${isSelected ? 'selected' : ''}" data-field="${f}" onclick="window.toggleInterest(this)">${label}</div>`;
+            }).join('');
+        }
+
         // currentLang is defined at the top
         function applyTranslations() {
             const elements = document.querySelectorAll('[data-key]');
@@ -11732,6 +13621,7 @@ We're here to help! 🌟`,
 
             // Re-apply navigation highlighting if needed
             // (The text changes might slightly shift things, but usually it's fine)
+            updateInterestsGrid();
         }
 
         function switchLanguage() {
@@ -11786,25 +13676,6 @@ We're here to help! 🌟`,
                 });
             }
 
-            /* ── 3. Cursor Trail ── */
-            const dot1 = document.getElementById('cursorDot1');
-            const dot2 = document.getElementById('cursorDot2');
-            if (dot1 && dot2 && window.innerWidth > 768) {
-                let mx = 0, my = 0, tx = 0, ty = 0;
-                document.addEventListener('mousemove', e => {
-                    mx = e.clientX; my = e.clientY;
-                    dot1.style.cssText += `left:${mx}px; top:${my}px; opacity:0.7;`;
-                });
-                (function animDot() {
-                    tx += (mx - tx) * 0.12;
-                    ty += (my - ty) * 0.12;
-                    dot2.style.cssText += `left:${tx}px; top:${ty}px; opacity:0.45;`;
-                    requestAnimationFrame(animDot);
-                })();
-                document.addEventListener('mouseleave', () => {
-                    dot1.style.opacity = '0'; dot2.style.opacity = '0';
-                });
-            }
 
             /* ── 4. Scroll Reveal ── */
             function setupReveal() {
@@ -11830,25 +13701,6 @@ We're here to help! 🌟`,
                 };
             }
 
-            /* ── 5. 3-D Card Tilt ── */
-            function initTilt() {
-                document.querySelectorAll('.tilt-card').forEach(card => {
-                    card.addEventListener('mousemove', e => {
-                        const r = card.getBoundingClientRect();
-                        const x = e.clientX - r.left - r.width / 2;
-                        const y = e.clientY - r.top - r.height / 2;
-                        const rx = (-y / r.height) * 8;
-                        const ry = (x / r.width) * 8;
-                        card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`;
-                        card.style.boxShadow = `${-ry}px ${rx}px 40px var(--greige-glow), 0 0 0 1px var(--greige-border)`;
-                    });
-                    card.addEventListener('mouseleave', () => {
-                        card.style.transform = '';
-                        card.style.boxShadow = '';
-                    });
-                });
-            }
-            initTilt();
 
             /* ── 6. Animated Number Counters ── */
             function countUp(el) {
@@ -11921,23 +13773,6 @@ We're here to help! 🌟`,
                 el.classList.add('eyebrow-shimmer');
             });
 
-            /* ── 11. Page transition on navigateTo ── */
-            const ptOverlay = document.getElementById('page-transition');
-            if (ptOverlay && origNavigateTo) {
-                window.navigateTo = (function (prev) {
-                    return function (pageId, addToHistory) {
-                        ptOverlay.classList.add('active');
-                        setTimeout(() => {
-                            prev(pageId, addToHistory);
-                            setTimeout(() => {
-                                ptOverlay.classList.remove('active');
-                                ptOverlay.classList.add('out');
-                                setTimeout(() => ptOverlay.classList.remove('out'), 520);
-                            }, 80);
-                        }, 250);
-                    };
-                })(origNavigateTo);
-            }
 
             /* ── 12. Header scroll effect (add greige tint) ── */
             const header = document.querySelector('header');
@@ -11970,6 +13805,441 @@ We're here to help! 🌟`,
 
         })();
     </script>
+    <!-- ═══════════════════════════════════════════════════════
+         SMART FILTER BAR ENGINE — Auto-collapse / expand on scroll
+    ═══════════════════════════════════════════════════════ -->
+    <script>
+    (function SmartFilterBar() {
+        'use strict';
+
+        /* ── Config ── */
+        const SCROLL_THRESHOLD = 80;   // px from top before compacting
+        const SCROLL_DELTA     = 6;    // min scroll delta to trigger toggle
+
+        /* ── State ── */
+        let lastScrollY   = 0;
+        let ticking       = false;
+        let expandedPanel = null; // 'train' | 'vol' | 'act' | null
+
+        /* ── Collect all filter bars once DOM is ready ── */
+        function getFilterBars() {
+            return [
+                document.getElementById('trainFilterBar'),
+                document.getElementById('volFilterBar'),
+                document.getElementById('actFilterBar'),
+            ].filter(Boolean);
+        }
+
+        /* ── Backdrop ── */
+        function getBackdrop() {
+            let bd = document.getElementById('filterPanelBackdrop');
+            if (!bd) {
+                bd = document.createElement('div');
+                bd.className = 'filter-panel-backdrop';
+                bd.id = 'filterPanelBackdrop';
+                bd.addEventListener('click', closeExpandedPanel);
+                document.body.appendChild(bd);
+            }
+            return bd;
+        }
+
+        /* ── Scroll handler ── */
+        function onScroll() {
+            if (!ticking) {
+                requestAnimationFrame(update);
+                ticking = true;
+            }
+        }
+
+        function update() {
+            const y     = window.scrollY;
+            const delta = y - lastScrollY;
+
+            getFilterBars().forEach(bar => {
+                if (y < SCROLL_THRESHOLD) {
+                    // Near top — always expand
+                    setCompact(bar, false);
+                } else if (delta > SCROLL_DELTA) {
+                    // Scrolling down — compact
+                    setCompact(bar, true);
+                } else if (delta < -SCROLL_DELTA) {
+                    // Scrolling up — expand
+                    setCompact(bar, false);
+                    bar.classList.add('filter-revealed');
+                    setTimeout(() => bar.classList.remove('filter-revealed'), 300);
+                }
+            });
+
+            lastScrollY = y;
+            ticking = false;
+        }
+
+        function setCompact(bar, compact) {
+            if (compact) {
+                bar.classList.add('filter-compact');
+            } else {
+                bar.classList.remove('filter-compact');
+            }
+        }
+
+        /* ── Expanded overlay panel ── */
+        window.toggleExpandedPanel = function(type) {
+            if (expandedPanel === type) {
+                closeExpandedPanel();
+                return;
+            }
+            closeExpandedPanel();
+            openExpandedPanel(type);
+        };
+
+        function openExpandedPanel(type) {
+            expandedPanel = type;
+
+            // Clone the bar content into overlay
+            const sourceBar = document.getElementById(type + 'FilterBar');
+            if (!sourceBar) return;
+
+            let panel = document.getElementById('filterExpandedPanel');
+            if (!panel) {
+                panel = document.createElement('div');
+                panel.className = 'filter-expanded-panel';
+                panel.id = 'filterExpandedPanel';
+                document.body.appendChild(panel);
+            }
+
+            // Clone inner content (skip the pill itself)
+            panel.innerHTML = '';
+            // Close button
+            const closeBtn = document.createElement('button');
+            closeBtn.innerHTML = '<i class="fa fa-times"></i>';
+            closeBtn.style.cssText = 'float:left;background:none;border:none;font-size:1.1rem;cursor:pointer;color:var(--text-muted);padding:0 4px 8px;';
+            closeBtn.addEventListener('click', closeExpandedPanel);
+            panel.appendChild(closeBtn);
+
+            Array.from(sourceBar.children).forEach(child => {
+                if (child.classList.contains('filter-toggle-pill')) return;
+                panel.appendChild(child.cloneNode(true));
+            });
+
+            // Re-wire inputs/buttons in the cloned panel to original handlers
+            rewirePanel(panel, type);
+
+            // Show
+            getBackdrop().classList.add('open');
+            setTimeout(() => panel.classList.add('open'), 10);
+        }
+
+        function closeExpandedPanel() {
+            const panel = document.getElementById('filterExpandedPanel');
+            if (panel) {
+                panel.classList.remove('open');
+            }
+            getBackdrop().classList.remove('open');
+            expandedPanel = null;
+        }
+
+        /* Re-wire cloned panel inputs to call the original JS functions */
+        function rewirePanel(panel, type) {
+            // Search inputs
+            panel.querySelectorAll('input[type="text"]').forEach(input => {
+                const origId = input.id;
+                input.removeAttribute('id'); // avoid duplicate ids
+                input.addEventListener('input', () => {
+                    // Sync value back to original
+                    const orig = document.getElementById(origId);
+                    if (orig) { orig.value = input.value; orig.dispatchEvent(new Event('input')); }
+                    else {
+                        // Trigger by calling the known function names
+                        if (type === 'train' && window.filterTraining) window.filterTraining();
+                        if (type === 'vol' && window.filterVolunteer) window.filterVolunteer();
+                        if (type === 'act' && window.handleActSearch) window.handleActSearch(input.value);
+                    }
+                });
+            });
+
+            // Category buttons
+            panel.querySelectorAll('.train-cat').forEach(btn => {
+                const origOnclick = btn.getAttribute('onclick');
+                btn.removeAttribute('onclick');
+                btn.addEventListener('click', () => {
+                    if (origOnclick) {
+                        try { eval(origOnclick); } catch(e) {}
+                    }
+                    closeExpandedPanel();
+                });
+            });
+        }
+
+        /* ── Init ── */
+        function init() {
+            window.addEventListener('scroll', onScroll, { passive: true });
+            lastScrollY = window.scrollY;
+        }
+
+        // Run after DOM is fully ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+        // Re-init after SPA page navigation (re-scan for newly inserted bars)
+        const origNavigateTo = window.navigateTo;
+        if (origNavigateTo) {
+            window.navigateTo = function(pageId, addToHistory) {
+                origNavigateTo(pageId, addToHistory);
+                setTimeout(() => {
+                    lastScrollY = window.scrollY;
+                    getFilterBars().forEach(bar => setCompact(bar, false));
+                }, 150);
+            };
+        }
+    })();
+    </script>
+
+<!-- ===== Event Submission Modal ===== -->
+<div class="submit-modal-overlay" id="submitEventModal" onclick="closeSubmitEventModal(event)">
+    <div class="submit-modal-box" onclick="event.stopPropagation()">
+        <!-- Header -->
+        <div class="submit-modal-header">
+            <div class="submit-modal-header-info">
+                <div class="submit-modal-header-icon">📤</div>
+                <div>
+                    <h2>أرسل فعاليتك</h2>
+                    <p>شاركنا فعاليتك التعليمية وسنراجعها</p>
+                </div>
+            </div>
+            <button class="submit-modal-close" onclick="closeSubmitEventModal()" aria-label="إغلاق">✕</button>
+        </div>
+
+        <!-- Form View -->
+        <div class="submit-modal-body" id="submitFormView">
+            <form id="submitEventForm" onsubmit="handleEventSubmission(event)" autocomplete="off">
+
+                <!-- Title -->
+                <div class="submit-form-group">
+                    <label for="seTitle">📝 عنوان الفعالية</label>
+                    <input type="text" id="seTitle" placeholder="مثال: ورشة البرمجة بلغة بايثون" required>
+                </div>
+
+                <!-- Category & Date row -->
+                <div class="submit-form-row">
+                    <div class="submit-form-group">
+                        <label for="seCategory">📂 التصنيف</label>
+                        <select id="seCategory" required>
+                            <option value="" disabled selected>اختر التصنيف</option>
+                            <option value="workshops">ورش عمل</option>
+                            <option value="courses">دورات</option>
+                            <option value="competitions">مسابقات</option>
+                            <option value="volunteer">تطوع</option>
+                            <option value="conferences">مؤتمرات</option>
+                            <option value="hackathons">هاكاثونات</option>
+                            <option value="seminars">ندوات</option>
+                            <option value="other">أخرى</option>
+                        </select>
+                    </div>
+                    <div class="submit-form-group">
+                        <label for="seDate">📅 التاريخ</label>
+                        <input type="date" id="seDate" required>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <div class="submit-form-group">
+                    <label for="seDescription">📋 وصف الفعالية</label>
+                    <textarea id="seDescription" rows="3" placeholder="اكتب وصفاً تفصيلياً للفعالية..." required></textarea>
+                </div>
+
+                <!-- Organizer & Email row -->
+                <div class="submit-form-row">
+                    <div class="submit-form-group">
+                        <label for="seOrganizer">🏢 الجهة المنظمة</label>
+                        <input type="text" id="seOrganizer" placeholder="اسم المنظمة أو الجهة" required>
+                    </div>
+                    <div class="submit-form-group">
+                        <label for="seEmail">📧 البريد الإلكتروني</label>
+                        <input type="email" id="seEmail" placeholder="email@example.com" required>
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div class="submit-form-group">
+                    <label for="seLocation">📍 الموقع</label>
+                    <input type="text" id="seLocation" placeholder="مثال: أونلاين / جامعة الملك سعود" required>
+                </div>
+
+                <!-- Registration Link (optional) -->
+                <div class="submit-form-group">
+                    <label for="seRegLink">🔗 رابط التسجيل <span class="optional-tag">(اختياري)</span></label>
+                    <input type="url" id="seRegLink" placeholder="https://...">
+                </div>
+
+                <!-- Image upload -->
+                <div class="submit-form-group">
+                    <label>🖼️ صورة الفعالية <span class="optional-tag">(اختياري — الحد الأقصى 1MB)</span></label>
+                    <div class="submit-file-upload" id="seFileDropzone">
+                        <input type="file" id="seImage" accept="image/*" onchange="handleSubmitFileChange(this)">
+                        <div class="submit-file-icon">📁</div>
+                        <div class="submit-file-text">اسحب الصورة هنا أو <strong>اختر ملف</strong></div>
+                        <div class="submit-file-name" id="seFileName"></div>
+                    </div>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="submit-form-btn" id="submitEventBtn">
+                    <span class="btn-text">📤 إرسال الفعالية للمراجعة</span>
+                    <span class="spinner"></span>
+                </button>
+
+            </form>
+        </div>
+
+        <!-- Success View -->
+        <div class="submit-success-view" id="submitSuccessView">
+            <div class="submit-success-icon">✓</div>
+            <h3>تم إرسال فعاليتك بنجاح! 🎉</h3>
+            <p>شكراً لمشاركتك! سيتم مراجعة الفعالية<br>من فريقنا وإضافتها بأسرع وقت ممكن.</p>
+            <button class="submit-success-close-btn" onclick="closeSubmitEventModal()">إغلاق</button>
+        </div>
+    </div>
+</div>
+
+    <!-- ===== Motivational Popup System ===== -->
+    <script>
+    (function() {
+        // ── Popup data: each entry links to a real page/section ──
+        const MOTIV_ITEMS = [
+            {
+                icon: '🚀',
+                label: 'فرصة تدريب',
+                message: 'قدم دلوقتي، فرصتك مستنياك!',
+                sub: 'فرص تدريب متاحة دلوقتي في مجالات مختلفة',
+                cta: 'اكتشف فرص التدريب',
+                page: 'training'
+            },
+            {
+                icon: '🎯',
+                label: 'نشاط طلابي',
+                message: 'انضم لنشاط وطور مهاراتك!',
+                sub: 'الأنشطة الطلابية بتفتحلك أبواب جديدة',
+                cta: 'استعرض الأنشطة',
+                page: 'activities'
+            },
+            {
+                icon: '🌟',
+                label: 'فعالية قريبة',
+                message: "Don't miss this opportunity 🚀",
+                sub: 'فعاليات تعليمية وورش عمل مستنياك',
+                cta: 'شوف الفعاليات',
+                page: 'events'
+            },
+            {
+                icon: '❤️',
+                label: 'تطوع',
+                message: 'خليك جزء من التغيير!',
+                sub: 'فرص تطوع تفرق في حياة الناس',
+                cta: 'انضم للتطوع',
+                page: 'volunteer'
+            },
+            {
+                icon: '💡',
+                label: 'ابدأ منين؟',
+                message: 'مش عارف تبدأ من فين؟ احنا هنساعدك!',
+                sub: 'اكتشف المسار الصح ليك',
+                cta: 'ابدأ دلوقتي',
+                page: 'start'
+            }
+        ];
+
+        let currentItem = null;
+        let hideTimer = null;
+        let lastShownTime = 0;
+        let dismissedCount = 0;
+        let hasScrolled = false;
+        let idleTimer = null;
+        const COOLDOWN_MS = 90000;   // 90s between popups
+        const IDLE_DELAY_MS = 25000; // show after 25s idle
+        const FIRST_DELAY_MS = 8000; // first popup after 8s
+        const AUTO_HIDE_MS = 12000;  // auto-dismiss after 12s
+
+        function pickItem() {
+            // Rotate through items based on dismissedCount
+            return MOTIV_ITEMS[dismissedCount % MOTIV_ITEMS.length];
+        }
+
+        function showMotivPopup() {
+            const now = Date.now();
+            if (now - lastShownTime < COOLDOWN_MS) return;
+            // Don't show if chat is open
+            const chatWin = document.getElementById('chat-window');
+            if (chatWin && chatWin.style.display === 'flex') return;
+
+            currentItem = pickItem();
+            const popup = document.getElementById('motiv-popup');
+            if (!popup) return;
+
+            document.getElementById('motivIcon').textContent = currentItem.icon;
+            document.getElementById('motivLabel').textContent = currentItem.label;
+            document.getElementById('motivMessage').textContent = currentItem.message;
+            document.getElementById('motivSub').textContent = currentItem.sub;
+            document.getElementById('motivCtaBtn').textContent = currentItem.cta + ' ←';
+
+            popup.classList.add('motiv-show');
+            lastShownTime = now;
+
+            clearTimeout(hideTimer);
+            hideTimer = setTimeout(closeMotivPopup, AUTO_HIDE_MS);
+        }
+
+        window.closeMotivPopup = function() {
+            const popup = document.getElementById('motiv-popup');
+            if (popup) popup.classList.remove('motiv-show');
+            clearTimeout(hideTimer);
+            dismissedCount++;
+            resetIdleTimer();
+        };
+
+        window.motivGo = function() {
+            closeMotivPopup();
+            if (currentItem && window.navigateTo) {
+                window.navigateTo(currentItem.page);
+            }
+        };
+
+        // ── Triggers ──
+
+        // 1. First visit: show after FIRST_DELAY_MS
+        setTimeout(showMotivPopup, FIRST_DELAY_MS);
+
+        // 2. Scroll trigger: show once user has scrolled 40% of page
+        window.addEventListener('scroll', function onScroll() {
+            if (hasScrolled) return;
+            const scrollPct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+            if (scrollPct > 0.4) {
+                hasScrolled = true;
+                setTimeout(showMotivPopup, 1500);
+            }
+        }, { passive: true });
+
+        // 3. Idle trigger: show when user is idle for IDLE_DELAY_MS
+        function resetIdleTimer() {
+            clearTimeout(idleTimer);
+            idleTimer = setTimeout(showMotivPopup, IDLE_DELAY_MS);
+        }
+        ['mousemove', 'keydown', 'touchstart', 'click'].forEach(evt =>
+            document.addEventListener(evt, resetIdleTimer, { passive: true })
+        );
+        resetIdleTimer();
+
+        // 4. Tab visibility: show when user returns to tab after being away
+        document.addEventListener('visibilitychange', function() {
+            if (!document.hidden) {
+                setTimeout(showMotivPopup, 2000);
+            }
+        });
+    })();
+    </script>
+
 </body>
 
 </html>
