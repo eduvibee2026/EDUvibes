@@ -656,10 +656,10 @@
             display: flex;
             flex-direction: column;
             gap: 0;
-            transition: transform 0.4s cubic-bezier(0.2,0.8,0.2,1),
-                        box-shadow 0.4s,
-                        border-color 0.4s;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+                box-shadow 0.4s,
+                border-color 0.4s;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
         }
 
         .modern-card::before {
@@ -672,11 +672,13 @@
             border-radius: inherit;
         }
 
-        .modern-card:hover::before { opacity: 1; }
+        .modern-card:hover::before {
+            opacity: 1;
+        }
 
         .modern-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 24px 60px rgba(var(--card-color-rgb), 0.15), 0 4px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 24px 60px rgba(var(--card-color-rgb), 0.15), 0 4px 20px rgba(0, 0, 0, 0.05);
             border-color: rgba(var(--card-color-rgb), 0.35);
         }
 
@@ -712,7 +714,7 @@
             inset: 0;
             border-radius: 50%;
             background: rgba(var(--card-color-rgb), 0.12);
-            transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), background 0.4s;
+            transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.4s;
         }
 
         .modern-card:hover .mcard-icon-ring {
@@ -730,7 +732,7 @@
             color: var(--card-color);
             line-height: 72px;
             text-align: center;
-            transition: transform 0.4s cubic-bezier(0.2,0.8,0.2,1);
+            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
         .modern-card:hover .mcard-icon {
@@ -820,7 +822,9 @@
             transition: height 0.5s ease;
         }
 
-        .modern-card:hover::after { height: 100%; }
+        .modern-card:hover::after {
+            height: 100%;
+        }
 
         @media (max-width: 900px) {
             .modern-sections-wrapper {
@@ -828,13 +832,26 @@
                 padding: 30px 5% 60px;
                 gap: 22px;
             }
-            .mcard-title { font-size: 1.35rem; }
-            .modern-card { padding: 32px 28px 28px; }
+
+            .mcard-title {
+                font-size: 1.35rem;
+            }
+
+            .modern-card {
+                padding: 32px 28px 28px;
+            }
         }
 
         @media (max-width: 480px) {
-            .mcard-icon-wrap { width: 58px; height: 72px; }
-            .mcard-icon { line-height: 58px; font-size: 1.4rem; }
+            .mcard-icon-wrap {
+                width: 58px;
+                height: 72px;
+            }
+
+            .mcard-icon {
+                line-height: 58px;
+                font-size: 1.4rem;
+            }
         }
 
         /* ── 20. Train / Vol / Events Hero wave bottom ── */
@@ -887,7 +904,7 @@
         }
 
         .logo img {
-            height: 50px;
+            height: 70px;
             cursor: pointer;
             transition: transform 0.3s ease, filter 0.3s ease;
             filter: var(--logo-filter);
@@ -1007,7 +1024,7 @@
 
         .btn-register.logged-in:hover {
             background: linear-gradient(135deg, #444, #555);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
 
@@ -1023,12 +1040,12 @@
             background: var(--card-bg, rgba(22, 22, 30, 0.97));
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-left: 1px solid rgba(255,255,255,0.08);
+            border-left: 1px solid rgba(255, 255, 255, 0.08);
             z-index: 10001;
             transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
-            box-shadow: -10px 0 40px rgba(0,0,0,0.4);
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.4);
         }
 
         .notif-panel.open {
@@ -1040,7 +1057,7 @@
             align-items: center;
             justify-content: space-between;
             padding: 20px 24px;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             flex-shrink: 0;
         }
 
@@ -1052,7 +1069,7 @@
         }
 
         .notif-close-btn {
-            background: rgba(255,255,255,0.08);
+            background: rgba(255, 255, 255, 0.08);
             border: none;
             color: var(--text-color, #fff);
             width: 36px;
@@ -1067,7 +1084,7 @@
         }
 
         .notif-close-btn:hover {
-            background: rgba(255,70,87,0.2);
+            background: rgba(255, 70, 87, 0.2);
             color: #ff4757;
         }
 
@@ -1082,7 +1099,7 @@
         }
 
         .notif-panel-body::-webkit-scrollbar-thumb {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 4px;
         }
 
@@ -1093,7 +1110,7 @@
             justify-content: center;
             height: 100%;
             gap: 16px;
-            color: rgba(255,255,255,0.3);
+            color: rgba(255, 255, 255, 0.3);
         }
 
         .notif-empty i {
@@ -1114,18 +1131,18 @@
             margin-bottom: 8px;
             transition: all 0.2s ease;
             cursor: default;
-            background: rgba(255,255,255,0.03);
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid transparent;
         }
 
         .notif-item:hover {
-            background: rgba(255,255,255,0.06);
-            border-color: rgba(255,255,255,0.06);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.06);
         }
 
         .notif-item.unread {
-            background: rgba(255,180,0,0.06);
-            border-color: rgba(255,180,0,0.15);
+            background: rgba(255, 180, 0, 0.06);
+            border-color: rgba(255, 180, 0, 0.15);
         }
 
         .notif-item.unread::before {
@@ -1143,7 +1160,7 @@
             width: 40px;
             height: 40px;
             border-radius: 12px;
-            background: linear-gradient(135deg, rgba(255,180,0,0.15), rgba(255,180,0,0.05));
+            background: linear-gradient(135deg, rgba(255, 180, 0, 0.15), rgba(255, 180, 0, 0.05));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1166,20 +1183,20 @@
 
         .notif-item-body {
             font-size: 0.82rem;
-            color: var(--text-secondary, rgba(255,255,255,0.55));
+            color: var(--text-secondary, rgba(255, 255, 255, 0.55));
             line-height: 1.5;
             margin-bottom: 6px;
         }
 
         .notif-item-time {
             font-size: 0.72rem;
-            color: rgba(255,255,255,0.3);
+            color: rgba(255, 255, 255, 0.3);
         }
 
         .notif-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
             z-index: 10000;
             opacity: 0;
             pointer-events: none;
@@ -1888,7 +1905,7 @@
             position: absolute;
             inset: 0;
             background-image: radial-gradient(circle at 20% 50%, rgba(255, 180, 0, 0.08) 0%, transparent 50%),
-                              radial-gradient(circle at 80% 50%, rgba(255, 180, 0, 0.06) 0%, transparent 50%);
+                radial-gradient(circle at 80% 50%, rgba(255, 180, 0, 0.06) 0%, transparent 50%);
             pointer-events: none;
         }
 
@@ -1926,8 +1943,15 @@
         }
 
         @keyframes floatIcon {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
         }
 
         .submit-cta-title {
@@ -1971,7 +1995,7 @@
             left: -100%;
             width: 60%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
             animation: sweepShine 2.5s ease-in-out infinite 1.5s;
         }
 
@@ -2001,16 +2025,48 @@
             opacity: 0;
         }
 
-        .submit-cta-sparkles span:nth-child(1) { left: 10%; animation-delay: 0s; }
-        .submit-cta-sparkles span:nth-child(2) { left: 25%; animation-delay: 0.8s; }
-        .submit-cta-sparkles span:nth-child(3) { left: 50%; animation-delay: 1.6s; }
-        .submit-cta-sparkles span:nth-child(4) { left: 75%; animation-delay: 2.4s; }
-        .submit-cta-sparkles span:nth-child(5) { left: 90%; animation-delay: 3.2s; }
+        .submit-cta-sparkles span:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .submit-cta-sparkles span:nth-child(2) {
+            left: 25%;
+            animation-delay: 0.8s;
+        }
+
+        .submit-cta-sparkles span:nth-child(3) {
+            left: 50%;
+            animation-delay: 1.6s;
+        }
+
+        .submit-cta-sparkles span:nth-child(4) {
+            left: 75%;
+            animation-delay: 2.4s;
+        }
+
+        .submit-cta-sparkles span:nth-child(5) {
+            left: 90%;
+            animation-delay: 3.2s;
+        }
 
         @keyframes sparkleFloat {
-            0% { bottom: -10px; opacity: 0; transform: scale(0); }
-            20% { opacity: 1; transform: scale(1); }
-            100% { bottom: 110%; opacity: 0; transform: scale(0.5); }
+            0% {
+                bottom: -10px;
+                opacity: 0;
+                transform: scale(0);
+            }
+
+            20% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            100% {
+                bottom: 110%;
+                opacity: 0;
+                transform: scale(0.5);
+            }
         }
 
         /* --- Event Submission Modal --- */
@@ -2279,7 +2335,7 @@
             display: none;
             width: 20px;
             height: 20px;
-            border: 3px solid rgba(0,0,0,0.2);
+            border: 3px solid rgba(0, 0, 0, 0.2);
             border-top-color: #000;
             border-radius: 50%;
             animation: spin 0.7s linear infinite;
@@ -2294,7 +2350,9 @@
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         /* Success state */
@@ -2310,8 +2368,15 @@
         }
 
         @keyframes fadeScaleIn {
-            from { opacity: 0; transform: scale(0.85); }
-            to { opacity: 1; transform: scale(1); }
+            from {
+                opacity: 0;
+                transform: scale(0.85);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .submit-success-icon {
@@ -2365,15 +2430,19 @@
             .submit-form-row {
                 grid-template-columns: 1fr;
             }
+
             .submit-modal-body {
                 padding: 20px 18px 24px;
             }
+
             .submit-modal-header {
                 padding: 18px 18px 14px;
             }
+
             .submit-cta-title {
                 font-size: 1.2rem;
             }
+
             .submit-cta-btn {
                 font-size: 0.9rem;
                 padding: 12px 28px;
@@ -2395,7 +2464,7 @@
         }
 
         .footer-logo img {
-            height: 60px;
+            height: 80px;
             margin-bottom: 15px;
             filter: var(--logo-filter);
         }
@@ -3012,10 +3081,10 @@
         .train-filter-bar,
         .act-filter-bar {
             transition:
-                padding 0.32s cubic-bezier(.4,0,.2,1),
-                transform 0.32s cubic-bezier(.4,0,.2,1),
+                padding 0.32s cubic-bezier(.4, 0, .2, 1),
+                transform 0.32s cubic-bezier(.4, 0, .2, 1),
                 box-shadow 0.32s ease,
-                max-height 0.32s cubic-bezier(.4,0,.2,1),
+                max-height 0.32s cubic-bezier(.4, 0, .2, 1),
                 opacity 0.25s ease;
             will-change: transform, padding;
             overflow: hidden;
@@ -3026,7 +3095,7 @@
         .act-filter-bar.filter-compact {
             padding-top: 8px !important;
             padding-bottom: 8px !important;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
         }
 
         /* Hide search row and cats row in compact mode — show only the toggle pill */
@@ -3047,12 +3116,13 @@
         .train-results-info {
             max-height: 200px;
             opacity: 1;
-            transition: max-height 0.32s cubic-bezier(.4,0,.2,1), opacity 0.25s ease, margin 0.28s ease;
+            transition: max-height 0.32s cubic-bezier(.4, 0, .2, 1), opacity 0.25s ease, margin 0.28s ease;
         }
 
         /* ── Compact toggle pill (always visible) ── */
         .filter-toggle-pill {
-            display: none; /* shown via JS when compact */
+            display: none;
+            /* shown via JS when compact */
             align-items: center;
             gap: 8px;
             background: var(--primary-color);
@@ -3064,7 +3134,7 @@
             font-size: 0.85rem;
             font-weight: 700;
             cursor: pointer;
-            box-shadow: 0 2px 8px rgba(255,180,0,0.25);
+            box-shadow: 0 2px 8px rgba(255, 180, 0, 0.25);
             transition: background 0.2s, transform 0.2s;
             white-space: nowrap;
         }
@@ -3088,14 +3158,15 @@
         .filter-expanded-panel {
             position: fixed;
             top: 68px;
-            right: 0; left: 0;
+            right: 0;
+            left: 0;
             background: var(--filter-bar-bg, #fff);
             border-bottom: 1px solid var(--filter-bar-border, #f0f0f0);
             padding: 16px 8%;
             z-index: 200;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
             transform: translateY(-110%);
-            transition: transform 0.3s cubic-bezier(.4,0,.2,1), opacity 0.25s ease;
+            transition: transform 0.3s cubic-bezier(.4, 0, .2, 1), opacity 0.25s ease;
             opacity: 0;
             pointer-events: none;
         }
@@ -3111,7 +3182,7 @@
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.18);
+            background: rgba(0, 0, 0, 0.18);
             z-index: 199;
             backdrop-filter: blur(2px);
         }
@@ -3137,8 +3208,15 @@
 
         /* ── Scroll-up reveal animation ── */
         @keyframes filterSlideDown {
-            from { transform: translateY(-8px); opacity: 0.7; }
-            to   { transform: translateY(0);    opacity: 1; }
+            from {
+                transform: translateY(-8px);
+                opacity: 0.7;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         .train-filter-bar.filter-revealed,
@@ -3186,7 +3264,7 @@
             width: 280px;
             background: var(--bg-card);
             border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
             z-index: 1999;
             display: flex;
             flex-direction: column;
@@ -3195,32 +3273,45 @@
             transform: translateY(20px) scale(0.95);
             opacity: 0;
             pointer-events: none;
-            transition: transform 0.35s cubic-bezier(.34,1.56,.64,1), opacity 0.3s ease;
+            transition: transform 0.35s cubic-bezier(.34, 1.56, .64, 1), opacity 0.3s ease;
         }
+
         #motiv-popup.motiv-show {
             transform: translateY(0) scale(1);
             opacity: 1;
             pointer-events: all;
         }
+
         .motiv-accent-bar {
             height: 4px;
             background: linear-gradient(90deg, var(--primary-color), #ff8c00);
             width: 100%;
         }
+
         .motiv-body {
             padding: 14px 14px 10px;
             display: flex;
             flex-direction: column;
             gap: 6px;
         }
+
         .motiv-top-row {
             display: flex;
             align-items: flex-start;
             justify-content: space-between;
             gap: 8px;
         }
-        .motiv-icon { font-size: 1.5rem; line-height: 1; flex-shrink: 0; }
-        .motiv-text-wrap { flex: 1; }
+
+        .motiv-icon {
+            font-size: 1.5rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .motiv-text-wrap {
+            flex: 1;
+        }
+
         .motiv-label {
             font-size: 0.7rem;
             font-weight: 700;
@@ -3229,17 +3320,20 @@
             letter-spacing: 0.05em;
             margin-bottom: 2px;
         }
+
         .motiv-message {
             font-size: 0.88rem;
             font-weight: 700;
             color: var(--text-primary);
             line-height: 1.4;
         }
+
         .motiv-sub {
             font-size: 0.78rem;
             color: var(--text-muted);
             line-height: 1.35;
         }
+
         .motiv-close-btn {
             background: none;
             border: none;
@@ -3250,7 +3344,11 @@
             flex-shrink: 0;
             transition: color 0.2s;
         }
-        .motiv-close-btn:hover { color: var(--text-primary); }
+
+        .motiv-close-btn:hover {
+            color: var(--text-primary);
+        }
+
         .motiv-cta-btn {
             margin: 0 14px 12px;
             background: var(--primary-color);
@@ -3265,11 +3363,15 @@
             transition: transform 0.2s, box-shadow 0.2s;
             font-family: inherit;
         }
+
         .motiv-cta-btn:hover {
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(255,180,0,0.4);
+            box-shadow: 0 4px 12px rgba(255, 180, 0, 0.4);
         }
-        [data-theme="dark"] #motiv-popup { border-color: var(--border-medium); }
+
+        [data-theme="dark"] #motiv-popup {
+            border-color: var(--border-medium);
+        }
 
         #chat-window {
             position: fixed;
@@ -3595,7 +3697,7 @@
             user-select: none;
             display: inline-block;
         }
-        
+
         .interest-chip.selected {
             background: var(--primary-color);
             color: #000;
@@ -3822,7 +3924,8 @@
             text-align: center;
         }
 
-        .act-stat-num {
+        .act-stat-num,
+        .act-stat-text {
             font-size: 1.8rem;
             font-weight: 900;
             color: var(--primary-color);
@@ -6041,7 +6144,8 @@
                 gap: 24px;
             }
 
-            .act-stat-num {
+            .act-stat-num,
+            .act-stat-text {
                 font-size: 1.5rem;
             }
 
@@ -6061,7 +6165,7 @@
             }
 
             .logo img {
-                height: 40px;
+                height: 55px;
             }
 
             .hero {
@@ -6206,7 +6310,7 @@
             }
 
             .footer-logo img {
-                height: 45px;
+                height: 60px;
             }
 
             .footer-section h4 {
@@ -6237,7 +6341,8 @@
                 justify-content: center;
             }
 
-            .act-stat-num {
+            .act-stat-num,
+            .act-stat-text {
                 font-size: 1.3rem;
             }
 
@@ -7679,6 +7784,330 @@
             border-color: rgba(255, 255, 255, 0.1);
         }
 
+        /* ── Smart Advisor Multi-Step ── */
+        .adv-step-dot {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: var(--bg-chip);
+            color: var(--text-muted);
+            font-weight: 800;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--border-medium);
+            transition: all .35s;
+            flex-shrink: 0;
+        }
+
+        .adv-step-dot.active {
+            background: var(--primary-color);
+            color: #000;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 6px rgba(255, 180, 0, 0.18);
+        }
+
+        .adv-step-dot.done {
+            background: #22c55e;
+            border-color: #22c55e;
+            color: #fff;
+        }
+
+        .adv-step-line {
+            flex: 1;
+            height: 2px;
+            background: var(--border-light);
+            min-width: 20px;
+        }
+
+        /* Input & Select fields inside advisor */
+        .adv-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            margin-bottom: 7px;
+            text-align: right;
+        }
+
+        .adv-input,
+        .adv-select {
+            width: 100%;
+            padding: 13px 16px;
+            border: 2px solid var(--border-medium);
+            border-radius: 14px;
+            background: var(--bg-input);
+            color: var(--text-primary);
+            font-family: 'Tajawal', sans-serif;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color .25s, box-shadow .25s;
+            box-sizing: border-box;
+        }
+
+        .adv-input:focus,
+        .adv-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(255, 180, 0, 0.12);
+        }
+
+        .adv-field-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Availability chips */
+        .adv-avail-chip {
+            padding: 9px 18px;
+            border-radius: 30px;
+            border: 2px solid var(--border-medium);
+            background: var(--bg-chip);
+            color: var(--text-secondary);
+            font-family: 'Tajawal', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .25s;
+        }
+
+        .adv-avail-chip:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .adv-avail-chip.active {
+            background: rgba(255, 180, 0, 0.12);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* Field chips (Step 2) */
+        .adv-field-chip {
+            padding: 11px 20px;
+            border-radius: 30px;
+            border: 2px solid var(--border-medium);
+            background: var(--bg-chip);
+            color: var(--text-secondary);
+            font-family: 'Tajawal', sans-serif;
+            font-size: 0.92rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all .3s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .adv-field-chip:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary-color);
+            box-shadow: 0 8px 20px rgba(255, 180, 0, 0.15);
+        }
+
+        .adv-field-chip.active {
+            background: linear-gradient(135deg, var(--primary-color), #ff9f00);
+            border-color: var(--primary-color);
+            color: #000;
+            box-shadow: 0 8px 20px rgba(255, 180, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Result card */
+        .adv-result-card {
+            background: var(--bg-subtle);
+            border-radius: 24px;
+            padding: 32px;
+            border: 1px solid var(--border-light);
+            text-align: right;
+        }
+
+        .adv-greeting-banner {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, rgba(255, 180, 0, 0.08), rgba(255, 159, 0, 0.04));
+            border-radius: 18px;
+            border-right: 4px solid var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .adv-greeting-avatar {
+            font-size: 2.2rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .adv-tip-banner {
+            background: rgba(255, 180, 0, 0.08);
+            border: 1px solid rgba(255, 180, 0, 0.25);
+            border-radius: 14px;
+            padding: 14px 18px;
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .adv-result-section {
+            background: var(--bg-card);
+            border-radius: 18px;
+            padding: 20px 22px;
+            margin-bottom: 16px;
+            border: 1px solid var(--border-card);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+        }
+
+        .adv-result-section-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .adv-see-all-btn {
+            font-size: 0.78rem;
+            color: var(--primary-color);
+            background: rgba(255, 180, 0, 0.1);
+            border: 1px solid rgba(255, 180, 0, 0.25);
+            border-radius: 20px;
+            padding: 4px 14px;
+            cursor: pointer;
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 700;
+            transition: all .25s;
+        }
+
+        .adv-see-all-btn:hover {
+            background: var(--primary-color);
+            color: #000;
+        }
+
+        .adv-result-chip {
+            display: inline-block;
+            padding: 7px 15px;
+            background: rgba(255, 180, 0, 0.1);
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 180, 0, 0.25);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .25s;
+        }
+
+        .adv-result-chip:hover {
+            background: var(--primary-color);
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        .adv-result-chip--blue {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: rgba(59, 130, 246, 0.25);
+            color: var(--text-primary);
+        }
+
+        .adv-result-chip--blue:hover {
+            background: #3b82f6;
+            color: #fff;
+        }
+
+        .adv-ev-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 10px 14px;
+            background: var(--bg-subtle);
+            border-radius: 12px;
+            font-size: 0.9rem;
+        }
+
+        .adv-mini-btn {
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            font-family: 'Tajawal', sans-serif;
+            cursor: pointer;
+            border: none;
+            background: var(--primary-color);
+            color: #000;
+            text-decoration: none;
+            white-space: nowrap;
+            flex-shrink: 0;
+            transition: opacity .2s;
+        }
+
+        .adv-mini-btn:hover {
+            opacity: 0.85;
+        }
+
+        .adv-mini-btn--closed {
+            background: var(--bg-chip);
+            color: var(--text-muted);
+            cursor: default;
+        }
+
+        /* Shake animation for empty field selection */
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0)
+            }
+
+            25% {
+                transform: translateX(-8px)
+            }
+
+            75% {
+                transform: translateX(8px)
+            }
+        }
+
+        /* Dark mode adjustments */
+        [data-theme="dark"] .adv-result-card {
+            background: var(--bg-card);
+        }
+
+        [data-theme="dark"] .adv-result-section {
+            background: var(--bg-light);
+        }
+
+        [data-theme="dark"] .adv-ev-row {
+            background: var(--bg-card);
+        }
+
+        [data-theme="dark"] .adv-greeting-banner {
+            background: rgba(255, 180, 0, 0.07);
+        }
+
+        /* Mobile */
+        @media(max-width:600px) {
+            .advisor-box {
+                padding: 28px 18px;
+            }
+
+            .adv-field-chip {
+                font-size: 0.82rem;
+                padding: 9px 14px;
+            }
+
+            .adv-ev-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+            }
+
+            #advStep1>div[style*="grid-template-columns:1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
         .advisor-select {
             width: 100%;
             padding: 18px 25px;
@@ -7813,7 +8242,7 @@
             position: fixed;
             inset: 0;
             z-index: 99999;
-            background: rgba(0,0,0,0.55);
+            background: rgba(0, 0, 0, 0.55);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             display: flex;
@@ -7823,10 +8252,12 @@
             visibility: hidden;
             transition: opacity .35s ease, visibility .35s ease;
         }
+
         .submit-modal-overlay.open {
             opacity: 1;
             visibility: visible;
         }
+
         .submit-modal-box {
             background: #fff;
             width: 94%;
@@ -7836,10 +8267,11 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
             transform: translateY(40px) scale(0.96);
-            transition: transform .35s cubic-bezier(.22,1,.36,1);
+            transition: transform .35s cubic-bezier(.22, 1, .36, 1);
         }
+
         .submit-modal-overlay.open .submit-modal-box {
             transform: translateY(0) scale(1);
         }
@@ -7854,35 +8286,42 @@
             color: #fff;
             flex-shrink: 0;
         }
+
         .submit-modal-header-info {
             display: flex;
             align-items: center;
             gap: 14px;
         }
+
         .submit-modal-header-icon {
-            width: 48px; height: 48px;
-            background: rgba(255,255,255,0.2);
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.3rem;
         }
+
         .submit-modal-header h2 {
             font-size: 1.2rem;
             margin: 0;
             font-weight: 700;
         }
+
         .submit-modal-header p {
             font-size: 0.82rem;
             margin: 3px 0 0;
             opacity: 0.85;
         }
+
         .submit-modal-close {
-            background: rgba(255,255,255,0.18);
+            background: rgba(255, 255, 255, 0.18);
             border: none;
             color: #fff;
-            width: 38px; height: 38px;
+            width: 38px;
+            height: 38px;
             border-radius: 12px;
             font-size: 1.15rem;
             cursor: pointer;
@@ -7891,7 +8330,10 @@
             align-items: center;
             justify-content: center;
         }
-        .submit-modal-close:hover { background: rgba(255,255,255,0.32); }
+
+        .submit-modal-close:hover {
+            background: rgba(255, 255, 255, 0.32);
+        }
 
         /* Body */
         .submit-modal-body {
@@ -7905,6 +8347,7 @@
             margin-bottom: 18px;
             flex: 1;
         }
+
         .submit-form-group label {
             display: block;
             font-size: 0.88rem;
@@ -7912,11 +8355,13 @@
             color: #333;
             margin-bottom: 7px;
         }
+
         .optional-tag {
             font-weight: 400;
             font-size: 0.78rem;
             color: #999;
         }
+
         .submit-form-group input[type="text"],
         .submit-form-group input[type="email"],
         .submit-form-group input[type="url"],
@@ -7935,14 +8380,23 @@
             outline: none;
             box-sizing: border-box;
         }
+
         .submit-form-group input:focus,
         .submit-form-group select:focus,
         .submit-form-group textarea:focus {
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 4px rgba(124,58,209,0.1);
+            box-shadow: 0 0 0 4px rgba(124, 58, 209, 0.1);
         }
-        .submit-form-group textarea { resize: vertical; min-height: 90px; }
-        .submit-form-group select { cursor: pointer; appearance: none; -webkit-appearance: none;
+
+        .submit-form-group textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .submit-form-group select {
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23666' d='M1.41 0L6 4.58 10.59 0 12 1.41l-6 6-6-6z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: left 14px center;
@@ -7966,28 +8420,36 @@
             cursor: pointer;
             background: #fafafe;
         }
+
         .submit-file-upload:hover,
         .submit-file-upload.has-file {
             border-color: var(--primary-color);
-            background: rgba(124,58,209,0.04);
+            background: rgba(124, 58, 209, 0.04);
         }
+
         .submit-file-upload input[type="file"] {
             position: absolute;
             inset: 0;
             opacity: 0;
             cursor: pointer;
         }
+
         .submit-file-icon {
             font-size: 2rem;
             color: var(--primary-color);
             margin-bottom: 8px;
             opacity: 0.7;
         }
+
         .submit-file-text {
             font-size: 0.88rem;
             color: #777;
         }
-        .submit-file-text strong { color: var(--primary-color); }
+
+        .submit-file-text strong {
+            color: var(--primary-color);
+        }
+
         .submit-file-name {
             display: none;
             font-size: 0.82rem;
@@ -8016,21 +8478,44 @@
             margin-top: 6px;
             position: relative;
         }
-        .submit-form-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(124,58,209,0.3); }
-        .submit-form-btn:active { transform: translateY(0); }
+
+        .submit-form-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(124, 58, 209, 0.3);
+        }
+
+        .submit-form-btn:active {
+            transform: translateY(0);
+        }
+
         .submit-form-btn .spinner {
             display: none;
-            width: 22px; height: 22px;
-            border: 3px solid rgba(255,255,255,0.3);
+            width: 22px;
+            height: 22px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
             border-top-color: #fff;
             border-radius: 50%;
             animation: submitSpin .7s linear infinite;
         }
-        .submit-form-btn.loading .btn-text { display: none; }
-        .submit-form-btn.loading .spinner { display: block; }
-        .submit-form-btn.loading { opacity: 0.8; pointer-events: none; }
 
-        @keyframes submitSpin { to { transform: rotate(360deg); } }
+        .submit-form-btn.loading .btn-text {
+            display: none;
+        }
+
+        .submit-form-btn.loading .spinner {
+            display: block;
+        }
+
+        .submit-form-btn.loading {
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        @keyframes submitSpin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
 
         /* Success view */
         .submit-success-view {
@@ -8038,9 +8523,14 @@
             text-align: center;
             padding: 60px 28px;
         }
-        .submit-success-view.show { display: block; }
+
+        .submit-success-view.show {
+            display: block;
+        }
+
         .submit-success-icon {
-            width: 80px; height: 80px;
+            width: 80px;
+            height: 80px;
             background: linear-gradient(135deg, #34c759, #30d158);
             border-radius: 50%;
             display: flex;
@@ -8049,24 +8539,38 @@
             font-size: 2.2rem;
             color: #fff;
             margin: 0 auto 20px;
-            animation: successPop .5s cubic-bezier(.22,1,.36,1);
+            animation: successPop .5s cubic-bezier(.22, 1, .36, 1);
         }
+
         @keyframes successPop {
-            0% { transform: scale(0); opacity: 0; }
-            60% { transform: scale(1.15); }
-            100% { transform: scale(1); opacity: 1; }
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            60% {
+                transform: scale(1.15);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
+
         .submit-success-view h3 {
             font-size: 1.3rem;
             color: #222;
             margin: 0 0 12px;
         }
+
         .submit-success-view p {
             font-size: 0.92rem;
             color: #666;
             line-height: 1.7;
             margin: 0 0 28px;
         }
+
         .submit-success-close-btn {
             padding: 12px 40px;
             border: none;
@@ -8079,11 +8583,21 @@
             font-family: inherit;
             transition: transform .2s, box-shadow .2s;
         }
-        .submit-success-close-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(124,58,209,0.3); }
+
+        .submit-success-close-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(124, 58, 209, 0.3);
+        }
 
         /* Dark mode */
-        [data-theme="dark"] .submit-modal-box { background: #1e1e2e; }
-        [data-theme="dark"] .submit-form-group label { color: #ccc; }
+        [data-theme="dark"] .submit-modal-box {
+            background: #1e1e2e;
+        }
+
+        [data-theme="dark"] .submit-form-group label {
+            color: #ccc;
+        }
+
         [data-theme="dark"] .submit-form-group input,
         [data-theme="dark"] .submit-form-group select,
         [data-theme="dark"] .submit-form-group textarea {
@@ -8091,28 +8605,60 @@
             border-color: #3a3a50;
             color: #eee;
         }
+
         [data-theme="dark"] .submit-form-group input:focus,
         [data-theme="dark"] .submit-form-group select:focus,
         [data-theme="dark"] .submit-form-group textarea:focus {
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 4px rgba(124,58,209,0.2);
+            box-shadow: 0 0 0 4px rgba(124, 58, 209, 0.2);
         }
+
         [data-theme="dark"] .submit-file-upload {
             border-color: #3a3a50;
             background: #2a2a3d;
         }
-        [data-theme="dark"] .submit-file-text { color: #aaa; }
-        [data-theme="dark"] .submit-success-view h3 { color: #eee; }
-        [data-theme="dark"] .submit-success-view p { color: #aaa; }
-        [data-theme="dark"] .optional-tag { color: #777; }
+
+        [data-theme="dark"] .submit-file-text {
+            color: #aaa;
+        }
+
+        [data-theme="dark"] .submit-success-view h3 {
+            color: #eee;
+        }
+
+        [data-theme="dark"] .submit-success-view p {
+            color: #aaa;
+        }
+
+        [data-theme="dark"] .optional-tag {
+            color: #777;
+        }
 
         /* Mobile responsive */
         @media (max-width: 600px) {
-            .submit-modal-box { width: 100%; max-width: 100%; max-height: 100vh; border-radius: 0; }
-            .submit-modal-header { padding: 16px 20px; }
-            .submit-modal-body { padding: 18px 20px 24px; }
-            .submit-form-row { flex-direction: column; gap: 0; }
-            .submit-modal-header h2 { font-size: 1.05rem; }
+            .submit-modal-box {
+                width: 100%;
+                max-width: 100%;
+                max-height: 100vh;
+                border-radius: 0;
+            }
+
+            .submit-modal-header {
+                padding: 16px 20px;
+            }
+
+            .submit-modal-body {
+                padding: 18px 20px 24px;
+            }
+
+            .submit-form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .submit-modal-header h2 {
+                font-size: 1.05rem;
+            }
         }
     </style>
 </head>
@@ -8134,11 +8680,16 @@
 
         </div>
         <nav id="mainNav">
-            <a onclick="navigateTo('home'); closeMobileNav();" class="nav-link active" data-key="nav_home">الصفحة الرئيسية</a>
-            <a onclick="navigateTo('start'); closeMobileNav();" class="nav-link" data-key="nav_start">ابدأ منين <i class="fa fa-rocket"></i></a>
-            <a onclick="navigateTo('activities'); closeMobileNav();" class="nav-link" data-key="nav_activities">الأنشطة الطلابية</a>
-            <a onclick="navigateTo('volunteer'); closeMobileNav();" class="nav-link" data-key="nav_volunteer">الأنشطة التطوعية</a>
-            <a onclick="navigateTo('training'); closeMobileNav();" class="nav-link" data-key="nav_training">فرص التدريب</a>
+            <a onclick="navigateTo('home'); closeMobileNav();" class="nav-link active" data-key="nav_home">الصفحة
+                الرئيسية</a>
+            <a onclick="navigateTo('start'); closeMobileNav();" class="nav-link" data-key="nav_start">ابدأ منين <i
+                    class="fa fa-rocket"></i></a>
+            <a onclick="navigateTo('activities'); closeMobileNav();" class="nav-link" data-key="nav_activities">الأنشطة
+                الطلابية</a>
+            <a onclick="navigateTo('volunteer'); closeMobileNav();" class="nav-link" data-key="nav_volunteer">الأنشطة
+                التطوعية</a>
+            <a onclick="navigateTo('training'); closeMobileNav();" class="nav-link" data-key="nav_training">فرص
+                التدريب</a>
             <a onclick="navigateTo('events'); closeMobileNav();" class="nav-link" data-key="nav_events">الفعاليات</a>
             <a onclick="navigateTo('contact'); closeMobileNav();" class="nav-link" data-key="nav_contact">من نحن</a>
         </nav>
@@ -8152,7 +8703,8 @@
                     class="fa fa-volume-up"></i></button>
             <button class="tool-btn" onclick="switchLanguage()" id="langBtn">EN</button>
 
-            <button class="btn-register" onclick="handleAuthBtnClick()" id="authBtn" data-key="btn_login">انضم الينا</button>
+            <button class="btn-register" onclick="handleAuthBtnClick()" id="authBtn" data-key="btn_login">انضم
+                الينا</button>
             <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileNav()" aria-label="القائمة">
                 <span></span>
                 <span></span>
@@ -8190,29 +8742,124 @@
                 والطلابي. نحن هنا لنرشدك نحو أفضل الفرص التي تتوافق مع شغفك وطموحاتك، من خلال خطوات مدروسة ومخصصة.</p>
         </section>
 
-        <!-- AI Career Advisor -->
+        <!-- AI Career Advisor — Smart Multi-Step -->
         <section class="start-section">
-            <div class="advisor-box">
-                <h2 class="start-section-title" style="margin-bottom:15px; font-size:1.8rem;" data-key="advisor_title">
-                    المستشار المهني الذكي</h2>
-                <p style="margin-bottom:30px; color:var(--text-secondary); font-size:1.1rem;" data-key="advisor_desc">
-                    اختر مجالك المفضل للحصول على توصيات مخصصة من واقع بيانات المنصة:</p>
-                <select class="advisor-select" id="advisorSelect">
-                    <option value="" data-key="advisor_opt_default">-- اختر المجال الذي ترغب في استكشافه --</option>
-                    <option value="web" data-key="advisor_opt_web">تطوير المواقع الإلكترونية (Web Development)</option>
-                    <option value="ai" data-key="advisor_opt_ai">الذكاء الاصطناعي وعلوم البيانات (AI & Data Science)
-                    </option>
-                    <option value="cyber" data-key="advisor_opt_cyber">الأمن السيبراني (Cyber Security)</option>
-                    <option value="marketing" data-key="advisor_opt_marketing">التسويق وإدارة الأعمال (Business &
-                        Marketing)</option>
-                    <option value="mobile" data-key="advisor_opt_mobile">تطوير تطبيقات الهواتف الذكية (Mobile App Dev)
-                    </option>
-                </select>
-                <button class="advisor-btn" onclick="runAdvisor()" data-key="advisor_btn">استكشف مساري المهني ✨</button>
+            <div class="advisor-box" id="smartAdvisorBox">
 
-                <div id="advisorResult" style="margin-top:40px; display:none; text-align:right;">
-                    <!-- Result dynamically injected -->
+                <!-- ── Step indicator ── -->
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:28px;flex-wrap:wrap;">
+                    <div class="adv-step-dot active" id="stepDot1">1</div>
+                    <div class="adv-step-line"></div>
+                    <div class="adv-step-dot" id="stepDot2">2</div>
+                    <div class="adv-step-line"></div>
+                    <div class="adv-step-dot" id="stepDot3">3</div>
+                    <span style="font-size:0.85rem;color:var(--text-muted);margin-right:auto;">المستشار المهني الذكي
+                        🤖</span>
                 </div>
+
+                <!-- ══════ STEP 1 — Profile Info ══════ -->
+                <div id="advStep1">
+                    <h2 class="start-section-title" style="margin-bottom:8px;font-size:1.75rem;">
+                        👋 مرحبًا! أخبرني عنك أولًا
+                    </h2>
+                    <p style="color:var(--text-secondary);margin-bottom:28px;font-size:1rem;text-align:center;">
+                        عشان أقدر أوصيك بالفرص الأنسب ليك بالظبط
+                    </p>
+
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px;">
+                        <div class="adv-field-group" style="grid-column:1/-1;">
+                            <label class="adv-label">اسمك (اختياري)</label>
+                            <input type="text" id="advName" class="adv-input" placeholder="مثال: أحمد محمد">
+                        </div>
+                        <div class="adv-field-group">
+                            <label class="adv-label">الكلية / التخصص</label>
+                            <select id="advCollege" class="adv-select">
+                                <option value="">— اختر —</option>
+                                <option value="engineering">هندسة</option>
+                                <option value="computers">حاسبات ومعلومات</option>
+                                <option value="commerce">تجارة وإدارة أعمال</option>
+                                <option value="science">علوم</option>
+                                <option value="medicine">طب وصيدلة</option>
+                                <option value="arts">آداب وإعلام</option>
+                                <option value="other">أخرى</option>
+                            </select>
+                        </div>
+                        <div class="adv-field-group">
+                            <label class="adv-label">السنة الدراسية</label>
+                            <select id="advYear" class="adv-select">
+                                <option value="">— اختر —</option>
+                                <option value="1">سنة أولى</option>
+                                <option value="2">سنة تانية</option>
+                                <option value="3">سنة تالتة</option>
+                                <option value="4">سنة رابعة</option>
+                                <option value="grad">خريج / خريجة</option>
+                            </select>
+                        </div>
+                        <div class="adv-field-group" style="grid-column:1/-1;">
+                            <label class="adv-label">امتى بيكون عندك وقت؟</label>
+                            <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;" id="advAvailChips">
+                                <button type="button" class="adv-avail-chip" data-val="weekend"
+                                    onclick="toggleAdvChip(this,'avail')">🗓 الويكند</button>
+                                <button type="button" class="adv-avail-chip" data-val="weekday"
+                                    onclick="toggleAdvChip(this,'avail')">📅 أيام الأسبوع</button>
+                                <button type="button" class="adv-avail-chip" data-val="evening"
+                                    onclick="toggleAdvChip(this,'avail')">🌙 المساء</button>
+                                <button type="button" class="adv-avail-chip" data-val="summer"
+                                    onclick="toggleAdvChip(this,'avail')">☀️ الصيف</button>
+                                <button type="button" class="adv-avail-chip" data-val="always"
+                                    onclick="toggleAdvChip(this,'avail')">⚡ في أي وقت</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="advisor-btn" onclick="advGoStep2()" style="width:100%;">
+                        التالي — اختار مجالك ✨
+                    </button>
+                </div>
+
+                <!-- ══════ STEP 2 — Field Selection ══════ -->
+                <div id="advStep2" style="display:none;">
+                    <h2 class="start-section-title" style="margin-bottom:8px;font-size:1.75rem;">
+                        🎯 إيه المجال اللي بتهتم بيه؟
+                    </h2>
+                    <p style="color:var(--text-secondary);margin-bottom:24px;font-size:1rem;text-align:center;">
+                        اختار مجال واحد أو أكتر
+                    </p>
+
+                    <div id="advFieldChips"
+                        style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px;justify-content:center;">
+                        <!-- populated by JS -->
+                    </div>
+
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <button class="advisor-btn"
+                            style="background:var(--bg-chip);color:var(--text-secondary);flex:0 0 auto;box-shadow:none;"
+                            onclick="advGoStep1()">
+                            ← رجوع
+                        </button>
+                        <button class="advisor-btn" onclick="advGoStep3()" style="flex:1;">
+                            🚀 اكشف توصياتي المخصصة
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ══════ STEP 3 — Personalized Results ══════ -->
+                <div id="advStep3" style="display:none;">
+                    <div id="advisorResult" style="text-align:right;"></div>
+                    <div style="display:flex;gap:12px;margin-top:24px;flex-wrap:wrap;">
+                        <button class="advisor-btn"
+                            style="background:var(--bg-chip);color:var(--text-secondary);flex:0 0 auto;box-shadow:none;"
+                            onclick="advGoStep2()">
+                            ← تغيير المجال
+                        </button>
+                        <button class="advisor-btn"
+                            style="background:var(--bg-chip);color:var(--text-secondary);flex:0 0 auto;box-shadow:none;"
+                            onclick="advGoStep1()">
+                            بداية جديدة 🔄
+                        </button>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -8363,58 +9010,287 @@
     </div>
 
     <script>
-        function runAdvisor() {
-            const val = document.getElementById('advisorSelect').value;
-            const result = document.getElementById('advisorResult');
-            if (!val) {
-                alert(currentLang === 'ar' ? 'يرجى اختيار التخصص أولاً' : 'Please choose a specialty first');
+        /* ═══════════════════════════════════════════════════════
+           SMART AI ADVISOR — Personalized Engine
+           Reads real organizationsData, eventsData, trainingData
+        ═══════════════════════════════════════════════════════ */
+
+        // Field definitions matching the activities page fieldCategories
+        const ADVISOR_FIELDS = [
+            { key: 'Web & App Development', emoji: '🌐', label: 'تطوير الويب والتطبيقات', actCat: 'Web \u0026 App Development' },
+            { key: 'AI & Data', emoji: '🤖', label: 'الذكاء الاصطناعي والبيانات', actCat: 'AI \u0026 Data' },
+            { key: 'Security & Infrastructure', emoji: '🔐', label: 'الأمن السيبراني', actCat: 'Security \u0026 Infrastructure' },
+            { key: 'Software Engineering', emoji: '⚙️', label: 'هندسة البرمجيات', actCat: 'Software Engineering' },
+            { key: 'Emerging Technologies', emoji: '🔗', label: 'التقنيات الناشئة', actCat: 'Emerging Technologies' },
+            { key: 'Engineering Fields', emoji: '🚗', label: 'المجالات الهندسية', actCat: 'Engineering Fields' },
+            { key: 'Management & Operations', emoji: '🧑‍💼', label: 'الإدارة والعمليات', actCat: 'Management \\u0026 Operations' },
+            { key: 'Marketing & Media', emoji: '📢', label: 'التسويق والإعلام', actCat: 'Marketing \\u0026 Media' },
+            { key: 'Business & Finance', emoji: '💰', label: 'الأعمال والمالية', actCat: 'Business \\u0026 Finance' },
+            { key: 'Biological Sciences', emoji: '🧬', label: 'العلوم البيولوجية', actCat: 'Biological Sciences' },
+
+            // Training Categories
+            { key: 'أعمال وتسويق', emoji: '📊', label: 'أعمال وتسويق', actCat: 'أعمال وتسويق' },
+            { key: 'هندسة', emoji: '⚙️', label: 'هندسة', actCat: 'هندسة' },
+            { key: 'صحة وصيدلة', emoji: '💊', label: 'صحة وصيدلة', actCat: 'صحة وصيدلة' },
+            { key: 'اتصالات', emoji: '📡', label: 'اتصالات', actCat: 'اتصالات' },
+            { key: 'ريادة أعمال', emoji: '🚀', label: 'ريادة أعمال', actCat: 'ريادة أعمال' },
+
+            // Volunteer Categories
+            { key: 'إنساني', emoji: '🤝', label: 'تطوع إنساني', actCat: 'إنساني' },
+            { key: 'تعليم', emoji: '📚', label: 'تطوع تعليمي', actCat: 'تعليم' },
+            { key: 'بيئة', emoji: '🌱', label: 'تطوع بيئي', actCat: 'بيئة' },
+            { key: 'صحة', emoji: '⚕️', label: 'تطوع صحي', actCat: 'صحة' },
+            { key: 'مجتمع', emoji: '🏘️', label: 'تطوع مجتمعي', actCat: 'مجتمع' },
+            { key: 'دولي', emoji: '🌍', label: 'تطوع دولي', actCat: 'دولي' },
+            { key: 'ميداني', emoji: '👷', label: 'تطوع ميداني', actCat: 'ميداني' },
+
+            // Events Categories
+            { key: 'توظيف', emoji: '💼', label: 'ملتقى توظيف', actCat: 'توظيف' },
+            { key: 'مؤتمر', emoji: '🎤', label: 'مؤتمرات', actCat: 'مؤتمر' },
+            { key: 'ورشة', emoji: '🛠️', label: 'ورش عمل', actCat: 'ورشة' },
+            { key: 'معرض', emoji: '🖼️', label: 'معارض', actCat: 'معرض' },
+            { key: 'ندوة', emoji: '🗣️', label: 'ندوات', actCat: 'ندوة' },
+            { key: 'قمة', emoji: '⛰️', label: 'قمم', actCat: 'قمة' },
+        ];
+
+        // State
+        const advState = { avail: new Set(), fields: new Set() };
+
+        // Step navigation
+        function _setAdvStep(n) {
+            [1, 2, 3].forEach(i => {
+                document.getElementById('advStep' + i).style.display = i === n ? 'block' : 'none';
+                const dot = document.getElementById('stepDot' + i);
+                dot.classList.toggle('active', i <= n);
+                dot.classList.toggle('done', i < n);
+            });
+            const box = document.getElementById('smartAdvisorBox');
+            if (box) box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function advGoStep1() {
+            _setAdvStep(1);
+        }
+
+        function advGoStep2() {
+            const college = document.getElementById('advCollege').value;
+            const year = document.getElementById('advYear').value;
+            if (!college || !year) {
+                ['advCollege', 'advYear'].forEach(id => {
+                    const el = document.getElementById(id);
+                    if (!el.value) {
+                        el.style.borderColor = 'var(--primary-color)';
+                        el.style.boxShadow = '0 0 0 3px rgba(255,180,0,0.2)';
+                        setTimeout(() => { el.style.borderColor = ''; el.style.boxShadow = ''; }, 2000);
+                    }
+                });
                 return;
             }
-
-            result.style.display = 'block';
-            result.innerHTML = `<div style="text-align:center; padding:30px;"><i class="fa fa-spinner fa-spin fa-2x" style="color:var(--primary-color)"></i><p style="margin-top:15px; font-weight:700;">${currentLang === 'ar' ? 'جاري تحليل البيانات وتوليد التوصيات...' : 'Analyzing data and generating recommendations...'}</p></div>`;
-
-            setTimeout(() => {
-                let data = {
-                    web: {
-                        events: currentLang === 'ar' ? 'مؤتمر القاهرة للمطورين، ملتقى الويب العربي' : 'Cairo Developers Conference, Arabic Web Forum',
-                        internships: currentLang === 'ar' ? 'برنامج تدريب فودافون للحلول الذكية، تدريب معهد تكنولوجيا المعلومات ITI' : 'Vodafone Intelligent Solutions Internship, ITI Internship',
-                        skills: 'HTML5, CSS3, Modern JavaScript, React.js, Version Control (Git)'
-                    },
-                    ai: {
-                        events: currentLang === 'ar' ? 'معرض الذكاء الاصطناعي والبيانات الضخمة، ملتقيات علوم البيانات' : 'AI & Big Data Expo, Data Science Meetups',
-                        internships: currentLang === 'ar' ? 'مختبرات Valeo للذكاء الاصطناعي، تدريب شركة Si-Ware Systems' : 'Valeo AI Labs, Si-Ware Systems Internship',
-                        skills: 'Python Programming, Statistics, Linear Algebra, Machine Learning, TensorFlow'
-                    },
-                    cyber: {
-                        events: currentLang === 'ar' ? 'مؤتمر Caisec للأمن السيبراني، مؤتمر أمن المعلومات العربي' : 'Caisec Cybersecurity Conference, Arab Information Security Conference',
-                        internships: currentLang === 'ar' ? 'تدريب الجهاز القومي لتنظيم الاتصالات NTRA، برامج CyberTalents' : 'NTRA Internship, CyberTalents Programs',
-                        skills: 'Networking, Linux Administration, Ethical Hacking, OWASP Top 10'
-                    },
-                    marketing: {
-                        events: currentLang === 'ar' ? 'ملتقى المملكة للتسويق، فنون التسويق الرقمي' : 'Marketing Kingdom Forum, Digital Marketing Arts',
-                        internships: currentLang === 'ar' ? 'تدريب التسويق في Jumia، برنامج قادة المستقبل في Nestlé' : 'Jumia Marketing Internship, Nestlé Future Leaders Program',
-                        skills: 'SEO/SEM, Strategic Content Planning, Market Analytics, Branding'
-                    },
-                    mobile: {
-                        events: currentLang === 'ar' ? 'مؤتمر Droidcon التقني، ملتقيات Flutter العربية' : 'Droidcon Technical Conference, Arabic Flutter Meetups',
-                        internships: currentLang === 'ar' ? 'برنامج Robusta التدريبي، تدريب شركة Instabug' : 'Robusta Training Program, Instabug Internship',
-                        skills: 'Kotlin/Swift, Flutter Framework, Mobile UI/UX Design, REST APIs'
-                    }
-                };
-
-                const info = data[val] || data['web'];
-                result.innerHTML = `
-                        <div style="background:var(--bg-subtle); padding:30px; border-radius:24px; border-right:6px solid var(--primary-color); animation: fadeIn 0.5s ease-out; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
-                            <h3 style="color:var(--primary-color); margin-bottom:20px; font-size:1.4rem; display:flex; align-items:center; gap:10px;"><i class="fa fa-lightbulb"></i> ${currentLang === 'ar' ? 'التوصيات المقترحة لمسارك:' : 'Suggested recommendations for your path:'}</h3>
-                            <div style="margin-bottom:15px; line-height:1.7;"><strong>${currentLang === 'ar' ? '📅 الفعاليات الموصى بها:' : '📅 Recommended Events:'}</strong> ${info.events}</div>
-                            <div style="margin-bottom:15px; line-height:1.7;"><strong>${currentLang === 'ar' ? '💼 برامج التدريب المقترحة:' : '💼 Suggested Internships:'}</strong> ${info.internships}</div>
-                            <div style="margin-bottom:15px; line-height:1.7;"><strong>${currentLang === 'ar' ? '🛠 المهارات المطلوب اكتسابها:' : '🛠 Skills to Acquire:'}</strong> ${info.skills}</div>
-                            <p style="font-size:0.9rem; color:var(--text-secondary); margin-top:25px; border-top:1px solid var(--border-light); padding-top:15px;">${currentLang === 'ar' ? '* هذه التوصيات تعتمد على البيانات المتوفرة حالياً وتعتبر نقطة انطلاق مثالية لك.' : '* These recommendations are based on currently available data and are an ideal starting point for you.'}</p>
-                        </div>
-                    `;
-            }, 1200);
+            _buildAdvFieldChips();
+            _setAdvStep(2);
         }
+
+        function advGoStep3() {
+            if (advState.fields.size === 0) {
+                const el = document.getElementById('advFieldChips');
+                if (el) { el.style.animation = 'shake 0.4s'; setTimeout(() => { el.style.animation = ''; }, 500); }
+                return;
+            }
+            _runSmartAdvisor();
+            _setAdvStep(3);
+        }
+
+        // Toggle chips
+        function toggleAdvChip(btn, group) {
+            const val = btn.dataset.val;
+            const set = group === 'avail' ? advState.avail : advState.fields;
+            if (set.has(val)) { set.delete(val); btn.classList.remove('active'); }
+            else { set.add(val); btn.classList.add('active'); }
+        }
+
+        // Build field chips (Step 2)
+        function _buildAdvFieldChips() {
+            const container = document.getElementById('advFieldChips');
+            if (!container) return;
+            container.innerHTML = ADVISOR_FIELDS.map(f => `
+            <button type="button"
+                class="adv-field-chip${advState.fields.has(f.key) ? ' active' : ''}"
+                data-val="${f.key}"
+                onclick="toggleAdvChip(this,'field')">
+                ${f.emoji} ${typeof translateField !== 'undefined' ? translateField(f.label) : f.label}
+            </button>`).join('');
+        }
+
+        // ── Core recommendation engine ──
+        function _runSmartAdvisor() {
+            const name = (document.getElementById('advName').value || '').trim();
+            const college = document.getElementById('advCollege').value;
+            const year = document.getElementById('advYear').value;
+            const avail = advState.avail;
+            const fields = Array.from(advState.fields);
+
+            // Human-friendly labels
+            const collegeLabel = {
+                engineering: 'هندسة', computers: 'حاسبات ومعلومات',
+                commerce: 'تجارة وإدارة أعمال', science: 'علوم',
+                medicine: 'طب وصيدلة', arts: 'آداب وإعلام', other: 'كليتك'
+            }[college] || 'كليتك';
+            const yearLabel = {
+                '1': 'سنة أولى', '2': 'سنة تانية', '3': 'سنة تالتة',
+                '4': 'سنة رابعة', 'grad': 'خريج/خريجة'
+            }[year] || '';
+            const availLabel = [...avail].map(a => ({
+                weekend: 'الويكند', weekday: 'أيام الأسبوع',
+                evening: 'المساء', summer: 'الصيف', always: 'في أي وقت'
+            }[a] || a)).join(' أو ');
+            const greeting = name ? `يا ${name}` : '';
+
+            // Map selected advisor field keys → actCat strings
+            const selectedActCats = fields.map(f => {
+                const fd = ADVISOR_FIELDS.find(x => x.key === f);
+                return fd ? fd.actCat : '';
+            }).filter(Boolean);
+
+            // ── Match organizations from real data ──
+            const matchedOrgs = [];
+            if (typeof organizationsData !== 'undefined' && typeof fieldCategories !== 'undefined') {
+                const catSkillsAll = selectedActCats.flatMap(cat => fieldCategories[cat] || []);
+                organizationsData.forEach(org => {
+                    const orgFields = [];
+                    ['nonTechFields', 'techFields', 'bioFields'].forEach(fk => {
+                        if (org[fk]) Object.values(org[fk]).forEach(arr => orgFields.push(...arr));
+                    });
+                    if (orgFields.some(f => catSkillsAll.some(s => f.toLowerCase() === s.toLowerCase()))) {
+                        matchedOrgs.push(org.name);
+                    }
+                });
+            }
+
+            // ── Match upcoming events from real data ──
+            const matchedEvents = [];
+            if (typeof eventsData !== 'undefined') {
+                const now = Date.now();
+                eventsData.forEach(ev => {
+                    const end = new Date((ev.endISO || ev.startISO));
+                    if (end.getTime() + 172800000 < now) return; // skip events >2d past
+                    // Summer filter: skip non-summer events when only "summer" availability
+                    if (avail.size > 0 && !avail.has('always')) {
+                        const m = new Date(ev.startISO).getMonth();
+                        if (avail.has('summer') && avail.size === 1 && (m < 4 || m > 8)) return;
+                    }
+                    matchedEvents.push({ name: ev.name, date: ev.date, link: ev.registerLink });
+                });
+            }
+
+            // ── Match training from real data ──
+            const matchedTraining = [];
+            if (typeof trainingData !== 'undefined') {
+                const keywords = selectedActCats.map(c => c.toLowerCase().split(' ')[0]);
+                trainingData.forEach(tr => {
+                    const searchText = ((tr.cat || '') + ' ' + (tr.name || '')).toLowerCase();
+                    if (keywords.some(k => searchText.includes(k))) matchedTraining.push(tr.name);
+                });
+            }
+
+            // ── Year-based advice tip ──
+            const yearTips = {
+                '1': 'في السنة الأولى، الأنشطة الطلابية هي أفضل بداية — هتبني شبكة علاقاتك وتكتسب مهارات جنب دراستك.',
+                '2': 'في السنة التانية، انضمامك لنشاط طلابي هيقوي بروفايلك قبل التدريب الصيفي.',
+                '3': 'السنة التالتة هي الوقت المثالي لتدريب صيفي جاد — هيضيف كتير على سيرتك الذاتية.',
+                '4': 'في السنة الرابعة ركّز على تدريب احترافي وفعاليات التوظيف — دي أقرب خطوة لسوق العمل.',
+                'grad': 'كخريج، فعاليات التوظيف والتدريبات الاحترافية هي أسرع طريق للوظيفة الصح.'
+            };
+            const yearTip = yearTips[year] || '';
+
+            // ── Arabic field labels ──
+            const fieldLabels = fields.map(f => {
+                const fd = ADVISOR_FIELDS.find(x => x.key === f);
+                return fd ? `${fd.emoji} ${fd.label}` : f;
+            }).join(' &bull; ');
+
+            // ── Availability context sentence ──
+            const availContext = avail.size > 0 ? ` وعندك وقت في <strong>${availLabel}</strong>` : '';
+
+            // ── Build HTML blocks ──
+            const orgsHTML = matchedOrgs.length > 0
+                ? matchedOrgs.slice(0, 8).map(n =>
+                    `<span class="adv-result-chip" onclick="navigateTo('activities')" title="اضغط لعرض كل الأنشطة">🎓 ${n}</span>`
+                ).join('')
+                : `<span style="color:var(--text-muted);font-size:0.9rem;">تصفح صفحة الأنشطة لاكتشاف المزيد</span>`;
+
+            const eventsHTML = matchedEvents.length > 0
+                ? matchedEvents.slice(0, 4).map(ev => {
+                    const open = ev.link && ev.link !== 'مغلق';
+                    return `<div class="adv-ev-row">
+                    <div>
+                        <strong style="font-size:0.92rem;">${ev.name}</strong>
+                        ${ev.date ? `<span style="color:var(--text-muted);font-size:0.8rem;display:block;margin-top:2px;">📅 ${ev.date}</span>` : ''}
+                    </div>
+                    ${open
+                            ? `<a href="${ev.link}" target="_blank" class="adv-mini-btn">سجّل الآن</a>`
+                            : `<span class="adv-mini-btn adv-mini-btn--closed">التسجيل مغلق</span>`}
+                </div>`;
+                }).join('')
+                : `<span style="color:var(--text-muted);font-size:0.9rem;">تابع صفحة الفعاليات لمعرفة أحدث المواعيد</span>`;
+
+            const trainingHTML = matchedTraining.length > 0
+                ? matchedTraining.slice(0, 4).map(n =>
+                    `<span class="adv-result-chip adv-result-chip--blue" onclick="navigateTo('training')">💼 ${n}</span>`
+                ).join('')
+                : `<span style="color:var(--text-muted);font-size:0.9rem;">راجع صفحة التدريب لأحدث الفرص</span>`;
+
+            // ── Inject result ──
+            const result = document.getElementById('advisorResult');
+            result.innerHTML = `
+        <div class="adv-result-card" style="animation:fadeIn 0.5s ease-out;">
+
+            <div class="adv-greeting-banner">
+                <div class="adv-greeting-avatar">🤖</div>
+                <div>
+                    <div style="font-size:1.05rem;font-weight:800;color:var(--text-primary);margin-bottom:6px;">
+                        ${greeting ? `أهلًا ${greeting}،` : 'أهلًا،'} إليك توصياتك المخصصة ✨
+                    </div>
+                    <div style="font-size:0.9rem;color:var(--text-secondary);line-height:1.7;">
+                        بناءً على إنك <strong>${yearLabel} ${collegeLabel}</strong>${availContext}
+                        وبتهتم بـ <strong>${fieldLabels}</strong>
+                    </div>
+                </div>
+            </div>
+
+            ${yearTip ? `<div class="adv-tip-banner"><i class="fa fa-lightbulb" style="color:var(--primary-color);margin-left:8px;"></i>${yearTip}</div>` : ''}
+
+            <div class="adv-result-section">
+                <h4 class="adv-result-section-title">
+                    🎓 الأنشطة الطلابية الأنسب ليك
+                    <button class="adv-see-all-btn" onclick="navigateTo('activities')">عرض الكل ←</button>
+                </h4>
+                <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;">${orgsHTML}</div>
+            </div>
+
+            <div class="adv-result-section">
+                <h4 class="adv-result-section-title">
+                    📅 الفعاليات القادمة
+                    <button class="adv-see-all-btn" onclick="navigateTo('events')">عرض الكل ←</button>
+                </h4>
+                <div style="display:flex;flex-direction:column;gap:10px;margin-top:14px;">${eventsHTML}</div>
+            </div>
+
+            <div class="adv-result-section">
+                <h4 class="adv-result-section-title">
+                    💼 فرص التدريب المقترحة
+                    <button class="adv-see-all-btn" onclick="navigateTo('training')">عرض الكل ←</button>
+                </h4>
+                <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;">${trainingHTML}</div>
+            </div>
+
+            <p style="font-size:0.8rem;color:var(--text-muted);margin-top:18px;padding-top:14px;border-top:1px solid var(--border-light);text-align:center;">
+                * التوصيات مبنية على البيانات الحالية للمنصة وتتحدث باستمرار.
+            </p>
+        </div>`;
+        }
+
+        // Legacy stub (keep in case old references exist elsewhere)
+        function runAdvisor() { advGoStep2(); }
     </script>
     </div>
 
@@ -8454,7 +9330,8 @@
         <!-- ===== سيكشنز الأقسام - تصميم بريميوم بدون صور ===== -->
         <div class="modern-sections-wrapper">
 
-            <div class="modern-card stagger reveal" onclick="navigateTo('activities')" style="--card-color:#ffb400;--card-color-rgb:255,180,0;">
+            <div class="modern-card stagger reveal" onclick="navigateTo('activities')"
+                style="--card-color:#ffb400;--card-color-rgb:255,180,0;">
                 <div class="mcard-icon-wrap">
                     <div class="mcard-icon-ring"></div>
                     <i class="fa fa-graduation-cap mcard-icon"></i>
@@ -8466,13 +9343,16 @@
                         <span class="mcard-tag" data-key="pcard_tag_diverse">مجالات متنوعة</span>
                     </div>
                     <h3 class="mcard-title" data-key="home_act_title">الأنشطة الطلابية</h3>
-                    <p class="mcard-desc" data-key="home_act_desc">اكتشف جميع الأنشطة الطلابية من مختلف المجالات التي تناسب اهتماماتك وتساعدك على تطوير مهاراتك داخل بيئة تنافسية محفزة.</p>
-                    <button class="mcard-btn" data-key="home_act_btn">استكشف الآن <i class="fa fa-arrow-left"></i></button>
+                    <p class="mcard-desc" data-key="home_act_desc">اكتشف جميع الأنشطة الطلابية من مختلف المجالات التي
+                        تناسب اهتماماتك وتساعدك على تطوير مهاراتك داخل بيئة تنافسية محفزة.</p>
+                    <button class="mcard-btn" data-key="home_act_btn">استكشف الآن <i
+                            class="fa fa-arrow-left"></i></button>
                 </div>
                 <div class="mcard-number">01</div>
             </div>
 
-            <div class="modern-card reveal" onclick="navigateTo('volunteer')" style="--card-color:#22c55e;--card-color-rgb:34,197,94;">
+            <div class="modern-card reveal" onclick="navigateTo('volunteer')"
+                style="--card-color:#22c55e;--card-color-rgb:34,197,94;">
                 <div class="mcard-icon-wrap">
                     <div class="mcard-icon-ring"></div>
                     <i class="fa fa-heart mcard-icon"></i>
@@ -8484,13 +9364,16 @@
                         <span class="mcard-tag" data-key="pcard_tag_impact">تطوع مؤثر</span>
                     </div>
                     <h3 class="mcard-title" data-key="home_vol_title">الأنشطة التطوعية</h3>
-                    <p class="mcard-desc" data-key="home_vol_desc">تصفح فرص التطوع المتاحة في مجالات متنوعة وساهم في خدمة المجتمع واكتساب خبرات عملية كثيرة.</p>
-                    <button class="mcard-btn" data-key="home_vol_btn">ابدأ التطوع <i class="fa fa-arrow-left"></i></button>
+                    <p class="mcard-desc" data-key="home_vol_desc">تصفح فرص التطوع المتاحة في مجالات متنوعة وساهم في
+                        خدمة المجتمع واكتساب خبرات عملية كثيرة.</p>
+                    <button class="mcard-btn" data-key="home_vol_btn">ابدأ التطوع <i
+                            class="fa fa-arrow-left"></i></button>
                 </div>
                 <div class="mcard-number">02</div>
             </div>
 
-            <div class="modern-card reveal" onclick="navigateTo('training')" style="--card-color:#3b82f6;--card-color-rgb:59,130,246;">
+            <div class="modern-card reveal" onclick="navigateTo('training')"
+                style="--card-color:#3b82f6;--card-color-rgb:59,130,246;">
                 <div class="mcard-icon-wrap">
                     <div class="mcard-icon-ring"></div>
                     <i class="fa fa-briefcase mcard-icon"></i>
@@ -8502,13 +9385,16 @@
                         <span class="mcard-tag" data-key="pcard_tag_career">مسار مهني</span>
                     </div>
                     <h3 class="mcard-title" data-key="home_train_title">فرص التدريب</h3>
-                    <p class="mcard-desc" data-key="home_train_desc">اعثر على فرص التدريب المتاحة في تخصصات مختلفة وابدأ رحلتك المهنية باكتساب خبرات داخل بيئة عمل حقيقية.</p>
-                    <button class="mcard-btn" data-key="home_train_btn">جد فرصتك <i class="fa fa-arrow-left"></i></button>
+                    <p class="mcard-desc" data-key="home_train_desc">اعثر على فرص التدريب المتاحة في تخصصات مختلفة وابدأ
+                        رحلتك المهنية باكتساب خبرات داخل بيئة عمل حقيقية.</p>
+                    <button class="mcard-btn" data-key="home_train_btn">جد فرصتك <i
+                            class="fa fa-arrow-left"></i></button>
                 </div>
                 <div class="mcard-number">03</div>
             </div>
 
-            <div class="modern-card reveal" onclick="navigateTo('events')" style="--card-color:#a855f7;--card-color-rgb:168,85,247;">
+            <div class="modern-card reveal" onclick="navigateTo('events')"
+                style="--card-color:#a855f7;--card-color-rgb:168,85,247;">
                 <div class="mcard-icon-wrap">
                     <div class="mcard-icon-ring"></div>
                     <i class="fa fa-calendar-alt mcard-icon"></i>
@@ -8520,8 +9406,10 @@
                         <span class="mcard-tag" data-key="pcard_tag_network">نتورك</span>
                     </div>
                     <h3 class="mcard-title" data-key="home_events_title">الفعاليات</h3>
-                    <p class="mcard-desc" data-key="home_events_desc">تابع أحدث الفعاليات وورش العمل والمؤتمرات وشارك بها لتوسيع معرفتك وتكوين شبكة علاقات داخل مجال اهتمامك.</p>
-                    <button class="mcard-btn" data-key="home_events_btn">شاهد الفعاليات <i class="fa fa-arrow-left"></i></button>
+                    <p class="mcard-desc" data-key="home_events_desc">تابع أحدث الفعاليات وورش العمل والمؤتمرات وشارك
+                        بها لتوسيع معرفتك وتكوين شبكة علاقات داخل مجال اهتمامك.</p>
+                    <button class="mcard-btn" data-key="home_events_btn">شاهد الفعاليات <i
+                            class="fa fa-arrow-left"></i></button>
                 </div>
                 <div class="mcard-number">04</div>
             </div>
@@ -8581,7 +9469,8 @@
             <div class="submit-cta-inner">
                 <div class="submit-cta-icon"><i class="fa fa-paper-plane"></i></div>
                 <h2 class="submit-cta-title">هل لديك نشاط أو فعالية طلابية؟ يمكنك مشاركتها معنا عبر هذا النموذج</h2>
-                <p class="submit-cta-desc">إذا كنت منظم نشاط طلابي أو فعالية، يمكنك إرسال تفاصيلها وسيتم مراجعتها ونشرها على المنصة</p>
+                <p class="submit-cta-desc">إذا كنت منظم نشاط طلابي أو فعالية، يمكنك إرسال تفاصيلها وسيتم مراجعتها ونشرها
+                    على المنصة</p>
                 <button class="submit-cta-btn" onclick="openSubmitEventModal()" id="openSubmitFormBtn">
                     <i class="fa fa-plus-circle"></i>
                     أرسل فعاليتك الآن
@@ -8709,14 +9598,22 @@
                     oninput="filterVolunteer()">
             </div>
             <div class="train-cats" id="volCats">
-                <button class="train-cat active" onclick="setVolCat('الكل', this)">🌟 الكل</button>
-                <button class="train-cat" onclick="setVolCat('إنساني', this)">❤️ إنساني</button>
-                <button class="train-cat" onclick="setVolCat('تعليم', this)">📚 تعليم</button>
-                <button class="train-cat" onclick="setVolCat('بيئة', this)">🌿 بيئة</button>
-                <button class="train-cat" onclick="setVolCat('صحة', this)">🏥 صحة</button>
-                <button class="train-cat" onclick="setVolCat('مجتمع', this)">🤝 مجتمع</button>
-                <button class="train-cat" onclick="setVolCat('دولي', this)">🌍 دولي</button>
-                <button class="train-cat" onclick="setVolCat('ميداني', this)">📍 ميداني</button>
+                <button class="train-cat active" onclick="setVolCat('الكل', this)">🌟 <span
+                        data-key="filter_all">الكل</span></button>
+                <button class="train-cat" onclick="setVolCat('إنساني', this)">❤️ <span
+                        data-key="filter_humanitarian">إنساني</span></button>
+                <button class="train-cat" onclick="setVolCat('تعليم', this)">📚 <span
+                        data-key="filter_education">تعليم</span></button>
+                <button class="train-cat" onclick="setVolCat('بيئة', this)">🌿 <span
+                        data-key="filter_environment">بيئة</span></button>
+                <button class="train-cat" onclick="setVolCat('صحة', this)">🏥 <span
+                        data-key="filter_health_vol">صحة</span></button>
+                <button class="train-cat" onclick="setVolCat('مجتمع', this)">🤝 <span
+                        data-key="filter_society">مجتمع</span></button>
+                <button class="train-cat" onclick="setVolCat('دولي', this)">🌍 <span
+                        data-key="filter_international">دولي</span></button>
+                <button class="train-cat" onclick="setVolCat('ميداني', this)">📍 <span
+                        data-key="filter_field">ميداني</span></button>
             </div>
             <div class="train-results-info" id="volResultsInfo"></div>
         </div>
@@ -8763,14 +9660,22 @@
                     oninput="filterTraining()">
             </div>
             <div class="train-cats" id="trainCats">
-                <button class="train-cat active" onclick="setTrainCat('الكل', this)">الكل</button>
-                <button class="train-cat" onclick="setTrainCat('تكنولوجيا', this)">💻 تكنولوجيا</button>
-                <button class="train-cat" onclick="setTrainCat('بنوك ومال', this)">🏦 بنوك ومال</button>
-                <button class="train-cat" onclick="setTrainCat('أعمال وتسويق', this)">📊 أعمال وتسويق</button>
-                <button class="train-cat" onclick="setTrainCat('هندسة', this)">⚙️ هندسة</button>
-                <button class="train-cat" onclick="setTrainCat('صحة وصيدلة', this)">💊 صحة وصيدلة</button>
-                <button class="train-cat" onclick="setTrainCat('اتصالات', this)">📡 اتصالات</button>
-                <button class="train-cat" onclick="setTrainCat('ريادة أعمال', this)">🚀 ريادة أعمال</button>
+                <button class="train-cat active" onclick="setTrainCat('الكل', this)">🌟 <span
+                        data-key="filter_all">الكل</span></button>
+                <button class="train-cat" onclick="setTrainCat('تكنولوجيا', this)">💻 <span
+                        data-key="filter_technology">تكنولوجيا</span></button>
+                <button class="train-cat" onclick="setTrainCat('بنوك ومال', this)">🏦 <span
+                        data-key="filter_banking">بنوك ومال</span></button>
+                <button class="train-cat" onclick="setTrainCat('أعمال وتسويق', this)">📊 <span
+                        data-key="filter_business">أعمال وتسويق</span></button>
+                <button class="train-cat" onclick="setTrainCat('هندسة', this)">⚙️ <span
+                        data-key="filter_engineering">هندسة</span></button>
+                <button class="train-cat" onclick="setTrainCat('صحة وصيدلة', this)">💊 <span
+                        data-key="filter_health">صحة وصيدلة</span></button>
+                <button class="train-cat" onclick="setTrainCat('اتصالات', this)">📡 <span
+                        data-key="filter_telecom">اتصالات</span></button>
+                <button class="train-cat" onclick="setTrainCat('ريادة أعمال', this)">🚀 <span
+                        data-key="filter_entrepreneurship">ريادة أعمال</span></button>
             </div>
             <div class="train-results-info" id="trainResultsInfo"></div>
         </div>
@@ -8813,31 +9718,43 @@
                     <span class="act-stat-label" data-key="events_stat_major">فعالية كبرى</span>
                 </div>
                 <div class="act-stat-item">
-                    <span class="act-stat-num" data-key="stat_always">مستمر</span>
+                    <span class="act-stat-text" data-key="stat_always">مستمر</span>
                     <span class="act-stat-label" data-key="stat_always_label">تحديث دائم</span>
                 </div>
                 <div class="act-stat-item">
-                    <span class="act-stat-num" data-key="stat_diverse">متنوع</span>
+                    <span class="act-stat-text" data-key="stat_diverse">متنوع</span>
                     <span class="act-stat-label" data-key="stat_diverse_label">مجالات وتخصصات</span>
                 </div>
             </div>
         </div>
 
         <!-- Events Filter Bar -->
-        <div class="train-filter-bar vol-filter-bar">
+        <div class="train-filter-bar vol-filter-bar" id="eventsFilterBar">
+            <button class="filter-toggle-pill" onclick="toggleExpandedPanel('events')">
+                <i class="fa fa-sliders-h"></i>
+                <span data-key="filter_btn">الفلاتر</span>
+                <span class="filter-active-badge" id="eventsActiveBadge" style="display:none">1</span>
+            </button>
             <div class="train-search-wrap">
                 <i class="fa fa-search"></i>
                 <input type="text" id="eventsSearchInput" data-key="search_placeholder_events"
                     placeholder="ابحث عن فعالية، مكان، أو مجال..." oninput="filterEvents()">
             </div>
             <div class="train-cats" id="eventsCats">
-                <button class="train-cat active" onclick="setEventCat('الكل', this)">🌟 الكل</button>
-                <button class="train-cat" onclick="setEventCat('توظيف', this)">💼 ملتقى توظيف</button>
-                <button class="train-cat" onclick="setEventCat('مؤتمر', this)">🎤 مؤتمر</button>
-                <button class="train-cat" onclick="setEventCat('ورشة', this)">🛠️ ورشة عمل</button>
-                <button class="train-cat" onclick="setEventCat('معرض', this)">🖼️ معرض</button>
-                <button class="train-cat" onclick="setEventCat('ندوة', this)">🗣️ ندوة</button>
-                <button class="train-cat" onclick="setEventCat('قمة', this)">⛰️ قمة</button>
+                <button class="train-cat active" onclick="setEventCat('الكل', this)">🌟 <span
+                        data-key="filter_all">الكل</span></button>
+                <button class="train-cat" onclick="setEventCat('توظيف', this)">💼 <span
+                        data-key="filter_employment">ملتقى توظيف</span></button>
+                <button class="train-cat" onclick="setEventCat('مؤتمر', this)">🎤 <span
+                        data-key="filter_conference">مؤتمر</span></button>
+                <button class="train-cat" onclick="setEventCat('ورشة', this)">🛠️ <span data-key="filter_workshop">ورشة
+                        عمل</span></button>
+                <button class="train-cat" onclick="setEventCat('معرض', this)">🖼️ <span
+                        data-key="filter_exhibition">معرض</span></button>
+                <button class="train-cat" onclick="setEventCat('ندوة', this)">🗣️ <span
+                        data-key="filter_seminar">ندوة</span></button>
+                <button class="train-cat" onclick="setEventCat('قمة', this)">⛰️ <span
+                        data-key="filter_summit">قمة</span></button>
             </div>
             <div class="train-results-info" id="eventsResultsInfo"></div>
         </div>
@@ -8953,8 +9870,10 @@
                     </a>
                 </div>
                 <div class="footer-social">
-                    <a href="https://www.facebook.com/share/1AmMX7CWAh/?mibextid=wwXIfr" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/eduvibes_eg?igsh=MWx0aXkyc3dkMGRmMQ%3D%3D&utm_source=qr" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/share/1AmMX7CWAh/?mibextid=wwXIfr" target="_blank"
+                        title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/eduvibes_eg?igsh=MWx0aXkyc3dkMGRmMQ%3D%3D&utm_source=qr"
+                        target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
@@ -8997,7 +9916,8 @@
                         <p>سيتم مراجعة البيانات قبل النشر</p>
                     </div>
                 </div>
-                <button class="submit-modal-close" onclick="closeSubmitEventModal()"><i class="fa fa-times"></i></button>
+                <button class="submit-modal-close" onclick="closeSubmitEventModal()"><i
+                        class="fa fa-times"></i></button>
             </div>
 
             <!-- Form Body -->
@@ -9005,13 +9925,15 @@
                 <form id="submitEventForm" onsubmit="handleEventSubmission(event)">
                     <!-- Event Title -->
                     <div class="submit-form-group">
-                        <label><i class="fa fa-heading" style="color:var(--primary-color);margin-left:6px;"></i> عنوان الفعالية</label>
+                        <label><i class="fa fa-heading" style="color:var(--primary-color);margin-left:6px;"></i> عنوان
+                            الفعالية</label>
                         <input type="text" id="seTitle" placeholder="مثال: هاكاثون الابتكار الرقمي" required>
                     </div>
 
                     <!-- Category -->
                     <div class="submit-form-group">
-                        <label><i class="fa fa-tag" style="color:var(--primary-color);margin-left:6px;"></i> التصنيف</label>
+                        <label><i class="fa fa-tag" style="color:var(--primary-color);margin-left:6px;"></i>
+                            التصنيف</label>
                         <select id="seCategory" required>
                             <option value="" disabled selected>اختر تصنيف الفعالية</option>
                             <option value="نشاط طلابي">نشاط طلابي</option>
@@ -9023,18 +9945,22 @@
 
                     <!-- Description -->
                     <div class="submit-form-group">
-                        <label><i class="fa fa-align-right" style="color:var(--primary-color);margin-left:6px;"></i> وصف الفعالية</label>
-                        <textarea id="seDescription" placeholder="اكتب وصفاً تفصيلياً عن الفعالية وأهدافها..." rows="4" required></textarea>
+                        <label><i class="fa fa-align-right" style="color:var(--primary-color);margin-left:6px;"></i> وصف
+                            الفعالية</label>
+                        <textarea id="seDescription" placeholder="اكتب وصفاً تفصيلياً عن الفعالية وأهدافها..." rows="4"
+                            required></textarea>
                     </div>
 
                     <!-- Organizer Name & Contact Email (side by side) -->
                     <div class="submit-form-row">
                         <div class="submit-form-group">
-                            <label><i class="fa fa-user" style="color:var(--primary-color);margin-left:6px;"></i> اسم المنظم</label>
+                            <label><i class="fa fa-user" style="color:var(--primary-color);margin-left:6px;"></i> اسم
+                                المنظم</label>
                             <input type="text" id="seOrganizer" placeholder="اسم الجهة المنظمة" required>
                         </div>
                         <div class="submit-form-group">
-                            <label><i class="fa fa-envelope" style="color:var(--primary-color);margin-left:6px;"></i> البريد الإلكتروني</label>
+                            <label><i class="fa fa-envelope" style="color:var(--primary-color);margin-left:6px;"></i>
+                                البريد الإلكتروني</label>
                             <input type="email" id="seEmail" placeholder="example@email.com" required>
                         </div>
                     </div>
@@ -9042,24 +9968,28 @@
                     <!-- Event Date & Location (side by side) -->
                     <div class="submit-form-row">
                         <div class="submit-form-group">
-                            <label><i class="fa fa-calendar-alt" style="color:var(--primary-color);margin-left:6px;"></i> تاريخ الفعالية</label>
+                            <label><i class="fa fa-calendar-alt"
+                                    style="color:var(--primary-color);margin-left:6px;"></i> تاريخ الفعالية</label>
                             <input type="date" id="seDate" required>
                         </div>
                         <div class="submit-form-group">
-                            <label><i class="fa fa-map-marker-alt" style="color:var(--primary-color);margin-left:6px;"></i> الموقع</label>
+                            <label><i class="fa fa-map-marker-alt"
+                                    style="color:var(--primary-color);margin-left:6px;"></i> الموقع</label>
                             <input type="text" id="seLocation" placeholder="مثال: القاهرة - مركز المؤتمرات" required>
                         </div>
                     </div>
 
                     <!-- Registration Link (optional) -->
                     <div class="submit-form-group">
-                        <label><i class="fa fa-link" style="color:var(--primary-color);margin-left:6px;"></i> رابط التسجيل <span class="optional-tag">(اختياري)</span></label>
+                        <label><i class="fa fa-link" style="color:var(--primary-color);margin-left:6px;"></i> رابط
+                            التسجيل <span class="optional-tag">(اختياري)</span></label>
                         <input type="url" id="seRegLink" placeholder="https://...">
                     </div>
 
                     <!-- Image Upload (optional) -->
                     <div class="submit-form-group">
-                        <label><i class="fa fa-image" style="color:var(--primary-color);margin-left:6px;"></i> صورة الفعالية <span class="optional-tag">(اختياري)</span></label>
+                        <label><i class="fa fa-image" style="color:var(--primary-color);margin-left:6px;"></i> صورة
+                            الفعالية <span class="optional-tag">(اختياري)</span></label>
                         <div class="submit-file-upload" id="seFileDropzone">
                             <input type="file" id="seImage" accept="image/*" onchange="handleSubmitFileChange(this)">
                             <div class="submit-file-icon"><i class="fa fa-cloud-upload-alt"></i></div>
@@ -9151,7 +10081,8 @@
                     <div class="form-group" style="margin-top: 15px; margin-bottom: 20px;">
                         <label style="display:flex; justify-content:space-between; align-items:center;">
                             <span data-key="form_interests">مجالات الاهتمام (اختر حتى 3)</span>
-                            <span id="interestsCount" style="font-size:0.75rem; color:var(--text-muted); font-weight:normal;">0 / 3</span>
+                            <span id="interestsCount"
+                                style="font-size:0.75rem; color:var(--text-muted); font-weight:normal;">0 / 3</span>
                         </label>
                         <div id="interestsGrid" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;">
                             <!-- populated by JS -->
@@ -10545,128 +11476,128 @@
         const trainingOpsData = [
             {
                 name: "Google Summer of Code", img: "train_gsoc.jpg", link: "https://summerofcode.withgoogle.com",
-                category: "تكنولوجيا", paid: "مدفوع", type: "Remote",
-                data: { الجهة: "Google", المجال: "برمجة / Open Source", المكان: "أونلاين (Remote)", المدة: "10 – 12 أسبوع", مدفوع: "نعم (مدفوع بمنحة)", تفاصيل: "برنامج عالمي للعمل على مشاريع مفتوحة المصدر مع Mentors" }
+                category: "تكنولوجيا", paid: "مدفوع", type: "أونلاين (عن بعد)",
+                data: { الجهة: "Google", المجال: "برمجة / المصادر المفتوحة", المكان: "أونلاين (عن بعد)", المدة: "10 – 12 أسبوع", مدفوع: "نعم (مدفوع بمنحة)", تفاصيل: "برنامج عالمي للعمل على مشاريع مفتوحة المصدر مع موجهين وخبراء" }
             },
             {
                 name: "Microsoft Internship Program", img: "train_ms.jpg", link: "https://careers.microsoft.com",
-                category: "تكنولوجيا", paid: "مدفوع", type: "Hybrid",
-                data: { الجهة: "Microsoft", المجال: "برمجة / Data / AI / Cybersecurity", المكان: "Hybrid / Onsite (حسب الدولة)", المدة: "8 – 12 أسبوع", مدفوع: "نعم", تفاصيل: "تدريب عملي داخل فرق Microsoft" }
+                category: "تكنولوجيا", paid: "مدفوع", type: "هجين (ميداني + أونلاين)",
+                data: { الجهة: "Microsoft", المجال: "برمجة / بيانات / ذكاء اصطناعي / أمن سيبراني", المكان: "هجين / ميداني (حسب الدولة)", المدة: "8 – 12 أسبوع", مدفوع: "نعم", تفاصيل: "تدريب عملي داخل فرق شركة Microsoft العالمية" }
             },
             {
                 name: "Vodafone Summer Internship", img: "train_voda.jpg", link: "https://opportunities.vodafone.com/go/Early-Careers/4183401/",
-                category: "اتصالات", paid: "مدفوع", type: "Onsite",
-                data: { الجهة: "Vodafone Egypt", المجال: "Business / Marketing / IT / HR", المكان: "Onsite (مصر)", المدة: "شهر – شهرين", مدفوع: "غالبًا مدفوع", تفاصيل: "تدريب صيفي للطلبة في مجالات مختلفة" }
+                category: "اتصالات", paid: "مدفوع", type: "ميداني (في الموقع)",
+                data: { الجهة: "Vodafone Egypt", المجال: "إدارة أعمال / تسويق / تكنولوجيا المعلومات / موارد بشرية", المكان: "ميداني (مصر)", المدة: "شهر – شهرين", مدفوع: "غالبًا مدفوع", تفاصيل: "تدريب صيفي للطلبة في مجالات مختلفة داخل فودافون" }
             },
             {
                 name: "Orange Digital Center Training", img: "train_orange.jpg", link: "https://www.orange.eg/ar/about/company-overview/social-responsibility/initiative-200hands/trained-employed/trained-employed",
-                category: "تكنولوجيا", paid: "مجاني", type: "Hybrid",
-                data: { الجهة: "Orange", المجال: "برمجة / AI / Data Analysis", المكان: "Hybrid", المدة: "1 – 3 شهور", مدفوع: "مجاني (أحيانًا مع شهادة)", تفاصيل: "تدريب تقني قوي مع مشاريع عملية" }
+                category: "تكنولوجيا", paid: "مجاني", type: "هجين (ميداني + أونلاين)",
+                data: { الجهة: "Orange", المجال: "برمجة / ذكاء اصطناعي / تحليل بيانات", المكان: "هجين (ميداني + أونلاين)", المدة: "1 – 3 شهور", مدفوع: "مجاني (أحيانًا مع شهادة)", تفاصيل: "تدريب تقني قوي مع مشاريع عملية" }
             },
             {
                 name: "Banque Misr Internship", img: "train_bm.jpg", link: "https://share.google/ATtD2Hmv3kqtGmQgD",
-                category: "بنوك ومال", paid: "غير مدفوع", type: "Onsite",
-                data: { الجهة: "بنك مصر", المجال: "Business / Finance", المكان: "Onsite (مصر)", المدة: "شهر", مدفوع: "غير مدفوع (أغلب الأحيان)", تفاصيل: "تدريب بنكي للطلبة" }
+                category: "بنوك ومال", paid: "غير مدفوع", type: "ميداني (في الموقع)",
+                data: { الجهة: "بنك مصر", المجال: "إدارة أعمال / تمويل", المكان: "ميداني (مصر)", المدة: "شهر", مدفوع: "غير مدفوع (أغلب الأحيان)", تفاصيل: "تدريب بنكي للطلبة لاكتساب خبرة في القطاع المصرفي" }
             },
             {
                 name: "IBM SkillsBuild Internship", img: "train_ibm.jpg", link: "https://skillsbuild.org",
-                category: "تكنولوجيا", paid: "مجاني", type: "Remote",
-                data: { الجهة: "IBM", المجال: "Cloud / AI / Cybersecurity", المكان: "Remote", المدة: "حسب البرنامج", مدفوع: "مجاني", تفاصيل: "تدريب أونلاين مع شهادات معتمدة" }
+                category: "تكنولوجيا", paid: "مجاني", type: "أونلاين (عن بعد)",
+                data: { الجهة: "IBM", المجال: "سحابة حاسوبية / ذكاء اصطناعي / أمن سيبراني", المكان: "أونلاين (عن بعد)", المدة: "حسب البرنامج", مدفوع: "مجاني", تفاصيل: "تدريب أونلاين مع شهادات معتمدة من IBM" }
             },
             {
                 name: "ITI Summer Training", img: "train_iti.jpg", link: "https://iti.gov.eg",
-                category: "تكنولوجيا", paid: "مجاني", type: "Hybrid",
-                data: { الجهة: "ITI - معهد تكنولوجيا المعلومات", المجال: "برمجة / Networking / Cybersecurity", المكان: "Onsite / Hybrid", المدة: "شهر", مدفوع: "مجاني", تفاصيل: "من أشهر تدريبات مصر للطلبة" }
+                category: "تكنولوجيا", paid: "مجاني", type: "هجين (ميداني + أونلاين)",
+                data: { الجهة: "ITI - معهد تكنولوجيا المعلومات", المجال: "برمجة / شبكات / أمن سيبراني", المكان: "ميداني / هجين", المدة: "شهر", مدفوع: "مجاني", تفاصيل: "من أشهر تدريبات مصر للطلبة لتطوير المهارات التقنية" }
             },
             {
                 name: "Amazon Internship Program", img: "train_amazon.jpg", link: "https://share.google/JBRnnXCMdbktAnsKE",
-                category: "تكنولوجيا", paid: "مدفوع", type: "Remote",
-                data: { الجهة: "Amazon", المجال: "Software Development / Data / Operations", المكان: "Remote / Onsite", المدة: "8 – 12 أسبوع", مدفوع: "نعم", تفاصيل: "تدريب عملي في مشاريع حقيقية داخل Amazon" }
+                category: "تكنولوجيا", paid: "مدفوع", type: "أونلاين (عن بعد)",
+                data: { الجهة: "Amazon", المجال: "تطوير برمجيات / بيانات / عمليات", المكان: "أونلاين / ميداني", المدة: "8 – 12 أسبوع", مدفوع: "نعم", تفاصيل: "تدريب عملي في مشاريع حقيقية داخل شركة Amazon" }
             },
             {
                 name: "PepsiCo Internship", img: "train_pepsi.jpg", link: "https://share.google/0EX2WgmeiXuWYoL5u",
-                category: "أعمال وتسويق", paid: "مدفوع", type: "Onsite",
-                data: { الجهة: "PepsiCo", المجال: "Marketing / Supply Chain / Business", المكان: "Onsite", المدة: "شهر – 3 شهور", مدفوع: "نعم", تفاصيل: "تدريب في مجالات الإدارة وسلاسل الإمداد" }
+                category: "أعمال وتسويق", paid: "مدفوع", type: "ميداني (في الموقع)",
+                data: { الجهة: "PepsiCo", المجال: "تسويق / سلاسل إمداد / إدارة أعمال", المكان: "ميداني (في الموقع)", المدة: "شهر – 3 شهور", مدفوع: "نعم", تفاصيل: "تدريب في مجالات الإدارة وسلاسل الإمداد داخل بيبسيكو" }
             },
             {
                 name: "Nestlé Internship Program", img: "train_nestle.jpg", link: "https://share.google/c7Ymfhf35NQvXzWZZ",
-                category: "أعمال وتسويق", paid: "مدفوع", type: "Hybrid",
-                data: { الجهة: "Nestlé", المجال: "Marketing / HR / Business", المكان: "Onsite / Hybrid", المدة: "1 – 3 شهور", مدفوع: "غالبًا مدفوع", تفاصيل: "تدريب داخل أكبر شركة أغذية في العالم" }
+                category: "أعمال وتسويق", paid: "مدفوع", type: "هجين (ميداني + أونلاين)",
+                data: { الجهة: "Nestlé", المجال: "تسويق / موارد بشرية / إدارة أعمال", المكان: "ميداني / هجين", المدة: "1 – 3 شهور", مدفوع: "غالبًا مدفوع", تفاصيل: "تدريب داخل أكبر شركة أغذية في العالم" }
             },
             {
                 name: "Siemens Internship", img: "train_siemens.jpg", link: "مغلق",
-                category: "هندسة", paid: "مدفوع", type: "Hybrid",
-                data: { الجهة: "Siemens", المجال: "Engineering / Automation / IT", المكان: "Onsite / Hybrid", المدة: "2 – 6 شهور", مدفوع: "نعم", تفاصيل: "فورم التقديم مغلقة حاليا" }
+                category: "هندسة", paid: "مدفوع", type: "هجين (ميداني + أونلاين)",
+                data: { الجهة: "Siemens", المجال: "هندسة / أتمتة / تكنولوجيا المعلومات", المكان: "ميداني / هجين", المدة: "2 – 6 شهور", مدفوع: "نعم", تفاصيل: "فورم التقديم مغلقة حاليا - تدريب تقني هندسي" }
             },
             {
                 name: "EY Internship Program", img: "train_ey.jpg", link: "https://share.google/qAvGui9WXHmrvfFlq",
-                category: "بنوك ومال", paid: "أحيانًا", type: "Onsite",
-                data: { الجهة: "EY (Ernst & Young)", المجال: "Accounting / Consulting / Business", المكان: "Onsite", المدة: "1 – 2 شهر", مدفوع: "أحيانًا مدفوع", تفاصيل: "تدريب في مجال الاستشارات والمحاسبة" }
+                category: "بنوك ومال", paid: "أحيانًا", type: "ميداني (في الموقع)",
+                data: { الجهة: "EY (Ernst & Young)", المجال: "محاسبة / استشارات / إدارة أعمال", المكان: "ميداني (في الموقع)", المدة: "1 – 2 شهر", مدفوع: "أحيانًا مدفوع", تفاصيل: "تدريب في مجال الاستشارات والمحاسبة المالية" }
             },
             {
                 name: "البنك الأهلي المصري - NBE", img: "train_nbe.jpg", link: "مغلق",
-                category: "بنوك ومال", paid: "غير محدد", type: "Onsite",
-                data: { الجهة: "البنك الأهلي المصري", المجال: "العمل المصرفي / الإداري", المكان: "Onsite (مصر)", المدة: "غالبًا شهر", مدفوع: "غير محدد", تفاصيل: "فورم التقديم مغلقة حاليا" }
+                category: "بنوك ومال", paid: "غير محدد", type: "ميداني (في الموقع)",
+                data: { الجهة: "البنك الأهلي المصري", المجال: "العمل المصرفي / الإداري", المكان: "ميداني (مصر)", المدة: "غالبًا شهر", مدفوع: "غير محدد", تفاصيل: "فورم التقديم مغلقة حاليا - تدريب بنكي شامل" }
             },
             {
                 name: "CIB Summer Internship", img: "train_cib.jpg", link: "https://www.cibeg.com/en/Careers",
-                category: "بنوك ومال", paid: "غير محدد", type: "Onsite",
-                data: { الجهة: "البنك التجاري الدولي (CIB)", المجال: "مهارات العمل المصرفي", المكان: "Onsite (مصر)", المدة: "خلال فترة الصيف", مدفوع: "غير محدد", تفاصيل: "برنامج تدريب صيفي متميز يركز على مهارات العمل المصرفي والخدمات المالية" }
+                category: "بنوك ومال", paid: "غير محدد", type: "ميداني (في الموقع)",
+                data: { الجهة: "البنك التجاري الدولي (CIB)", المجال: "مهارات العمل المصرفي", المكان: "ميداني (مصر)", المدة: "خلال فترة الصيف", مدفوع: "غير محدد", تفاصيل: "برنامج تدريب صيفي متميز يركز على مهارات العمل المصرفي والخدمات المالية" }
             },
             {
                 name: "QNB Training Programs", img: "train_qnb.jpg", link: "https://share.google/4Frb6eoYMJ6JIGycE",
-                category: "بنوك ومال", paid: "غير محدد", type: "Onsite",
-                data: { الجهة: "بنوك QNB", المجال: "العمل المصرفي والتمويل الدولي", المكان: "Onsite / Global", المدة: "غير محددة", مدفوع: "غير محدد", تفاصيل: "برامج تدريب عالمية تهدف لتطوير الكوادر الشابة في المجال البنكي" }
+                category: "بنوك ومال", paid: "غير محدد", type: "ميداني (في الموقع)",
+                data: { الجهة: "بنوك QNB", المجال: "العمل المصرفي والتمويل الدولي", المكان: "ميداني / عالمي", المدة: "غير محددة", مدفوع: "غير محدد", تفاصيل: "برامج تدريب عالمية تهدف لتطوير الكوادر الشابة في المجال البنكي" }
             },
             {
                 name: "Unilever Internship Program", img: "train_unilever.jpg", link: "https://share.google/fV9QdYoBHecnbsguK",
-                category: "أعمال وتسويق", paid: "مدفوع", type: "Hybrid",
-                data: { الجهة: "Unilever", المجال: "التسويق / الموارد البشرية / سلاسل الإمداد / التمويل", المكان: "Onsite / Hybrid", المدة: "3 – 6 أشهر", مدفوع: "نعم", تفاصيل: "برنامج Early Careers للعمل على مشاريع حقيقية وتطوير المهارات القيادية" }
+                category: "أعمال وتسويق", paid: "مدفوع", type: "هجين (ميداني + أونلاين)",
+                data: { الجهة: "Unilever", المجال: "التسويق / الموارد البشرية / سلاسل الإمداد / التمويل", المكان: "ميداني / هجين", المدة: "3 – 6 أشهر", مدفوع: "نعم", تفاصيل: "برنامج بداية المسار المهني للعمل على مشاريع حقيقية وتطوير المهارات القيادية" }
             },
             {
                 name: "P&G Winter & Summer Internship", img: "train_pg.jpg", link: "https://share.google/XqqhCcWMPXMqhy9B2",
-                category: "أعمال وتسويق", paid: "مدفوع", type: "Onsite",
-                data: { الجهة: "P&G", المجال: "إدارة الأعمال / الهندسة / التسويق / اللوجستيات", المكان: "Onsite (مصر)", المدة: "شهر – 3 أشهر", مدفوع: "نعم", تفاصيل: "تجربة عملية مكثفة مع مسؤولية كاملة عن مشاريع من اليوم الأول وفرصة للتوظيف الدائم" }
+                category: "أعمال وتسويق", paid: "مدفوع", type: "ميداني (في الموقع)",
+                data: { الجهة: "P&G", المجال: "إدارة الأعمال / الهندسة / التسويق / اللوجستيات", المكان: "ميداني (مصر)", المدة: "شهر – 3 أشهر", مدفوع: "نعم", تفاصيل: "تجربة عملية مكثفة مع مسؤولية كاملة عن مشاريع من اليوم الأول وفرصة للتوظيف الدائم" }
             },
             {
                 name: "Valeo Summer Internship", img: "train_valeo.jpg", link: "https://share.google/4NXTKr4tvZuEEehXT",
-                category: "هندسة", paid: "أحيانًا", type: "Hybrid",
-                data: { الجهة: "Valeo", المجال: "الهندسة / تطوير البرمجيات / الأنظمة المدمجة", المكان: "Onsite / Hybrid (مصر)", المدة: "شهر – 3 أشهر", مدفوع: "أحيانًا مدفوع", تفاصيل: "تدريب تقني لطلاب الهندسة والحاسبات في تكنولوجيا السيارات والأنظمة الذكية" }
+                category: "هندسة", paid: "أحيانًا", type: "هجين (ميداني + أونلاين)",
+                data: { الجهة: "Valeo", المجال: "الهندسة / تطوير البرمجيات / الأنظمة المدمجة", المكان: "ميداني / هجين (مصر)", المدة: "شهر – 3 أشهر", مدفوع: "أحيانًا مدفوع", تفاصيل: "تدريب تقني لطلاب الهندسة والحاسبات في تكنولوجيا السيارات والأنظمة الذكية" }
             },
             {
                 name: "Etisalat e& Summer Internship", img: "train_etisalat.jpg", link: "https://share.google/xv0Zr8okP3QQKvs7m",
-                category: "اتصالات", paid: "مدفوع", type: "Onsite",
-                data: { الجهة: "Etisalat e&", المجال: "الاتصالات / التكنولوجيا / الإدارة / التسويق", المكان: "Onsite (مصر)", المدة: "شهر – شهرين", مدفوع: "غالبًا مدفوع", تفاصيل: "فرصة للتعرف على بيئة العمل في قطاع الاتصالات وتطوير المهارات التقنية والإدارية" }
+                category: "اتصالات", paid: "مدفوع", type: "ميداني (في الموقع)",
+                data: { الجهة: "Etisalat e&", المجال: "الاتصالات / التكنولوجيا / الإدارة / التسويق", المكان: "ميداني (مصر)", المدة: "شهر – شهرين", مدفوع: "غالبًا مدفوع", تفاصيل: "فرصة للتعرف على بيئة العمل في قطاع الاتصالات وتطوير المهارات التقنية والإدارية" }
             },
             {
                 name: "Hikma Summer Internship 2026", img: "train_hikma.jpg", link: "https://share.google/ySWbGTft7QrMPuo4B",
-                category: "صحة وصيدلة", paid: "أحيانًا", type: "Onsite",
-                data: { الجهة: "Hikma Pharmaceuticals", المجال: "الصيدلة / الجودة / الإنتاج / الإدارة", المكان: "Onsite (مصر - الجيزة)", المدة: "شهر – 3 أشهر", مدفوع: "أحيانًا مدفوع", تفاصيل: "برنامج تدريب صيفي 2026 للتعرف على صناعة الأدوية والعمل داخل المصانع والمكاتب الإدارية" }
+                category: "صحة وصيدلة", paid: "أحيانًا", type: "ميداني (في الموقع)",
+                data: { الجهة: "Hikma Pharmaceuticals", المجال: "الصيدلة / الجودة / الإنتاج / الإدارة", المكان: "ميداني (مصر - الجيزة)", المدة: "شهر – 3 أشهر", مدفوع: "أحيانًا مدفوع", تفاصيل: "برنامج تدريب صيفي 2026 للتعرف على صناعة الأدوية والعمل داخل المصانع والمكاتب الإدارية" }
             },
             {
                 name: "Sanofi Internship Program", img: "train_sanofi.jpg", link: "https://share.google/zXLaEl1hqgtck6f3w",
-                category: "صحة وصيدلة", paid: "مدفوع", type: "Hybrid",
-                data: { الجهة: "Sanofi", المجال: "الصيدلة / التسويق الطبي / البحث العلمي", المكان: "Onsite / Hybrid", المدة: "حسب القسم والموسم", مدفوع: "نعم", تفاصيل: "تدريب عملي في واحدة من أكبر شركات الأدوية العالمية" }
+                category: "صحة وصيدلة", paid: "مدفوع", type: "هجين (ميداني + أونلاين)",
+                data: { الجهة: "Sanofi", المجال: "الصيدلة / التسويق الطبي / البحث العلمي", المكان: "ميداني / هجين", المدة: "حسب القسم والموسم", مدفوع: "نعم", تفاصيل: "تدريب عملي في واحدة من أكبر شركات الأدوية العالمية" }
             },
             {
                 name: "Innov Egypt", img: "train_innov.jpg", link: "https://tiec.gov.eg/English/Programs/InnovEgypt/Pages/default.aspx",
-                category: "ريادة أعمال", paid: "مجاني", type: "Hybrid",
-                data: { الجهة: "وزارة الاتصالات - TIEC", المجال: "ريادة الأعمال وتكنولوجيا المعلومات", المكان: "Hybrid / Onsite", المدة: "معسكر تدريبي مكثف", مدفوع: "مجاني (مدعوم من وزارة الاتصالات)", تفاصيل: "برنامج وطني لبناء قدرات الطلاب في ريادة الأعمال والابتكار التكنولوجي" }
+                category: "ريادة أعمال", paid: "مجاني", type: "هجين (ميداني + أونلاين)",
+                data: { الجهة: "وزارة الاتصالات - TIEC", المجال: "ريادة الأعمال وتكنولوجيا المعلومات", المكان: "هجين / ميداني", المدة: "معسكر تدريبي مكثف", مدفوع: "مجاني (مدعوم من وزارة الاتصالات)", تفاصيل: "برنامج وطني لبناء قدرات الطلاب في ريادة الأعمال والابتكار التكنولوجي" }
             },
             {
                 name: "البنك المركزي المصري - CBE", img: "train_cbe.jpg", link: "https://ebi.gov.eg/training-programs/",
-                category: "بنوك ومال", paid: "غير محدد", type: "Onsite",
-                data: { الجهة: "البنك المركزي المصري", المجال: "القطاع المصرفي / الرقابة المالية / تكنولوجيا المعلومات", المكان: "Onsite (مصر)", المدة: "حسب المسار التدريبي", مدفوع: "غير محدد (غالبًا شهادات معتمدة)", تفاصيل: "برامج تدريبية تخصصية للتعرف على السياسات النقدية والعمل الرقابي على أعلى مستوى" }
+                category: "بنوك ومال", paid: "غير محدد", type: "ميداني (في الموقع)",
+                data: { الجهة: "البنك المركزي المصري", المجال: "القطاع المصرفي / الرقابة المالية / تكنولوجيا المعلومات", المكان: "ميداني (مصر)", المدة: "حسب المسار التدريبي", مدفوع: "غير محدد (غالبًا شهادات معتمدة)", تفاصيل: "برامج تدريبية تخصصية للتعرف على السياسات النقدية والعمل الرقابي على أعلى مستوى" }
             },
             {
                 name: "Red Bull Student Marketeers", img: "train_redbull.jpg", link: "https://share.google/k5RCyxupsXkmuxywl",
-                category: "أعمال وتسويق", paid: "مدفوع", type: "Onsite",
-                data: { الجهة: "Red Bull", المجال: "التسويق الميداني / التواصل / تنظيم الفعاليات", المكان: "Onsite / الميدان", المدة: "حسب البرنامج الأكاديمي", مدفوع: "نعم", تفاصيل: "من أشهر البرامج العالمية - تمثيل العلامة التجارية داخل الجامعات وتطوير مهارات البيع والتسويق" }
+                category: "أعمال وتسويق", paid: "مدفوع", type: "ميداني (في الموقع)",
+                data: { الجهة: "Red Bull", المجال: "التسويق الميداني / التواصل / تنظيم الفعاليات", المكان: "ميداني / في الميدان", المدة: "حسب البرنامج الأكاديمي", مدفوع: "نعم", تفاصيل: "من أشهر البرامج العالمية - تمثيل العلامة التجارية داخل الجامعات وتطوير مهارات البيع والتسويق" }
             },
             {
                 name: "Falak Startups Internship", img: "train_falak.jpg", link: "https://www.linkedin.com/company/falakstartups/",
-                category: "ريادة أعمال", paid: "مدفوع", type: "Onsite",
-                data: { الجهة: "Falak Startups", المجال: "ريادة الأعمال / إدارة العمليات / الاستثمار", المكان: "Onsite (القاهرة)", المدة: "شهر إلى شهرين", مدفوع: "مدفوع", تفاصيل: "تجربة تدريبية متكاملة داخل بيئة الشركات الناشئة تشمل الإدارة واللوجستيات عبر حلول التسويق المبتكرة" }
+                category: "ريادة أعمال", paid: "مدفوع", type: "ميداني (في الموقع)",
+                data: { الجهة: "Falak Startups", المجال: "ريادة الأعمال / إدارة العمليات / الاستثمار", المكان: "ميداني (القاهرة)", المدة: "شهر إلى شهرين", مدفوع: "مدفوع", تفاصيل: "تجربة تدريبية متكاملة داخل بيئة الشركات الناشئة تشمل الإدارة واللوجستيات عبر حلول التسويق المبتكرة" }
             }
         ];
 
@@ -12665,7 +13596,7 @@ We're here to help! 🌟`,
         }
 
         // Initialize notification panel on load
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             renderNotifPanel();
             updateNotifBadge();
         });
@@ -13416,7 +14347,26 @@ We're here to help! 🌟`,
                 search_placeholder: "ابحث عن أنشطة، تدريبات، منظمات...",
                 search_placeholder_events: "ابحث عن فعالية، مكان، أو مجال...",
                 search_placeholder_training: "ابحث عن فرصة تدريب، شركة، أو تخصص...",
-                search_placeholder_volunteer: "ابحث عن فرصة تطوع، منظمة، أو مجال..."
+                search_placeholder_volunteer: "ابحث عن فرصة تطوع، منظمة، أو مجال...",
+                filter_all: "الكل",
+                filter_humanitarian: "إنساني",
+                filter_education: "تعليم",
+                filter_environment: "بيئة",
+                filter_health_vol: "صحة",
+                filter_society: "مجتمع",
+                filter_international: "دولي",
+                filter_field: "ميداني",
+                filter_business: "أعمال وتسويق",
+                filter_engineering: "هندسة",
+                filter_health: "صحة وصيدلة",
+                filter_telecom: "اتصالات",
+                filter_entrepreneurship: "ريادة أعمال",
+                filter_employment: "ملتقى توظيف",
+                filter_conference: "مؤتمر",
+                filter_workshop: "ورشة عمل",
+                filter_exhibition: "معرض",
+                filter_seminar: "ندوة",
+                filter_summit: "قمة"
             },
             en: {
                 nav_home: "Home",
@@ -13557,7 +14507,26 @@ We're here to help! 🌟`,
                 site_skills: "University Skills Platform",
                 search_placeholder: "Search for activities, training, organizations...",
                 search_placeholder_events: "Search for event, location, or field...",
-                search_placeholder_volunteer: "Search for volunteer opportunity, organization..."
+                search_placeholder_volunteer: "Search for volunteer opportunity, organization...",
+                filter_all: "All",
+                filter_humanitarian: "Humanitarian",
+                filter_education: "Education",
+                filter_environment: "Environment",
+                filter_health_vol: "Health",
+                filter_society: "Society",
+                filter_international: "International",
+                filter_field: "Field",
+                filter_business: "Business & Marketing",
+                filter_engineering: "Engineering",
+                filter_health: "Health & Pharmacy",
+                filter_telecom: "Telecom",
+                filter_entrepreneurship: "Entrepreneurship",
+                filter_employment: "Employment",
+                filter_conference: "Conference",
+                filter_workshop: "Workshop",
+                filter_exhibition: "Exhibition",
+                filter_seminar: "Seminar",
+                filter_summit: "Summit"
             }
         };
 
@@ -13565,7 +14534,7 @@ We're here to help! 🌟`,
 
 
         window.selectedInterests = [];
-        window.toggleInterest = function(el) {
+        window.toggleInterest = function (el) {
             const field = el.getAttribute('data-field');
             if (window.selectedInterests.includes(field)) {
                 window.selectedInterests = window.selectedInterests.filter(f => f !== field);
@@ -13584,7 +14553,7 @@ We're here to help! 🌟`,
         function updateInterestsGrid() {
             if (translations['ar']) translations['ar']['form_interests'] = 'مجالات الاهتمام (اختر حتى 3 مجالات)';
             if (translations['en']) translations['en']['form_interests'] = 'Interested Fields (Up to 3)';
-            
+
             const grid = document.getElementById('interestsGrid');
             if (!grid) return;
             const fields = Object.keys(fieldCategories || {}).filter(c => c !== 'all');
@@ -13628,6 +14597,13 @@ We're here to help! 🌟`,
             currentLang = currentLang === 'ar' ? 'en' : 'ar';
             localStorage.setItem('eduvibes_lang', currentLang);
             applyTranslations();
+
+            // Re-render components that rely on translateField
+            if (typeof renderActivityAccordion === 'function') renderActivityAccordion();
+            if (typeof filterTraining === 'function') filterTraining();
+            if (typeof filterVolunteer === 'function') filterVolunteer();
+            if (typeof filterEvents === 'function') filterEvents();
+            if (typeof _buildAdvFieldChips === 'function') _buildAdvFieldChips();
         }
 
         // Initialize translations on load
@@ -13729,7 +14705,7 @@ We're here to help! 🌟`,
 
             /* ── 7. Greige Dividers insertion (before inner-page headers) ── */
             const heroSections = document.querySelectorAll(
-                '.train-hero, .act-page-header, .vol-hero, .events-hero, .start-hero, .about-hero'
+                '.start-hero, .about-hero'
             );
             heroSections.forEach(s => {
                 const div = document.createElement('div');
@@ -13739,7 +14715,7 @@ We're here to help! 🌟`,
 
             /* ── 8. Page hero wave insertion ── */
             heroSections.forEach(s => {
-                if (s.querySelector('.page-hero-wave')) return;
+                if (s.querySelector('.page-hero-wave, .hero-wave')) return;
                 const fill = getComputedStyle(document.documentElement)
                     .getPropertyValue('--greige-ultra').trim() || '#F2EEE9';
                 const wave = document.createElement('div');
@@ -13809,435 +14785,438 @@ We're here to help! 🌟`,
          SMART FILTER BAR ENGINE — Auto-collapse / expand on scroll
     ═══════════════════════════════════════════════════════ -->
     <script>
-    (function SmartFilterBar() {
-        'use strict';
+        (function SmartFilterBar() {
+            'use strict';
 
-        /* ── Config ── */
-        const SCROLL_THRESHOLD = 80;   // px from top before compacting
-        const SCROLL_DELTA     = 6;    // min scroll delta to trigger toggle
+            /* ── Config ── */
+            const SCROLL_THRESHOLD = 80;   // px from top before compacting
+            const SCROLL_DELTA = 6;    // min scroll delta to trigger toggle
 
-        /* ── State ── */
-        let lastScrollY   = 0;
-        let ticking       = false;
-        let expandedPanel = null; // 'train' | 'vol' | 'act' | null
+            /* ── State ── */
+            let lastScrollY = 0;
+            let ticking = false;
+            let expandedPanel = null; // 'train' | 'vol' | 'act' | null
 
-        /* ── Collect all filter bars once DOM is ready ── */
-        function getFilterBars() {
-            return [
-                document.getElementById('trainFilterBar'),
-                document.getElementById('volFilterBar'),
-                document.getElementById('actFilterBar'),
-            ].filter(Boolean);
-        }
-
-        /* ── Backdrop ── */
-        function getBackdrop() {
-            let bd = document.getElementById('filterPanelBackdrop');
-            if (!bd) {
-                bd = document.createElement('div');
-                bd.className = 'filter-panel-backdrop';
-                bd.id = 'filterPanelBackdrop';
-                bd.addEventListener('click', closeExpandedPanel);
-                document.body.appendChild(bd);
+            /* ── Collect all filter bars once DOM is ready ── */
+            function getFilterBars() {
+                return [
+                    document.getElementById('trainFilterBar'),
+                    document.getElementById('volFilterBar'),
+                    document.getElementById('actFilterBar'),
+                    document.getElementById('eventsFilterBar'),
+                ].filter(Boolean);
             }
-            return bd;
-        }
 
-        /* ── Scroll handler ── */
-        function onScroll() {
-            if (!ticking) {
-                requestAnimationFrame(update);
-                ticking = true;
-            }
-        }
-
-        function update() {
-            const y     = window.scrollY;
-            const delta = y - lastScrollY;
-
-            getFilterBars().forEach(bar => {
-                if (y < SCROLL_THRESHOLD) {
-                    // Near top — always expand
-                    setCompact(bar, false);
-                } else if (delta > SCROLL_DELTA) {
-                    // Scrolling down — compact
-                    setCompact(bar, true);
-                } else if (delta < -SCROLL_DELTA) {
-                    // Scrolling up — expand
-                    setCompact(bar, false);
-                    bar.classList.add('filter-revealed');
-                    setTimeout(() => bar.classList.remove('filter-revealed'), 300);
+            /* ── Backdrop ── */
+            function getBackdrop() {
+                let bd = document.getElementById('filterPanelBackdrop');
+                if (!bd) {
+                    bd = document.createElement('div');
+                    bd.className = 'filter-panel-backdrop';
+                    bd.id = 'filterPanelBackdrop';
+                    bd.addEventListener('click', closeExpandedPanel);
+                    document.body.appendChild(bd);
                 }
-            });
-
-            lastScrollY = y;
-            ticking = false;
-        }
-
-        function setCompact(bar, compact) {
-            if (compact) {
-                bar.classList.add('filter-compact');
-            } else {
-                bar.classList.remove('filter-compact');
-            }
-        }
-
-        /* ── Expanded overlay panel ── */
-        window.toggleExpandedPanel = function(type) {
-            if (expandedPanel === type) {
-                closeExpandedPanel();
-                return;
-            }
-            closeExpandedPanel();
-            openExpandedPanel(type);
-        };
-
-        function openExpandedPanel(type) {
-            expandedPanel = type;
-
-            // Clone the bar content into overlay
-            const sourceBar = document.getElementById(type + 'FilterBar');
-            if (!sourceBar) return;
-
-            let panel = document.getElementById('filterExpandedPanel');
-            if (!panel) {
-                panel = document.createElement('div');
-                panel.className = 'filter-expanded-panel';
-                panel.id = 'filterExpandedPanel';
-                document.body.appendChild(panel);
+                return bd;
             }
 
-            // Clone inner content (skip the pill itself)
-            panel.innerHTML = '';
-            // Close button
-            const closeBtn = document.createElement('button');
-            closeBtn.innerHTML = '<i class="fa fa-times"></i>';
-            closeBtn.style.cssText = 'float:left;background:none;border:none;font-size:1.1rem;cursor:pointer;color:var(--text-muted);padding:0 4px 8px;';
-            closeBtn.addEventListener('click', closeExpandedPanel);
-            panel.appendChild(closeBtn);
-
-            Array.from(sourceBar.children).forEach(child => {
-                if (child.classList.contains('filter-toggle-pill')) return;
-                panel.appendChild(child.cloneNode(true));
-            });
-
-            // Re-wire inputs/buttons in the cloned panel to original handlers
-            rewirePanel(panel, type);
-
-            // Show
-            getBackdrop().classList.add('open');
-            setTimeout(() => panel.classList.add('open'), 10);
-        }
-
-        function closeExpandedPanel() {
-            const panel = document.getElementById('filterExpandedPanel');
-            if (panel) {
-                panel.classList.remove('open');
+            /* ── Scroll handler ── */
+            function onScroll() {
+                if (!ticking) {
+                    requestAnimationFrame(update);
+                    ticking = true;
+                }
             }
-            getBackdrop().classList.remove('open');
-            expandedPanel = null;
-        }
 
-        /* Re-wire cloned panel inputs to call the original JS functions */
-        function rewirePanel(panel, type) {
-            // Search inputs
-            panel.querySelectorAll('input[type="text"]').forEach(input => {
-                const origId = input.id;
-                input.removeAttribute('id'); // avoid duplicate ids
-                input.addEventListener('input', () => {
-                    // Sync value back to original
-                    const orig = document.getElementById(origId);
-                    if (orig) { orig.value = input.value; orig.dispatchEvent(new Event('input')); }
-                    else {
-                        // Trigger by calling the known function names
-                        if (type === 'train' && window.filterTraining) window.filterTraining();
-                        if (type === 'vol' && window.filterVolunteer) window.filterVolunteer();
-                        if (type === 'act' && window.handleActSearch) window.handleActSearch(input.value);
+            function update() {
+                const y = window.scrollY;
+                const delta = y - lastScrollY;
+
+                getFilterBars().forEach(bar => {
+                    if (y < SCROLL_THRESHOLD) {
+                        // Near top — always expand
+                        setCompact(bar, false);
+                    } else if (delta > SCROLL_DELTA) {
+                        // Scrolling down — compact
+                        setCompact(bar, true);
+                    } else if (delta < -SCROLL_DELTA) {
+                        // Scrolling up — expand
+                        setCompact(bar, false);
+                        bar.classList.add('filter-revealed');
+                        setTimeout(() => bar.classList.remove('filter-revealed'), 300);
                     }
                 });
-            });
 
-            // Category buttons
-            panel.querySelectorAll('.train-cat').forEach(btn => {
-                const origOnclick = btn.getAttribute('onclick');
-                btn.removeAttribute('onclick');
-                btn.addEventListener('click', () => {
-                    if (origOnclick) {
-                        try { eval(origOnclick); } catch(e) {}
-                    }
+                lastScrollY = y;
+                ticking = false;
+            }
+
+            function setCompact(bar, compact) {
+                if (compact) {
+                    bar.classList.add('filter-compact');
+                } else {
+                    bar.classList.remove('filter-compact');
+                }
+            }
+
+            /* ── Expanded overlay panel ── */
+            window.toggleExpandedPanel = function (type) {
+                if (expandedPanel === type) {
                     closeExpandedPanel();
-                });
-            });
-        }
-
-        /* ── Init ── */
-        function init() {
-            window.addEventListener('scroll', onScroll, { passive: true });
-            lastScrollY = window.scrollY;
-        }
-
-        // Run after DOM is fully ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', init);
-        } else {
-            init();
-        }
-
-        // Re-init after SPA page navigation (re-scan for newly inserted bars)
-        const origNavigateTo = window.navigateTo;
-        if (origNavigateTo) {
-            window.navigateTo = function(pageId, addToHistory) {
-                origNavigateTo(pageId, addToHistory);
-                setTimeout(() => {
-                    lastScrollY = window.scrollY;
-                    getFilterBars().forEach(bar => setCompact(bar, false));
-                }, 150);
+                    return;
+                }
+                closeExpandedPanel();
+                openExpandedPanel(type);
             };
-        }
-    })();
+
+            function openExpandedPanel(type) {
+                expandedPanel = type;
+
+                // Clone the bar content into overlay
+                const sourceBar = document.getElementById(type + 'FilterBar');
+                if (!sourceBar) return;
+
+                let panel = document.getElementById('filterExpandedPanel');
+                if (!panel) {
+                    panel = document.createElement('div');
+                    panel.className = 'filter-expanded-panel';
+                    panel.id = 'filterExpandedPanel';
+                    document.body.appendChild(panel);
+                }
+
+                // Clone inner content (skip the pill itself)
+                panel.innerHTML = '';
+                // Close button
+                const closeBtn = document.createElement('button');
+                closeBtn.innerHTML = '<i class="fa fa-times"></i>';
+                closeBtn.style.cssText = 'float:left;background:none;border:none;font-size:1.1rem;cursor:pointer;color:var(--text-muted);padding:0 4px 8px;';
+                closeBtn.addEventListener('click', closeExpandedPanel);
+                panel.appendChild(closeBtn);
+
+                Array.from(sourceBar.children).forEach(child => {
+                    if (child.classList.contains('filter-toggle-pill')) return;
+                    panel.appendChild(child.cloneNode(true));
+                });
+
+                // Re-wire inputs/buttons in the cloned panel to original handlers
+                rewirePanel(panel, type);
+
+                // Show
+                getBackdrop().classList.add('open');
+                setTimeout(() => panel.classList.add('open'), 10);
+            }
+
+            function closeExpandedPanel() {
+                const panel = document.getElementById('filterExpandedPanel');
+                if (panel) {
+                    panel.classList.remove('open');
+                }
+                getBackdrop().classList.remove('open');
+                expandedPanel = null;
+            }
+
+            /* Re-wire cloned panel inputs to call the original JS functions */
+            function rewirePanel(panel, type) {
+                // Search inputs
+                panel.querySelectorAll('input[type="text"]').forEach(input => {
+                    const origId = input.id;
+                    input.removeAttribute('id'); // avoid duplicate ids
+                    input.addEventListener('input', () => {
+                        // Sync value back to original
+                        const orig = document.getElementById(origId);
+                        if (orig) { orig.value = input.value; orig.dispatchEvent(new Event('input')); }
+                        else {
+                            // Trigger by calling the known function names
+                            if (type === 'train' && window.filterTraining) window.filterTraining();
+                            if (type === 'vol' && window.filterVolunteer) window.filterVolunteer();
+                            if (type === 'act' && window.handleActSearch) window.handleActSearch(input.value);
+                            if (type === 'events' && window.filterEvents) window.filterEvents();
+                        }
+                    });
+                });
+
+                // Category buttons
+                panel.querySelectorAll('.train-cat').forEach(btn => {
+                    const origOnclick = btn.getAttribute('onclick');
+                    btn.removeAttribute('onclick');
+                    btn.addEventListener('click', () => {
+                        if (origOnclick) {
+                            try { eval(origOnclick); } catch (e) { }
+                        }
+                        closeExpandedPanel();
+                    });
+                });
+            }
+
+            /* ── Init ── */
+            function init() {
+                window.addEventListener('scroll', onScroll, { passive: true });
+                lastScrollY = window.scrollY;
+            }
+
+            // Run after DOM is fully ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+
+            // Re-init after SPA page navigation (re-scan for newly inserted bars)
+            const origNavigateTo = window.navigateTo;
+            if (origNavigateTo) {
+                window.navigateTo = function (pageId, addToHistory) {
+                    origNavigateTo(pageId, addToHistory);
+                    setTimeout(() => {
+                        lastScrollY = window.scrollY;
+                        getFilterBars().forEach(bar => setCompact(bar, false));
+                    }, 150);
+                };
+            }
+        })();
     </script>
 
-<!-- ===== Event Submission Modal ===== -->
-<div class="submit-modal-overlay" id="submitEventModal" onclick="closeSubmitEventModal(event)">
-    <div class="submit-modal-box" onclick="event.stopPropagation()">
-        <!-- Header -->
-        <div class="submit-modal-header">
-            <div class="submit-modal-header-info">
-                <div class="submit-modal-header-icon">📤</div>
-                <div>
-                    <h2>أرسل فعاليتك</h2>
-                    <p>شاركنا فعاليتك التعليمية وسنراجعها</p>
+    <!-- ===== Event Submission Modal ===== -->
+    <div class="submit-modal-overlay" id="submitEventModal" onclick="closeSubmitEventModal(event)">
+        <div class="submit-modal-box" onclick="event.stopPropagation()">
+            <!-- Header -->
+            <div class="submit-modal-header">
+                <div class="submit-modal-header-info">
+                    <div class="submit-modal-header-icon">📤</div>
+                    <div>
+                        <h2>أرسل فعاليتك</h2>
+                        <p>شاركنا فعاليتك التعليمية وسنراجعها</p>
+                    </div>
                 </div>
+                <button class="submit-modal-close" onclick="closeSubmitEventModal()" aria-label="إغلاق">✕</button>
             </div>
-            <button class="submit-modal-close" onclick="closeSubmitEventModal()" aria-label="إغلاق">✕</button>
-        </div>
 
-        <!-- Form View -->
-        <div class="submit-modal-body" id="submitFormView">
-            <form id="submitEventForm" onsubmit="handleEventSubmission(event)" autocomplete="off">
+            <!-- Form View -->
+            <div class="submit-modal-body" id="submitFormView">
+                <form id="submitEventForm" onsubmit="handleEventSubmission(event)" autocomplete="off">
 
-                <!-- Title -->
-                <div class="submit-form-group">
-                    <label for="seTitle">📝 عنوان الفعالية</label>
-                    <input type="text" id="seTitle" placeholder="مثال: ورشة البرمجة بلغة بايثون" required>
-                </div>
-
-                <!-- Category & Date row -->
-                <div class="submit-form-row">
+                    <!-- Title -->
                     <div class="submit-form-group">
-                        <label for="seCategory">📂 التصنيف</label>
-                        <select id="seCategory" required>
-                            <option value="" disabled selected>اختر التصنيف</option>
-                            <option value="workshops">ورش عمل</option>
-                            <option value="courses">دورات</option>
-                            <option value="competitions">مسابقات</option>
-                            <option value="volunteer">تطوع</option>
-                            <option value="conferences">مؤتمرات</option>
-                            <option value="hackathons">هاكاثونات</option>
-                            <option value="seminars">ندوات</option>
-                            <option value="other">أخرى</option>
-                        </select>
+                        <label for="seTitle">📝 عنوان الفعالية</label>
+                        <input type="text" id="seTitle" placeholder="مثال: ورشة البرمجة بلغة بايثون" required>
                     </div>
+
+                    <!-- Category & Date row -->
+                    <div class="submit-form-row">
+                        <div class="submit-form-group">
+                            <label for="seCategory">📂 التصنيف</label>
+                            <select id="seCategory" required>
+                                <option value="" disabled selected>اختر التصنيف</option>
+                                <option value="workshops">ورش عمل</option>
+                                <option value="courses">دورات</option>
+                                <option value="competitions">مسابقات</option>
+                                <option value="volunteer">تطوع</option>
+                                <option value="conferences">مؤتمرات</option>
+                                <option value="hackathons">هاكاثونات</option>
+                                <option value="seminars">ندوات</option>
+                                <option value="other">أخرى</option>
+                            </select>
+                        </div>
+                        <div class="submit-form-group">
+                            <label for="seDate">📅 التاريخ</label>
+                            <input type="date" id="seDate" required>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
                     <div class="submit-form-group">
-                        <label for="seDate">📅 التاريخ</label>
-                        <input type="date" id="seDate" required>
+                        <label for="seDescription">📋 وصف الفعالية</label>
+                        <textarea id="seDescription" rows="3" placeholder="اكتب وصفاً تفصيلياً للفعالية..."
+                            required></textarea>
                     </div>
-                </div>
 
-                <!-- Description -->
-                <div class="submit-form-group">
-                    <label for="seDescription">📋 وصف الفعالية</label>
-                    <textarea id="seDescription" rows="3" placeholder="اكتب وصفاً تفصيلياً للفعالية..." required></textarea>
-                </div>
+                    <!-- Organizer & Email row -->
+                    <div class="submit-form-row">
+                        <div class="submit-form-group">
+                            <label for="seOrganizer">🏢 الجهة المنظمة</label>
+                            <input type="text" id="seOrganizer" placeholder="اسم المنظمة أو الجهة" required>
+                        </div>
+                        <div class="submit-form-group">
+                            <label for="seEmail">📧 البريد الإلكتروني</label>
+                            <input type="email" id="seEmail" placeholder="email@example.com" required>
+                        </div>
+                    </div>
 
-                <!-- Organizer & Email row -->
-                <div class="submit-form-row">
+                    <!-- Location -->
                     <div class="submit-form-group">
-                        <label for="seOrganizer">🏢 الجهة المنظمة</label>
-                        <input type="text" id="seOrganizer" placeholder="اسم المنظمة أو الجهة" required>
+                        <label for="seLocation">📍 الموقع</label>
+                        <input type="text" id="seLocation" placeholder="مثال: أونلاين / جامعة الملك سعود" required>
                     </div>
+
+                    <!-- Registration Link (optional) -->
                     <div class="submit-form-group">
-                        <label for="seEmail">📧 البريد الإلكتروني</label>
-                        <input type="email" id="seEmail" placeholder="email@example.com" required>
+                        <label for="seRegLink">🔗 رابط التسجيل <span class="optional-tag">(اختياري)</span></label>
+                        <input type="url" id="seRegLink" placeholder="https://...">
                     </div>
-                </div>
 
-                <!-- Location -->
-                <div class="submit-form-group">
-                    <label for="seLocation">📍 الموقع</label>
-                    <input type="text" id="seLocation" placeholder="مثال: أونلاين / جامعة الملك سعود" required>
-                </div>
-
-                <!-- Registration Link (optional) -->
-                <div class="submit-form-group">
-                    <label for="seRegLink">🔗 رابط التسجيل <span class="optional-tag">(اختياري)</span></label>
-                    <input type="url" id="seRegLink" placeholder="https://...">
-                </div>
-
-                <!-- Image upload -->
-                <div class="submit-form-group">
-                    <label>🖼️ صورة الفعالية <span class="optional-tag">(اختياري — الحد الأقصى 1MB)</span></label>
-                    <div class="submit-file-upload" id="seFileDropzone">
-                        <input type="file" id="seImage" accept="image/*" onchange="handleSubmitFileChange(this)">
-                        <div class="submit-file-icon">📁</div>
-                        <div class="submit-file-text">اسحب الصورة هنا أو <strong>اختر ملف</strong></div>
-                        <div class="submit-file-name" id="seFileName"></div>
+                    <!-- Image upload -->
+                    <div class="submit-form-group">
+                        <label>🖼️ صورة الفعالية <span class="optional-tag">(اختياري — الحد الأقصى 1MB)</span></label>
+                        <div class="submit-file-upload" id="seFileDropzone">
+                            <input type="file" id="seImage" accept="image/*" onchange="handleSubmitFileChange(this)">
+                            <div class="submit-file-icon">📁</div>
+                            <div class="submit-file-text">اسحب الصورة هنا أو <strong>اختر ملف</strong></div>
+                            <div class="submit-file-name" id="seFileName"></div>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Submit button -->
-                <button type="submit" class="submit-form-btn" id="submitEventBtn">
-                    <span class="btn-text">📤 إرسال الفعالية للمراجعة</span>
-                    <span class="spinner"></span>
-                </button>
+                    <!-- Submit button -->
+                    <button type="submit" class="submit-form-btn" id="submitEventBtn">
+                        <span class="btn-text">📤 إرسال الفعالية للمراجعة</span>
+                        <span class="spinner"></span>
+                    </button>
 
-            </form>
-        </div>
+                </form>
+            </div>
 
-        <!-- Success View -->
-        <div class="submit-success-view" id="submitSuccessView">
-            <div class="submit-success-icon">✓</div>
-            <h3>تم إرسال فعاليتك بنجاح! 🎉</h3>
-            <p>شكراً لمشاركتك! سيتم مراجعة الفعالية<br>من فريقنا وإضافتها بأسرع وقت ممكن.</p>
-            <button class="submit-success-close-btn" onclick="closeSubmitEventModal()">إغلاق</button>
+            <!-- Success View -->
+            <div class="submit-success-view" id="submitSuccessView">
+                <div class="submit-success-icon">✓</div>
+                <h3>تم إرسال فعاليتك بنجاح! 🎉</h3>
+                <p>شكراً لمشاركتك! سيتم مراجعة الفعالية<br>من فريقنا وإضافتها بأسرع وقت ممكن.</p>
+                <button class="submit-success-close-btn" onclick="closeSubmitEventModal()">إغلاق</button>
+            </div>
         </div>
     </div>
-</div>
 
     <!-- ===== Motivational Popup System ===== -->
     <script>
-    (function() {
-        // ── Popup data: each entry links to a real page/section ──
-        const MOTIV_ITEMS = [
-            {
-                icon: '🚀',
-                label: 'فرصة تدريب',
-                message: 'قدم دلوقتي، فرصتك مستنياك!',
-                sub: 'فرص تدريب متاحة دلوقتي في مجالات مختلفة',
-                cta: 'اكتشف فرص التدريب',
-                page: 'training'
-            },
-            {
-                icon: '🎯',
-                label: 'نشاط طلابي',
-                message: 'انضم لنشاط وطور مهاراتك!',
-                sub: 'الأنشطة الطلابية بتفتحلك أبواب جديدة',
-                cta: 'استعرض الأنشطة',
-                page: 'activities'
-            },
-            {
-                icon: '🌟',
-                label: 'فعالية قريبة',
-                message: "Don't miss this opportunity 🚀",
-                sub: 'فعاليات تعليمية وورش عمل مستنياك',
-                cta: 'شوف الفعاليات',
-                page: 'events'
-            },
-            {
-                icon: '❤️',
-                label: 'تطوع',
-                message: 'خليك جزء من التغيير!',
-                sub: 'فرص تطوع تفرق في حياة الناس',
-                cta: 'انضم للتطوع',
-                page: 'volunteer'
-            },
-            {
-                icon: '💡',
-                label: 'ابدأ منين؟',
-                message: 'مش عارف تبدأ من فين؟ احنا هنساعدك!',
-                sub: 'اكتشف المسار الصح ليك',
-                cta: 'ابدأ دلوقتي',
-                page: 'start'
+        (function () {
+            // ── Popup data: each entry links to a real page/section ──
+            const MOTIV_ITEMS = [
+                {
+                    icon: '🚀',
+                    label: 'فرصة تدريب',
+                    message: 'قدم دلوقتي، فرصتك مستنياك!',
+                    sub: 'فرص تدريب متاحة دلوقتي في مجالات مختلفة',
+                    cta: 'اكتشف فرص التدريب',
+                    page: 'training'
+                },
+                {
+                    icon: '🎯',
+                    label: 'نشاط طلابي',
+                    message: 'انضم لنشاط وطور مهاراتك!',
+                    sub: 'الأنشطة الطلابية بتفتحلك أبواب جديدة',
+                    cta: 'استعرض الأنشطة',
+                    page: 'activities'
+                },
+                {
+                    icon: '🌟',
+                    label: 'فعالية قريبة',
+                    message: "Don't miss this opportunity 🚀",
+                    sub: 'فعاليات تعليمية وورش عمل مستنياك',
+                    cta: 'شوف الفعاليات',
+                    page: 'events'
+                },
+                {
+                    icon: '❤️',
+                    label: 'تطوع',
+                    message: 'خليك جزء من التغيير!',
+                    sub: 'فرص تطوع تفرق في حياة الناس',
+                    cta: 'انضم للتطوع',
+                    page: 'volunteer'
+                },
+                {
+                    icon: '💡',
+                    label: 'ابدأ منين؟',
+                    message: 'مش عارف تبدأ من فين؟ احنا هنساعدك!',
+                    sub: 'اكتشف المسار الصح ليك',
+                    cta: 'ابدأ دلوقتي',
+                    page: 'start'
+                }
+            ];
+
+            let currentItem = null;
+            let hideTimer = null;
+            let lastShownTime = 0;
+            let dismissedCount = 0;
+            let hasScrolled = false;
+            let idleTimer = null;
+            const COOLDOWN_MS = 90000;   // 90s between popups
+            const IDLE_DELAY_MS = 25000; // show after 25s idle
+            const FIRST_DELAY_MS = 8000; // first popup after 8s
+            const AUTO_HIDE_MS = 12000;  // auto-dismiss after 12s
+
+            function pickItem() {
+                // Rotate through items based on dismissedCount
+                return MOTIV_ITEMS[dismissedCount % MOTIV_ITEMS.length];
             }
-        ];
 
-        let currentItem = null;
-        let hideTimer = null;
-        let lastShownTime = 0;
-        let dismissedCount = 0;
-        let hasScrolled = false;
-        let idleTimer = null;
-        const COOLDOWN_MS = 90000;   // 90s between popups
-        const IDLE_DELAY_MS = 25000; // show after 25s idle
-        const FIRST_DELAY_MS = 8000; // first popup after 8s
-        const AUTO_HIDE_MS = 12000;  // auto-dismiss after 12s
+            function showMotivPopup() {
+                const now = Date.now();
+                if (now - lastShownTime < COOLDOWN_MS) return;
+                // Don't show if chat is open
+                const chatWin = document.getElementById('chat-window');
+                if (chatWin && chatWin.style.display === 'flex') return;
 
-        function pickItem() {
-            // Rotate through items based on dismissedCount
-            return MOTIV_ITEMS[dismissedCount % MOTIV_ITEMS.length];
-        }
+                currentItem = pickItem();
+                const popup = document.getElementById('motiv-popup');
+                if (!popup) return;
 
-        function showMotivPopup() {
-            const now = Date.now();
-            if (now - lastShownTime < COOLDOWN_MS) return;
-            // Don't show if chat is open
-            const chatWin = document.getElementById('chat-window');
-            if (chatWin && chatWin.style.display === 'flex') return;
+                document.getElementById('motivIcon').textContent = currentItem.icon;
+                document.getElementById('motivLabel').textContent = currentItem.label;
+                document.getElementById('motivMessage').textContent = currentItem.message;
+                document.getElementById('motivSub').textContent = currentItem.sub;
+                document.getElementById('motivCtaBtn').textContent = currentItem.cta + ' ←';
 
-            currentItem = pickItem();
-            const popup = document.getElementById('motiv-popup');
-            if (!popup) return;
+                popup.classList.add('motiv-show');
+                lastShownTime = now;
 
-            document.getElementById('motivIcon').textContent = currentItem.icon;
-            document.getElementById('motivLabel').textContent = currentItem.label;
-            document.getElementById('motivMessage').textContent = currentItem.message;
-            document.getElementById('motivSub').textContent = currentItem.sub;
-            document.getElementById('motivCtaBtn').textContent = currentItem.cta + ' ←';
+                clearTimeout(hideTimer);
+                hideTimer = setTimeout(closeMotivPopup, AUTO_HIDE_MS);
+            }
 
-            popup.classList.add('motiv-show');
-            lastShownTime = now;
+            window.closeMotivPopup = function () {
+                const popup = document.getElementById('motiv-popup');
+                if (popup) popup.classList.remove('motiv-show');
+                clearTimeout(hideTimer);
+                dismissedCount++;
+                resetIdleTimer();
+            };
 
-            clearTimeout(hideTimer);
-            hideTimer = setTimeout(closeMotivPopup, AUTO_HIDE_MS);
-        }
+            window.motivGo = function () {
+                closeMotivPopup();
+                if (currentItem && window.navigateTo) {
+                    window.navigateTo(currentItem.page);
+                }
+            };
 
-        window.closeMotivPopup = function() {
-            const popup = document.getElementById('motiv-popup');
-            if (popup) popup.classList.remove('motiv-show');
-            clearTimeout(hideTimer);
-            dismissedCount++;
+            // ── Triggers ──
+
+            // 1. First visit: show after FIRST_DELAY_MS
+            setTimeout(showMotivPopup, FIRST_DELAY_MS);
+
+            // 2. Scroll trigger: show once user has scrolled 40% of page
+            window.addEventListener('scroll', function onScroll() {
+                if (hasScrolled) return;
+                const scrollPct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+                if (scrollPct > 0.4) {
+                    hasScrolled = true;
+                    setTimeout(showMotivPopup, 1500);
+                }
+            }, { passive: true });
+
+            // 3. Idle trigger: show when user is idle for IDLE_DELAY_MS
+            function resetIdleTimer() {
+                clearTimeout(idleTimer);
+                idleTimer = setTimeout(showMotivPopup, IDLE_DELAY_MS);
+            }
+            ['mousemove', 'keydown', 'touchstart', 'click'].forEach(evt =>
+                document.addEventListener(evt, resetIdleTimer, { passive: true })
+            );
             resetIdleTimer();
-        };
 
-        window.motivGo = function() {
-            closeMotivPopup();
-            if (currentItem && window.navigateTo) {
-                window.navigateTo(currentItem.page);
-            }
-        };
-
-        // ── Triggers ──
-
-        // 1. First visit: show after FIRST_DELAY_MS
-        setTimeout(showMotivPopup, FIRST_DELAY_MS);
-
-        // 2. Scroll trigger: show once user has scrolled 40% of page
-        window.addEventListener('scroll', function onScroll() {
-            if (hasScrolled) return;
-            const scrollPct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-            if (scrollPct > 0.4) {
-                hasScrolled = true;
-                setTimeout(showMotivPopup, 1500);
-            }
-        }, { passive: true });
-
-        // 3. Idle trigger: show when user is idle for IDLE_DELAY_MS
-        function resetIdleTimer() {
-            clearTimeout(idleTimer);
-            idleTimer = setTimeout(showMotivPopup, IDLE_DELAY_MS);
-        }
-        ['mousemove', 'keydown', 'touchstart', 'click'].forEach(evt =>
-            document.addEventListener(evt, resetIdleTimer, { passive: true })
-        );
-        resetIdleTimer();
-
-        // 4. Tab visibility: show when user returns to tab after being away
-        document.addEventListener('visibilitychange', function() {
-            if (!document.hidden) {
-                setTimeout(showMotivPopup, 2000);
-            }
-        });
-    })();
+            // 4. Tab visibility: show when user returns to tab after being away
+            document.addEventListener('visibilitychange', function () {
+                if (!document.hidden) {
+                    setTimeout(showMotivPopup, 2000);
+                }
+            });
+        })();
     </script>
 
 </body>
